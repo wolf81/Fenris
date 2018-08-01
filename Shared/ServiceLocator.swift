@@ -17,7 +17,7 @@ public class ServiceLocator {
         self.sceneManager = DummySceneManager()
     }
     
-    public func register(sceneManager: SceneManagerProtocol) {
+    public func provide(sceneManager: SceneManagerProtocol) {
         self.sceneManager = sceneManager
     }
 }

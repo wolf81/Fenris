@@ -9,20 +9,24 @@
 import Foundation
 import SpriteKit
 
-public protocol SceneManagerProtocol {
+public protocol SceneManagerProtocol: class {
 
     /// The view controller that will be used by the scene manager.
     /// PLEASE NOTE: classes that implement this protocol should make
     /// this variable a weak reference to prevent retain cycles.
-    var viewController: ScenePresentable? { get set }
+    var viewController: (ViewController & ScenePresentable)? { get set }
+    
+    init(viewController: (ViewController & ScenePresentable))
     
     func transitionTo(scene: SKScene, animation: SceneTransitionAnimation)
 }
 
 public class SceneManager: SceneManagerProtocol {
-    public weak var viewController: ScenePresentable?
-
-    public init() {}
+    public weak var viewController: (ViewController & ScenePresentable)?
+    
+    public required init(viewController: (ViewController & ScenePresentable)) {
+        self.viewController = viewController
+    }
     
     public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
         var transition: SKTransition
@@ -41,12 +45,16 @@ public class SceneManager: SceneManagerProtocol {
     }
 }
 
-public class DummySceneManager: SceneManagerProtocol {
-    public weak var viewController: ScenePresentable?
+internal class DummySceneManager: SceneManagerProtocol {
+    weak var viewController: (ViewController & ScenePresentable)?
+
+    required init(viewController: (ViewController & ScenePresentable)) {
+        self.viewController = viewController
+    }    
     
     public init() {}
     
     public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
-        print("[DUMMY] transition to scene \(scene) with \(animation) animation")
+        print("[DUMMY] transition to scene \(type(of: scene)) with \(animation) animation")
     }
 }

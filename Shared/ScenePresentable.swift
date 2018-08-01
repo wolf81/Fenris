@@ -13,22 +13,8 @@ public protocol ScenePresentable: class {
     func presentScene(scene: SKScene, transition: SKTransition)
 }
 
-#if os(macOS)
-import Cocoa
-
-public extension ScenePresentable where Self: NSViewController {
+public extension ScenePresentable where Self: ViewController {
     func presentScene(scene: SKScene, transition: SKTransition) {
         (self.view as! SKView).presentScene(scene, transition: transition)
     }
 }
-#endif
-
-#if os(iOS)
-import UIKit
-
-public extension ScenePresentable where Self: UIViewController {
-    func presentScene(scene: SKScene, transition: SKTransition) {
-        (self.view as! SKView).presentScene(scene, transition: transition)
-    }
-}
-#endif
