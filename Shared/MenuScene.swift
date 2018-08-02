@@ -8,17 +8,23 @@
 
 import SpriteKit
 
-protocol TitleAlignableNode where Self: SKShapeNode {
+protocol MenuNode where Self: SKShapeNode {
     var titleLabelMaxX: CGFloat { get }
     var spacing: CGFloat { get }
 }
 
 public class MenuScene: SKScene {
-    typealias MenuControl = SKShapeNode & TitleAlignableNode
+    typealias MenuControl = SKShapeNode & MenuNode
     
     private var options: [MenuOption] = []
     
-    private var controls: [MenuControl] = []
+    private var controls: [MenuControl] {
+        var nodes: [SKNode] = []
+        for node in self.children where node is MenuControl {
+            nodes.append(node)
+        }
+        return nodes as! [MenuScene.MenuControl]
+    }
     
     private var alignControls = false
 
@@ -37,23 +43,11 @@ public class MenuScene: SKScene {
     
     private func addChildNodesForMenuOptions() {
         for option in self.options {
-            switch option {
-            case let label as Label:
-                let node = LabelNode(title: label.title)
-                addChild(node)
-                self.controls.append(node)
-            case let toggle as Toggle:
-                let node = ToggleNode(title: option.title, checked: toggle.value)
-                node.checked = toggle.value
-                addChild(node)
-                self.controls.append(node)
-            case let numberPicker as NumberPicker:
-                let node = NumberPickerNode(title: numberPicker.title, range: numberPicker.range, value: 0)
-                addChild(node)
-                self.controls.append(node)
-            default:
-                break
+            guard let node = MenuNodeFactory.menuNodeFor(option: option) else {
+                continue
             }
+            
+            addChild(node)
         }
     }
     
@@ -70,19 +64,6 @@ public class MenuScene: SKScene {
 
             if let label = controlForMenuOption(option) {
                 label.position = CGPoint(x: x - label.titleLabelMaxX, y: y)
-
-                // When alignWithLastItem is set to true, we will align the last label in center
-                //  and other labels to the right. The other labels will be positioned accordingly
-                //  to be aligned with the last label.
-                if alignControls && idx != (options.count - 1) {
-                    
-//                    if let lastLabel = labels.last {
-//                        let xOffset = lastLabel.calculateAccumulatedFrame().maxX - x
-//                        label.position = CGPoint(x: x + xOffset, y: y)
-//                    }
-//
-//                    label.horizontalAlignmentMode = .right
-                }
             }
         }
     }

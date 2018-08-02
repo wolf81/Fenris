@@ -65,7 +65,7 @@ class NumberPickerNode: SKShapeNode {
     }
 }
 
-extension NumberPickerNode: TitleAlignableNode {
+extension NumberPickerNode: MenuNode {
     var titleLabelMaxX: CGFloat {
         return self.titleLabel.calculateAccumulatedFrame().maxX
     }

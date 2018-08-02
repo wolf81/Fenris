@@ -28,12 +28,12 @@ public class Label: MenuOption {
 
 public class Toggle: MenuOption {
     public var title: String
-    public var value: Bool
+    public var checked: Bool
     public var valueChanged: ((Bool) -> Void)
     
     public init(title: String, value: Bool, valueChanged: @escaping ((Bool) -> Void)) {
         self.title = title
-        self.value = value
+        self.checked = value
         self.valueChanged = valueChanged
     }
 }

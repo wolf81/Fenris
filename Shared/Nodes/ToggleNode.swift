@@ -63,7 +63,7 @@ class ToggleNode: SKShapeNode {
     }
 }
 
-extension ToggleNode: TitleAlignableNode {
+extension ToggleNode: MenuNode {
     var titleLabelMaxX: CGFloat {
         return self.titleLabel.calculateAccumulatedFrame().maxX
     }

@@ -38,7 +38,7 @@ class LabelNode: SKShapeNode {
     }
 }
 
-extension LabelNode: TitleAlignableNode {
+extension LabelNode: MenuNode {
     var titleLabelMaxX: CGFloat {
         return self.titleLabel.frame.maxX
     }
