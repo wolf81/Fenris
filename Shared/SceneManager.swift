@@ -29,6 +29,7 @@ public class SceneManager: SceneManagerProtocol {
     }
     
     public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
+        
         var transition: SKTransition
         let duration = 0.5
         
