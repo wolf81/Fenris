@@ -9,7 +9,11 @@
 import SpriteKit
 
 protocol MenuNode where Self: SKShapeNode {
+    
+    /// The maximum X value of the title label, used for positioning the node in the menu scene.
     var titleLabelMaxX: CGFloat { get }
+    
+    /// Spacing between the title label and the control, by default will be 30 pixels.
     var spacing: CGFloat { get }
 }
 

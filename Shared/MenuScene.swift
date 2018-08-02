@@ -21,8 +21,6 @@ public class MenuScene: SKScene {
         return nodes
     }
     
-    private var alignControls = false
-
     public init(size: CGSize, options: [MenuOption]) {
         self.options = options
         
@@ -47,8 +45,8 @@ public class MenuScene: SKScene {
     }
     
     private func layoutChildNodesForMenuOptions() {
-        let x: CGFloat = self.size.width / 2
-        let y: CGFloat = self.size.height / 2
+        let x: CGFloat = self.frame.midX
+        let y: CGFloat = self.frame.midY
         
         let itemCountForHeight = fmaxf(Float(options.count - 1), 0)
         let totalHeight = CGFloat(itemCountForHeight * 100)

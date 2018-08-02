@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-public protocol ScenePresentable: class {
+public protocol ScenePresentable where Self: ViewController {
     func presentScene(scene: SKScene, transition: SKTransition)
 }
 
