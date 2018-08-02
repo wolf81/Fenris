@@ -10,7 +10,10 @@ import SpriteKit
 
 class ToggleNode: SKShapeNode, MenuNode {
     var titleLabelMaxX: CGFloat
-        
+
+    var titleLabel: SKLabelNode
+    var toggle: SKShapeNode
+    
     required init(option: Toggle) {
         self.titleLabel = SKLabelNode(text: option.title)
         self.titleLabel.horizontalAlignmentMode = .left
@@ -21,7 +24,6 @@ class ToggleNode: SKShapeNode, MenuNode {
         
         self.toggle = SKShapeNode(ellipseOf: CGSize(width: h / 2, height: h / 2))
         self.toggle.strokeColor = .white
-        self.toggle.fillColor = .white
         
         self.titleLabelMaxX = labelFrame.maxX
         
@@ -37,20 +39,11 @@ class ToggleNode: SKShapeNode, MenuNode {
         addChild(self.titleLabel)
         addChild(self.toggle)
         
-        self.checked = option.checked
-        
+        self.toggle.fillColor = option.checked ? .white : .clear
+
         self.strokeColor = SKColor.clear
     }
     
-    var titleLabel: SKLabelNode
-    var toggle: SKShapeNode
-    
-    var checked: Bool = false {
-        didSet {
-            self.toggle.fillColor = self.checked ? SKColor.white : SKColor.clear
-        }
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
@@ -65,13 +58,3 @@ class ToggleNode: SKShapeNode, MenuNode {
         return CGRect(x: 0, y: 0, width: w, height: h)
     }
 }
-
-//extension ToggleNode: MenuNode {
-//    var titleLabelMaxX: CGFloat {
-//        return self.titleLabel.calculateAccumulatedFrame().maxX
-//    }
-//
-//    var spacing: CGFloat {
-//        return 30
-//    }
-//}
