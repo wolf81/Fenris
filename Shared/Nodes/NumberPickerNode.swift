@@ -8,36 +8,39 @@
 
 import SpriteKit
 
-class NumberPickerNode: SKShapeNode {
+class NumberPickerNode: SKShapeNode, MenuNode {
+    var titleLabelMaxX: CGFloat
+    
     var titleLabel: SKLabelNode
     var valueLabel: SKLabelNode
 
     let range: Range<Int>
-    var value: Int {
+    var value: Int = 0 {
         didSet {
             self.valueLabel.text = String(self.value)
         }
     }
     
-    init(title: String, range: Range<Int>, value: Int) {
-        self.range = range
-        self.value = range.lowerBound
-        
-        self.titleLabel = SKLabelNode(text: title)
+    required init(option: NumberPicker) {
+        self.range = option.range
+        self.value = option.value
+
+        self.titleLabel = SKLabelNode(text: option.title)
         self.titleLabel.horizontalAlignmentMode = .left
         self.titleLabel.verticalAlignmentMode = .center
         
         let titleLabelFrame = self.titleLabel.calculateAccumulatedFrame()
         let h = titleLabelFrame.height
-
-        self.valueLabel = SKLabelNode(text: "\(value)")
+        
+        self.valueLabel = SKLabelNode(text: "\(option.value)")
         self.valueLabel.horizontalAlignmentMode = .left
         self.valueLabel.verticalAlignmentMode = .center
-
+        
         let valueLabelFrame = self.valueLabel.calculateAccumulatedFrame()
+        self.titleLabelMaxX = titleLabelFrame.maxX
         
         super.init()
-
+        
         let w = titleLabelFrame.width + self.spacing + valueLabelFrame.width
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
         
@@ -64,15 +67,3 @@ class NumberPickerNode: SKShapeNode {
         return CGRect(x: 0, y: 0, width: w, height: h)
     }
 }
-
-extension NumberPickerNode: MenuNode {
-    var titleLabelMaxX: CGFloat {
-        return self.titleLabel.calculateAccumulatedFrame().maxX
-    }
-    
-    var spacing: CGFloat {
-        return 30
-    }
-}
-
-

@@ -8,18 +8,11 @@
 
 import SpriteKit
 
-class ToggleNode: SKShapeNode {
-    var titleLabel: SKLabelNode
-    var toggle: SKShapeNode
-    
-    var checked: Bool = false {
-        didSet {
-            self.toggle.fillColor = self.checked ? SKColor.white : SKColor.clear
-        }
-    }
-    
-    init(title: String, checked: Bool = false) {
-        self.titleLabel = SKLabelNode(text: title)
+class ToggleNode: SKShapeNode, MenuNode {
+    var titleLabelMaxX: CGFloat
+        
+    required init(option: Toggle) {
+        self.titleLabel = SKLabelNode(text: option.title)
         self.titleLabel.horizontalAlignmentMode = .left
         self.titleLabel.verticalAlignmentMode = .center
         
@@ -29,25 +22,35 @@ class ToggleNode: SKShapeNode {
         self.toggle = SKShapeNode(ellipseOf: CGSize(width: h / 2, height: h / 2))
         self.toggle.strokeColor = .white
         self.toggle.fillColor = .white
-
-        let toggleFrame = self.toggle.calculateAccumulatedFrame()
+        
+        self.titleLabelMaxX = labelFrame.maxX
         
         super.init()
-
+        
+        let toggleFrame = self.toggle.calculateAccumulatedFrame()
         let w = labelFrame.width + self.spacing + toggleFrame.width
-
+        
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
         self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2)
         self.titleLabel.position = CGPoint(x: 0, y: h / 2)
-
+        
         addChild(self.titleLabel)
-        addChild(toggle)
-
-        self.checked = checked
+        addChild(self.toggle)
+        
+        self.checked = option.checked
         
         self.strokeColor = SKColor.clear
     }
     
+    var titleLabel: SKLabelNode
+    var toggle: SKShapeNode
+    
+    var checked: Bool = false {
+        didSet {
+            self.toggle.fillColor = self.checked ? SKColor.white : SKColor.clear
+        }
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
@@ -63,12 +66,12 @@ class ToggleNode: SKShapeNode {
     }
 }
 
-extension ToggleNode: MenuNode {
-    var titleLabelMaxX: CGFloat {
-        return self.titleLabel.calculateAccumulatedFrame().maxX
-    }
-    
-    var spacing: CGFloat {
-        return 30
-    }
-}
+//extension ToggleNode: MenuNode {
+//    var titleLabelMaxX: CGFloat {
+//        return self.titleLabel.calculateAccumulatedFrame().maxX
+//    }
+//
+//    var spacing: CGFloat {
+//        return 30
+//    }
+//}

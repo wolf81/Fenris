@@ -8,24 +8,27 @@
 
 import SpriteKit
 
-class LabelNode: SKShapeNode {
-    var titleLabel: SKLabelNode
+class LabelNode: SKShapeNode, MenuNode {
+    var titleLabelMaxX: CGFloat 
     
-    init(title: String) {
-        self.titleLabel = SKLabelNode(text: title)
+    var titleLabel: SKLabelNode
+
+    required init(option: Label) {
+        self.titleLabel = SKLabelNode(text: option.title)
         self.titleLabel.horizontalAlignmentMode = .left
         self.titleLabel.verticalAlignmentMode = .center
-        
+
         let titleLabelFrame = self.titleLabel.calculateAccumulatedFrame()
+        self.titleLabelMaxX = titleLabelFrame.maxX
         
         super.init()
-        
+
         self.path = CGPath(rect: titleLabelFrame, transform: nil)
-        
+
         self.titleLabel.position = CGPoint(x: 0, y: 0)
-        
-        addChild(titleLabel)
-        
+
+        addChild(self.titleLabel)
+
         self.strokeColor = SKColor.clear
     }
     
@@ -35,15 +38,5 @@ class LabelNode: SKShapeNode {
     
     override func calculateAccumulatedFrame() -> CGRect {
         return self.titleLabel.calculateAccumulatedFrame()
-    }
-}
-
-extension LabelNode: MenuNode {
-    var titleLabelMaxX: CGFloat {
-        return self.titleLabel.frame.maxX
-    }
-    
-    var spacing: CGFloat {
-        return 0
     }
 }

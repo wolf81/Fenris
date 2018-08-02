@@ -8,22 +8,17 @@
 
 import SpriteKit
 
-protocol MenuNode where Self: SKShapeNode {
-    var titleLabelMaxX: CGFloat { get }
-    var spacing: CGFloat { get }
-}
-
 public class MenuScene: SKScene {
     typealias MenuControl = SKShapeNode & MenuNode
     
     private var options: [MenuOption] = []
     
     private var controls: [MenuControl] {
-        var nodes: [SKNode] = []
+        var nodes: [MenuControl] = []
         for node in self.children where node is MenuControl {
-            nodes.append(node)
+            nodes.append(node as! MenuControl)
         }
-        return nodes as! [MenuScene.MenuControl]
+        return nodes
     }
     
     private var alignControls = false
@@ -70,7 +65,7 @@ public class MenuScene: SKScene {
     
     fileprivate func controlForMenuOption(_ option: MenuOption) -> MenuControl? {
         let idx = indexOfMenuOption(option)
-        return idx != NSNotFound ? controls[idx] : nil
+        return idx != NSNotFound ? self.controls[idx] : nil
     }
     
     fileprivate func indexOfMenuOption(_ option: MenuOption) -> Int {
