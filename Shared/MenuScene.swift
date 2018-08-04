@@ -116,3 +116,21 @@ extension MenuScene {
 }
 
 #endif
+
+#if os(iOS)
+
+extension MenuScene {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            return
+        }
+        
+        var location = touch.location(in: self)
+        if let control = menuControlAt(location: location) {
+            location = self.convert(location, to: control)
+            control.interact(location: location)
+        }
+    }
+}
+
+#endif
