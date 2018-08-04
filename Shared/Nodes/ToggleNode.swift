@@ -27,7 +27,7 @@ class ToggleNode: SKShapeNode, MenuNode {
         let h = height
         
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)        
-        let diff = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
+        let yOffset = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
 
         self.toggle = SKShapeNode(ellipseOf: CGSize(width: font.xHeight, height: font.xHeight))
         self.toggle.strokeColor = .white
@@ -40,8 +40,8 @@ class ToggleNode: SKShapeNode, MenuNode {
         let w = labelFrame.width + self.spacing + toggleFrame.width
         
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
-        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2 + titleYOffset)        
-        self.label.position = CGPoint(x: 0, y: diff + self.titleYOffset)
+        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2 + titleYOffset)
+        self.label.position = CGPoint(x: 0, y: yOffset + self.titleYOffset)
 
         addChild(self.label)
         addChild(self.toggle)

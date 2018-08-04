@@ -26,7 +26,7 @@ class ChooserNode: SKShapeNode, MenuNode {
         self.label.verticalAlignmentMode = .center
 
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
-        let diff = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
+        let yOffset = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
 
         let labelFrame = self.label.calculateAccumulatedFrame()
         
@@ -37,7 +37,7 @@ class ChooserNode: SKShapeNode, MenuNode {
         self.preferredButtonSize = maximumButtonSizeForOptionValues()
         self.button = try ButtonNode(option: Button(title: option.value), height: height, width: preferredButtonSize.width)
         
-        self.label.position = CGPoint(x: 0, y: diff + self.titleYOffset)
+        self.label.position = CGPoint(x: 0, y: yOffset + self.titleYOffset)
 
         updatePath()
         updateButtonPosition()
