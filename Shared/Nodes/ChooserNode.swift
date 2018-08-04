@@ -16,6 +16,16 @@ class ChooserNode: SKShapeNode, MenuNode {
     
     private var preferredButtonSize: CGSize = .zero
     
+    private var size: CGSize {
+        let labelFrame = self.label.calculateAccumulatedFrame()
+        let buttonFrame = self.button.calculateAccumulatedFrame()
+        
+        let w = labelFrame.width + self.spacing + buttonFrame.width
+        let h = self.option.configuration.height
+
+        return CGSize(width: w, height: h)
+    }
+    
     required init(option: Chooser) throws {
         self.option = option
         
@@ -27,27 +37,18 @@ class ChooserNode: SKShapeNode, MenuNode {
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
         let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
             self.option.configuration.labelYOffset
-
-        let labelFrame = self.label.calculateAccumulatedFrame()
-        
-        self.titleLabelMaxX = labelFrame.maxX
         
         super.init()
 
         self.preferredButtonSize = maximumButtonSizeForOptionValues()
-        self.button = try ButtonNode(
-            option: Button(title: option.value, configuration: self.option.configuration),
-            width: preferredButtonSize.width
-        )
+        try updateForCurrentState()
         
-        self.label.position = CGPoint(x: 0, y: yOffset)
-
         updatePath()
-        updateButtonPosition()
         
         addChild(self.label)
-        addChild(self.button)
-        
+
+        self.label.position = CGPoint(x: 0, y: yOffset)
+
         self.strokeColor = .clear
     }
     
@@ -56,57 +57,57 @@ class ChooserNode: SKShapeNode, MenuNode {
     }
     
     override func calculateAccumulatedFrame() -> CGRect {
-        let labelFrame = self.label.calculateAccumulatedFrame()
-        let buttonFrame = self.button.calculateAccumulatedFrame()
-        
-        let w = labelFrame.width + spacing + buttonFrame.width
-        let h = self.option.configuration.height
-        
-        return CGRect(x: 0, y: 0, width: w, height: h)
+        return CGRect(origin: .zero, size: self.size)
     }
     
     // MARK: - MenuNode
 
-    var titleLabelMaxX: CGFloat
+    var titleLabelMaxX: CGFloat {
+        return self.label.calculateAccumulatedFrame().maxX
+    }
 
     func interact(location: CGPoint) {
         let location = self.convert(location, to: self.button)
         if self.button.calculateAccumulatedFrame().contains(location) {
             self.option.selectNextValue()
 
-            self.button.removeFromParent()
-            self.button = try! ButtonNode(
-                option: Button(title: option.value, configuration: self.option.configuration),
-                width: preferredButtonSize.width
-            )
-            self.addChild(self.button)
-            
-            updatePath()
-            updateButtonPosition()
+            try! updateForCurrentState()
         }
     }
     
     // MARK: - Private
     
-    private func updateButtonPosition() {
-        let labelFrame = self.label.calculateAccumulatedFrame()
-        let buttonFrame = self.button.calculateAccumulatedFrame()
-        let buttonWidth = buttonFrame.width
-
-        let w = labelFrame.width + spacing + buttonWidth
-        let h = self.option.configuration.height
+    private func updateForCurrentState() throws {
+        if let button = self.button {
+            self.button.removeFromParent()
+        }
         
-        self.button.position = CGPoint(x: w - buttonWidth, y: (h - buttonFrame.height) / 2)
+        self.button = try ButtonNode(
+            option: Button(
+                title: self.option.value,
+                configuration: self.option.configuration
+            ),
+            width: self.preferredButtonSize.width
+        )
+        self.addChild(self.button)
+        
+        updateButtonPosition()
+    }
+    
+    private func updateButtonPosition() {
+        let buttonFrame = self.button.calculateAccumulatedFrame()
+        
+        self.button.position = CGPoint(
+            x: self.size.width - buttonFrame.width,
+            y: (self.size.height - buttonFrame.height) / 2
+        )
     }
     
     private func updatePath() {
-        let labelFrame = self.label.calculateAccumulatedFrame()
-        let buttonFrame = self.button.calculateAccumulatedFrame()
-
-        let w = labelFrame.width + self.spacing + buttonFrame.width
-        let h = self.option.configuration.height
-
-        self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
+        self.path = CGPath(
+            rect: CGRect(origin: .zero, size: self.size),
+            transform: nil
+        )
     }
     
     private func maximumButtonSizeForOptionValues() -> CGSize {
@@ -115,7 +116,10 @@ class ChooserNode: SKShapeNode, MenuNode {
         for value in self.option.values {
             do {
                 let button = try ButtonNode(
-                    option: Button(title: value, configuration: self.option.configuration),
+                    option: Button(
+                        title: value,
+                        configuration: self.option.configuration
+                    ),
                     width: preferredButtonSize.width
                 )
                 let width = button.calculateAccumulatedFrame().width

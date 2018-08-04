@@ -25,7 +25,7 @@ public class MenuNodeConfiguration {
     
     public convenience init() {
         let font = try! Font(name: "Papyrus", size: 24)
-        self.init(font: font, height: 42, spacing: 30, labelYOffset: 8)
+        self.init(font: font, height: 42, spacing: 30, labelYOffset: 9)
     }
     
     /// Designated initializer to create a configuration.

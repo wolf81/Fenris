@@ -9,23 +9,20 @@
 import SpriteKit
 
 class ButtonNode: SKShapeNode, MenuNode {
-    var titleLabelMaxX: CGFloat
-    
     static var horizontalPadding: CGFloat = 8
     
-    private var width: CGFloat
     private var option: Button
-    
-    var spacing: CGFloat {
-        return 0
-    }
-    
-    func interact(location: CGPoint) {
-        self.option.selected()
-    }
+    private var width: CGFloat
     
     private var label: SKLabelNode
     
+    /// Create a button.
+    ///
+    /// - Parameters:
+    ///   - option: The Button option.
+    ///   - width: Optionally provide a width, when with is 0,
+    //              it will be calculated based on the label.
+    /// - Throws: Will throw an error if creation fails.
     init(option: Button, width: CGFloat = 0) throws {
         self.titleLabelMaxX = 0
         self.option = option
@@ -71,5 +68,13 @@ class ButtonNode: SKShapeNode, MenuNode {
         rect.origin.x = 0
         rect.size.height = self.option.configuration.height
         return rect
+    }
+    
+    // MARK: - MenuNode
+    
+    var titleLabelMaxX: CGFloat
+    
+    func interact(location: CGPoint) {
+        self.option.selected()
     }
 }

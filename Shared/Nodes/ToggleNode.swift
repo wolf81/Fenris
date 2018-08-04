@@ -12,7 +12,8 @@ class ToggleNode: SKShapeNode, MenuNode {
     private var option: Toggle
 
     private var label: SKLabelNode
-    private var toggle: SKShapeNode
+    private var outline: SKShapeNode
+    private var check: SKShapeNode
     
     required init(option: Toggle) throws {
         self.option = option
@@ -29,23 +30,33 @@ class ToggleNode: SKShapeNode, MenuNode {
         let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
             self.option.configuration.labelYOffset
 
-        self.toggle = SKShapeNode(ellipseOf: CGSize(width: font.xHeight, height: font.xHeight))
-        self.toggle.strokeColor = .white
+        self.outline = SKShapeNode(ellipseOf: CGSize(width: font.xHeight, height: font.xHeight))
+        self.outline.strokeColor = .white
+        self.outline.fillColor = .clear
+        
+        self.check = SKShapeNode(ellipseOf: CGSize(width: font.xHeight - 4, height: font.xHeight - 4))
+        self.check.strokeColor = .clear
+        self.check.fillColor = .white
+        self.check.isAntialiased = true
         
         self.titleLabelMaxX = labelFrame.maxX
         
         super.init()
         
-        let toggleFrame = self.toggle.calculateAccumulatedFrame()
+        let toggleFrame = self.outline.calculateAccumulatedFrame()
+        let checkFrame = self.check.calculateAccumulatedFrame()
         let w = labelFrame.width + self.spacing + toggleFrame.width
         
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
-        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2,
+        self.outline.position = CGPoint(x: w - self.outline.frame.width / 2,
                                        y: yOffset + toggleFrame.height / 2)
+        self.check.position = CGPoint(x: w - self.outline.frame.width / 2,
+                                        y: yOffset + toggleFrame.height / 2)
         self.label.position = CGPoint(x: 0, y: yOffset)
 
         addChild(self.label)
-        addChild(self.toggle)
+        addChild(self.outline)
+        addChild(self.check)
         
         self.strokeColor = .clear
         
@@ -58,7 +69,7 @@ class ToggleNode: SKShapeNode, MenuNode {
     
     override func calculateAccumulatedFrame() -> CGRect {
         let labelFrame = self.label.calculateAccumulatedFrame()
-        let toggleFrame = self.toggle.calculateAccumulatedFrame()
+        let toggleFrame = self.outline.calculateAccumulatedFrame()
 
         let w = labelFrame.width + spacing + toggleFrame.width
         let h = self.option.configuration.height
@@ -71,7 +82,7 @@ class ToggleNode: SKShapeNode, MenuNode {
     var titleLabelMaxX: CGFloat
 
     func interact(location: CGPoint) {
-        if self.toggle.calculateAccumulatedFrame().contains(location) {
+        if self.outline.calculateAccumulatedFrame().contains(location) {
             self.option.checked = !self.option.checked
             updateForCurrentState()
         }
@@ -80,6 +91,6 @@ class ToggleNode: SKShapeNode, MenuNode {
     // MARK: - Private
     
     private func updateForCurrentState() {
-        self.toggle.fillColor = self.option.checked ? .white : .clear
-    }    
+        self.check.isHidden = self.option.checked == false
+    }
 }
