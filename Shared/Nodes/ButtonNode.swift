@@ -41,9 +41,9 @@ class ButtonNode: SKShapeNode, MenuNode {
         self.label.verticalAlignmentMode = .center
         
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
-        let diff = (font.maxHeight - self.label.calculateAccumulatedFrame().height) / 2
+        let diff = font.maxHeight - (self.label.calculateAccumulatedFrame().height / 2)
 
-        var labelWidth = (width != 0
+        let labelWidth = (width != 0
             ? width
             : self.label.calculateAccumulatedFrame().width + ButtonNode.horizontalPadding * 2
         )
@@ -59,9 +59,9 @@ class ButtonNode: SKShapeNode, MenuNode {
         
         self.path = CGPath(roundedRect: labelFrame, cornerWidth: 5, cornerHeight: 5, transform: nil)
         
-        self.label.position = CGPoint(x: labelFrame.width / 2, y: diff + font.maxHeight / 2 + self.titleYOffset)
-
         addChild(self.label)
+        
+        self.label.position = CGPoint(x: labelFrame.width / 2, y: diff + self.titleYOffset)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -52,6 +52,15 @@ class Font {
         self.xHeight = font.xHeight
         #endif
      
+        #if os(iOS)
+        guard let font = UIFont(name: name, size: size) else {
+            throw FontError.invalidFont(name, size)
+        }
+        self.ascender = font.ascender
+        self.descender = font.descender
+        self.xHeight = font.xHeight
+        #endif
+        
         self.name = name
         self.size = size
 
