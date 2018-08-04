@@ -13,6 +13,8 @@ public class MenuScene: SKScene {
     
     private var verticalPadding: CGFloat = 0
     
+    private var font: Font
+    
     private var options: [MenuOption] = []
     
     private var controls: [MenuControl] {
@@ -25,6 +27,8 @@ public class MenuScene: SKScene {
         
     public init(size: CGSize, controlHeight: CGFloat, options: [MenuOption]) {
         self.options = options
+        
+        self.font = try! Font(name: "Papyrus", size: 14)
         
         super.init(size: size)
 
@@ -56,7 +60,7 @@ public class MenuScene: SKScene {
         let spacing = (self.size.height - self.verticalPadding * 2) / CGFloat(count)
         
         var y = self.verticalPadding
-        for option in options.reversed() {
+        for option in self.options.reversed() {
             guard let control = controlForMenuOption(option) else {
                 continue
             }

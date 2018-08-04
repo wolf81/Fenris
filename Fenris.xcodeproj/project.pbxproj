@@ -39,6 +39,8 @@
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6C2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
+		79EA8D6F2115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
+		79EA8D702115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,7 @@
 		79EA8D60211405BB0072CBBE /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
+		79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNodeConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 				79C550742112C5E800E07A27 /* ToggleNode.swift */,
 				79C550772112CA3F00E07A27 /* ChooserNode.swift */,
 				79EA8D60211405BB0072CBBE /* ButtonNode.swift */,
+				79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -352,6 +356,7 @@
 				79C550862112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */,
 				79C550752112C5E800E07A27 /* ToggleNode.swift in Sources */,
 				795D78502111812D00F4547D /* SceneManager.swift in Sources */,
+				79EA8D6F2115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */,
 				79EA8D682114B95D0072CBBE /* Font.swift in Sources */,
 				79C5506F211218D600E07A27 /* MenuScene.swift in Sources */,
 				795D784D211180F700F4547D /* ServiceLocator.swift in Sources */,
@@ -381,6 +386,7 @@
 				79C550872112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */,
 				79C550762112C5E800E07A27 /* ToggleNode.swift in Sources */,
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
+				79EA8D702115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				79C55070211218D600E07A27 /* MenuScene.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,

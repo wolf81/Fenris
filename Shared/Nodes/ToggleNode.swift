@@ -13,21 +13,21 @@ class ToggleNode: SKShapeNode, MenuNode {
 
     private var label: SKLabelNode
     private var toggle: SKShapeNode
-    private var height: CGFloat
     
-    required init(option: Toggle, height: CGFloat) throws {
+    required init(option: Toggle) throws {
         self.option = option
-        self.height = height
         
         self.label = SKLabelNode(text: option.title)
+        self.label.font = option.configuration.font
         self.label.horizontalAlignmentMode = .left
-        self.label.verticalAlignmentMode = .center
+        self.label.verticalAlignmentMode = .baseline
         
         let labelFrame = self.label.calculateAccumulatedFrame()
-        let h = height
+        let h = self.option.configuration.height
         
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)        
-        let yOffset = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
+        let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
+            self.option.configuration.labelYOffset
 
         self.toggle = SKShapeNode(ellipseOf: CGSize(width: font.xHeight, height: font.xHeight))
         self.toggle.strokeColor = .white
@@ -40,8 +40,9 @@ class ToggleNode: SKShapeNode, MenuNode {
         let w = labelFrame.width + self.spacing + toggleFrame.width
         
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
-        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2 + titleYOffset)
-        self.label.position = CGPoint(x: 0, y: yOffset + self.titleYOffset)
+        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2,
+                                       y: yOffset + toggleFrame.height / 2)
+        self.label.position = CGPoint(x: 0, y: yOffset)
 
         addChild(self.label)
         addChild(self.toggle)
@@ -60,7 +61,7 @@ class ToggleNode: SKShapeNode, MenuNode {
         let toggleFrame = self.toggle.calculateAccumulatedFrame()
 
         let w = labelFrame.width + spacing + toggleFrame.width
-        let h = self.height
+        let h = self.option.configuration.height
         
         return CGRect(x: 0, y: 0, width: w, height: h)
     }

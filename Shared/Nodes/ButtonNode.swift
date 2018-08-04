@@ -13,35 +13,32 @@ class ButtonNode: SKShapeNode, MenuNode {
     
     static var horizontalPadding: CGFloat = 8
     
-    private var height: CGFloat
     private var width: CGFloat
-    private var option: Button?
+    private var option: Button
     
     var spacing: CGFloat {
         return 0
     }
     
     func interact(location: CGPoint) {
-        guard let option = self.option else {
-            return
-        }
-        option.selected()
+        self.option.selected()
     }
     
     private var label: SKLabelNode
     
-    init(option: Button, height: CGFloat, width: CGFloat = 0) throws {
+    init(option: Button, width: CGFloat = 0) throws {
         self.titleLabelMaxX = 0
         self.option = option
-        self.height = height
         self.width = width
         
         self.label = SKLabelNode(text: option.title)
+        self.label.font = option.configuration.font
         self.label.horizontalAlignmentMode = .center
-        self.label.verticalAlignmentMode = .center
+        self.label.verticalAlignmentMode = .baseline
         
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
-        let yOffset = font.maxHeight - (self.label.calculateAccumulatedFrame().height / 2)
+        let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
+            self.option.configuration.labelYOffset
 
         let labelWidth = (width != 0
             ? width
@@ -52,7 +49,7 @@ class ButtonNode: SKShapeNode, MenuNode {
             x: 0,
             y: 0,
             width: labelWidth,
-            height: height
+            height: self.option.configuration.height
         )
         
         super.init()
@@ -61,7 +58,7 @@ class ButtonNode: SKShapeNode, MenuNode {
         
         addChild(self.label)
         
-        self.label.position = CGPoint(x: labelFrame.width / 2, y: yOffset + self.titleYOffset)
+        self.label.position = CGPoint(x: labelFrame.width / 2, y: yOffset)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +69,7 @@ class ButtonNode: SKShapeNode, MenuNode {
         var rect = self.path?.boundingBox ?? CGRect.zero
         rect.size.width = rect.width + rect.origin.x
         rect.origin.x = 0
-        rect.size.height = self.height
+        rect.size.height = self.option.configuration.height
         return rect
     }
 }

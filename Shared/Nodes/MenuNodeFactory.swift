@@ -23,11 +23,11 @@ class MenuNodeFactory {
     static func menuNodeFor(option: MenuOption, nodeHeight: CGFloat) throws -> SKShapeNode {
         switch option {
         case let toggle as Toggle:
-            return try ToggleNode(option: toggle, height: nodeHeight)
+            return try ToggleNode(option: toggle)
         case let chooser as Chooser:
-            return try ChooserNode(option: chooser, height: nodeHeight)
+            return try ChooserNode(option: chooser)
         case let button as Button:
-            return try ButtonNode(option: button, height: nodeHeight)
+            return try ButtonNode(option: button)
         default:
             throw MenuNodeFactoryError.unknownNodeTypeForOption(option)
         }

@@ -27,7 +27,7 @@ enum FontError: LocalizedError {
     }
 }
 
-class Font {
+public class Font {
     private(set) var name: String
     private(set) var size: CGFloat
     

@@ -10,11 +10,14 @@ import Foundation
 
 public protocol MenuOption: class {
     var title: String { get }
+    var configuration: MenuNodeConfiguration { get }
 }
 
 // MARK: - Toggle
 
 public class Toggle: MenuOption {
+    public var configuration: MenuNodeConfiguration
+    
     public var title: String
     public var checked: Bool {
         didSet(newValue) {
@@ -27,28 +30,38 @@ public class Toggle: MenuOption {
         self.title = title
         self.checked = value
         self.valueChanged = valueChanged
+        
+        self.configuration = MenuNodeConfiguration()
     }
 }
 
 // MARK: - Button
 
 public class Button: MenuOption {
+    public var configuration: MenuNodeConfiguration
+    
     public var title: String
     public var selected: (() -> Void)
     
     public init(title: String, selected: @escaping (() -> Void)) {
         self.title = title
         self.selected = selected
+        
+        self.configuration = MenuNodeConfiguration()
     }
     
-    convenience internal init(title: String) {
+    convenience internal init(title: String, configuration: MenuNodeConfiguration) {
         self.init(title: title, selected: {})
+        
+        self.configuration = configuration
     }
 }
 
 // MARK: - Chooser
 
 public class Chooser: MenuOption {
+    public var configuration: MenuNodeConfiguration
+    
     public var title: String
     public var values: [String]
     public var selectedIndex: Int {
@@ -67,6 +80,8 @@ public class Chooser: MenuOption {
         self.values = values
         self.selectedIndex = values.index(of: selectedValue) ?? 0
         self.valueChanged = valueChanged
+        
+        self.configuration = MenuNodeConfiguration()
     }
     
     func selectNextValue() {

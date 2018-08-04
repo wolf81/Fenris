@@ -10,23 +10,23 @@ import SpriteKit
 
 class ChooserNode: SKShapeNode, MenuNode {
     private var option: Chooser
-    private var height: CGFloat
     
     private var label: SKLabelNode
     private var button: ButtonNode!
     
     private var preferredButtonSize: CGSize = .zero
     
-    required init(option: Chooser, height: CGFloat) throws {
-        self.height = height
+    required init(option: Chooser) throws {
         self.option = option
         
         self.label = SKLabelNode(text: option.title)
+        self.label.font = option.configuration.font
         self.label.horizontalAlignmentMode = .left
-        self.label.verticalAlignmentMode = .center
+        self.label.verticalAlignmentMode = .baseline
 
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
-        let yOffset = font.maxHeight - (label.calculateAccumulatedFrame().height / 2)
+        let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
+            self.option.configuration.labelYOffset
 
         let labelFrame = self.label.calculateAccumulatedFrame()
         
@@ -35,9 +35,12 @@ class ChooserNode: SKShapeNode, MenuNode {
         super.init()
 
         self.preferredButtonSize = maximumButtonSizeForOptionValues()
-        self.button = try ButtonNode(option: Button(title: option.value), height: height, width: preferredButtonSize.width)
+        self.button = try ButtonNode(
+            option: Button(title: option.value, configuration: self.option.configuration),
+            width: preferredButtonSize.width
+        )
         
-        self.label.position = CGPoint(x: 0, y: yOffset + self.titleYOffset)
+        self.label.position = CGPoint(x: 0, y: yOffset)
 
         updatePath()
         updateButtonPosition()
@@ -57,7 +60,7 @@ class ChooserNode: SKShapeNode, MenuNode {
         let buttonFrame = self.button.calculateAccumulatedFrame()
         
         let w = labelFrame.width + spacing + buttonFrame.width
-        let h = self.height
+        let h = self.option.configuration.height
         
         return CGRect(x: 0, y: 0, width: w, height: h)
     }
@@ -72,7 +75,10 @@ class ChooserNode: SKShapeNode, MenuNode {
             self.option.selectNextValue()
 
             self.button.removeFromParent()
-            self.button = try! ButtonNode(option: Button(title: option.value), height: self.height, width: preferredButtonSize.width)
+            self.button = try! ButtonNode(
+                option: Button(title: option.value, configuration: self.option.configuration),
+                width: preferredButtonSize.width
+            )
             self.addChild(self.button)
             
             updatePath()
@@ -88,7 +94,7 @@ class ChooserNode: SKShapeNode, MenuNode {
         let buttonWidth = buttonFrame.width
 
         let w = labelFrame.width + spacing + buttonWidth
-        let h = height
+        let h = self.option.configuration.height
         
         self.button.position = CGPoint(x: w - buttonWidth, y: (h - buttonFrame.height) / 2)
     }
@@ -98,7 +104,7 @@ class ChooserNode: SKShapeNode, MenuNode {
         let buttonFrame = self.button.calculateAccumulatedFrame()
 
         let w = labelFrame.width + self.spacing + buttonFrame.width
-        let h = self.height
+        let h = self.option.configuration.height
 
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
     }
@@ -108,7 +114,10 @@ class ChooserNode: SKShapeNode, MenuNode {
         
         for value in self.option.values {
             do {
-                let button = try ButtonNode(option: Button(title: value), height: self.height, width: preferredButtonSize.width)
+                let button = try ButtonNode(
+                    option: Button(title: value, configuration: self.option.configuration),
+                    width: preferredButtonSize.width
+                )
                 let width = button.calculateAccumulatedFrame().width
                 if width > maximumSize.width {
                     maximumSize.width = width
