@@ -8,21 +8,28 @@
 
 import SpriteKit
 
-class ToggleNode: SKShapeNode, MenuNode {
-    var titleLabelMaxX: CGFloat
+class ToggleNode: SKShapeNode, MenuNode {    
+    private var option: Toggle
 
-    var titleLabel: SKLabelNode
-    var toggle: SKShapeNode
+    private var label: SKLabelNode
+    private var toggle: SKShapeNode
+    private var height: CGFloat
     
-    required init(option: Toggle) {
-        self.titleLabel = SKLabelNode(text: option.title)
-        self.titleLabel.horizontalAlignmentMode = .left
-        self.titleLabel.verticalAlignmentMode = .center
+    required init(option: Toggle, height: CGFloat) throws {
+        self.option = option
+        self.height = height
         
-        let labelFrame = self.titleLabel.calculateAccumulatedFrame()
-        let h = labelFrame.height
+        self.label = SKLabelNode(text: option.title)
+        self.label.horizontalAlignmentMode = .left
+        self.label.verticalAlignmentMode = .center
         
-        self.toggle = SKShapeNode(ellipseOf: CGSize(width: h / 2, height: h / 2))
+        let labelFrame = self.label.calculateAccumulatedFrame()
+        let h = height
+        
+        let font = try Font(name: self.label.fontName!, size: self.label.fontSize)        
+        let diff = (font.maxHeight - label.calculateAccumulatedFrame().height) / 2
+
+        self.toggle = SKShapeNode(ellipseOf: CGSize(width: font.xHeight, height: font.xHeight))
         self.toggle.strokeColor = .white
         
         self.titleLabelMaxX = labelFrame.maxX
@@ -33,15 +40,18 @@ class ToggleNode: SKShapeNode, MenuNode {
         let w = labelFrame.width + self.spacing + toggleFrame.width
         
         self.path = CGPath(rect: CGRect(x: 0, y: 0, width: w, height: h), transform: nil)
-        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2)
-        self.titleLabel.position = CGPoint(x: 0, y: h / 2)
+        self.toggle.position = CGPoint(x: w - self.toggle.frame.width / 2, y: h / 2 + titleYOffset)
         
-        addChild(self.titleLabel)
+        print("ascender: \(font.ascender) descender: \(font.descender)")
+        print("diff: \(diff)")
+        self.label.position = CGPoint(x: 0, y: diff + font.maxHeight / 2 + self.titleYOffset)
+
+        addChild(self.label)
         addChild(self.toggle)
         
-        self.toggle.fillColor = option.checked ? .white : .clear
-
-        self.strokeColor = SKColor.clear
+        self.strokeColor = .clear
+        
+        updateForCurrentState()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,12 +59,29 @@ class ToggleNode: SKShapeNode, MenuNode {
     }
     
     override func calculateAccumulatedFrame() -> CGRect {
-        let labelFrame = self.titleLabel.calculateAccumulatedFrame()
+        let labelFrame = self.label.calculateAccumulatedFrame()
         let toggleFrame = self.toggle.calculateAccumulatedFrame()
 
         let w = labelFrame.width + spacing + toggleFrame.width
-        let h = fmax(toggleFrame.height, labelFrame.height)
+        let h = self.height
         
         return CGRect(x: 0, y: 0, width: w, height: h)
     }
+
+    // MARK: - MenuNode
+    
+    var titleLabelMaxX: CGFloat
+
+    func interact(location: CGPoint) {
+        if self.toggle.calculateAccumulatedFrame().contains(location) {
+            self.option.checked = !self.option.checked
+            updateForCurrentState()
+        }
+    }
+    
+    // MARK: - Private
+    
+    private func updateForCurrentState() {
+        self.toggle.fillColor = self.option.checked ? .white : .clear
+    }    
 }

@@ -43,7 +43,7 @@ public class SceneManager: SceneManagerProtocol {
             transition = .push(with: .right, duration: duration)
         }
         
-        viewController?.presentScene(scene: scene, transition: transition)
+        self.viewController?.presentScene(scene: scene, transition: transition)
     }
 }
 

@@ -12,23 +12,15 @@ public protocol MenuOption: class {
     var title: String { get }
 }
 
-// MARK: - Label
-
-public class Label: MenuOption {
-    public var title: String
-    public var selected: (() -> Void)
-
-    public init(title: String, selected: @escaping (() -> Void)) {
-        self.title = title
-        self.selected = selected
-    }
-}
-
 // MARK: - Toggle
 
 public class Toggle: MenuOption {
     public var title: String
-    public var checked: Bool
+    public var checked: Bool {
+        didSet(newValue) {
+            valueChanged(newValue)
+        }
+    }
     public var valueChanged: ((Bool) -> Void)
     
     public init(title: String, value: Bool, valueChanged: @escaping ((Bool) -> Void)) {
@@ -38,18 +30,50 @@ public class Toggle: MenuOption {
     }
 }
 
-// MARK: - NumberPicker
+// MARK: - Button
 
-public class NumberPicker: MenuOption {
+public class Button: MenuOption {
     public var title: String
-    public var range: Range<Int>
-    public var value: Int
-    public var valueChanged: ((Int) -> Void)
+    public var selected: (() -> Void)
     
-    public init(title: String, range: Range<Int>, value: Int, valueChanged: @escaping ((Int) -> Void)) {
+    public init(title: String, selected: @escaping (() -> Void)) {
         self.title = title
-        self.range = range
-        self.value = value
+        self.selected = selected
+    }
+    
+    convenience internal init(title: String) {
+        self.init(title: title, selected: {})
+    }
+}
+
+// MARK: - Chooser
+
+public class Chooser: MenuOption {
+    public var title: String
+    public var values: [String]
+    public var selectedIndex: Int {
+        didSet {
+            self.valueChanged(self.value)
+        }
+    }
+    public var valueChanged: ((String) -> Void)
+    
+    public var value: String {
+        return self.values[self.selectedIndex]
+    }
+    
+    public init(title: String, values: [String], selectedValue: String, valueChanged: @escaping ((String) -> Void)) {
+        self.title = title
+        self.values = values
+        self.selectedIndex = values.index(of: selectedValue) ?? 0
         self.valueChanged = valueChanged
     }
+    
+    func selectNextValue() {
+        if self.selectedIndex + 1 > (self.values.count - 1) {
+            self.selectedIndex = 0
+        } else {
+            self.selectedIndex += 1
+        }
+    }    
 }

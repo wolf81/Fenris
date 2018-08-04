@@ -23,10 +23,8 @@
 		79C55073211218DE00E07A27 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C55071211218DE00E07A27 /* MenuOption.swift */; };
 		79C550752112C5E800E07A27 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
 		79C550762112C5E800E07A27 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
-		79C550782112CA3F00E07A27 /* NumberPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* NumberPickerNode.swift */; };
-		79C550792112CA3F00E07A27 /* NumberPickerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* NumberPickerNode.swift */; };
-		79C5507C2112E10500E07A27 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5507B2112E10500E07A27 /* LabelNode.swift */; };
-		79C5507D2112E10500E07A27 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5507B2112E10500E07A27 /* LabelNode.swift */; };
+		79C550782112CA3F00E07A27 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
+		79C550792112CA3F00E07A27 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
 		79C550862112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
 		79C550872112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
 		79C550892113003100E07A27 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550882113003100E07A27 /* MenuNode.swift */; };
@@ -35,6 +33,12 @@
 		79C681E22111761B006E20D0 /* FenrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* FenrisTests.swift */; };
 		79C681E42111761B006E20D0 /* Fenris.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681D62111761B006E20D0 /* Fenris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		79EA8D61211405BB0072CBBE /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
+		79EA8D62211405BB0072CBBE /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
+		79EA8D682114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
+		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
+		79EA8D6C2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
+		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +61,7 @@
 		79C5506E211218D600E07A27 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		79C55071211218DE00E07A27 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		79C550742112C5E800E07A27 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
-		79C550772112CA3F00E07A27 /* NumberPickerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPickerNode.swift; sourceTree = "<group>"; };
-		79C5507B2112E10500E07A27 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
+		79C550772112CA3F00E07A27 /* ChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserNode.swift; sourceTree = "<group>"; };
 		79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNodeFactory.swift; sourceTree = "<group>"; };
 		79C550882113003100E07A27 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		79C681D32111761B006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +73,9 @@
 		79C681FA21117860006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681FC21117860006E20D0 /* Fenris_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_iOS.h; sourceTree = "<group>"; };
 		79C681FD21117860006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79EA8D60211405BB0072CBBE /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +109,9 @@
 			children = (
 				79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */,
 				79C550882113003100E07A27 /* MenuNode.swift */,
-				79C5507B2112E10500E07A27 /* LabelNode.swift */,
 				79C550742112C5E800E07A27 /* ToggleNode.swift */,
-				79C550772112CA3F00E07A27 /* NumberPickerNode.swift */,
+				79C550772112CA3F00E07A27 /* ChooserNode.swift */,
+				79EA8D60211405BB0072CBBE /* ButtonNode.swift */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -153,6 +159,8 @@
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				79EA8D6A2114B9B30072CBBE /* Extensions */,
+				79EA8D662114B9500072CBBE /* Utilities */,
 				79C5507A2112CA4200E07A27 /* Nodes */,
 				795D784C211180F700F4547D /* ServiceLocator.swift */,
 				795D784F2111812D00F4547D /* SceneManager.swift */,
@@ -172,6 +180,22 @@
 				79C681FD21117860006E20D0 /* Info.plist */,
 			);
 			path = "Fenris iOS";
+			sourceTree = "<group>";
+		};
+		79EA8D662114B9500072CBBE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				79EA8D672114B95D0072CBBE /* Font.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		79EA8D6A2114B9B30072CBBE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,18 +344,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C5507C2112E10500E07A27 /* LabelNode.swift in Sources */,
 				795D786721119EEA00F4547D /* ViewController.swift in Sources */,
 				795D785F211188A100F4547D /* ScenePresentable.swift in Sources */,
 				79C55072211218DE00E07A27 /* MenuOption.swift in Sources */,
 				79C550892113003100E07A27 /* MenuNode.swift in Sources */,
+				79EA8D6C2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79C550862112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */,
 				79C550752112C5E800E07A27 /* ToggleNode.swift in Sources */,
 				795D78502111812D00F4547D /* SceneManager.swift in Sources */,
+				79EA8D682114B95D0072CBBE /* Font.swift in Sources */,
 				79C5506F211218D600E07A27 /* MenuScene.swift in Sources */,
 				795D784D211180F700F4547D /* ServiceLocator.swift in Sources */,
 				795D7859211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
-				79C550782112CA3F00E07A27 /* NumberPickerNode.swift in Sources */,
+				79C550782112CA3F00E07A27 /* ChooserNode.swift in Sources */,
+				79EA8D61211405BB0072CBBE /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,18 +373,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C5507D2112E10500E07A27 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				795D7860211188A100F4547D /* ScenePresentable.swift in Sources */,
 				79C55073211218DE00E07A27 /* MenuOption.swift in Sources */,
 				79C5508A2113003100E07A27 /* MenuNode.swift in Sources */,
+				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79C550872112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */,
 				79C550762112C5E800E07A27 /* ToggleNode.swift in Sources */,
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
+				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				79C55070211218D600E07A27 /* MenuScene.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
-				79C550792112CA3F00E07A27 /* NumberPickerNode.swift in Sources */,
+				79C550792112CA3F00E07A27 /* ChooserNode.swift in Sources */,
+				79EA8D62211405BB0072CBBE /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

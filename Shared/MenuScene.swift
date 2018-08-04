@@ -11,6 +11,8 @@ import SpriteKit
 public class MenuScene: SKScene {
     typealias MenuControl = SKShapeNode & MenuNode
     
+    private var verticalPadding: CGFloat = 0
+    
     private var options: [MenuOption] = []
     
     private var controls: [MenuControl] {
@@ -20,13 +22,15 @@ public class MenuScene: SKScene {
         }
         return nodes
     }
-    
-    public init(size: CGSize, options: [MenuOption]) {
+        
+    public init(size: CGSize, controlHeight: CGFloat, options: [MenuOption]) {
         self.options = options
         
         super.init(size: size)
-        
-        addChildNodesForMenuOptions()
+
+        self.verticalPadding = self.size.height / 4
+
+        addChildNodesForMenuOptions(nodeHeight: controlHeight)
         layoutChildNodesForMenuOptions()
     }
     
@@ -34,30 +38,38 @@ public class MenuScene: SKScene {
         fatalError()
     }
     
-    private func addChildNodesForMenuOptions() {
+    private func addChildNodesForMenuOptions(nodeHeight: CGFloat) {
         for option in self.options {
-            guard let node = MenuNodeFactory.menuNodeFor(option: option) else {
-                continue
+            do {
+                let node = try MenuNodeFactory.menuNodeFor(option: option,
+                                                           nodeHeight: nodeHeight)
+                addChild(node)
+            } catch let error {
+                print("[ERROR] \(error.localizedDescription)")
             }
-            
-            addChild(node)
         }
     }
     
     private func layoutChildNodesForMenuOptions() {
         let x: CGFloat = self.frame.midX
-        let y: CGFloat = self.frame.midY
+        let count = max((self.options.count - 1), 1)
+        let spacing = (self.size.height - self.verticalPadding * 2) / CGFloat(count)
         
-        let itemCountForHeight = fmaxf(Float(options.count - 1), 0)
-        let totalHeight = CGFloat(itemCountForHeight * 100)
-        let originY = y + (totalHeight / 2)
-        
-        for (idx, option) in options.enumerated().reversed() {
-            let y = CGFloat(originY) - CGFloat(idx * 100)
-
-            if let label = controlForMenuOption(option) {
-                label.position = CGPoint(x: x - label.titleLabelMaxX, y: y)
+        var y = self.verticalPadding
+        for option in options.reversed() {
+            guard let control = controlForMenuOption(option) else {
+                continue
             }
+            
+            let yOffset = -(control.calculateAccumulatedFrame().height / 2)
+            var xOffset = -(control.titleLabelMaxX)
+            if control is ButtonNode {
+                xOffset -= control.calculateAccumulatedFrame().width
+            }
+
+            control.position = CGPoint(x: x + xOffset, y: y + yOffset)
+            
+            y += spacing
         }
     }
     
@@ -77,4 +89,30 @@ public class MenuScene: SKScene {
         
         return idx
     }
+
+    func menuControlAt(location: CGPoint) -> MenuControl? {
+        let nodes = self.nodes(at: location)
+
+        for node in nodes.reversed() {
+            if node is MenuControl {
+                return (node as! MenuControl)
+            }
+        }
+        
+        return nil
+    }
 }
+
+#if os(macOS)
+
+extension MenuScene {
+    public override func mouseUp(with event: NSEvent) {
+        var location = event.location(in: self)
+        if let control = menuControlAt(location: location) {
+           location = self.convert(location, to: control)
+            control.interact(location: location)
+        }
+    }
+}
+
+#endif

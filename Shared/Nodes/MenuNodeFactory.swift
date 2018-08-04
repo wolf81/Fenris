@@ -8,17 +8,28 @@
 
 import SpriteKit
 
+enum MenuNodeFactoryError: LocalizedError {
+    case unknownNodeTypeForOption(MenuOption)
+    
+    var errorDescription: String? {
+        switch self {
+        case .unknownNodeTypeForOption(let option):
+            return "\(type(of: MenuNodeFactory.self)) can't create nodes for option \(option)"
+        }
+    }
+}
+
 class MenuNodeFactory {
-    static func menuNodeFor(option: MenuOption) -> (SKShapeNode)? {
+    static func menuNodeFor(option: MenuOption, nodeHeight: CGFloat) throws -> SKShapeNode {
         switch option {
-        case let label as Label:
-            return LabelNode(option: label)
         case let toggle as Toggle:
-            return ToggleNode(option: toggle)
-        case let numberPicker as NumberPicker:
-            return NumberPickerNode(option: numberPicker)
+            return try ToggleNode(option: toggle, height: nodeHeight)
+        case let chooser as Chooser:
+            return try ChooserNode(option: chooser, height: nodeHeight)
+        case let button as Button:
+            return try ButtonNode(option: button, height: nodeHeight)
         default:
-            return nil
+            throw MenuNodeFactoryError.unknownNodeTypeForOption(option)
         }
     }
 }
