@@ -31,8 +31,8 @@ class ButtonNode: SKShapeNode, MenuNode {
     private var label: SKLabelNode
     
     init(option: Button, height: CGFloat, width: CGFloat = 0) throws {
+        self.titleLabelMaxX = 0
         self.option = option
-        
         self.height = height
         self.width = width
         
@@ -41,25 +41,25 @@ class ButtonNode: SKShapeNode, MenuNode {
         self.label.verticalAlignmentMode = .center
         
         let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
-        let diff = (font.maxHeight - label.calculateAccumulatedFrame().height) / 2
+        let diff = (font.maxHeight - self.label.calculateAccumulatedFrame().height) / 2
 
-        var frame = self.label.calculateAccumulatedFrame()
-        frame.size.width += ButtonNode.horizontalPadding * 2
-        if width != 0 {
-            frame.size.width = width + ButtonNode.horizontalPadding * 2
-        }
-        frame = CGRect(origin: CGPoint.zero, size: CGSize(width: frame.width, height: height))
+        var labelWidth = (width != 0
+            ? width
+            : self.label.calculateAccumulatedFrame().width + ButtonNode.horizontalPadding * 2
+        )
         
-        self.titleLabelMaxX = 0
+        let labelFrame = CGRect(
+            x: 0,
+            y: 0,
+            width: labelWidth,
+            height: height
+        )
         
         super.init()
         
-        self.path = CGPath(roundedRect: frame, cornerWidth: 5, cornerHeight: 5, transform: nil)
+        self.path = CGPath(roundedRect: labelFrame, cornerWidth: 5, cornerHeight: 5, transform: nil)
         
-        let frameWidth = self.calculateAccumulatedFrame().width
-        let labelWidth = self.label.calculateAccumulatedFrame().width
-        let x = self.calculateAccumulatedFrame().minX + (frameWidth - labelWidth) / 2
-        self.label.position = CGPoint(x: frame.width / 2, y: diff + font.maxHeight / 2 + self.titleYOffset)
+        self.label.position = CGPoint(x: labelFrame.width / 2, y: diff + font.maxHeight / 2 + self.titleYOffset)
 
         addChild(self.label)
     }
