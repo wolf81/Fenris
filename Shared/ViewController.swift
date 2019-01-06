@@ -11,7 +11,7 @@ import Cocoa
 public typealias ViewController = NSViewController
 #endif
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
 public typealias ViewController = UIViewController
 #endif

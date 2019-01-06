@@ -36,7 +36,7 @@ public class Font {
     private(set) var xHeight: CGFloat
     
     var maxHeight: CGFloat {
-        return self.ascender + fabs(self.descender)
+        return self.ascender + abs(self.descender)
     }
     
     init(name: String, size: CGFloat) throws {
@@ -52,7 +52,7 @@ public class Font {
         self.xHeight = font.xHeight
         #endif
      
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         guard let font = UIFont(name: name, size: size) else {
             throw FontError.invalidFont(name, size)
         }

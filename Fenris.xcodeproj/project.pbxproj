@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
+		792D428321E20A1900D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
+		792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
+		792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
+		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
+		792D428721E20A1D00D438F1 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
+		792D428821E20A1D00D438F1 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C55071211218DE00E07A27 /* MenuOption.swift */; };
+		792D428921E20A2200D438F1 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
+		792D428A21E20A2200D438F1 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550882113003100E07A27 /* MenuNode.swift */; };
+		792D428B21E20A2200D438F1 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
+		792D428C21E20A2200D438F1 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
+		792D428D21E20A2200D438F1 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
+		792D428E21E20A2200D438F1 /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
+		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
+		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		795D784D211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		795D78502111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
@@ -54,6 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
+		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
@@ -82,6 +101,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		792D427721E20A0E00D438F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C681CF2111761B006E20D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -107,6 +133,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		792D427B21E20A0E00D438F1 /* Fenris tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */,
+				792D427D21E20A0E00D438F1 /* Info.plist */,
+			);
+			path = "Fenris tvOS";
+			sourceTree = "<group>";
+		};
 		79C5507A2112CA4200E07A27 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +163,7 @@
 				79C681D52111761B006E20D0 /* Fenris macOS */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
 				79C681E02111761B006E20D0 /* FenrisTests */,
+				792D427B21E20A0E00D438F1 /* Fenris tvOS */,
 				79C681D42111761B006E20D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,6 +174,7 @@
 				79C681D32111761B006E20D0 /* Fenris.framework */,
 				79C681DC2111761B006E20D0 /* FenrisTests.xctest */,
 				79C681FA21117860006E20D0 /* Fenris.framework */,
+				792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +242,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		792D427521E20A0E00D438F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C681D02111761B006E20D0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,6 +269,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		792D427921E20A0E00D438F1 /* Fenris tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 792D428121E20A0E00D438F1 /* Build configuration list for PBXNativeTarget "Fenris tvOS" */;
+			buildPhases = (
+				792D427521E20A0E00D438F1 /* Headers */,
+				792D427621E20A0E00D438F1 /* Sources */,
+				792D427721E20A0E00D438F1 /* Frameworks */,
+				792D427821E20A0E00D438F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fenris tvOS";
+			productName = "Fenris tvOS";
+			productReference = 792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		79C681D22111761B006E20D0 /* Fenris macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 79C681E72111761B006E20D0 /* Build configuration list for PBXNativeTarget "Fenris macOS" */;
@@ -288,6 +351,9 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Wolftrail;
 				TargetAttributes = {
+					792D427921E20A0E00D438F1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					79C681D22111761B006E20D0 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 0940;
@@ -315,11 +381,19 @@
 				79C681D22111761B006E20D0 /* Fenris macOS */,
 				79C681DB2111761B006E20D0 /* FenrisTests */,
 				79C681F921117860006E20D0 /* Fenris iOS */,
+				792D427921E20A0E00D438F1 /* Fenris tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		792D427821E20A0E00D438F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C681D12111761B006E20D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,6 +418,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		792D427621E20A0E00D438F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
+				792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */,
+				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
+				792D428E21E20A2200D438F1 /* MenuNodeConfiguration.swift in Sources */,
+				792D428821E20A1D00D438F1 /* MenuOption.swift in Sources */,
+				792D428C21E20A2200D438F1 /* ChooserNode.swift in Sources */,
+				792D428921E20A2200D438F1 /* MenuNodeFactory.swift in Sources */,
+				792D428D21E20A2200D438F1 /* ButtonNode.swift in Sources */,
+				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
+				792D428721E20A1D00D438F1 /* MenuScene.swift in Sources */,
+				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
+				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
+				792D428A21E20A2200D438F1 /* MenuNode.swift in Sources */,
+				792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */,
+				792D428B21E20A2200D438F1 /* ToggleNode.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		79C681CE2111761B006E20D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +503,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		792D427F21E20A0E00D438F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J6E64C67VU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Fenris tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+			};
+			name = Debug;
+		};
+		792D428021E20A0E00D438F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J6E64C67VU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Fenris tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		79C681E52111761B006E20D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -675,6 +829,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		792D428121E20A0E00D438F1 /* Build configuration list for PBXNativeTarget "Fenris tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				792D427F21E20A0E00D438F1 /* Debug */,
+				792D428021E20A0E00D438F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		79C681CD2111761B006E20D0 /* Build configuration list for PBXProject "Fenris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
