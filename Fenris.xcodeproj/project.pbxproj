@@ -23,56 +23,48 @@
 		792D428E21E20A2200D438F1 /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
 		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
-		795D784D211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
+		792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
+		792D42C721E2115F00D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
+		792D42C821E2115F00D438F1 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
+		792D42C921E2115F00D438F1 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550882113003100E07A27 /* MenuNode.swift */; };
+		792D42CA21E2115F00D438F1 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
+		792D42CB21E2115F00D438F1 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
+		792D42CC21E2115F00D438F1 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
+		792D42CD21E2115F00D438F1 /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
+		792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
+		792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
+		792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
+		792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
+		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
+		792D42D321E2115F00D438F1 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
+		792D42D421E2115F00D438F1 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C55071211218DE00E07A27 /* MenuOption.swift */; };
+		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		795D78502111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		795D7859211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
 		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		795D785F211188A100F4547D /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		795D7860211188A100F4547D /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
-		795D786721119EEA00F4547D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		795D786821119EEA00F4547D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
-		79C5506F211218D600E07A27 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
 		79C55070211218D600E07A27 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
-		79C55072211218DE00E07A27 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C55071211218DE00E07A27 /* MenuOption.swift */; };
 		79C55073211218DE00E07A27 /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C55071211218DE00E07A27 /* MenuOption.swift */; };
-		79C550752112C5E800E07A27 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
 		79C550762112C5E800E07A27 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550742112C5E800E07A27 /* ToggleNode.swift */; };
-		79C550782112CA3F00E07A27 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
 		79C550792112CA3F00E07A27 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550772112CA3F00E07A27 /* ChooserNode.swift */; };
-		79C550862112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
 		79C550872112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */; };
-		79C550892113003100E07A27 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550882113003100E07A27 /* MenuNode.swift */; };
 		79C5508A2113003100E07A27 /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C550882113003100E07A27 /* MenuNode.swift */; };
-		79C681DD2111761B006E20D0 /* Fenris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C681D32111761B006E20D0 /* Fenris.framework */; };
 		79C681E22111761B006E20D0 /* FenrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* FenrisTests.swift */; };
-		79C681E42111761B006E20D0 /* Fenris.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681D62111761B006E20D0 /* Fenris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		79EA8D61211405BB0072CBBE /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
 		79EA8D62211405BB0072CBBE /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D60211405BB0072CBBE /* ButtonNode.swift */; };
-		79EA8D682114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
-		79EA8D6C2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
-		79EA8D6F2115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
 		79EA8D702115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		79C681DE2111761B006E20D0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 79C681CA2111761B006E20D0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 79C681D22111761B006E20D0;
-			remoteInfo = Fenris;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792D42BE21E2115100D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		792D42C121E2115100D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		792D42DD21E24F9300D438F1 /* Fenris_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_macOS.h; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
@@ -85,9 +77,6 @@
 		79C550772112CA3F00E07A27 /* ChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserNode.swift; sourceTree = "<group>"; };
 		79C550852112FF0F00E07A27 /* MenuNodeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNodeFactory.swift; sourceTree = "<group>"; };
 		79C550882113003100E07A27 /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
-		79C681D32111761B006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		79C681D62111761B006E20D0 /* Fenris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris.h; sourceTree = "<group>"; };
-		79C681D72111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C681DC2111761B006E20D0 /* FenrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681E12111761B006E20D0 /* FenrisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenrisTests.swift; sourceTree = "<group>"; };
 		79C681E32111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +97,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79C681CF2111761B006E20D0 /* Frameworks */ = {
+		792D42BB21E2115100D438F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,7 +108,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C681DD2111761B006E20D0 /* Fenris.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +130,15 @@
 			path = "Fenris tvOS";
 			sourceTree = "<group>";
 		};
+		792D42BF21E2115100D438F1 /* Fenris macOS */ = {
+			isa = PBXGroup;
+			children = (
+				792D42DD21E24F9300D438F1 /* Fenris_macOS.h */,
+				792D42C121E2115100D438F1 /* Info.plist */,
+			);
+			path = "Fenris macOS";
+			sourceTree = "<group>";
+		};
 		79C5507A2112CA4200E07A27 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,10 +157,10 @@
 			children = (
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
-				79C681D52111761B006E20D0 /* Fenris macOS */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
 				79C681E02111761B006E20D0 /* FenrisTests */,
 				792D427B21E20A0E00D438F1 /* Fenris tvOS */,
+				792D42BF21E2115100D438F1 /* Fenris macOS */,
 				79C681D42111761B006E20D0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,21 +168,12 @@
 		79C681D42111761B006E20D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				79C681D32111761B006E20D0 /* Fenris.framework */,
 				79C681DC2111761B006E20D0 /* FenrisTests.xctest */,
 				79C681FA21117860006E20D0 /* Fenris.framework */,
-				792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */,
+				792D427A21E20A0E00D438F1 /* Fenris.framework */,
+				792D42BE21E2115100D438F1 /* Fenris.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		79C681D52111761B006E20D0 /* Fenris macOS */ = {
-			isa = PBXGroup;
-			children = (
-				79C681D62111761B006E20D0 /* Fenris.h */,
-				79C681D72111761B006E20D0 /* Info.plist */,
-			);
-			path = "Fenris macOS";
 			sourceTree = "<group>";
 		};
 		79C681E02111761B006E20D0 /* FenrisTests */ = {
@@ -250,11 +238,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79C681D02111761B006E20D0 /* Headers */ = {
+		792D42B921E2115100D438F1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79C681E42111761B006E20D0 /* Fenris.h in Headers */,
+				792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,25 +272,25 @@
 			);
 			name = "Fenris tvOS";
 			productName = "Fenris tvOS";
-			productReference = 792D427A21E20A0E00D438F1 /* Fenris_tvOS.framework */;
+			productReference = 792D427A21E20A0E00D438F1 /* Fenris.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C681D22111761B006E20D0 /* Fenris macOS */ = {
+		792D42BD21E2115100D438F1 /* Fenris macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79C681E72111761B006E20D0 /* Build configuration list for PBXNativeTarget "Fenris macOS" */;
+			buildConfigurationList = 792D42C321E2115100D438F1 /* Build configuration list for PBXNativeTarget "Fenris macOS" */;
 			buildPhases = (
-				79C681CE2111761B006E20D0 /* Sources */,
-				79C681CF2111761B006E20D0 /* Frameworks */,
-				79C681D02111761B006E20D0 /* Headers */,
-				79C681D12111761B006E20D0 /* Resources */,
+				792D42B921E2115100D438F1 /* Headers */,
+				792D42BA21E2115100D438F1 /* Sources */,
+				792D42BB21E2115100D438F1 /* Frameworks */,
+				792D42BC21E2115100D438F1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Fenris macOS";
-			productName = Fenris;
-			productReference = 79C681D32111761B006E20D0 /* Fenris.framework */;
+			productName = "Fenris macOS";
+			productReference = 792D42BE21E2115100D438F1 /* Fenris.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		79C681DB2111761B006E20D0 /* FenrisTests */ = {
@@ -316,7 +304,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				79C681DF2111761B006E20D0 /* PBXTargetDependency */,
 			);
 			name = FenrisTests;
 			productName = FenrisTests;
@@ -348,15 +335,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Wolftrail;
 				TargetAttributes = {
 					792D427921E20A0E00D438F1 = {
 						CreatedOnToolsVersion = 10.1;
 					};
-					79C681D22111761B006E20D0 = {
-						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+					792D42BD21E2115100D438F1 = {
+						CreatedOnToolsVersion = 10.1;
 					};
 					79C681DB2111761B006E20D0 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -378,10 +364,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				79C681D22111761B006E20D0 /* Fenris macOS */,
 				79C681DB2111761B006E20D0 /* FenrisTests */,
 				79C681F921117860006E20D0 /* Fenris iOS */,
 				792D427921E20A0E00D438F1 /* Fenris tvOS */,
+				792D42BD21E2115100D438F1 /* Fenris macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -394,7 +380,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79C681D12111761B006E20D0 /* Resources */ = {
+		792D42BC21E2115100D438F1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -440,25 +426,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		79C681CE2111761B006E20D0 /* Sources */ = {
+		792D42BA21E2115100D438F1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				795D786721119EEA00F4547D /* ViewController.swift in Sources */,
-				795D785F211188A100F4547D /* ScenePresentable.swift in Sources */,
-				79C55072211218DE00E07A27 /* MenuOption.swift in Sources */,
-				79C550892113003100E07A27 /* MenuNode.swift in Sources */,
-				79EA8D6C2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
-				79C550862112FF0F00E07A27 /* MenuNodeFactory.swift in Sources */,
-				79C550752112C5E800E07A27 /* ToggleNode.swift in Sources */,
-				795D78502111812D00F4547D /* SceneManager.swift in Sources */,
-				79EA8D6F2115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */,
-				79EA8D682114B95D0072CBBE /* Font.swift in Sources */,
-				79C5506F211218D600E07A27 /* MenuScene.swift in Sources */,
-				795D784D211180F700F4547D /* ServiceLocator.swift in Sources */,
-				795D7859211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
-				79C550782112CA3F00E07A27 /* ChooserNode.swift in Sources */,
-				79EA8D61211405BB0072CBBE /* ButtonNode.swift in Sources */,
+				792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */,
+				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				792D42C921E2115F00D438F1 /* MenuNode.swift in Sources */,
+				792D42D321E2115F00D438F1 /* MenuScene.swift in Sources */,
+				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
+				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
+				792D42CD21E2115F00D438F1 /* MenuNodeConfiguration.swift in Sources */,
+				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
+				792D42C821E2115F00D438F1 /* MenuNodeFactory.swift in Sources */,
+				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
+				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
+				792D42CA21E2115F00D438F1 /* ToggleNode.swift in Sources */,
+				792D42CB21E2115F00D438F1 /* ChooserNode.swift in Sources */,
+				792D42D421E2115F00D438F1 /* MenuOption.swift in Sources */,
+				792D42CC21E2115F00D438F1 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,14 +480,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		79C681DF2111761B006E20D0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 79C681D22111761B006E20D0 /* Fenris macOS */;
-			targetProxy = 79C681DE2111761B006E20D0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		792D427F21E20A0E00D438F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -523,10 +501,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
 			};
@@ -551,13 +527,64 @@
 				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 12.1;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		792D42C421E2115100D438F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J6E64C67VU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Fenris macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-macOS";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		792D42C521E2115100D438F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = J6E64C67VU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "Fenris macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.wolftrail.Fenris-macOS";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -620,6 +647,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -677,61 +705,9 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		79C681E82111761B006E20D0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q97F9KZ3J6;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Fenris macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		79C681E92111761B006E20D0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = Q97F9KZ3J6;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Fenris macOS/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -776,7 +752,7 @@
 		79C6820021117860006E20D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q97F9KZ3J6;
@@ -794,7 +770,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -802,7 +777,7 @@
 		79C6820121117860006E20D0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = Q97F9KZ3J6;
@@ -820,7 +795,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -838,20 +812,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		792D42C321E2115100D438F1 /* Build configuration list for PBXNativeTarget "Fenris macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				792D42C421E2115100D438F1 /* Debug */,
+				792D42C521E2115100D438F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		79C681CD2111761B006E20D0 /* Build configuration list for PBXProject "Fenris" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79C681E52111761B006E20D0 /* Debug */,
 				79C681E62111761B006E20D0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		79C681E72111761B006E20D0 /* Build configuration list for PBXNativeTarget "Fenris macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				79C681E82111761B006E20D0 /* Debug */,
-				79C681E92111761B006E20D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

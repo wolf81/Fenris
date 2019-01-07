@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "792D42A121E2111500D438F1"
-               BuildableName = "Fenris_macOS.framework"
-               BlueprintName = "Fenris macOS"
+               BlueprintIdentifier = "79C681F921117860006E20D0"
+               BuildableName = "Fenris iOS.framework"
+               BlueprintName = "Fenris iOS"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "79C681DB2111761B006E20D0"
-               BuildableName = "FenrisTests.xctest"
-               BlueprintName = "FenrisTests"
-               ReferencedContainer = "container:Fenris.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
-            BlueprintName = "Fenris macOS"
-            ReferencedContainer = "container:Fenris.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
-            BlueprintName = "Fenris macOS"
+            BlueprintIdentifier = "79C681F921117860006E20D0"
+            BuildableName = "Fenris iOS.framework"
+            BlueprintName = "Fenris iOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
-            BlueprintName = "Fenris macOS"
+            BlueprintIdentifier = "79C681F921117860006E20D0"
+            BuildableName = "Fenris iOS.framework"
+            BlueprintName = "Fenris iOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import CoreGraphics
 
 #if os(macOS)
 import Cocoa
 #endif
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import UIKit
 #endif
 
