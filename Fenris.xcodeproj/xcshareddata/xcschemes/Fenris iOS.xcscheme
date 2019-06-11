@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "79C681F921117860006E20D0"
-               BuildableName = "Fenris iOS.framework"
+               BuildableName = "Fenris.framework"
                BlueprintName = "Fenris iOS"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79C681F921117860006E20D0"
-            BuildableName = "Fenris iOS.framework"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris iOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "79C681F921117860006E20D0"
-            BuildableName = "Fenris iOS.framework"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris iOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>

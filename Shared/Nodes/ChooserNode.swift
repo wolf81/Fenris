@@ -79,7 +79,7 @@ class ChooserNode: SKShapeNode, MenuNode {
     
     private func updateForCurrentState() throws {
         if let button = self.button {
-            self.button.removeFromParent()
+            button.removeFromParent()
         }
         
         self.button = try ButtonNode(

@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "792D42A121E2111500D438F1"
-               BuildableName = "Fenris_macOS.framework"
+               BlueprintIdentifier = "792D42BD21E2115100D438F1"
+               BuildableName = "Fenris.framework"
                BlueprintName = "Fenris macOS"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
+            BlueprintIdentifier = "792D42BD21E2115100D438F1"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris macOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
@@ -64,8 +64,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
+            BlueprintIdentifier = "792D42BD21E2115100D438F1"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris macOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
@@ -82,8 +82,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "792D42A121E2111500D438F1"
-            BuildableName = "Fenris_macOS.framework"
+            BlueprintIdentifier = "792D42BD21E2115100D438F1"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris macOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>

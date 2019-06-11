@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "792D427921E20A0E00D438F1"
-               BuildableName = "Fenris tvOS.framework"
+               BuildableName = "Fenris.framework"
                BlueprintName = "Fenris tvOS"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "792D427921E20A0E00D438F1"
-            BuildableName = "Fenris tvOS.framework"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris tvOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "792D427921E20A0E00D438F1"
-            BuildableName = "Fenris tvOS.framework"
+            BuildableName = "Fenris.framework"
             BlueprintName = "Fenris tvOS"
             ReferencedContainer = "container:Fenris.xcodeproj">
          </BuildableReference>

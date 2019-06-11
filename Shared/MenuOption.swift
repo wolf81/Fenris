@@ -13,6 +13,12 @@ public protocol MenuOption: class {
     var configuration: MenuNodeConfiguration { get }
 }
 
+extension MenuOption {
+    static public func button(title: String, selected: @escaping () -> Void) -> Button {
+        return Button(title: title, selected: selected)
+    }
+}
+
 // MARK: - Toggle
 
 public class Toggle: MenuOption {
