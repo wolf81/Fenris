@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-public class MenuScene: SKScene {
+open class MenuScene: SKScene {
     typealias MenuControl = SKShapeNode & MenuNode
     
     private var verticalPadding: CGFloat = 0
