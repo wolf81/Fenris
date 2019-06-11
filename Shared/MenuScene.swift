@@ -110,7 +110,7 @@ open class MenuScene: SKScene {
 #if os(macOS)
 
 extension MenuScene {
-    public override func mouseUp(with event: NSEvent) {
+    open override func mouseUp(with event: NSEvent) {
         var location = event.location(in: self)
         if let control = menuControlAt(location: location) {
            location = self.convert(location, to: control)
@@ -124,7 +124,7 @@ extension MenuScene {
 #if os(iOS)
 
 extension MenuScene {
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else {
             return
         }
