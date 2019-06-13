@@ -43,6 +43,13 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
             addChild(node)
             node.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - node.frame.height) / 2)
             node.zPosition = -1
+        case let menuItem as ToggleMenuItem:
+            var node: SKNode
+            let nodeSize = CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight)
+            node = ToggleNode(size: nodeSize, font: configuration.font, menuItem: menuItem)
+            addChild(node)
+            node.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - node.frame.height) / 2)
+            node.zPosition = -1
         default: break
         }
         

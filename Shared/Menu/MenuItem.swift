@@ -40,7 +40,7 @@ public class ChooserMenuItem: MenuItem {
 public class ToggleMenuItem: MenuItem {
     public let title: String
     
-    private var isEnabled: Bool
+    var isEnabled: Bool
     
     required public init(title: String, enabled: Bool) {
         self.title = title

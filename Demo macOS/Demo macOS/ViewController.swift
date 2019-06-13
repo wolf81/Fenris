@@ -20,11 +20,11 @@ class ViewController: NSViewController {
         if let view = self.skView {
             let items: [MenuItem] = [
                 ButtonMenuItem(title: "Fighter"),
-                ButtonMenuItem(title: "assclown"),
-                ButtonMenuItem(title: "Test 3"),
+                ButtonMenuItem(title: "Volume"),
+                ToggleMenuItem(title: "Music", enabled: false),
                 ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
             ]
-            let font = Font(name: "Helvetica", size: 18)!
+            let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
             let configuration = MenuConfiguration(menuWidth: 360, itemHeight: 40, font: font)
             let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)
 
