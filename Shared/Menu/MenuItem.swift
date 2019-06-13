@@ -22,17 +22,17 @@ public class ButtonMenuItem: MenuItem {
 }
 
 // E.g. "Profession: <[ Fighter, Mage, Priest ]>"
-public class ChooserMenuItem<T>: MenuItem {
+public class ChooserMenuItem: MenuItem {
     public var title: String
     
-    private let values: [T]
+    private let values: [String]
     
-    private var selectedValue: T
+    private var selectedValueIdx: Int
     
-    public required init(title: String, values: [T], selectedValue: T) {
+    public required init(title: String, values: [String], selectedValueIdx: Int) {
         self.title = title
         self.values = values
-        self.selectedValue = selectedValue
+        self.selectedValueIdx = selectedValueIdx
     }
 }
 

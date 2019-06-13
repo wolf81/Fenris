@@ -40,6 +40,14 @@ extension MenuScene: SceneInteractable {
     func down() {
         self.menuContainer.down()
     }
+    
+    func left() {
+        self.menuContainer.left()
+    }
+    
+    func right() {
+        self.menuContainer.right()
+    }
 }
 
 #if os(macOS)
@@ -54,8 +62,8 @@ extension MenuScene {
         switch event.keyCode {
         case 126: self.up()
         case 125: self.down()
-        case 123: print("left")
-        case 124: print("right")
+        case 123: self.left()
+        case 124: self.right()
         case 49: print("space")
         case 53: print("escape")
         default: break

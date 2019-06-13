@@ -44,13 +44,10 @@ class MenuContainerNode: SKShapeNode {
 
 extension MenuContainerNode: SceneInteractable {
     func up() {
-        print("- up")
         guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            self.selectedItemIdx = 0
-            updateSelectedNode()
-            return
+            return selectFirstNode()
         }
-        
+
         self.selectedItemIdx += 1
         self.selectedItemIdx = min(self.nodes.count - 1, self.selectedItemIdx)
 
@@ -58,22 +55,52 @@ extension MenuContainerNode: SceneInteractable {
     }
     
     func down() {
-        print("- down")
         guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            self.selectedItemIdx = 0
-            updateSelectedNode()
-            return
+            return selectFirstNode()
         }
-        
+
         self.selectedItemIdx -= 1
         self.selectedItemIdx = max(0, self.selectedItemIdx)
 
         updateSelectedNode()
     }
     
+    func left() {
+        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
+            return selectFirstNode()
+        }
+        
+        if let interactableNode = selectedNode() {
+            interactableNode.left()
+        }
+    }
+    
+    func right() {
+        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
+            return selectFirstNode()
+        }
+        
+        if let interactableNode = selectedNode() {
+            interactableNode.right()
+        }
+    }
+    
     private func updateSelectedNode() {
         for (idx, node) in self.nodes.enumerated() {
             node.selected = idx == self.selectedItemIdx
         }
+    }
+    
+    private func selectedNode() -> MenuItemContainerNode? {
+        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
+            return nil
+        }
+        
+        return self.nodes[self.selectedItemIdx]
+    }
+    
+    private func selectFirstNode() {
+        self.selectedItemIdx = 0
+        updateSelectedNode()
     }
 }

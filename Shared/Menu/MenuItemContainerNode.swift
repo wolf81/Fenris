@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class MenuItemContainerNode: SKShapeNode {
+class MenuItemContainerNode: SKShapeNode & SceneInteractable {
     let menuItem: MenuItem
 
     var selected: Bool {
@@ -32,21 +32,50 @@ class MenuItemContainerNode: SKShapeNode {
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
         
         let label = SKLabelNode(text: menuItem.title)
+        label.font = configuration.font
         addChild(label)
         
-        if !(menuItem is ButtonMenuItem) {
-            let chooser = ChooserNode(size: CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight))
-            chooser.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - chooser.frame.height) / 2)
-            chooser.zPosition = -1
-            addChild(chooser)
+        switch menuItem {
+        case let _ as ChooserMenuItem:
+            var node: SKNode
+            let nodeSize = CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight)
+            node = ChooserNode(size: nodeSize, font: configuration.font, values: ["Fighter", "Mage", "Thief"], selectedValueIdx: 0)
+            addChild(node)
+            node.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - node.frame.height) / 2)
+            node.zPosition = -1
+        default: break
         }
         
         let labelX = (configuration.menuWidth / 2) / 2
-        label.position = CGPoint(x: labelX, y: (frame.height - label.frame.height) / 2)
+        label.position = CGPoint(x: labelX, y: (self.frame.height - configuration.font.maxHeight) / 2)
         self.selected = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    func up() {
+        // ignore
+    }
+    
+    func down() {
+        // ignore
+    }
+    
+    func left() {
+        for node in self.children {
+            if let interactableNode = node as? SceneInteractable {
+                interactableNode.left()
+            }
+        }
+    }
+    
+    func right() {
+        for node in self.children {
+            if let interactableNode = node as? SceneInteractable {
+                interactableNode.right()
+            }
+        }
     }
 }

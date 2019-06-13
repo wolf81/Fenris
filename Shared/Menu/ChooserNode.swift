@@ -8,14 +8,26 @@
 
 import SpriteKit
 
-class ChooserNode: SKShapeNode {
+class ChooserNode: SKShapeNode & SceneInteractable {
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
     
-    init(size: CGSize) {
+    private let label: SKLabelNode
+    
+    private let values: [String]
+    private var selectedValueIdx: Int
+    
+    init(size: CGSize, font: Font, values: [String], selectedValueIdx: Int) {
         let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
         self.leftArrowButton = ArrowButtonNode(size: buttonSize, direction: .left)
         self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
+
+        self.values = values
+        self.selectedValueIdx = selectedValueIdx
+        
+        let title = values[selectedValueIdx]
+        self.label = SKLabelNode(text: title)
+        self.label.font = font
         
         super.init()
         
@@ -29,9 +41,32 @@ class ChooserNode: SKShapeNode {
         
         addChild(self.rightArrowButton)
         self.rightArrowButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
+        
+        addChild(self.label)
+        self.label.position = CGPoint(x: self.frame.midX, y: (self.frame.height - font.maxHeight) / 2)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    func up() {
+        // ignore
+    }
+    
+    func down() {
+        // ignore
+    }
+    
+    func left() {
+        self.selectedValueIdx -= 1
+        self.selectedValueIdx = max(0, self.selectedValueIdx)
+        self.label.text = self.values[self.selectedValueIdx]
+    }
+    
+    func right() {
+        self.selectedValueIdx += 1
+        self.selectedValueIdx = min(self.values.count - 1, self.selectedValueIdx)
+        self.label.text = self.values[self.selectedValueIdx]
     }
 }

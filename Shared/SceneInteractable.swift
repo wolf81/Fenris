@@ -11,4 +11,6 @@ import Foundation
 protocol SceneInteractable {
     func up()
     func down()
+    func left()
+    func right()
 }
