@@ -9,20 +9,26 @@
 import SpriteKit
 
 class ChooserNode: SKShapeNode {
+    private let leftArrowButton: ArrowButtonNode
+    private let rightArrowButton: ArrowButtonNode
+    
     init(size: CGSize) {
+        let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
+        self.leftArrowButton = ArrowButtonNode(size: buttonSize, direction: .left)
+        self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
+        
         super.init()
         
         self.strokeColor = SKColor.white
         self.lineWidth = 1
 
-        var path = CGMutablePath()
-        path.addRect(CGRect(origin: .zero, size: size))
-        path.move(to: CGPoint(x: size.height, y: 0))
-        path.addLine(to: CGPoint(x: size.height, y: size.height))
-        path.move(to: CGPoint(x: size.width - size.height, y: 0))
-        path.addLine(to: CGPoint(x: size.width - size.height, y: size.height))
+        self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
+                
+        addChild(self.leftArrowButton)
+        self.leftArrowButton.position = .zero
         
-        self.path = path
+        addChild(self.rightArrowButton)
+        self.rightArrowButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
