@@ -158,6 +158,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		79809DF322B21DC4008E4B49 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				795D786621119EEA00F4547D /* ViewController.swift */,
+				79EA8D672114B95D0072CBBE /* Font.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
 		79C5507A2112CA4200E07A27 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,14 +217,13 @@
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				79809DF322B21DC4008E4B49 /* Types */,
 				79EA8D6A2114B9B30072CBBE /* Extensions */,
-				79EA8D662114B9500072CBBE /* Utilities */,
 				79C5507A2112CA4200E07A27 /* Nodes */,
 				795D784C211180F700F4547D /* ServiceLocator.swift */,
 				795D784F2111812D00F4547D /* SceneManager.swift */,
 				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
 				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				795D786621119EEA00F4547D /* ViewController.swift */,
 				79C5506E211218D600E07A27 /* MenuScene.swift */,
 				79C55071211218DE00E07A27 /* MenuOption.swift */,
 			);
@@ -229,14 +237,6 @@
 				79C681FD21117860006E20D0 /* Info.plist */,
 			);
 			path = "Fenris iOS";
-			sourceTree = "<group>";
-		};
-		79EA8D662114B9500072CBBE /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				79EA8D672114B95D0072CBBE /* Font.swift */,
-			);
-			path = Utilities;
 			sourceTree = "<group>";
 		};
 		79EA8D6A2114B9B30072CBBE /* Extensions */ = {

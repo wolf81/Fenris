@@ -33,7 +33,7 @@ class ButtonNode: SKShapeNode, MenuNode {
         self.label.horizontalAlignmentMode = .center
         self.label.verticalAlignmentMode = .baseline
         
-        let font = try Font(name: self.label.fontName!, size: self.label.fontSize)
+        let font = Font(name: self.label.fontName!, size: self.label.fontSize)!
         let yOffset = ((self.option.configuration.height - font.maxHeight) / 2) +
             self.option.configuration.labelYOffset
 

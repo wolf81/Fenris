@@ -28,7 +28,7 @@ open class MenuScene: SKScene {
     public init(size: CGSize, controlHeight: CGFloat, options: [MenuOption]) {
         self.options = options
         
-        self.font = try! Font(name: "Papyrus", size: 14)
+        self.font = Font(name: "Papyrus", size: 14)!
         
         super.init(size: size)
 

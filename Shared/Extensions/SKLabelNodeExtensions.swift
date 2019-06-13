@@ -15,18 +15,12 @@ extension SKLabelNode {
                 return nil
             }
             
-            do {
-                let font = try Font(name: fontName, size: self.fontSize)
-                return font
-            } catch let error {
-                print("[ERROR] \(error.localizedDescription)")
-            }
-            return nil
+            return Font(name: fontName, size: self.fontSize)
         }
         set(newValue) {
             // TODO: think if this is what we really want to do if font is nil
-            self.fontName = newValue?.name
-            self.fontSize = newValue?.size ?? 0
+            self.fontName = newValue?.fontName
+            self.fontSize = newValue?.pointSize ?? 0
         }
     }
 }
