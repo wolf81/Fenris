@@ -18,11 +18,15 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         if let view = self.skView {
-            
-            let scene = MenuScene(size: view.bounds.size, controlHeight: 40, options: [
-                Button(title: "Test", selected: { print("test ...") })
-            ])
-            scene.scaleMode = .aspectFill
+            let items: [MenuItem] = [
+                ButtonMenuItem(title: "Test 1"),
+                ButtonMenuItem(title: "Test 2"),
+                ButtonMenuItem(title: "Test 3"),
+                ChooserMenuItem(title: "Test 4", values: ["X"], selectedValue: "X")
+            ]
+            let font = Font(name: "Helvetica", size: 12)!
+            let configuration = MenuConfiguration(menuWidth: 360, itemHeight: 40, font: font)
+            let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)
 
             // Present the scene
             view.presentScene(scene)
@@ -31,6 +35,6 @@ class ViewController: NSViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
-    }
+    }    
 }
 
