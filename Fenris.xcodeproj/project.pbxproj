@@ -58,6 +58,16 @@
 		79EA8D702115776A0072CBBE /* MenuNodeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6E2115776A0072CBBE /* MenuNodeConfiguration.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		79809DE922B21BD4008E4B49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 79809DCC22B21BD1008E4B49;
+			remoteInfo = "Demo macOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
@@ -71,6 +81,7 @@
 		795D785E211188A100F4547D /* ScenePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresentable.swift; sourceTree = "<group>"; };
 		795D7865211199D500F4547D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		795D786621119EEA00F4547D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Demo macOS.xcodeproj"; path = "Demo macOS/Demo macOS.xcodeproj"; sourceTree = "<group>"; };
 		79C5506E211218D600E07A27 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		79C55071211218DE00E07A27 /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		79C550742112C5E800E07A27 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
@@ -139,6 +150,14 @@
 			path = "Fenris macOS";
 			sourceTree = "<group>";
 		};
+		79809DE622B21BD3008E4B49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				79809DEA22B21BD4008E4B49 /* Demo macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		79C5507A2112CA4200E07A27 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +174,7 @@
 		79C681C92111761B006E20D0 = {
 			isa = PBXGroup;
 			children = (
+				79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */,
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
@@ -363,6 +383,12 @@
 			mainGroup = 79C681C92111761B006E20D0;
 			productRefGroup = 79C681D42111761B006E20D0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 79809DE622B21BD3008E4B49 /* Products */;
+					ProjectRef = 79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				79C681DB2111761B006E20D0 /* FenrisTests */,
@@ -372,6 +398,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		79809DEA22B21BD4008E4B49 /* Demo macOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Demo macOS.app";
+			remoteRef = 79809DE922B21BD4008E4B49 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		792D427821E20A0E00D438F1 /* Resources */ = {
