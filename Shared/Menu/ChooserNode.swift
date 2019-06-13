@@ -14,18 +14,16 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     
     private let label: SKLabelNode
     
-    private let values: [String]
-    private var selectedValueIdx: Int
+    private let menuItem: ChooserMenuItem
     
-    init(size: CGSize, font: Font, values: [String], selectedValueIdx: Int) {
+    init(size: CGSize, font: Font, menuItem: ChooserMenuItem) {
         let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
         self.leftArrowButton = ArrowButtonNode(size: buttonSize, direction: .left)
         self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
 
-        self.values = values
-        self.selectedValueIdx = selectedValueIdx
+        self.menuItem = menuItem
         
-        let title = values[selectedValueIdx]
+        let title = self.menuItem.values[self.menuItem.selectedValueIdx]
         self.label = SKLabelNode(text: title)
         self.label.font = font
         
@@ -59,14 +57,14 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     }
     
     func left() {
-        self.selectedValueIdx -= 1
-        self.selectedValueIdx = max(0, self.selectedValueIdx)
-        self.label.text = self.values[self.selectedValueIdx]
+        self.menuItem.selectedValueIdx -= 1
+        self.menuItem.selectedValueIdx = max(0, self.menuItem.selectedValueIdx)
+        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
     
     func right() {
-        self.selectedValueIdx += 1
-        self.selectedValueIdx = min(self.values.count - 1, self.selectedValueIdx)
-        self.label.text = self.values[self.selectedValueIdx]
+        self.menuItem.selectedValueIdx += 1
+        self.menuItem.selectedValueIdx = min(self.menuItem.values.count - 1, self.menuItem.selectedValueIdx)
+        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
 }

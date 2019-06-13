@@ -22,7 +22,7 @@ class ViewController: NSViewController {
                 ButtonMenuItem(title: "Fighter"),
                 ButtonMenuItem(title: "assclown"),
                 ButtonMenuItem(title: "Test 3"),
-                ChooserMenuItem(title: "Test 4", values: ["X"], selectedValueIdx: 0)
+                ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
             ]
             let font = Font(name: "Helvetica", size: 18)!
             let configuration = MenuConfiguration(menuWidth: 360, itemHeight: 40, font: font)

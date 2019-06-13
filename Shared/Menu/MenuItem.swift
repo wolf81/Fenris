@@ -25,9 +25,9 @@ public class ButtonMenuItem: MenuItem {
 public class ChooserMenuItem: MenuItem {
     public var title: String
     
-    private let values: [String]
+    let values: [String]
     
-    private var selectedValueIdx: Int
+    var selectedValueIdx: Int
     
     public required init(title: String, values: [String], selectedValueIdx: Int) {
         self.title = title
