@@ -8,11 +8,20 @@
 
 import Foundation
 
+/// An item to be displayed in the menu. Every item at the very least has a title.
 public protocol MenuItem {
     var title: String { get }
 }
 
-// E.g. "Quit"
+// MARK: - Concrete menu items
+// For every menu item in short a comment is added on how the control will work
+//
+// The following conventions are used:
+// [ ... ] The square brackets indicate a control
+// < ... > The less-than and greater-than signs indicate the ability to scroll through a list
+// - ... + The plus and minus sign indicate the ability to increment or decrement some number
+
+// E.g. "[ Quit ]"
 public class ButtonMenuItem: MenuItem {
     public let title: String
     
@@ -21,9 +30,9 @@ public class ButtonMenuItem: MenuItem {
     }
 }
 
-// E.g. "Profession: <[ Fighter, Mage, Priest ]>"
+// E.g. "Profession: <[ Fighter ]>"
 public class ChooserMenuItem: MenuItem {
-    public var title: String
+    public let title: String
     
     let values: [String]
     
@@ -36,7 +45,7 @@ public class ChooserMenuItem: MenuItem {
     }
 }
 
-// E.g. "Music: <[ On, Off ]>"
+// E.g. "Music: <[ Off ]>"
 public class ToggleMenuItem: MenuItem {
     public let title: String
     
@@ -48,15 +57,15 @@ public class ToggleMenuItem: MenuItem {
     }
 }
 
-// E.g. "Volume: <[ 0 ... 10 ]>"
-public class RangeMenuItem: MenuItem {
+// E.g.: "Strength: -[ 10 ]+"
+public class NumberChooserMenuItem: MenuItem {
     public let title: String
     
-    private let range: Range<Int>
+    var range: Range<Int>
+
+    var selectedValue: Int
     
-    private var selectedValue: Int
-    
-    required public init(title: String, range: Range<Int>, selectedValue: Int) {
+    public required init(title: String, range: Range<Int>, selectedValue: Int) {
         self.title = title
         self.range = range
         self.selectedValue = selectedValue

@@ -22,6 +22,7 @@ class ViewController: NSViewController {
                 ButtonMenuItem(title: "Fighter"),
                 ToggleMenuItem(title: "Music", enabled: false),
                 ButtonMenuItem(title: "Volume"),
+                NumberChooserMenuItem(title: "Strength", range: (0 ..< 18), selectedValue: 4),
                 ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
             ]
             let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
