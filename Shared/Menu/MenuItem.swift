@@ -54,13 +54,14 @@ public class LabelMenuItem: NSObject, MenuItem {
 }
 
 // E.g. "Profession: <[ Fighter ]>"
-public class ChooserMenuItem: MenuItem {
+public class ChooserMenuItem: NSObject, MenuItem {
     public let title: String
     
     let values: [String]
     
-    var selectedValueIdx: Int {
+    @objc dynamic var selectedValueIdx: Int {
         didSet {
+            print("newValue: \(self.selectedValueIdx)")
             if onValueChanged(self.values[self.selectedValueIdx]) == false {
                 self.selectedValueIdx = oldValue
             }
@@ -78,10 +79,10 @@ public class ChooserMenuItem: MenuItem {
 }
 
 // E.g. "Music: <[ Off ]>"
-public class ToggleMenuItem: MenuItem {
+public class ToggleMenuItem: NSObject, MenuItem {
     public let title: String
     
-    var isEnabled: Bool {
+    @objc dynamic var isEnabled: Bool {
         didSet {
             if onValueChanged(self.isEnabled) == false {
                 self.isEnabled = oldValue
@@ -99,12 +100,12 @@ public class ToggleMenuItem: MenuItem {
 }
 
 // E.g.: "Strength: -[ 10 ]+"
-public class NumberChooserMenuItem: MenuItem {
+public class NumberChooserMenuItem: NSObject, MenuItem {
     public let title: String
     
     var range: ClosedRange<Int>
 
-    var selectedValue: Int {
+    @objc dynamic var selectedValue: Int {
         didSet {
             if onValueChanged(self.selectedValue) == false {
                 self.selectedValue = oldValue

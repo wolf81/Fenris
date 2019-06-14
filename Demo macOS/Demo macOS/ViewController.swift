@@ -59,13 +59,16 @@ class ViewController: NSViewController {
                     labelItem.value = "\(self.pointsRemaining)"
                     return success
                 }),
+                ChooserMenuItem(title: "Race", values: ["Human", "Elf", "Dwarf"], selectedValueIdx: 0, onValueChanged: { newValue in
+                    print("new value: \(newValue)")
+                    return true
+                }),
                 ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2, onValueChanged: { newValue in
                     print("new value: \(newValue)")
                     return true
                 }),
                 labelItem
             ]
-//            let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
             let font = Font(name: "Papyrus", size: 18)!
             let configuration = MenuConfiguration(menuWidth: 400, itemHeight: 40, font: font)
             let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)

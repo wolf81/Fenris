@@ -23,8 +23,7 @@ class ChooserNode: SKShapeNode & SceneInteractable {
 
         self.menuItem = menuItem
         
-        let title = self.menuItem.values[self.menuItem.selectedValueIdx]
-        self.label = SKLabelNode(text: title)
+        self.label = SKLabelNode(text: nil)
         self.label.font = font
         
         super.init()
@@ -42,10 +41,22 @@ class ChooserNode: SKShapeNode & SceneInteractable {
         
         addChild(self.label)
         self.label.position = CGPoint(x: self.frame.midX, y: (size.height - font.capHeight) / 2)
+        
+        self.menuItem.addObserver(self, forKeyPath: #keyPath(ChooserMenuItem.selectedValueIdx), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    deinit {
+        self.menuItem.removeObserver(self, forKeyPath: #keyPath(ChooserMenuItem.selectedValueIdx))
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if object is ChooserMenuItem && keyPath == #keyPath(ChooserMenuItem.selectedValueIdx) {
+            self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
+        }
     }
     
     func action() {
@@ -61,20 +72,18 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     }
     
     func left() {
-        if self.menuItem.selectedValueIdx - 1 > 0 {
+        if self.menuItem.selectedValueIdx - 1 >= 0 {
             self.menuItem.selectedValueIdx -= 1
         } else {
             self.menuItem.selectedValueIdx = (self.menuItem.values.count - 1)
         }
-        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
     
     func right() {
-        if self.menuItem.selectedValueIdx + 1 < (self.menuItem.values.count - 1) {
+        if self.menuItem.selectedValueIdx + 1 < self.menuItem.values.count {
             self.menuItem.selectedValueIdx += 1
         } else {
             self.menuItem.selectedValueIdx = 0
         }
-        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
 }

@@ -12,7 +12,7 @@ class ToggleNode: SKShapeNode & SceneInteractable {
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
     
-    private let label: SKLabelNode
+    private let label: SKLabelNode = SKLabelNode()
 
     private let menuItem: ToggleMenuItem
     
@@ -23,7 +23,6 @@ class ToggleNode: SKShapeNode & SceneInteractable {
         self.leftArrowButton = ArrowButtonNode(size: buttonSize, direction: .left)
         self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
         
-        self.label = SKLabelNode(text: "-")
         self.label.font = font
 
         super.init()
@@ -41,12 +40,22 @@ class ToggleNode: SKShapeNode & SceneInteractable {
         
         addChild(self.label)
         self.label.position = CGPoint(x: self.frame.midX, y: (size.height - font.capHeight) / 2)
-
-        updateLabel()
+        
+        self.menuItem.addObserver(self, forKeyPath: #keyPath(ToggleMenuItem.isEnabled), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    deinit {
+        self.menuItem.removeObserver(self, forKeyPath: #keyPath(ToggleMenuItem.isEnabled))
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if object is ToggleMenuItem && keyPath == #keyPath(ToggleMenuItem.isEnabled) {
+            self.label.text = self.menuItem.isEnabled ? "On" : "Off"
+        }
     }
 
     func action() {
@@ -63,15 +72,9 @@ class ToggleNode: SKShapeNode & SceneInteractable {
     
     func left() {
         self.menuItem.isEnabled = !self.menuItem.isEnabled
-        updateLabel()        
     }
     
     func right() {
         self.menuItem.isEnabled = !self.menuItem.isEnabled
-        updateLabel()
-    }
-    
-    private func updateLabel() {
-        self.label.text = self.menuItem.isEnabled ? "On" : "Off"
     }
 }

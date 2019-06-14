@@ -11,12 +11,10 @@ import SpriteKit
 class DetailLabelNode: SKShapeNode {
     private let menuItem: LabelMenuItem
     
-    private let label: SKLabelNode
+    private let label: SKLabelNode = SKLabelNode()
     
     init(size: CGSize, font: Font, menuItem: LabelMenuItem) {
         self.menuItem = menuItem
-
-        self.label = SKLabelNode(text: menuItem.value)
 
         super.init()        
 
@@ -29,7 +27,7 @@ class DetailLabelNode: SKShapeNode {
         self.label.font = font
         self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
         
-        self.menuItem.addObserver(self, forKeyPath: #keyPath(LabelMenuItem.value), options: [.old, .new], context: nil)
+        self.menuItem.addObserver(self, forKeyPath: #keyPath(LabelMenuItem.value), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

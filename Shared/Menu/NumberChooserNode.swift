@@ -12,7 +12,7 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
     private let minusSignButton: SignButtonNode
     private let plusSignButton: SignButtonNode
     
-    private let label: SKLabelNode
+    private let label: SKLabelNode = SKLabelNode()
     
     private let menuItem: NumberChooserMenuItem
     
@@ -23,8 +23,6 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         
         self.menuItem = menuItem
         
-        let title = "\(self.menuItem.selectedValue)"
-        self.label = SKLabelNode(text: title)
         self.label.font = font
         
         super.init()
@@ -42,10 +40,22 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         
         addChild(self.label)
         self.label.position = CGPoint(x: self.frame.midX, y: (size.height - font.capHeight) / 2)
+        
+        self.menuItem.addObserver(self, forKeyPath: #keyPath(NumberChooserMenuItem.selectedValue), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+    
+    deinit {
+        self.menuItem.removeObserver(self, forKeyPath: #keyPath(NumberChooserMenuItem.selectedValue))
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if object is NumberChooserMenuItem && keyPath == #keyPath(NumberChooserMenuItem.selectedValue) {
+            self.label.text = "\(self.menuItem.selectedValue)"
+        }
     }
     
     func action() {
@@ -66,8 +76,6 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         if self.menuItem.range.contains(self.menuItem.selectedValue) == false {
             self.menuItem.selectedValue = self.menuItem.range.min() ?? 0
         }
-        
-        self.label.text = "\(self.menuItem.selectedValue)"
     }
     
     func right() {
@@ -76,7 +84,5 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         if self.menuItem.range.contains(self.menuItem.selectedValue) == false {
             self.menuItem.selectedValue = self.menuItem.range.max() ?? 0
         }
-
-        self.label.text = "\(self.menuItem.selectedValue)"
     }
 }
