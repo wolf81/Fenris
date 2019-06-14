@@ -41,7 +41,7 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         self.plusSignButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
         
         addChild(self.label)
-        self.label.position = CGPoint(x: self.frame.midX, y: (self.frame.height - font.maxHeight) / 2)
+        self.label.position = CGPoint(x: self.frame.midX, y: (size.height - font.capHeight) / 2)
     }
     
     required init?(coder aDecoder: NSCoder) {

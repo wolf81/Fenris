@@ -24,10 +24,6 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         let size = CGSize(width: width, height: configuration.itemHeight)
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
         
-        let label = SKLabelNode(text: menuItem.title)
-        label.font = configuration.font
-        addChild(label)
-        
         switch menuItem {
         case let menuItem as ChooserMenuItem:
             var node: SKShapeNode
@@ -53,8 +49,9 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         default: break
         }
         
-        let labelX = (configuration.menuWidth / 2) / 2
-        label.position = CGPoint(x: labelX, y: (self.frame.height - configuration.font.maxHeight) / 2)
+        let label = LabelNode(size: CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight), font: configuration.font, text: menuItem.title)
+        addChild(label)
+        label.position = CGPoint(x: 0, y: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

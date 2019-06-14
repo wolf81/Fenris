@@ -32,7 +32,8 @@ class ViewController: NSViewController {
                     print("new value: \(newValue)")
                 })
             ]
-            let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
+//            let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
+            let font = Font(name: "Papyrus", size: 18)!
             let configuration = MenuConfiguration(menuWidth: 400, itemHeight: 40, font: font)
             let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)
 

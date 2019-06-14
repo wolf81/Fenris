@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 #if os(macOS)
 import Cocoa
@@ -18,10 +17,4 @@ public typealias Font = NSFont
 import UIKit
 public typealias Font = UIFont
 #endif
-
-extension Font {
-    var maxHeight: CGFloat {
-        return self.ascender + abs(self.descender)
-    }
-}
 
