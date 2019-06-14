@@ -53,12 +53,21 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
             addChild(node)
             node.position = CGPoint(x: configuration.menuWidth / 2, y: (self.frame.height - node.frame.height) / 2)
             node.zPosition = -1
+        case let menuItem as ButtonMenuItem:
+            var node: SKShapeNode
+            let nodeSize = CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight)
+            node = TextButtonNode(size: nodeSize, font: configuration.font, menuItem: menuItem)
+            addChild(node)
+            node.position = CGPoint(x: 0, y: (self.frame.height - node.frame.height) / 2)
+            node.zPosition = -1
         default: break
         }
         
-        let label = LabelNode(size: CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight), font: configuration.font, text: menuItem.title)
-        addChild(label)
-        label.position = CGPoint(x: 0, y: 0)
+        if !(menuItem is ButtonMenuItem) {
+            let label = LabelNode(size: CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight), font: configuration.font, text: menuItem.title)
+            addChild(label)
+            label.position = CGPoint(x: 0, y: 0)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

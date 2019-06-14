@@ -34,6 +34,7 @@ open class MenuScene: SKScene {
 
 extension MenuScene: SceneInteractable {
     func action() {
+        self.menuContainer.action()
         
     }
     

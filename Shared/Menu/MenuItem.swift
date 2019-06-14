@@ -25,10 +25,10 @@ public protocol MenuItem {
 // - ... + The plus and minus sign indicate the ability to increment or decrement some number
 
 // E.g. "[ Quit ]"
-public class ButtonMenuItem: MenuItem {
+public class ButtonMenuItem: NSObject, MenuItem {
     public let title: String
     
-    private let onClick: ClickBlock
+    let onClick: ClickBlock
     
     public init(title: String, onClick: @escaping ClickBlock) {
         self.title = title
