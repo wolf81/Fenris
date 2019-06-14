@@ -17,7 +17,7 @@ open class MenuScene: SKScene {
             itemNodes.append(MenuItemContainerNode(menuItem: item, configuration: configuration))
         }
         
-        self.menuContainer = MenuContainerNode(width: configuration.menuWidth, nodeHeight: configuration.itemHeight, nodes: itemNodes.reversed())
+        self.menuContainer = MenuContainerNode(width: configuration.menuWidth, nodeHeight: configuration.itemHeight, nodes: itemNodes)
         super.init(size: size)
         
         self.scaleMode = .aspectFit

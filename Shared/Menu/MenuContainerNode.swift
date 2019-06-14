@@ -21,7 +21,7 @@ class MenuContainerNode: SKShapeNode {
     private var nodes: [MenuItemContainerNode]
     
     init(width: CGFloat, nodeHeight: CGFloat, nodes: [MenuItemContainerNode]) {
-        self.nodes = nodes
+        self.nodes = nodes.reversed()
         
         super.init()
                 
@@ -33,7 +33,7 @@ class MenuContainerNode: SKShapeNode {
         self.strokeColor = .clear
         
         var y = CGFloat(0)
-        for node in nodes {
+        for node in self.nodes {
             addChild(node)
             node.position = CGPoint(x: 0, y: y)
             y += nodeHeight
@@ -107,7 +107,7 @@ extension MenuContainerNode: SceneInteractable {
             return nil
         }
         
-        return self.nodes[self.focusedItemIdx]
+        return self.nodes.reversed()[self.focusedItemIdx]
     }
     
     private func focusFirstNode() {
