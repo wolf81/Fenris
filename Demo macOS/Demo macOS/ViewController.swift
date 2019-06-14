@@ -22,11 +22,11 @@ class ViewController: NSViewController {
                 ButtonMenuItem(title: "Fighter"),
                 ToggleMenuItem(title: "Music", enabled: false),
                 ButtonMenuItem(title: "Volume"),
-                NumberChooserMenuItem(title: "Strength", range: (0 ..< 18), selectedValue: 4),
+                NumberChooserMenuItem(title: "Strength", range: (6 ... 18), selectedValue: 12),
                 ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
             ]
             let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
-            let configuration = MenuConfiguration(menuWidth: 360, itemHeight: 40, font: font)
+            let configuration = MenuConfiguration(menuWidth: 400, itemHeight: 40, font: font)
             let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)
 
             // Present the scene

@@ -62,11 +62,8 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         if self.menuItem.range.contains(self.menuItem.selectedValue) == false {
             self.menuItem.selectedValue = self.menuItem.range.min() ?? 0
         }
-//        self.menuItem.selectedValueIdx -= 1
-//        if self.menuItem.selectedValueIdx < 0 {
-//            self.menuItem.selectedValueIdx = self.menuItem.values.count - 1
-//        }
-//        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
+        
+        self.label.text = "\(self.menuItem.selectedValue)"
     }
     
     func right() {
@@ -76,10 +73,6 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
             self.menuItem.selectedValue = self.menuItem.range.max() ?? 0
         }
 
-//        self.menuItem.selectedValueIdx += 1
-//        if self.menuItem.selectedValueIdx > (self.menuItem.values.count - 1) {
-//            self.menuItem.selectedValueIdx = 0
-//        }
-//        self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
+        self.label.text = "\(self.menuItem.selectedValue)"
     }
 }

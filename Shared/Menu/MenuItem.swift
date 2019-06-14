@@ -61,11 +61,11 @@ public class ToggleMenuItem: MenuItem {
 public class NumberChooserMenuItem: MenuItem {
     public let title: String
     
-    var range: Range<Int>
+    var range: ClosedRange<Int>
 
     var selectedValue: Int
     
-    public required init(title: String, range: Range<Int>, selectedValue: Int) {
+    public required init(title: String, range: ClosedRange<Int>, selectedValue: Int) {
         self.title = title
         self.range = range
         self.selectedValue = selectedValue

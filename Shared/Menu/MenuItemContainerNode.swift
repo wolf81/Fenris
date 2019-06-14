@@ -16,6 +16,9 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
 
         super.init()
         
+        self.strokeColor = .clear
+        self.isAntialiased = true
+
         let width = menuItem is ButtonMenuItem ? configuration.menuWidth / 2 : configuration.menuWidth
         
         let size = CGSize(width: width, height: configuration.itemHeight)
@@ -24,8 +27,6 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         let label = SKLabelNode(text: menuItem.title)
         label.font = configuration.font
         addChild(label)
-        
-        self.strokeColor = .clear
         
         switch menuItem {
         case let menuItem as ChooserMenuItem:
