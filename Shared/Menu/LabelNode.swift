@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class LabelNode: SKShapeNode {
+class LabelNode: SKShapeNode {    
     init(size: CGSize, font: Font, text: String) {
         super.init()
         

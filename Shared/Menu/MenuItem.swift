@@ -9,7 +9,7 @@
 import Foundation
 
 public typealias ClickBlock = () -> Void
-public typealias ValueChangedBlock<T> = (T) -> Void
+public typealias ValueChangedBlock<T> = (T) -> Bool
 
 /// An item to be displayed in the menu. Every item at the very least has a title.
 public protocol MenuItem {
@@ -30,9 +30,26 @@ public class ButtonMenuItem: MenuItem {
     
     private let onClick: ClickBlock
     
-    required public init(title: String, onClick: @escaping ClickBlock) {
+    public init(title: String, onClick: @escaping ClickBlock) {
         self.title = title
         self.onClick = onClick
+    }
+}
+
+public class LabelMenuItem: NSObject, MenuItem {
+    public let title: String
+    
+    @objc dynamic public var value: String {
+        didSet {
+            if self.value != oldValue {
+                print("new value: \(self.value)")
+            }
+        }
+    }
+
+    public init(title: String, value: String) {
+        self.title = title
+        self.value = value
     }
 }
 
@@ -44,13 +61,15 @@ public class ChooserMenuItem: MenuItem {
     
     var selectedValueIdx: Int {
         didSet {
-            onValueChanged(self.values[self.selectedValueIdx])
+            if onValueChanged(self.values[self.selectedValueIdx]) == false {
+                self.selectedValueIdx = oldValue
+            }
         }
     }
     
     private let onValueChanged: ValueChangedBlock<String>
     
-    public required init(title: String, values: [String], selectedValueIdx: Int, onValueChanged: @escaping ValueChangedBlock<String>) {
+    public init(title: String, values: [String], selectedValueIdx: Int, onValueChanged: @escaping ValueChangedBlock<String>) {
         self.title = title
         self.values = values
         self.selectedValueIdx = selectedValueIdx
@@ -64,13 +83,15 @@ public class ToggleMenuItem: MenuItem {
     
     var isEnabled: Bool {
         didSet {
-            onValueChanged(self.isEnabled)
+            if onValueChanged(self.isEnabled) == false {
+                self.isEnabled = oldValue
+            }
         }
     }
     
     let onValueChanged: ValueChangedBlock<Bool>
     
-    required public init(title: String, enabled: Bool, onValueChanged: @escaping ValueChangedBlock<Bool>) {
+    public init(title: String, enabled: Bool, onValueChanged: @escaping ValueChangedBlock<Bool>) {
         self.title = title
         self.isEnabled = enabled
         self.onValueChanged = onValueChanged
@@ -85,13 +106,15 @@ public class NumberChooserMenuItem: MenuItem {
 
     var selectedValue: Int {
         didSet {
-            onValueChanged(self.selectedValue)
+            if onValueChanged(self.selectedValue) == false {
+                self.selectedValue = oldValue
+            }
         }
     }
     
     let onValueChanged: ValueChangedBlock<Int>
     
-    public required init(title: String, range: ClosedRange<Int>, selectedValue: Int, onValueChanged: @escaping ValueChangedBlock<Int>) {
+    public init(title: String, range: ClosedRange<Int>, selectedValue: Int, onValueChanged: @escaping ValueChangedBlock<Int>) {
         self.title = title
         self.range = range
         self.selectedValue = selectedValue
