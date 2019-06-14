@@ -36,6 +36,10 @@ class DetailLabelNode: SKShapeNode {
         fatalError()
     }
     
+    deinit {
+        self.menuItem.removeObserver(self, forKeyPath: #keyPath(LabelMenuItem.value))
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is LabelMenuItem && keyPath == #keyPath(LabelMenuItem.value) {
             self.label.text = "\(self.menuItem.value)"
