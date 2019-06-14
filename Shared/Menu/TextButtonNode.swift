@@ -21,8 +21,8 @@ class TextButtonNode: SKShapeNode & SceneInteractable {
         super.init()
         
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
-        self.strokeColor = .red
-        self.lineWidth = 1
+        self.strokeColor = .clear
+        self.lineWidth = 0
 
         self.label.font = font
         self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
