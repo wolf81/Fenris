@@ -20,8 +20,8 @@ class ViewController: NSViewController {
         if let view = self.skView {
             let items: [MenuItem] = [
                 ButtonMenuItem(title: "Fighter"),
-                ButtonMenuItem(title: "Volume"),
                 ToggleMenuItem(title: "Music", enabled: false),
+                ButtonMenuItem(title: "Volume"),
                 ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
             ]
             let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!

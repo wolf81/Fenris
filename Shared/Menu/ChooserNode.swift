@@ -30,7 +30,7 @@ class ChooserNode: SKShapeNode & SceneInteractable {
         super.init()
         
         self.strokeColor = SKColor.clear
-        self.lineWidth = 1
+        self.lineWidth = 0
 
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
                 
@@ -58,13 +58,17 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     
     func left() {
         self.menuItem.selectedValueIdx -= 1
-        self.menuItem.selectedValueIdx = max(0, self.menuItem.selectedValueIdx)
+        if self.menuItem.selectedValueIdx < 0 {
+            self.menuItem.selectedValueIdx = self.menuItem.values.count - 1
+        }
         self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
     
     func right() {
         self.menuItem.selectedValueIdx += 1
-        self.menuItem.selectedValueIdx = min(self.menuItem.values.count - 1, self.menuItem.selectedValueIdx)
+        if self.menuItem.selectedValueIdx > (self.menuItem.values.count - 1) {
+            self.menuItem.selectedValueIdx = 0
+        }
         self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
 }

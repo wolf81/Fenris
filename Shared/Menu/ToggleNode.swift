@@ -29,7 +29,7 @@ class ToggleNode: SKShapeNode & SceneInteractable {
         super.init()
         
         self.strokeColor = SKColor.clear
-        self.lineWidth = 1
+        self.lineWidth = 0
         
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
         

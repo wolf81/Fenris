@@ -9,9 +9,12 @@
 import SpriteKit
 
 class MenuContainerNode: SKShapeNode {
-    var selectedItemIdx: Int = Int.min {
+    private var focusNode: SKShapeNode!
+    
+    var focusedItemIdx: Int = Int.min {
         didSet {
-            print("idx: \(self.selectedItemIdx)")
+            self.focusNode.isHidden = (self.focusedItemIdx == Int.min)
+            updateFocusedNode()
         }
     }
     
@@ -21,12 +24,12 @@ class MenuContainerNode: SKShapeNode {
         self.nodes = nodes
         
         super.init()
-        
+                
         let height = nodeHeight * CGFloat(nodes.count)
         let pathRect = CGRect(x: 0, y: 0, width: width, height: height)
         self.path = CGPath(rect: pathRect, transform: nil)
         
-        self.lineWidth = 1
+        self.lineWidth = 0
         self.strokeColor = .clear
         
         var y = CGFloat(0)
@@ -35,6 +38,11 @@ class MenuContainerNode: SKShapeNode {
             node.position = CGPoint(x: 0, y: y)
             y += nodeHeight
         }
+        
+        let focusFrame = nodes.first?.frame ?? .zero
+        self.focusNode = SKShapeNode(path: CGPath(rect: focusFrame, transform: nil))
+        
+        self.focusedItemIdx = Int.min
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -43,64 +51,70 @@ class MenuContainerNode: SKShapeNode {
 }
 
 extension MenuContainerNode: SceneInteractable {
-    func up() {
-        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            return selectFirstNode()
+    func down() {
+        guard self.focusedItemIdx != Int.min else {
+            return focusFirstNode()
         }
 
-        self.selectedItemIdx += 1
-        self.selectedItemIdx = min(self.nodes.count - 1, self.selectedItemIdx)
-
-        updateSelectedNode()
+        self.focusedItemIdx += 1
+        self.focusedItemIdx = min(self.nodes.count - 1, self.focusedItemIdx)
     }
     
-    func down() {
-        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            return selectFirstNode()
+    func up() {
+        guard self.focusedItemIdx != Int.min else {
+            return focusFirstNode()
         }
 
-        self.selectedItemIdx -= 1
-        self.selectedItemIdx = max(0, self.selectedItemIdx)
-
-        updateSelectedNode()
+        self.focusedItemIdx -= 1
+        self.focusedItemIdx = max(0, self.focusedItemIdx)
     }
     
     func left() {
-        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            return selectFirstNode()
+        guard self.focusedItemIdx != Int.min else {
+            return focusFirstNode()
         }
-        
-        if let interactableNode = selectedNode() {
+
+        if let interactableNode = focusedNode() {
             interactableNode.left()
         }
     }
     
     func right() {
-        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
-            return selectFirstNode()
+        guard self.focusedItemIdx != Int.min else {
+            return focusFirstNode()
         }
         
-        if let interactableNode = selectedNode() {
+        if let interactableNode = focusedNode() {
             interactableNode.right()
         }
     }
     
-    private func updateSelectedNode() {
-        for (idx, node) in self.nodes.enumerated() {
-            node.selected = idx == self.selectedItemIdx
+    private func updateFocusedNode() {
+        self.focusNode?.removeFromParent()
+        
+        for (idx, node) in self.nodes.reversed().enumerated() {
+            guard idx == focusedItemIdx else { continue }
+            
+            self.focusNode = SKShapeNode(path: CGPath(rect: node.frame, transform: nil))
+            self.focusNode.strokeColor = .yellow
+            self.focusNode.lineWidth = 1
+            addChild(self.focusNode)
         }
     }
     
-    private func selectedNode() -> MenuItemContainerNode? {
-        guard self.nodes.count > 0, selectedItemIdx != Int.min else {
+    private func focusedNode() -> MenuItemContainerNode? {
+        guard self.nodes.count > 0, focusedItemIdx != Int.min else {
             return nil
         }
         
-        return self.nodes[self.selectedItemIdx]
+        return self.nodes[self.focusedItemIdx]
     }
     
-    private func selectFirstNode() {
-        self.selectedItemIdx = 0
-        updateSelectedNode()
+    private func focusFirstNode() {
+        guard self.nodes.count > 0 else {
+            return
+        }
+        
+        self.focusedItemIdx = 0
     }
 }

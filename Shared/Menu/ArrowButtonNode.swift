@@ -14,6 +14,7 @@ class ArrowButtonNode: SKShapeNode {
         
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
         
+        self.lineWidth = 0
         self.strokeColor = .clear
         self.fillColor = SKColor.yellow.withAlphaComponent(0.2)
         

@@ -20,6 +20,7 @@ class ArrowNode: SKShapeNode {
         self.strokeColor = .white
         self.fillColor = .white
         self.lineWidth = 1
+        self.isAntialiased = true
         
         let path = CGMutablePath()
         

@@ -10,21 +10,11 @@ import SpriteKit
 
 class MenuItemContainerNode: SKShapeNode & SceneInteractable {
     let menuItem: MenuItem
-
-    var selected: Bool {
-        didSet {
-            print("change stroke color: \(self.selected)")
-            self.strokeColor = self.selected ? .yellow : .clear
-        }
-    }
     
     init(menuItem: MenuItem, configuration: MenuConfiguration) {
-        self.selected = true
         self.menuItem = menuItem
 
         super.init()
-
-        self.lineWidth = 1
         
         let width = menuItem is ButtonMenuItem ? configuration.menuWidth / 2 : configuration.menuWidth
         
@@ -35,27 +25,28 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         label.font = configuration.font
         addChild(label)
         
+        self.strokeColor = .clear
+        
         switch menuItem {
         case let menuItem as ChooserMenuItem:
-            var node: SKNode
+            var node: SKShapeNode
             let nodeSize = CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight)
             node = ChooserNode(size: nodeSize, font: configuration.font, menuItem: menuItem)
             addChild(node)
-            node.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - node.frame.height) / 2)
+            node.position = CGPoint(x: configuration.menuWidth / 2, y: (self.frame.height - node.frame.height) / 2)
             node.zPosition = -1
         case let menuItem as ToggleMenuItem:
-            var node: SKNode
+            var node: SKShapeNode
             let nodeSize = CGSize(width: configuration.menuWidth / 2, height: configuration.itemHeight)
             node = ToggleNode(size: nodeSize, font: configuration.font, menuItem: menuItem)
             addChild(node)
-            node.position = CGPoint(x: configuration.menuWidth / 2, y: (frame.height - node.frame.height) / 2)
+            node.position = CGPoint(x: configuration.menuWidth / 2, y: (self.frame.height - node.frame.height) / 2)
             node.zPosition = -1
         default: break
         }
         
         let labelX = (configuration.menuWidth / 2) / 2
         label.position = CGPoint(x: labelX, y: (self.frame.height - configuration.font.maxHeight) / 2)
-        self.selected = false
     }
     
     required init?(coder aDecoder: NSCoder) {
