@@ -8,6 +8,9 @@
 
 import Foundation
 
+public typealias ClickBlock = () -> Void
+public typealias ValueChangedBlock<T> = (T) -> Void
+
 /// An item to be displayed in the menu. Every item at the very least has a title.
 public protocol MenuItem {
     var title: String { get }
@@ -25,8 +28,11 @@ public protocol MenuItem {
 public class ButtonMenuItem: MenuItem {
     public let title: String
     
-    required public init(title: String) {
+    private let onClick: ClickBlock
+    
+    required public init(title: String, onClick: @escaping ClickBlock) {
         self.title = title
+        self.onClick = onClick
     }
 }
 
@@ -36,12 +42,19 @@ public class ChooserMenuItem: MenuItem {
     
     let values: [String]
     
-    var selectedValueIdx: Int
+    var selectedValueIdx: Int {
+        didSet {
+            onValueChanged(self.values[self.selectedValueIdx])
+        }
+    }
     
-    public required init(title: String, values: [String], selectedValueIdx: Int) {
+    private let onValueChanged: ValueChangedBlock<String>
+    
+    public required init(title: String, values: [String], selectedValueIdx: Int, onValueChanged: @escaping ValueChangedBlock<String>) {
         self.title = title
         self.values = values
         self.selectedValueIdx = selectedValueIdx
+        self.onValueChanged = onValueChanged
     }
 }
 
@@ -49,11 +62,18 @@ public class ChooserMenuItem: MenuItem {
 public class ToggleMenuItem: MenuItem {
     public let title: String
     
-    var isEnabled: Bool
+    var isEnabled: Bool {
+        didSet {
+            onValueChanged(self.isEnabled)
+        }
+    }
     
-    required public init(title: String, enabled: Bool) {
+    let onValueChanged: ValueChangedBlock<Bool>
+    
+    required public init(title: String, enabled: Bool, onValueChanged: @escaping ValueChangedBlock<Bool>) {
         self.title = title
         self.isEnabled = enabled
+        self.onValueChanged = onValueChanged
     }
 }
 
@@ -63,11 +83,18 @@ public class NumberChooserMenuItem: MenuItem {
     
     var range: ClosedRange<Int>
 
-    var selectedValue: Int
+    var selectedValue: Int {
+        didSet {
+            onValueChanged(self.selectedValue)
+        }
+    }
     
-    public required init(title: String, range: ClosedRange<Int>, selectedValue: Int) {
+    let onValueChanged: ValueChangedBlock<Int>
+    
+    public required init(title: String, range: ClosedRange<Int>, selectedValue: Int, onValueChanged: @escaping ValueChangedBlock<Int>) {
         self.title = title
         self.range = range
         self.selectedValue = selectedValue
+        self.onValueChanged = onValueChanged
     }
 }

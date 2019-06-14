@@ -9,6 +9,7 @@
 import Foundation
 
 protocol SceneInteractable {
+    func action()
     func up()
     func down()
     func left()

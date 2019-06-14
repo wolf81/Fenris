@@ -48,6 +48,10 @@ class ChooserNode: SKShapeNode & SceneInteractable {
         fatalError()
     }
     
+    func action() {
+        // ignore
+    }
+    
     func up() {
         // ignore
     }
@@ -57,16 +61,18 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     }
     
     func left() {
-        self.menuItem.selectedValueIdx -= 1
-        if self.menuItem.selectedValueIdx < 0 {
-            self.menuItem.selectedValueIdx = self.menuItem.values.count - 1
+        if self.menuItem.selectedValueIdx - 1 > 0 {
+            self.menuItem.selectedValueIdx -= 1
+        } else {
+            self.menuItem.selectedValueIdx = (self.menuItem.values.count - 1)
         }
         self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
     }
     
     func right() {
-        self.menuItem.selectedValueIdx += 1
-        if self.menuItem.selectedValueIdx > (self.menuItem.values.count - 1) {
+        if self.menuItem.selectedValueIdx + 1 < (self.menuItem.values.count - 1) {
+            self.menuItem.selectedValueIdx += 1
+        } else {
             self.menuItem.selectedValueIdx = 0
         }
         self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]

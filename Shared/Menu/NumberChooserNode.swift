@@ -48,6 +48,10 @@ class NumberChooserNode: SKShapeNode & SceneInteractable {
         fatalError()
     }
     
+    func action() {
+        // ignore
+    }
+    
     func up() {
         // ignore
     }

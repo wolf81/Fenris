@@ -49,6 +49,10 @@ class ToggleNode: SKShapeNode & SceneInteractable {
         fatalError()
     }
 
+    func action() {
+        // ignore
+    }
+    
     func up() {
         // ignore
     }
@@ -59,7 +63,7 @@ class ToggleNode: SKShapeNode & SceneInteractable {
     
     func left() {
         self.menuItem.isEnabled = !self.menuItem.isEnabled
-        updateLabel()
+        updateLabel()        
     }
     
     func right() {

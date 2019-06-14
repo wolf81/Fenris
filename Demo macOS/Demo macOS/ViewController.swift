@@ -19,11 +19,18 @@ class ViewController: NSViewController {
 
         if let view = self.skView {
             let items: [MenuItem] = [
-                ButtonMenuItem(title: "Fighter"),
-                ToggleMenuItem(title: "Music", enabled: false),
-                ButtonMenuItem(title: "Volume"),
-                NumberChooserMenuItem(title: "Strength", range: (6 ... 18), selectedValue: 12),
-                ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2)
+                ButtonMenuItem(title: "Fighter", onClick: {
+                    print("touched button")
+                }),
+                ToggleMenuItem(title: "Music", enabled: false, onValueChanged: { newValue in
+                    print("new value: \(newValue)")
+                }),
+                NumberChooserMenuItem(title: "Strength", range: (6 ... 18), selectedValue: 12, onValueChanged: { newValue in
+                    print("new value: \(newValue)")
+                }),
+                ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2, onValueChanged: { newValue in
+                    print("new value: \(newValue)")
+                })
             ]
             let font = Font(name: "Baskerville-SemiBoldItalic", size: 18)!
             let configuration = MenuConfiguration(menuWidth: 400, itemHeight: 40, font: font)

@@ -51,6 +51,16 @@ class MenuContainerNode: SKShapeNode {
 }
 
 extension MenuContainerNode: SceneInteractable {
+    func action() {
+        guard self.focusedItemIdx != Int.min else {
+            return focusFirstNode()
+        }
+
+        if let interactableNode = focusedNode() {
+            interactableNode.action()
+        }
+    }
+    
     func down() {
         guard self.focusedItemIdx != Int.min else {
             return focusFirstNode()

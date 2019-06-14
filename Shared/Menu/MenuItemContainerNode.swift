@@ -61,6 +61,14 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         fatalError()
     }
     
+    func action() {
+        for node in self.children {
+            if let interactableNode = node as? SceneInteractable {
+                interactableNode.action()
+            }
+        }
+    }
+    
     func up() {
         // ignore
     }

@@ -33,6 +33,10 @@ open class MenuScene: SKScene {
 }
 
 extension MenuScene: SceneInteractable {
+    func action() {
+        
+    }
+    
     func up() {
         self.menuContainer.up()
     }
@@ -64,7 +68,7 @@ extension MenuScene {
         case 125: self.down()
         case 123: self.left()
         case 124: self.right()
-        case 49: print("space")
+        case 49: self.action()
         case 53: print("escape")
         default: break
         }
