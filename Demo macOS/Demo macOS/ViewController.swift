@@ -72,7 +72,7 @@ class ViewController: NSViewController {
             ]
              */
             
-            let configuration = Menu.Configuration(
+            let configuration = MenuBuilder.Configuration(
                 menuWidth: 460,
                 rowHeight: 40,
                 titleFont: Font(name: "Baskerville-SemiBoldItalic", size: 18)!,

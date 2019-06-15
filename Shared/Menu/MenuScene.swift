@@ -9,7 +9,7 @@
 import SpriteKit
 
 public class MenuScene: SKScene, InputDeviceInteractable {
-    public init(size: CGSize, menu: Menu) {
+    public init(size: CGSize, menu: MenuBuilder.Menu) {
         super.init(size: size)
 
         assert(menu.items.count.isMultiple(of: 2), "Menu should contain an even amount of items")
