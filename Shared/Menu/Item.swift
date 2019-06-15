@@ -18,7 +18,7 @@ public class FixedSpaceItem: Item {
     public init() {}
     
     public func getNode(size: CGSize, font: Font) -> SKShapeNode {
-        return FlexibleSpaceNode(size: size)
+        return FixedSpaceNode(size: size, item: self)
     }
 }
 

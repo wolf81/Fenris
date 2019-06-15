@@ -8,14 +8,15 @@
 
 import SpriteKit
 
-class NumberChooserNode: SKShapeNode {
+class NumberChooserNode: SKShapeNode, MenuItemNode {
+    let item: Item
+    
+    var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
+    
+    private let label: SKLabelNode
     private let minusSignButton: SignButtonNode
     private let plusSignButton: SignButtonNode
-    
-    private let label: SKLabelNode = SKLabelNode()
-    
-    private let item: NumberChooserItem
-    
+
     init(size: CGSize, item: NumberChooserItem, font: Font) {
         self.item = item
         
@@ -27,6 +28,7 @@ class NumberChooserNode: SKShapeNode {
         self.plusSignButton = SignButtonNode(size: buttonSize, sign: .plus)
         self.plusSignButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
 
+        self.label = SKLabelNode()
         self.label.font = font
         self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
 
@@ -39,7 +41,7 @@ class NumberChooserNode: SKShapeNode {
         addChild(self.plusSignButton)
         addChild(self.label)
         
-        self.item.addObserver(self, forKeyPath: #keyPath(NumberChooserItem.selectedValue), options: [.initial, .new], context: nil)
+        self.chooserItem.addObserver(self, forKeyPath: #keyPath(NumberChooserItem.selectedValue), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,12 +49,12 @@ class NumberChooserNode: SKShapeNode {
     }
     
     deinit {
-        self.item.removeObserver(self, forKeyPath: #keyPath(NumberChooserItem.selectedValue))
+        self.chooserItem.removeObserver(self, forKeyPath: #keyPath(NumberChooserItem.selectedValue))
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is NumberChooserItem && keyPath == #keyPath(NumberChooserItem.selectedValue) {
-            self.label.text = "\(self.item.selectedValue)"
+            self.label.text = "\(self.chooserItem.selectedValue)"
         }
     }
 

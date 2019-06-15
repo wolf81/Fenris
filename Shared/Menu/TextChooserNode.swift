@@ -8,14 +8,15 @@
 
 import SpriteKit
 
-class TextChooserNode: SKShapeNode {
-    private let leftArrowButton: ArrowButtonNode
-    private let rightArrowButton: ArrowButtonNode
+class TextChooserNode: SKShapeNode, MenuItemNode {
+    let item: Item
+    
+    private var chooserItem: TextChooserItem { return self.item as! TextChooserItem }
     
     private let label: SKLabelNode
-    
-    private let item: TextChooserItem
-    
+    private let leftArrowButton: ArrowButtonNode
+    private let rightArrowButton: ArrowButtonNode
+
     init(size: CGSize, item: TextChooserItem, font: Font) {
         let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
         
@@ -40,7 +41,7 @@ class TextChooserNode: SKShapeNode {
         addChild(self.rightArrowButton)
         addChild(self.label)
         
-        self.item.addObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue), options: [.initial, .new], context: nil)
+        self.chooserItem.addObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,12 +49,12 @@ class TextChooserNode: SKShapeNode {
     }
     
     deinit {
-        self.item.removeObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue))
+        self.chooserItem.removeObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue))
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValue) {
-            self.label.text = self.item.selectedValue
+            self.label.text = self.chooserItem.selectedValue
         }
     }
     

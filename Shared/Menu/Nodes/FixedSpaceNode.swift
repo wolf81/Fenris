@@ -1,5 +1,5 @@
 //
-//  FlexibleSpaceNode.swift
+//  FixedSpaceNode.swift
 //  Fenris
 //
 //  Created by Wolfgang Schreurs on 15/06/2019.
@@ -8,8 +8,12 @@
 
 import SpriteKit
 
-public class FlexibleSpaceNode: SKShapeNode {
-    init(size: CGSize) {
+class FixedSpaceNode: SKShapeNode & MenuItemNode {
+    let item: Item
+    
+    init(size: CGSize, item: FixedSpaceItem) {
+        self.item = item
+        
         super.init()
         
         self.path = CGPath(rect: .init(origin: .zero, size: size), transform: nil)

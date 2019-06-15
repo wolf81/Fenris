@@ -8,14 +8,15 @@
 
 import SpriteKit
 
-class ToggleNode: SKShapeNode {
+class ToggleNode: SKShapeNode, MenuItemNode {
+    let item: Item
+
+    private var toggleItem: ToggleItem { return self.item as! ToggleItem }
+    
+    private let label: SKLabelNode
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
-    
-    private let label: SKLabelNode = SKLabelNode()
 
-    private let item: ToggleItem
-    
     init(size: CGSize, item: ToggleItem, font: Font) {
         self.item = item
         
@@ -27,6 +28,7 @@ class ToggleNode: SKShapeNode {
         self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
         self.rightArrowButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
 
+        self.label = SKLabelNode()
         self.label.font = font
         self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
 
@@ -39,7 +41,7 @@ class ToggleNode: SKShapeNode {
         addChild(self.rightArrowButton)
         addChild(self.label)
         
-        self.item.addObserver(self, forKeyPath: #keyPath(ToggleItem.isEnabled), options: [.initial, .new], context: nil)
+        self.toggleItem.addObserver(self, forKeyPath: #keyPath(ToggleItem.isEnabled), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,12 +49,12 @@ class ToggleNode: SKShapeNode {
     }
     
     deinit {
-        self.item.removeObserver(self, forKeyPath: #keyPath(ToggleItem.isEnabled))
+        self.toggleItem.removeObserver(self, forKeyPath: #keyPath(ToggleItem.isEnabled))
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is ToggleItem && keyPath == #keyPath(ToggleItem.isEnabled) {
-            self.label.text = self.item.isEnabled ? "On" : "Off"
+            self.label.text = self.toggleItem.isEnabled ? "On" : "Off"
         }
     }
 
