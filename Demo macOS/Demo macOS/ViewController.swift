@@ -78,17 +78,21 @@ class ViewController: NSViewController {
                 titleFont: Font(name: "Baskerville-SemiBoldItalic", size: 18)!,
                 labelFont: Font(name: "Papyrus", size: 18)!
             )
-                        
-            let items: [Item] = [
-                LabelItem(title: "Test 1"), FixedSpaceItem(),
-                LabelItem(title: "Class"), TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValue: "Fighter"),
-                FixedSpaceItem(), LabelItem(title: "Agility"),
-                LabelItem(title: "Strength"), NumberChooserItem(range: (6 ... 18), selectedValue: 12),
-                LabelItem(title: "Music"), ToggleItem(enabled: false),
-                FixedSpaceItem(), FixedSpaceItem(),
-                ButtonItem(title: "Button 1"), ButtonItem(title: "Button 2")
-            ]
-            let menu = Menu(title: "Settings", items: items, configuration: configuration)
+            
+            let pointsRemainingLabel = LabelItem(title: "0")
+            let menu = MenuBuilder(configuration: configuration)
+                .withHeader(title: "New Character")
+                .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
+                .withEmptyRow()
+                .withRow(title: "Race", item: TextChooserItem(values: ["Human", "Elf", "Dwarf"], selectedValue: "Human"))
+                .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValue: "Fighter"))
+                .withRow(title: "Strength", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
+                .withRow(title: "Agility", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
+                .withRow(title: "Mind", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
+                .withEmptyRow()
+                .withRow(title: "Points Remaining", item: pointsRemainingLabel)
+                .build()
+            
             let scene = MenuScene(size: self.view.bounds.size, menu: menu)
             
             // Present the scene

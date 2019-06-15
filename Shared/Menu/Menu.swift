@@ -9,12 +9,41 @@
 import Foundation
 import CoreFoundation
 
+public class MenuBuilder {
+    private let configuration: Menu.Configuration
+    private var items: [Item] = []
+    private var title: String?
+    
+    public init(configuration: Menu.Configuration) {
+        self.configuration = configuration
+    }
+    
+    public func withHeader(title: String) -> MenuBuilder {
+        self.title = title
+        return self
+    }
+    
+    public func withRow(title: String, item: Item) -> MenuBuilder {
+        self.items.append(contentsOf: [LabelItem(title: title), item])
+        return self
+    }
+    
+    public func withEmptyRow() -> MenuBuilder {
+        self.items.append(contentsOf: [FixedSpaceItem(), FixedSpaceItem()])
+        return self
+    }
+    
+    public func build() -> Menu {
+        return Menu(title: self.title ?? "", items: self.items, configuration: self.configuration)
+    }
+}
+
 public class Menu {
     let items: [Item]
     let title: String
     let configuration: Configuration
     
-    public init(title: String, items: [Item], configuration: Configuration) {
+    internal init(title: String, items: [Item], configuration: Configuration) {
         self.title = title
         self.items = items
         self.configuration = configuration

@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class FixedSpaceNode: SKShapeNode & MenuItemNode {
+class FixedSpaceNode: SKShapeNode, MenuItemNode {
     let item: Item
     
     init(size: CGSize, item: FixedSpaceItem) {
