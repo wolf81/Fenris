@@ -1,5 +1,5 @@
 //
-//  ChooserNode.swift
+//  TextChooserNode.swift
 //  Fenris
 //
 //  Created by Wolfgang Schreurs on 13/06/2019.
@@ -8,41 +8,39 @@
 
 import SpriteKit
 
-class ChooserNode: SKShapeNode & SceneInteractable {
+class TextChooserNode: SKShapeNode {
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
     
     private let label: SKLabelNode
     
-    private let menuItem: ChooserMenuItem
+    private let item: TextChooserItem
     
-    init(size: CGSize, font: Font, menuItem: ChooserMenuItem) {
+    init(size: CGSize, item: TextChooserItem, font: Font) {
         let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
+        
         self.leftArrowButton = ArrowButtonNode(size: buttonSize, direction: .left)
-        self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
+        self.leftArrowButton.position = .zero
 
-        self.menuItem = menuItem
+        self.rightArrowButton = ArrowButtonNode(size: buttonSize, direction: .right)
+        self.rightArrowButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
+
+        self.item = item
         
         self.label = SKLabelNode(text: nil)
+        self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
         self.label.font = font
         
         super.init()
         
-        self.strokeColor = SKColor.clear
-        self.lineWidth = 0
-
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
-                
+        self.lineWidth = 0
+        
         addChild(self.leftArrowButton)
-        self.leftArrowButton.position = .zero
-        
         addChild(self.rightArrowButton)
-        self.rightArrowButton.position = CGPoint(x: size.width - buttonSize.width, y: 0)
-        
         addChild(self.label)
-        self.label.position = CGPoint(x: self.frame.midX, y: (size.height - font.capHeight) / 2)
         
-        self.menuItem.addObserver(self, forKeyPath: #keyPath(ChooserMenuItem.selectedValueIdx), options: [.initial, .new], context: nil)
+        self.item.addObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -50,15 +48,16 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     }
     
     deinit {
-        self.menuItem.removeObserver(self, forKeyPath: #keyPath(ChooserMenuItem.selectedValueIdx))
+        self.item.removeObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue))
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if object is ChooserMenuItem && keyPath == #keyPath(ChooserMenuItem.selectedValueIdx) {
-            self.label.text = self.menuItem.values[self.menuItem.selectedValueIdx]
+        if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValue) {
+            self.label.text = self.item.selectedValue
         }
     }
     
+    /*
     func action() {
         // ignore
     }
@@ -72,18 +71,19 @@ class ChooserNode: SKShapeNode & SceneInteractable {
     }
     
     func left() {
-        if self.menuItem.selectedValueIdx - 1 >= 0 {
-            self.menuItem.selectedValueIdx -= 1
+        if self.item.selectedValueIdx - 1 >= 0 {
+            self.item.selectedValueIdx -= 1
         } else {
-            self.menuItem.selectedValueIdx = (self.menuItem.values.count - 1)
+            self.item.selectedValueIdx = (self.menuItem.values.count - 1)
         }
     }
     
     func right() {
-        if self.menuItem.selectedValueIdx + 1 < self.menuItem.values.count {
-            self.menuItem.selectedValueIdx += 1
+        if self.item.selectedValueIdx + 1 < self.menuItem.values.count {
+            self.item.selectedValueIdx += 1
         } else {
-            self.menuItem.selectedValueIdx = 0
+            self.item.selectedValueIdx = 0
         }
     }
+     */
 }

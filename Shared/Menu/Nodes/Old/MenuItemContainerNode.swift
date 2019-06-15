@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+/*
 class MenuItemContainerNode: SKShapeNode & SceneInteractable {
     let menuItem: MenuItem
     
@@ -106,3 +107,4 @@ class MenuItemContainerNode: SKShapeNode & SceneInteractable {
         }
     }
 }
+*/

@@ -27,8 +27,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         if let view = self.skView {            
-            let labelItem = LabelMenuItem(title: "Points Remaining", value: "\(self.pointsRemaining)")
+//            let labelItem = LabelMenuItem(title: "Points Remaining", value: "\(self.pointsRemaining)")
 
+            /*
             let items: [MenuItem] = [
                 ButtonMenuItem(title: "Settings", onClick: {
                     print("touched button")
@@ -69,10 +70,27 @@ class ViewController: NSViewController {
                 }),
                 labelItem
             ]
-            let font = Font(name: "Papyrus", size: 18)!
-            let configuration = MenuConfiguration(menuWidth: 400, itemHeight: 40, font: font)
-            let scene = MenuScene(size: view.frame.size, configuration: configuration, items: items)
-
+             */
+            
+            let configuration = Menu.Configuration(
+                menuWidth: 460,
+                rowHeight: 40,
+                titleFont: Font(name: "Baskerville-SemiBoldItalic", size: 18)!,
+                labelFont: Font(name: "Papyrus", size: 18)!
+            )
+                        
+            let items: [Item] = [
+                LabelItem(title: "Test 1"), FixedSpaceItem(),
+                LabelItem(title: "Class"), TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValue: "Fighter"),
+                FixedSpaceItem(), LabelItem(title: "Agility"),
+                LabelItem(title: "Strength"), NumberChooserItem(range: (6 ... 18), selectedValue: 12),
+                LabelItem(title: "Music"), ToggleItem(enabled: false),
+                FixedSpaceItem(), FixedSpaceItem(),
+                ButtonItem(title: "Button 1"), ButtonItem(title: "Button 2")
+            ]
+            let menu = Menu(title: "Settings", items: items, configuration: configuration)
+            let scene = MenuScene(size: self.view.bounds.size, menu: menu)
+            
             // Present the scene
             view.presentScene(scene)
             
@@ -82,4 +100,3 @@ class ViewController: NSViewController {
         }
     }    
 }
-

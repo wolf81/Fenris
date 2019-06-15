@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+/*
 class MenuContainerNode: SKShapeNode {
     private var focusNode: SKShapeNode!
     
@@ -128,3 +129,4 @@ extension MenuContainerNode: SceneInteractable {
         self.focusedItemIdx = 0
     }
 }
+*/

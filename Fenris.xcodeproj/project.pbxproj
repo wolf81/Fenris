@@ -13,7 +13,6 @@
 		792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
 		792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
-		792D428721E20A1D00D438F1 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
 		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
@@ -23,8 +22,10 @@
 		792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
 		792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
-		792D42D321E2115F00D438F1 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
 		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
+		794366A822B4FD1900AA62AF /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuNode.swift */; };
+		794366A922B4FD1900AA62AF /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuNode.swift */; };
+		794366AA22B4FD1900AA62AF /* MenuNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuNode.swift */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
@@ -48,15 +49,12 @@
 		79809E0222B22917008E4B49 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0122B22917008E4B49 /* MenuItem.swift */; };
 		79809E0322B22917008E4B49 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0122B22917008E4B49 /* MenuItem.swift */; };
 		79809E0422B22917008E4B49 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0122B22917008E4B49 /* MenuItem.swift */; };
-		79809E0622B22A9D008E4B49 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0522B22A9D008E4B49 /* MenuConfiguration.swift */; };
-		79809E0722B22A9D008E4B49 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0522B22A9D008E4B49 /* MenuConfiguration.swift */; };
-		79809E0822B22A9D008E4B49 /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0522B22A9D008E4B49 /* MenuConfiguration.swift */; };
 		79809E0E22B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
 		79809E0F22B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
 		79809E1022B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
-		79809E1222B26D6A008E4B49 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* ChooserNode.swift */; };
-		79809E1322B26D6A008E4B49 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* ChooserNode.swift */; };
-		79809E1422B26D6A008E4B49 /* ChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* ChooserNode.swift */; };
+		79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
+		79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
+		79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
 		79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1522B2A637008E4B49 /* ArrowNode.swift */; };
 		79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1522B2A637008E4B49 /* ArrowNode.swift */; };
 		79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1522B2A637008E4B49 /* ArrowNode.swift */; };
@@ -66,16 +64,30 @@
 		79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
 		79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
 		79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
-		79809E2722B39CCD008E4B49 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2622B39CCD008E4B49 /* TextButtonNode.swift */; };
-		79809E2822B39CCD008E4B49 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2622B39CCD008E4B49 /* TextButtonNode.swift */; };
-		79809E2922B39CCD008E4B49 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2622B39CCD008E4B49 /* TextButtonNode.swift */; };
 		79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
 		79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
 		79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
-		79809E3022B3B24E008E4B49 /* DetailLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2F22B3B24E008E4B49 /* DetailLabelNode.swift */; };
-		79809E3122B3B24E008E4B49 /* DetailLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2F22B3B24E008E4B49 /* DetailLabelNode.swift */; };
-		79809E3222B3B24E008E4B49 /* DetailLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2F22B3B24E008E4B49 /* DetailLabelNode.swift */; };
-		79C55070211218D600E07A27 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C5506E211218D600E07A27 /* MenuScene.swift */; };
+		79809E3822B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
+		79809E3922B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
+		79809E3A22B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
+		79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
+		79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
+		79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
+		79809E4122B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FlexibleSpaceNode.swift */; };
+		79809E4222B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FlexibleSpaceNode.swift */; };
+		79809E4322B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FlexibleSpaceNode.swift */; };
+		79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
+		79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
+		79809E4722B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
+		79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
+		79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
+		79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
+		79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
+		79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
+		79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
+		79809E5122B4D1DA008E4B49 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E5022B4D1DA008E4B49 /* Item.swift */; };
+		79809E5222B4D1DA008E4B49 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E5022B4D1DA008E4B49 /* Item.swift */; };
+		79809E5322B4D1DA008E4B49 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E5022B4D1DA008E4B49 /* Item.swift */; };
 		79C681E22111761B006E20D0 /* FenrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* FenrisTests.swift */; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
@@ -99,6 +111,7 @@
 		792D42BE21E2115100D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D42C121E2115100D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792D42DD21E24F9300D438F1 /* Fenris_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_macOS.h; sourceTree = "<group>"; };
+		794366A722B4FD1900AA62AF /* MenuNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuNode.swift; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
@@ -112,16 +125,20 @@
 		79809DF822B21E29008E4B49 /* MenuItemContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemContainerNode.swift; sourceTree = "<group>"; };
 		79809DFC22B21EA8008E4B49 /* MenuContainerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuContainerNode.swift; sourceTree = "<group>"; };
 		79809E0122B22917008E4B49 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		79809E0522B22A9D008E4B49 /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
 		79809E0D22B233FA008E4B49 /* SceneInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneInteractable.swift; sourceTree = "<group>"; };
-		79809E1122B26D6A008E4B49 /* ChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserNode.swift; sourceTree = "<group>"; };
+		79809E1122B26D6A008E4B49 /* TextChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextChooserNode.swift; path = ../TextChooserNode.swift; sourceTree = "<group>"; };
 		79809E1522B2A637008E4B49 /* ArrowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowNode.swift; sourceTree = "<group>"; };
 		79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowButtonNode.swift; sourceTree = "<group>"; };
-		79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
-		79809E2622B39CCD008E4B49 /* TextButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonNode.swift; sourceTree = "<group>"; };
+		79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToggleNode.swift; path = ../ToggleNode.swift; sourceTree = "<group>"; };
 		79809E2B22B39CE5008E4B49 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
-		79809E2F22B3B24E008E4B49 /* DetailLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLabelNode.swift; sourceTree = "<group>"; };
-		79C5506E211218D600E07A27 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		79809E3722B4A617008E4B49 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		79809E3B22B4BCDF008E4B49 /* MenuScene_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene_old.swift; sourceTree = "<group>"; };
+		79809E3C22B4BCED008E4B49 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		79809E4022B4C507008E4B49 /* FlexibleSpaceNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleSpaceNode.swift; sourceTree = "<group>"; };
+		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonNode.swift; path = ../ButtonNode.swift; sourceTree = "<group>"; };
+		79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowNode.swift; sourceTree = "<group>"; };
+		79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceInteractable.swift; sourceTree = "<group>"; };
+		79809E5022B4D1DA008E4B49 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		79C681DC2111761B006E20D0 /* FenrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681E12111761B006E20D0 /* FenrisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FenrisTests.swift; sourceTree = "<group>"; };
 		79C681E32111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -182,6 +199,27 @@
 			path = "Fenris macOS";
 			sourceTree = "<group>";
 		};
+		794366A122B4DE5800AA62AF /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				797DBFD022B38B3A00D0F8E7 /* SignNode.swift */,
+				797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */,
+				79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */,
+				79809E1522B2A637008E4B49 /* ArrowNode.swift */,
+				79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		794366A222B4DE9100AA62AF /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				79809DF822B21E29008E4B49 /* MenuItemContainerNode.swift */,
+				79809DFC22B21EA8008E4B49 /* MenuContainerNode.swift */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
 		79809DE622B21BD3008E4B49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,22 +240,29 @@
 		79809E0022B22907008E4B49 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				79809E5922B4DDF0008E4B49 /* Nodes */,
 				79809E0122B22917008E4B49 /* MenuItem.swift */,
-				79809E0522B22A9D008E4B49 /* MenuConfiguration.swift */,
-				79809DF822B21E29008E4B49 /* MenuItemContainerNode.swift */,
-				79809DFC22B21EA8008E4B49 /* MenuContainerNode.swift */,
-				79809E1122B26D6A008E4B49 /* ChooserNode.swift */,
-				79809E1522B2A637008E4B49 /* ArrowNode.swift */,
-				79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */,
-				79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */,
-				797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */,
-				797DBFD022B38B3A00D0F8E7 /* SignNode.swift */,
-				797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */,
-				79809E2622B39CCD008E4B49 /* TextButtonNode.swift */,
-				79809E2B22B39CE5008E4B49 /* LabelNode.swift */,
-				79809E2F22B3B24E008E4B49 /* DetailLabelNode.swift */,
+				79809E3722B4A617008E4B49 /* Menu.swift */,
+				79809E3C22B4BCED008E4B49 /* MenuScene.swift */,
+				79809E5022B4D1DA008E4B49 /* Item.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		79809E5922B4DDF0008E4B49 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				794366A122B4DE5800AA62AF /* Internal */,
+				794366A222B4DE9100AA62AF /* Old */,
+				79809E2B22B39CE5008E4B49 /* LabelNode.swift */,
+				79809E4422B4C72D008E4B49 /* ButtonNode.swift */,
+				79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */,
+				79809E1122B26D6A008E4B49 /* TextChooserNode.swift */,
+				797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */,
+				79809E4022B4C507008E4B49 /* FlexibleSpaceNode.swift */,
+				794366A722B4FD1900AA62AF /* MenuNode.swift */,
+			);
+			path = Nodes;
 			sourceTree = "<group>";
 		};
 		79C681C92111761B006E20D0 = {
@@ -264,8 +309,9 @@
 				795D784F2111812D00F4547D /* SceneManager.swift */,
 				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
 				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				79C5506E211218D600E07A27 /* MenuScene.swift */,
+				79809E3B22B4BCDF008E4B49 /* MenuScene_old.swift */,
 				79809E0D22B233FA008E4B49 /* SceneInteractable.swift */,
+				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -487,27 +533,31 @@
 			files = (
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
-				79809E0722B22A9D008E4B49 /* MenuConfiguration.swift in Sources */,
+				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */,
+				794366A922B4FD1900AA62AF /* MenuNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				79809DFA22B21E29008E4B49 /* MenuItemContainerNode.swift in Sources */,
-				79809E1322B26D6A008E4B49 /* ChooserNode.swift in Sources */,
+				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809DFE22B21EA8008E4B49 /* MenuContainerNode.swift in Sources */,
-				79809E2822B39CCD008E4B49 /* TextButtonNode.swift in Sources */,
 				79809E0F22B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
-				792D428721E20A1D00D438F1 /* MenuScene.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				797DBFCE22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
-				79809E3122B3B24E008E4B49 /* DetailLabelNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
+				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
+				79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
+				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				79809E0322B22917008E4B49 /* MenuItem.swift in Sources */,
+				79809E4222B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */,
 				792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */,
+				79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */,
+				79809E5222B4D1DA008E4B49 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,27 +567,31 @@
 			files = (
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */,
-				79809E0822B22A9D008E4B49 /* MenuConfiguration.swift in Sources */,
+				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				794366AA22B4FD1900AA62AF /* MenuNode.swift in Sources */,
 				79809DFB22B21E29008E4B49 /* MenuItemContainerNode.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
-				79809E1422B26D6A008E4B49 /* ChooserNode.swift in Sources */,
-				792D42D321E2115F00D438F1 /* MenuScene.swift in Sources */,
+				79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809DFF22B21EA8008E4B49 /* MenuContainerNode.swift in Sources */,
-				79809E2922B39CCD008E4B49 /* TextButtonNode.swift in Sources */,
 				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
 				79809E1022B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
-				79809E3222B3B24E008E4B49 /* DetailLabelNode.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
+				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFCA22B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
+				79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
+				79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
+				79809E4322B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */,
 				79809E0422B22917008E4B49 /* MenuItem.swift in Sources */,
+				79809E4722B4C72D008E4B49 /* ButtonNode.swift in Sources */,
+				79809E5322B4D1DA008E4B49 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,27 +609,31 @@
 			files = (
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
-				79809E0622B22A9D008E4B49 /* MenuConfiguration.swift in Sources */,
+				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				795D7860211188A100F4547D /* ScenePresentable.swift in Sources */,
+				794366A822B4FD1900AA62AF /* MenuNode.swift in Sources */,
 				79809DF922B21E29008E4B49 /* MenuItemContainerNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
-				79809E1222B26D6A008E4B49 /* ChooserNode.swift in Sources */,
+				79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809DFD22B21EA8008E4B49 /* MenuContainerNode.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
-				79809E2722B39CCD008E4B49 /* TextButtonNode.swift in Sources */,
 				79809E0E22B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
-				79C55070211218D600E07A27 /* MenuScene.swift in Sources */,
 				797DBFCD22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
-				79809E3022B3B24E008E4B49 /* DetailLabelNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
+				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
+				79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
+				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
+				79809E4122B4C507008E4B49 /* FlexibleSpaceNode.swift in Sources */,
 				79809E0222B22917008E4B49 /* MenuItem.swift in Sources */,
+				79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */,
+				79809E5122B4D1DA008E4B49 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

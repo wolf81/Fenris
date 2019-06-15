@@ -12,8 +12,7 @@ public typealias ClickBlock = () -> Void
 public typealias ValueChangedBlock<T> = (T) -> Bool
 
 /// An item to be displayed in the menu. Every item at the very least has a title.
-public protocol MenuItem {
-    var title: String { get }
+public protocol MenuItem where Self: NSObject {
 }
 
 // MARK: - Concrete menu items

@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+/*
 open class MenuScene: SKScene {
     private var menuContainer: MenuContainerNode
     
@@ -96,3 +97,4 @@ extension MenuScene {
 }
 
 #endif
+*/
