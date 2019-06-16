@@ -58,10 +58,10 @@ Finally we can create a MenuScene using the generated menu and present the scene
 
 For macOS, in order to hide the focus frame on mouse move, make sure to allow the window to receive mouse move events, e.g. as such:
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        NSApp.mainWindow?.acceptsMouseMovedEvents = true
-    }
-}
+	@NSApplicationMain
+	class AppDelegate: NSObject, NSApplicationDelegate {
+	    func applicationDidFinishLaunching(_ aNotification: Notification) {
+	        // Insert code here to initialize your application
+	        NSApp.mainWindow?.acceptsMouseMovedEvents = true
+	    }
+	}
