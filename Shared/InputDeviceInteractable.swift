@@ -15,7 +15,7 @@ protocol InputDeviceInteractable where Self: SKNode {
     func handleInput(action: InputDeviceAction)
 }
 
-/// An OptionSet that can contain multiple simultanious actions. For example when using a gamepad,
+/// An OptionSet that can contain multiple simultaneous actions. For example when using a gamepad,
 // 2 buttons might be pressed at the same time.
 public struct InputDeviceAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
