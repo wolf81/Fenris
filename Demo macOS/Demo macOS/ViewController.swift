@@ -13,50 +13,27 @@ import Fenris
 class ViewController: NSViewController {
     @IBOutlet var skView: SKView!
     
-    private let totalPoints = 42
+    private var attributeUpdater: AttributeUpdater!
     
-    private var strength = 12 {
-        didSet {
-            self.pointsRemaining = self.totalPoints - self.strength - self.agility - self.mind
-        }
-    }
-    
-    private var agility = 12 {
-        didSet {
-            self.pointsRemaining = self.totalPoints - self.strength - self.agility - self.mind
-        }
-    }
-    
-    private var mind = 12 {
-        didSet {
-            self.pointsRemaining = self.totalPoints - self.strength - self.agility - self.mind
-        }
-    }
-
-    private var pointsRemaining: Int = 0 {
-        didSet {
-            self.pointsRemainingLabel.title = "\(self.pointsRemaining)"
-        }
-    }
-
     private let pointsRemainingLabel = LabelItem(title: "0")
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
 
-    private func canChangeAttributes(strength: Int, agility: Int, mind: Int) -> Bool {
-        let pointsRemaining = self.totalPoints - strength - agility - mind
-        let success = pointsRemaining >= 0
-        if success {
-            self.strength = strength
-            self.agility = agility
-            self.mind = mind
-        }
-        return success
+        self.attributeUpdater = AttributeUpdater(
+            strength: 12,
+            agility: 12,
+            mind: 12,
+            onPointsRemainingUpdated: { (pointsRemaining) in
+            self.pointsRemainingLabel.title = "\(pointsRemaining)"
+        })
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.pointsRemaining = self.totalPoints - self.strength - self.agility - self.mind
-
+        self.pointsRemainingLabel.title = "\(attributeUpdater.pointsRemaining)"
+        
         if let view = self.skView {            
             let configuration = MenuBuilder.Configuration(
                 menuWidth: 460,
@@ -78,13 +55,13 @@ class ViewController: NSViewController {
                     print("\($0)"); return true
                 }))
                 .withRow(title: "Strength", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { strength in
-                    return self.canChangeAttributes(strength: strength, agility: self.agility, mind: self.mind)
+                    return self.attributeUpdater.update(strength: strength)
                 }))
                 .withRow(title: "Agility", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { agility in
-                    return self.canChangeAttributes(strength: self.strength, agility: agility, mind: self.mind)
+                    return self.attributeUpdater.update(agility: agility)
                 }))
                 .withRow(title: "Mind", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { mind in
-                    return self.canChangeAttributes(strength: self.strength, agility: self.agility, mind: mind)
+                    return self.attributeUpdater.update(mind: mind)
                 }))
                 .withRow(title: "Points Remaining", item: pointsRemainingLabel)
                 .build()
