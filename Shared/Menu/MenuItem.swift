@@ -9,11 +9,19 @@
 import Foundation
 import SpriteKit
 
-/* Objects conforming to the Item protocol can be added to the menu */
+/// Objects conforming to the Item protocol can be added to the menu.
 public protocol MenuItem: class {
+    
+    /// Construct a node based on this item and some parameters.
+    ///
+    /// - Parameters:
+    ///   - size: The size of the node.
+    ///   - font: A font to use inside labels in the node.
+    /// - Returns: A menu item node.
     func getNode(size: CGSize, font: Font) -> MenuItemNode
 }
 
+/// Fixed space items don't display any control, just empty space.
 class FixedSpaceItem: MenuItem {
     public init() {}
     
@@ -22,6 +30,7 @@ class FixedSpaceItem: MenuItem {
     }
 }
 
+/// A label with some text.
 public class LabelItem: NSObject & MenuItem {
     @objc dynamic var title: String
     
@@ -36,6 +45,7 @@ public class LabelItem: NSObject & MenuItem {
     }
 }
 
+/// A button with some text.
 public class ButtonItem: NSObject & MenuItem {
     @objc dynamic var title: String
     
@@ -50,6 +60,7 @@ public class ButtonItem: NSObject & MenuItem {
     }
 }
 
+/// An on/off toggle.
 public class ToggleItem: NSObject & MenuItem {
     @objc dynamic var isEnabled: Bool
     
@@ -64,6 +75,7 @@ public class ToggleItem: NSObject & MenuItem {
     }
 }
 
+/// A chooser with a list of string values.
 public class TextChooserItem: NSObject & MenuItem {
     let values: [String]
     
@@ -83,6 +95,7 @@ public class TextChooserItem: NSObject & MenuItem {
     }
 }
 
+/// A chooser with a list of integer values.
 public class NumberChooserItem: NSObject & MenuItem {
     let range: ClosedRange<Int>
     

@@ -9,10 +9,14 @@
 import Foundation
 import SpriteKit
 
+/// Nodes that implement this protocol are able to receive interaction through an input device such
+/// as a mouse, keyboard or gamepad. These nodes can also receive focus when displayed in the menu.
 protocol InputDeviceInteractable where Self: SKNode {
     func handleInput(action: InputDeviceAction)
 }
 
+/// An OptionSet that can contain multiple simultanious actions. For example when using a gamepad,
+// 2 buttons might be pressed at the same time.
 public struct InputDeviceAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
     

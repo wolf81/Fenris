@@ -52,9 +52,6 @@
 		797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFD022B38B3A00D0F8E7 /* SignNode.swift */; };
 		797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFD022B38B3A00D0F8E7 /* SignNode.swift */; };
 		797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFD022B38B3A00D0F8E7 /* SignNode.swift */; };
-		79809E0E22B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
-		79809E0F22B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
-		79809E1022B233FA008E4B49 /* SceneInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E0D22B233FA008E4B49 /* SceneInteractable.swift */; };
 		79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
 		79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
 		79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1122B26D6A008E4B49 /* TextChooserNode.swift */; };
@@ -126,7 +123,6 @@
 		797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberChooserNode.swift; sourceTree = "<group>"; };
 		797DBFD022B38B3A00D0F8E7 /* SignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignNode.swift; sourceTree = "<group>"; };
 		79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Demo macOS.xcodeproj"; path = "Demo macOS/Demo macOS.xcodeproj"; sourceTree = "<group>"; };
-		79809E0D22B233FA008E4B49 /* SceneInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneInteractable.swift; sourceTree = "<group>"; };
 		79809E1122B26D6A008E4B49 /* TextChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChooserNode.swift; sourceTree = "<group>"; };
 		79809E1522B2A637008E4B49 /* ArrowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowNode.swift; sourceTree = "<group>"; };
 		79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowButtonNode.swift; sourceTree = "<group>"; };
@@ -307,7 +303,6 @@
 				795D784F2111812D00F4547D /* SceneManager.swift */,
 				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
 				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				79809E0D22B233FA008E4B49 /* SceneInteractable.swift */,
 				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
 				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
 			);
@@ -539,7 +534,6 @@
 				794366BD22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
-				79809E0F22B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
@@ -575,7 +569,6 @@
 				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
-				79809E1022B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
@@ -615,7 +608,6 @@
 				79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
-				79809E0E22B233FA008E4B49 /* SceneInteractable.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,

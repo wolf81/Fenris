@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// The MenuBuilder can be used to generate a menu.
 public class MenuBuilder {
     private let configuration: Configuration
     private var items: [MenuItem] = []

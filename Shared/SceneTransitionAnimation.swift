@@ -8,6 +8,12 @@
 
 import Foundation
 
+/// An enum that is used to specify an animation to use when switching between scenes with the
+/// SceneManager.
+///
+/// - fade: A crossfade animation.
+/// - push: A push animation.
+/// - pop: A pop animation.
 public enum SceneTransitionAnimation {
     case fade
     case push

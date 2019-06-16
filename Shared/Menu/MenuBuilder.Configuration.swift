@@ -9,6 +9,8 @@
 import Foundation
 
 extension MenuBuilder {
+    
+    /// A menu configuration contains verious properties used for display of the menu.
     public struct Configuration {
         let menuWidth: CGFloat
         let rowHeight: CGFloat

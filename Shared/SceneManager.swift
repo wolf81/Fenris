@@ -23,14 +23,23 @@ public protocol SceneManagerProtocol: class {
     func transitionTo(scene: SKScene, animation: SceneTransitionAnimation)
 }
 
+/// The SceneManager can be used to transition between scenes with a built-in animation.
 public class SceneManager: SceneManagerProtocol {
     public weak var viewController: SceneViewController?
     
+    /// Designated initializer.
+    ///
+    /// - Parameter viewController: A view controller that conforms to ScenePresentable.
     public required init(viewController: SceneViewController) {
         self.viewController = viewController
     }
     
-    public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {        
+    /// Perform a transition using a built-in animation.
+    ///
+    /// - Parameters:
+    ///   - scene: The scene to transition to.
+    ///   - animation: The animation to use for the scene transition.
+    public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
         var transition: SKTransition
         let duration = 0.5
         
@@ -47,6 +56,8 @@ public class SceneManager: SceneManagerProtocol {
     }
 }
 
+/// The DummySceneManager is for internal use only and is used as a stand-in in the ServiceLocator
+/// when no proper SceneManager is registered.
 internal class DummySceneManager: SceneManagerProtocol {
     weak var viewController: SceneViewController?
 

@@ -8,7 +8,11 @@
 
 import Foundation
 
-public class ServiceLocator {
+/// The ServiceLocator can be used to register and retrieve various services. The ServiceLocator
+/// should be the only singleton in a game. When it's tempting to use a singleton for some purpose,
+/// instead consider extending the service locator to register and retrieve your class. This way
+/// your code should be more easily testable.
+open class ServiceLocator {
     public static let shared = ServiceLocator()
     
     public private(set) var sceneManager: SceneManagerProtocol
