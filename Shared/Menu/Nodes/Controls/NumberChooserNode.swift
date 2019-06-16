@@ -89,8 +89,25 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
     */
 }
 
+// MARK: - InputDeviceInteractable
+
 extension NumberChooserNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
-        print("\(self) - handle: \(action)")
+        let validActions: InputDeviceAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        switch action {
+        case .left:
+            let newValue = self.chooserItem.selectedValue - 1
+            if self.chooserItem.range.contains(newValue) {
+                self.chooserItem.selectedValue = newValue
+            }
+        case .right:
+            let newValue = self.chooserItem.selectedValue + 1
+            if self.chooserItem.range.contains(newValue) {
+                self.chooserItem.selectedValue = newValue
+            }
+        default: /* Should never happen */ fatalError()
+        }
     }
 }

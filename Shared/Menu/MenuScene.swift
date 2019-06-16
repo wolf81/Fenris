@@ -78,10 +78,14 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
         guard self.focusItems.count > 0 else { return }
         
-        defer { updateFocusFrame() }
+        defer { showFocusNode() }
         
         guard self.focusItemIdx >= 0 else {
             return self.focusItemIdx = 0
+        }
+        
+        guard self.focusNode.isHidden == false else {
+            return
         }
         
         switch action {
@@ -93,11 +97,17 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
                 ? (self.focusItemIdx + 1)
                 : self.focusItemIdx
+        case _ where action.contains(.left):
+            let focusItem = self.focusItems[self.focusItemIdx]
+            focusItem.interactableNode.handleInput(action: action)
+        case _ where action.contains(.right):
+            let focusItem = self.focusItems[self.focusItemIdx]
+            focusItem.interactableNode.handleInput(action: action)
         default: break
         }
     }
     
-    func updateFocusFrame() {
+    func showFocusNode() {
         self.focusNode.isHidden = false
         
         let focusItem = self.focusItems[self.focusItemIdx]

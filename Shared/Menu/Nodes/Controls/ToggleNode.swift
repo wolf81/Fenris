@@ -57,32 +57,15 @@ class ToggleNode: SKShapeNode, MenuItemNode {
             self.label.text = self.toggleItem.isEnabled ? "On" : "Off"
         }
     }
-
-    /*
-    func action() {
-        // ignore
-    }
-    
-    func up() {
-        // ignore
-    }
-    
-    func down() {
-        // ignore
-    }
-    
-    func left() {
-        self.item.isEnabled = !self.item.isEnabled
-    }
-    
-    func right() {
-        self.item.isEnabled = !self.item.isEnabled
-    }
-     */
 }
+
+// MARK: - InputDeviceInteractable
 
 extension ToggleNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
-        print("\(self) - handle: \(action)")
+        let validActions: InputDeviceAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        self.toggleItem.isEnabled = !self.toggleItem.isEnabled
     }
 }
