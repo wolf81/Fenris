@@ -9,7 +9,7 @@
 import SpriteKit
 
 class ButtonNode: SKShapeNode, MenuItemNode {
-    let item: Item
+    let item: MenuItem
     
     private var buttonItem: ButtonItem { return self.item as! ButtonItem }
     

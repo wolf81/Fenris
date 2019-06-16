@@ -1,123 +1,102 @@
 //
-//  MenuItem.swift
+//  MenuBuilder.Menu.Item.swift
 //  Fenris
 //
-//  Created by Wolfgang Schreurs on 13/06/2019.
+//  Created by Wolfgang Schreurs on 16/06/2019.
 //  Copyright © 2019 Wolftrail. All rights reserved.
 //
 
 import Foundation
+import SpriteKit
 
-public typealias ClickBlock = () -> Void
-public typealias ValueChangedBlock<T> = (T) -> Bool
-
-/// An item to be displayed in the menu. Every item at the very least has a title.
-public protocol MenuItem where Self: NSObject {
+/* Objects conforming to the Item protocol can be added to the menu */
+public protocol MenuItem: class {
+    func getNode(size: CGSize, font: Font) -> SKShapeNode
 }
 
-// MARK: - Concrete menu items
-// For every menu item in short a comment is added on how the control will work
-//
-// The following conventions are used:
-// [ ... ] The square brackets indicate a control
-// < ... > The less-than and greater-than signs indicate the ability to scroll through a list
-// - ... + The plus and minus sign indicate the ability to increment or decrement some number
+public class FixedSpaceItem: MenuItem {
+    public init() {}
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return FixedSpaceNode(size: size, item: self)
+    }
+}
 
-// E.g. "[ Quit ]"
-public class ButtonMenuItem: NSObject, MenuItem {
-    public let title: String
+public class LabelItem: NSObject & MenuItem {
+    @objc dynamic var title: String
     
-    let onClick: ClickBlock
-    
-    public init(title: String, onClick: @escaping ClickBlock) {
+    public init(title: String) {
         self.title = title
-        self.onClick = onClick
+        
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return LabelNode(size: size, item: self, font: font)
     }
 }
 
-public class LabelMenuItem: NSObject, MenuItem {
-    public let title: String
+public class ButtonItem: NSObject & MenuItem {
+    @objc dynamic var title: String
     
-    @objc dynamic public var value: String {
-        didSet {
-            if self.value != oldValue {
-                print("new value: \(self.value)")
-            }
-        }
-    }
-
-    public init(title: String, value: String) {
+    public init(title: String) {
         self.title = title
-        self.value = value
+        
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return ButtonNode(size: size, item: self, font: font)
     }
 }
 
-// E.g. "Profession: <[ Fighter ]>"
-public class ChooserMenuItem: NSObject, MenuItem {
-    public let title: String
+public class ToggleItem: NSObject & MenuItem {
+    @objc dynamic var isEnabled: Bool
     
+    public init(enabled: Bool) {
+        self.isEnabled = enabled
+        
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return ToggleNode(size: size, item: self, font: font)
+    }
+}
+
+public class TextChooserItem: NSObject & MenuItem {
     let values: [String]
     
-    @objc dynamic var selectedValueIdx: Int {
-        didSet {
-            print("newValue: \(self.selectedValueIdx)")
-            if onValueChanged(self.values[self.selectedValueIdx]) == false {
-                self.selectedValueIdx = oldValue
-            }
-        }
-    }
+    @objc dynamic var selectedValue: String
     
-    private let onValueChanged: ValueChangedBlock<String>
-    
-    public init(title: String, values: [String], selectedValueIdx: Int, onValueChanged: @escaping ValueChangedBlock<String>) {
-        self.title = title
+    public init(values: [String], selectedValue: String) {
+        assert(values.count > 0, "The values array should contain at least 1 value")
         self.values = values
-        self.selectedValueIdx = selectedValueIdx
-        self.onValueChanged = onValueChanged
+        self.selectedValue = selectedValue
+        
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return TextChooserNode(size: size, item: self, font: font)
     }
 }
 
-// E.g. "Music: <[ Off ]>"
-public class ToggleMenuItem: NSObject, MenuItem {
-    public let title: String
+public class NumberChooserItem: NSObject & MenuItem {
+    let range: ClosedRange<Int>
     
-    @objc dynamic var isEnabled: Bool {
-        didSet {
-            if onValueChanged(self.isEnabled) == false {
-                self.isEnabled = oldValue
-            }
-        }
-    }
+    @objc dynamic var selectedValue: Int
     
-    let onValueChanged: ValueChangedBlock<Bool>
-    
-    public init(title: String, enabled: Bool, onValueChanged: @escaping ValueChangedBlock<Bool>) {
-        self.title = title
-        self.isEnabled = enabled
-        self.onValueChanged = onValueChanged
-    }
-}
-
-// E.g.: "Strength: -[ 10 ]+"
-public class NumberChooserMenuItem: NSObject, MenuItem {
-    public let title: String
-    
-    var range: ClosedRange<Int>
-
-    @objc dynamic var selectedValue: Int {
-        didSet {
-            if onValueChanged(self.selectedValue) == false {
-                self.selectedValue = oldValue
-            }
-        }
-    }
-    
-    let onValueChanged: ValueChangedBlock<Int>
-    
-    public init(title: String, range: ClosedRange<Int>, selectedValue: Int, onValueChanged: @escaping ValueChangedBlock<Int>) {
-        self.title = title
+    public init(range: ClosedRange<Int>, selectedValue: Int) {
+        assert((range.upperBound - range.lowerBound) > 0, "The range should have a distance of at least 1")
+        
         self.range = range
         self.selectedValue = selectedValue
-        self.onValueChanged = onValueChanged
+        
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+        return NumberChooserNode(size: size, item: self, font: font)
     }
 }

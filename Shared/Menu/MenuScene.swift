@@ -9,7 +9,7 @@
 import SpriteKit
 
 public class MenuScene: SKScene, InputDeviceInteractable {
-    public init(size: CGSize, menu: MenuBuilder.Menu) {
+    public init(size: CGSize, menu: Menu) {
         super.init(size: size)
 
         assert(menu.items.count.isMultiple(of: 2), "Menu should contain an even amount of items")
@@ -17,8 +17,10 @@ public class MenuScene: SKScene, InputDeviceInteractable {
         var menuRows: [MenuRowNode] = []
         
         let rowSize = CGSize(width: menu.configuration.menuWidth, height: menu.configuration.rowHeight)
-        let headerItem = LabelItem(title: menu.title)
-        menuRows.append(MenuRowNode(size: rowSize, items: [headerItem], font: menu.configuration.titleFont))
+        if let menuTitle = menu.title {
+            let headerItem = LabelItem(title: menuTitle)
+            menuRows.append(MenuRowNode(size: rowSize, items: [headerItem], font: menu.configuration.titleFont))
+        }
         
         let rowCount = menu.items.count / 2
         for rowIdx in (0 ..< rowCount) {

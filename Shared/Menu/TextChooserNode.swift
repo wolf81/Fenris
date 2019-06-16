@@ -9,7 +9,7 @@
 import SpriteKit
 
 class TextChooserNode: SKShapeNode, MenuItemNode {
-    let item: Item
+    let item: MenuItem
     
     private var chooserItem: TextChooserItem { return self.item as! TextChooserItem }
     

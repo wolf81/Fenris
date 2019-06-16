@@ -75,21 +75,20 @@ class ViewController: NSViewController {
             let configuration = MenuBuilder.Configuration(
                 menuWidth: 460,
                 rowHeight: 40,
-                titleFont: Font(name: "Baskerville-SemiBoldItalic", size: 18)!,
+                titleFont: Font(name: "Papyrus", size: 22)!,
                 labelFont: Font(name: "Papyrus", size: 18)!
             )
             
             let pointsRemainingLabel = LabelItem(title: "0")
             let menu = MenuBuilder(configuration: configuration)
                 .withHeader(title: "New Character")
-                .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
                 .withEmptyRow()
+                .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
                 .withRow(title: "Race", item: TextChooserItem(values: ["Human", "Elf", "Dwarf"], selectedValue: "Human"))
                 .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValue: "Fighter"))
                 .withRow(title: "Strength", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
                 .withRow(title: "Agility", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
                 .withRow(title: "Mind", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12))
-                .withEmptyRow()
                 .withRow(title: "Points Remaining", item: pointsRemainingLabel)
                 .build()
             

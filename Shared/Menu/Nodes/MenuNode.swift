@@ -9,5 +9,5 @@
 import SpriteKit
 
 protocol MenuItemNode where Self: SKShapeNode {
-    var item: Item { get }
+    var item: MenuItem { get }
 }

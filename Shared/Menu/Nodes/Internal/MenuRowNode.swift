@@ -13,7 +13,7 @@ class MenuRowNode: SKShapeNode {
         return self.children.filter({ $0 is MenuItemNode }) as! [MenuItemNode]
     }
     
-    init(size: CGSize, items: [Item], font: Font) {
+    init(size: CGSize, items: [MenuItem], font: Font) {
         super.init()
         
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)

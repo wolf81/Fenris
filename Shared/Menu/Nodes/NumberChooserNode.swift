@@ -9,7 +9,7 @@
 import SpriteKit
 
 class NumberChooserNode: SKShapeNode, MenuItemNode {
-    let item: Item
+    let item: MenuItem
     
     var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
     

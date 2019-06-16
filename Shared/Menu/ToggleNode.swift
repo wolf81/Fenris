@@ -9,7 +9,7 @@
 import SpriteKit
 
 class ToggleNode: SKShapeNode, MenuItemNode {
-    let item: Item
+    let item: MenuItem
 
     private var toggleItem: ToggleItem { return self.item as! ToggleItem }
     

@@ -10,7 +10,7 @@ import Foundation
 
 public class MenuBuilder {
     private let configuration: Configuration
-    private var items: [Item] = []
+    private var items: [MenuItem] = []
     private var title: String?
     
     public init(configuration: Configuration) {
@@ -22,7 +22,10 @@ public class MenuBuilder {
         return self
     }
     
-    public func withRow(title: String, item: Item) -> Self {
+    // TODO: Add footer
+    // The footer should probably only allow fixed space and buttons or maybe only buttons
+    
+    public func withRow(title: String, item: MenuItem) -> Self {
         self.items.append(contentsOf: [LabelItem(title: title), item])
         return self
     }
@@ -33,6 +36,6 @@ public class MenuBuilder {
     }
     
     public func build() -> Menu {
-        return Menu(title: self.title ?? "", items: self.items, configuration: self.configuration)
+        return Menu(title: self.title, items: self.items, configuration: self.configuration)
     }
 }
