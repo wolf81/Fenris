@@ -27,51 +27,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         if let view = self.skView {            
-//            let labelItem = LabelMenuItem(title: "Points Remaining", value: "\(self.pointsRemaining)")
-
-            /*
-            let items: [MenuItem] = [
-                ButtonMenuItem(title: "Settings", onClick: {
-                    print("touched button")
-                }),
-                ToggleMenuItem(title: "Music", enabled: false, onValueChanged: { newValue in
-                    print("new value: \(newValue)")
-                    return true
-                }),
-                ToggleMenuItem(title: "Sounds", enabled: true, onValueChanged: { newValue in
-                    print("new value: \(newValue)")
-                    return true
-                }),
-                NumberChooserMenuItem(title: "Strength", range: (6 ... 18), selectedValue: self.strength, onValueChanged: { newValue in
-                    let success = self.totalPoints - self.agility - self.mind - newValue >= 0
-                    if success { self.strength = newValue }
-                    labelItem.value = "\(self.pointsRemaining)"
-                    return success
-                }),                
-                NumberChooserMenuItem(title: "Agility", range: (6 ... 18), selectedValue: self.agility, onValueChanged: { newValue in
-                    let success = self.totalPoints - self.strength - self.mind - newValue >= 0
-                    if success { self.agility = newValue }
-                    labelItem.value = "\(self.pointsRemaining)"
-                    return success
-                }),
-                NumberChooserMenuItem(title: "Mind", range: (6 ... 18), selectedValue: self.mind, onValueChanged: { newValue in
-                    let success = self.totalPoints - self.agility - self.strength - newValue >= 0
-                    if success { self.mind = newValue }
-                    labelItem.value = "\(self.pointsRemaining)"
-                    return success
-                }),
-                ChooserMenuItem(title: "Race", values: ["Human", "Elf", "Dwarf"], selectedValueIdx: 0, onValueChanged: { newValue in
-                    print("new value: \(newValue)")
-                    return true
-                }),
-                ChooserMenuItem(title: "Class", values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 2, onValueChanged: { newValue in
-                    print("new value: \(newValue)")
-                    return true
-                }),
-                labelItem
-            ]
-             */
-            
             let configuration = MenuBuilder.Configuration(
                 menuWidth: 460,
                 rowHeight: 40,
