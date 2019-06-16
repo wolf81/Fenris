@@ -25,7 +25,7 @@ class ButtonNode: SKShapeNode, MenuItemNode {
         super.init()
 
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
-        self.lineWidth = 0
+        self.lineWidth = 1
         
         addChild(self.label)
         
@@ -49,6 +49,6 @@ class ButtonNode: SKShapeNode, MenuItemNode {
 
 extension ButtonNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
-        print("\(self) - handle: \(action)")
+        self.buttonItem.onClick()
     }
 }

@@ -56,6 +56,12 @@ class ViewController: NSViewController {
                 .withRow(title: "Agility", item: agilityChooser)
                 .withRow(title: "Mind", item: mindChooser)
                 .withRow(title: "Points Remaining", item: pointsRemainingLabel)
+                .withEmptyRow()
+                .withFooter(items: [
+                    ButtonItem(title: "Back", onClick: { print("click") }),
+                    ButtonItem(title: "Defaults", onClick: { print("click") }),
+                    ButtonItem(title: "Save", onClick: { print("click") }),
+                ])
                 .build()
             
             let scene = MenuScene(size: self.view.bounds.size, menu: menu)

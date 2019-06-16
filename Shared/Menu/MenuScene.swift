@@ -42,7 +42,10 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             menuRows.append(menuRowNode)
         }
         
-        let tableHeight: CGFloat = CGFloat(1 + rowCount) * menu.configuration.rowHeight
+        let menuRowNode = MenuRowNode(size: rowSize, items: menu.footerItems, font: menu.configuration.labelFont)
+        menuRows.append(menuRowNode)
+
+        let tableHeight: CGFloat = CGFloat(1 + rowCount + ((menu.footerItems.count > 0) ? 1 : 0)) * menu.configuration.rowHeight
         var y = (size.height - tableHeight) / 2
         let x = ((size.width - menu.configuration.menuWidth) / 2)
         for row in menuRows.reversed() {
@@ -97,10 +100,10 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
                 ? (self.focusItemIdx + 1)
                 : self.focusItemIdx
-        case _ where action.contains(.left):
-            let focusItem = self.focusItems[self.focusItemIdx]
-            focusItem.interactableNode.handleInput(action: action)
-        case _ where action.contains(.right):
+        case _ where action.contains(.left): fallthrough
+        case _ where action.contains(.right): fallthrough
+        case _ where action.contains(.triggerA): fallthrough
+        case _ where action.contains(.triggerB):
             let focusItem = self.focusItems[self.focusItemIdx]
             focusItem.interactableNode.handleInput(action: action)
         default: break

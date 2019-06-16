@@ -13,6 +13,8 @@ import SpriteKit
 /// block is false, the value should be reset to the old value.
 public typealias ValidateBlock<T> = (T) -> Bool
 
+public typealias ClickBlock = () -> Void
+
 /// Objects conforming to the Item protocol can be added to the menu.
 public protocol MenuItem: class {
     
@@ -25,10 +27,14 @@ public protocol MenuItem: class {
     func getNode(size: CGSize, font: Font) -> MenuItemNode
 }
 
+public protocol MenuFooterContainable where Self: MenuItem {
+    
+}
+
 // MARK: - FixedSpaceItem
 
 /// Fixed space items don't display any control, just empty space.
-class FixedSpaceItem: MenuItem {
+public class FixedSpaceItem: MenuItem & MenuFooterContainable {
     public init() {}
     
     public func getNode(size: CGSize, font: Font) -> MenuItemNode {
@@ -56,14 +62,14 @@ public class LabelItem: NSObject & MenuItem {
 // MARK: - ButtonItem
 
 /// A button with some text.
-public class ButtonItem: NSObject & MenuItem {
+public class ButtonItem: NSObject & MenuItem & MenuFooterContainable {
     @objc dynamic var title: String
     
-    private let onClickBlock: () -> Void
+    let onClick: ClickBlock
 
-    public init(title: String, onClick: @escaping () -> Void) {
+    public init(title: String, onClick: @escaping ClickBlock) {
         self.title = title
-        self.onClickBlock = onClick
+        self.onClick = onClick
         
         super.init()
     }
