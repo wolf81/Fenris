@@ -41,7 +41,7 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
         addChild(self.rightArrowButton)
         addChild(self.label)
         
-        self.chooserItem.addObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue), options: [.initial, .new], context: nil)
+        self.chooserItem.addObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValueIdx), options: [.initial, .new], context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,12 +49,12 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     }
     
     deinit {
-        self.chooserItem.removeObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValue))
+        self.chooserItem.removeObserver(self, forKeyPath: #keyPath(TextChooserItem.selectedValueIdx))
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValue) {
-            self.label.text = self.chooserItem.selectedValue
+        if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValueIdx) {
+            self.label.text = self.chooserItem.values[self.chooserItem.selectedValueIdx]
         }
     }
     
@@ -91,6 +91,27 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
 
 extension TextChooserNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
-        print("\(self) - handle: \(action)")
+        let validActions: InputDeviceAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        let valueRange = (0 ..< self.chooserItem.values.count)
+        
+        switch action {
+        case .left:
+            let newValue = self.chooserItem.selectedValueIdx - 1
+            if valueRange.contains(newValue) {
+                self.chooserItem.selectedValueIdx = newValue
+            } else {
+                self.chooserItem.selectedValueIdx = (self.chooserItem.values.count - 1)
+            }
+        case .right:
+            let newValue = self.chooserItem.selectedValueIdx + 1
+            if valueRange.contains(newValue) {
+                self.chooserItem.selectedValueIdx = newValue
+            } else {
+                self.chooserItem.selectedValueIdx = 0
+            }
+        default: /* Should never happen */ fatalError()
+        }
     }
 }

@@ -67,13 +67,14 @@ public class ToggleItem: NSObject & MenuItem {
 public class TextChooserItem: NSObject & MenuItem {
     let values: [String]
     
-    @objc dynamic var selectedValue: String
+    @objc dynamic var selectedValueIdx: Int
     
-    public init(values: [String], selectedValue: String) {
+    public init(values: [String], selectedValueIdx: Int) {
         assert(values.count > 0, "The values array should contain at least 1 value")
-        self.values = values
-        self.selectedValue = selectedValue
         
+        self.values = values
+        self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
+
         super.init()
     }
     
