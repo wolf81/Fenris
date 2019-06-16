@@ -133,7 +133,6 @@
 		79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
 		79809E2B22B39CE5008E4B49 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		79809E3722B4A617008E4B49 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		79809E3B22B4BCDF008E4B49 /* MenuScene_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene_old.swift; sourceTree = "<group>"; };
 		79809E3C22B4BCED008E4B49 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSpaceNode.swift; sourceTree = "<group>"; };
 		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
@@ -308,7 +307,6 @@
 				795D784F2111812D00F4547D /* SceneManager.swift */,
 				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
 				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				79809E3B22B4BCDF008E4B49 /* MenuScene_old.swift */,
 				79809E0D22B233FA008E4B49 /* SceneInteractable.swift */,
 				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
 				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
