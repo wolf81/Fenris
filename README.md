@@ -26,7 +26,17 @@ Instructions to be added, but it's basically the same as any other Framework tha
 
 ## Menu
 
-Fenris provides an easy way to create simple game menus. The menus are build on SpriteKit and should be usable regardless on all supported platforms, though might behave differently depending on the selected platform. For example on an iOS device touch is the expected input method, while on an AppleTV perhaps a gamepad is used instead. On macOS input with mouse and keyboard is supported.
+Fenris provides an easy way to create simple game menus. The menus are build on SpriteKit and should be usable regardless on all supported platforms, though might behave differently depending on the selected platform. For example on an iOS device touch is the expected input method, while on an AppleTV perhaps a gamepad is used instead. On macOS input with mouse and keyboard is supported. 
+
+The design of the menus is quite limited, but it might be quite useful to get some menu up and running quickly and just focus on the core logic of a game. Of course, it's always possible to replace a menu build with Fenris with some custom SKScene. The menu should prove useful at least for development purposes and simple games.
+
+For the menu the following set of controls is provided:
+
+- Toggle: a control that can switch between on and off states
+- Text chooser: a control that can switch between a list of items
+- Number chooser: a control that can switch between integers within some range
+- Label: a control that displays some text
+- Button: a control that displays some text and can receive touches & clicks
 
 In order to build the menu the first step is to create a configuration, for example as such: 
 

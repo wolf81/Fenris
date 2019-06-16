@@ -14,7 +14,7 @@ public protocol MenuItem: class {
     func getNode(size: CGSize, font: Font) -> MenuItemNode
 }
 
-public class FixedSpaceItem: MenuItem {
+class FixedSpaceItem: MenuItem {
     public init() {}
     
     public func getNode(size: CGSize, font: Font) -> MenuItemNode {
