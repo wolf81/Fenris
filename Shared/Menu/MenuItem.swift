@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 
+public typealias ValidateBlock<T> = (T) -> Bool
+
 /// Objects conforming to the Item protocol can be added to the menu.
 public protocol MenuItem: class {
     
@@ -65,19 +67,18 @@ public class ButtonItem: NSObject & MenuItem {
 
 /// An on/off toggle.
 public class ToggleItem: NSObject & MenuItem {
+    public var onValidate: ValidateBlock<Bool>? = nil
+
     @objc dynamic var isEnabled: Bool {
         didSet {
-            if onValueChangeBlock(self.isEnabled) == false {
+            if onValidate?(self.isEnabled) == false {
                 self.isEnabled = oldValue
             }
         }
     }
     
-    private let onValueChangeBlock: (Bool) -> Bool
-    
-    public init(enabled: Bool, onValueChange: @escaping (Bool) -> Bool) {
+    public init(enabled: Bool) {
         self.isEnabled = enabled
-        self.onValueChangeBlock = onValueChange
         
         super.init()
     }
@@ -89,24 +90,23 @@ public class ToggleItem: NSObject & MenuItem {
 
 /// A chooser with a list of string values.
 public class TextChooserItem: NSObject & MenuItem {
+    public var onValidate: ValidateBlock<Int>? = nil
+
     let values: [String]
     
     @objc dynamic var selectedValueIdx: Int {
         didSet {
-            if onValueChangeBlock(self.selectedValueIdx) == false {
+            if onValidate?(self.selectedValueIdx) == false {
                 self.selectedValueIdx = oldValue
             }
         }
     }
     
-    private let onValueChangeBlock: (Int) -> Bool
-    
-    public init(values: [String], selectedValueIdx: Int, onValueChange: @escaping (Int) -> Bool) {
+    public init(values: [String], selectedValueIdx: Int) {
         assert(values.count > 0, "The values array should contain at least 1 value")
         
         self.values = values
         self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
-        self.onValueChangeBlock = onValueChange
         
         super.init()
     }
@@ -118,24 +118,23 @@ public class TextChooserItem: NSObject & MenuItem {
 
 /// A chooser with a list of integer values.
 public class NumberChooserItem: NSObject & MenuItem {
+    public var onValidate: ValidateBlock<Int>? = nil
+
     let range: ClosedRange<Int>
     
     @objc dynamic var selectedValue: Int {
         didSet {
-            if onValueChangeBlock(self.selectedValue) == false {
+            if onValidate?(self.selectedValue) == false {
                 self.selectedValue = oldValue
             }
         }
     }
     
-    private let onValueChangeBlock: (Int) -> Bool
-    
-    public init(range: ClosedRange<Int>, selectedValue: Int, onValueChange: @escaping (Int) -> Bool) {
+    public init(range: ClosedRange<Int>, selectedValue: Int) {
         assert((range.upperBound - range.lowerBound) > 0, "The range should have a distance of at least 1")
         
         self.range = range
         self.selectedValue = selectedValue
-        self.onValueChangeBlock = onValueChange
         
         super.init()
     }

@@ -16,6 +16,9 @@ class ViewController: NSViewController {
     private var attributeUpdater: AttributeUpdater!
     
     private let pointsRemainingLabel = LabelItem(title: "0")
+    private let strengthChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
+    private let agilityChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
+    private let mindChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -45,28 +48,28 @@ class ViewController: NSViewController {
             let menu = MenuBuilder(configuration: configuration)
                 .withHeader(title: "New Character")
                 .withEmptyRow()
-                .withRow(title: "Hard Mode", item: ToggleItem(enabled: true, onValueChange: {
-                    print("\($0)"); return true
-                }))
-                .withRow(title: "Race", item: TextChooserItem(values: ["Human", "Elf", "Dwarf"], selectedValueIdx: 0, onValueChange: {
-                    print("\($0)"); return true
-                }))
-                .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 0, onValueChange: {
-                    print("\($0)"); return true
-                }))
-                .withRow(title: "Strength", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { strength in
-                    return self.attributeUpdater.update(strength: strength)
-                }))
-                .withRow(title: "Agility", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { agility in
-                    return self.attributeUpdater.update(agility: agility)
-                }))
-                .withRow(title: "Mind", item: NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChange: { mind in
-                    return self.attributeUpdater.update(mind: mind)
-                }))
+                .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
+                .withRow(title: "Race", item: TextChooserItem(values: ["Human", "Elf", "Dwarf"], selectedValueIdx: 0))
+                .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 0))
+                .withRow(title: "Strength", item: strengthChooser)
+                .withRow(title: "Agility", item: agilityChooser)
+                .withRow(title: "Mind", item: mindChooser)
                 .withRow(title: "Points Remaining", item: pointsRemainingLabel)
                 .build()
             
             let scene = MenuScene(size: self.view.bounds.size, menu: menu)
+                    
+            self.strengthChooser.onValidate = { strength in
+                return self.attributeUpdater.update(strength: strength)
+            }
+
+            self.agilityChooser.onValidate = { agility in
+                return self.attributeUpdater.update(agility: agility)
+            }
+
+            self.mindChooser.onValidate = { mind in
+                return self.attributeUpdater.update(mind: mind)
+            }
             
             // Present the scene
             view.presentScene(scene)
