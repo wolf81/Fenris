@@ -25,7 +25,7 @@ class ButtonNode: SKShapeNode, MenuItemNode {
         super.init()
 
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
-        self.lineWidth = 1
+        self.lineWidth = 0
         
         addChild(self.label)
         

@@ -1,5 +1,5 @@
 //
-//  MenuNode.swift
+//  MenuItemNode.swift
 //  Fenris
 //
 //  Created by Wolfgang Schreurs on 15/06/2019.

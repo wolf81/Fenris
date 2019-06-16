@@ -56,7 +56,9 @@ public class MenuScene: SKScene, InputDeviceInteractable {
                 focusItems.append(focusItem)
             default:
                 for interactableNode in interactableNodes {
-                    focusItems.append(FocusItem(frame: interactableNode.frame, interactableNode: interactableNode))
+                    let origin = menuRowNode.convert(interactableNode.frame.origin, to: self)
+                    let size = interactableNode.frame.size
+                    focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
                 }
             }
         }

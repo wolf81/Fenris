@@ -35,6 +35,11 @@ public class MenuBuilder {
         return self
     }
     
+    public func withButtonRow(buttons: [ButtonItem]) -> Self {
+        self.items.append(contentsOf: buttons)
+        return self
+    }
+    
     public func build() -> Menu {
         return Menu(title: self.title, items: self.items, configuration: self.configuration)
     }
