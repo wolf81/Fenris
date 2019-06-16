@@ -19,6 +19,7 @@ class ViewController: NSViewController {
     private let strengthChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
     private let agilityChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
     private let mindChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
+    private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Gnome"], selectedValueIdx: 0)
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -49,7 +50,7 @@ class ViewController: NSViewController {
                 .withHeader(title: "New Character")
                 .withEmptyRow()
                 .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
-                .withRow(title: "Race", item: TextChooserItem(values: ["Human", "Elf", "Dwarf"], selectedValueIdx: 0))
+                .withRow(title: "Race", item: raceChooser)
                 .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 0))
                 .withRow(title: "Strength", item: strengthChooser)
                 .withRow(title: "Agility", item: agilityChooser)
@@ -69,6 +70,30 @@ class ViewController: NSViewController {
 
             self.mindChooser.onValidate = { mind in
                 return self.attributeUpdater.update(mind: mind)
+            }
+            
+            self.raceChooser.onValidate = { raceIdx in
+                var strengthRange = (6 ... 18)
+                var agilityRange = (6 ... 18)
+                var mindRange = (6 ... 18)
+                
+                switch raceIdx {
+                case 0: /* Human */
+                    break
+                case 1: /* Elf */
+                    agilityRange = (7 ... 19)
+                case 2: /* Dwarf */
+                    strengthRange = (7 ... 19)
+                case 3: /* Gnome */
+                    mindRange = (7 ... 19)
+                default: fatalError()
+                }
+                
+                self.strengthChooser.range = strengthRange
+                self.agilityChooser.range = agilityRange
+                self.mindChooser.range = mindRange
+                
+                return true
             }
             
             // Present the scene

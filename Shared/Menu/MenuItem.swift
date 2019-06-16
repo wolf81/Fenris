@@ -151,6 +151,15 @@ public class NumberChooserItem: NSObject & MenuItem {
     public var range: ClosedRange<Int> {
         didSet {
             assertRange(self.range, minimumDistance: 1)
+            
+            switch self.range {
+            case _ where self.selectedValue < range.lowerBound:
+                self.selectedValue = range.lowerBound
+            case _ where self.selectedValue > range.upperBound:
+                self.selectedValue = range.upperBound
+            default:
+                break
+            }
         }
     }
     
