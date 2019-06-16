@@ -11,13 +11,13 @@ import SpriteKit
 
 /* Objects conforming to the Item protocol can be added to the menu */
 public protocol MenuItem: class {
-    func getNode(size: CGSize, font: Font) -> SKShapeNode
+    func getNode(size: CGSize, font: Font) -> MenuItemNode
 }
 
 public class FixedSpaceItem: MenuItem {
     public init() {}
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return FixedSpaceNode(size: size, item: self)
     }
 }
@@ -31,7 +31,7 @@ public class LabelItem: NSObject & MenuItem {
         super.init()
     }
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return LabelNode(size: size, item: self, font: font)
     }
 }
@@ -45,7 +45,7 @@ public class ButtonItem: NSObject & MenuItem {
         super.init()
     }
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return ButtonNode(size: size, item: self, font: font)
     }
 }
@@ -59,7 +59,7 @@ public class ToggleItem: NSObject & MenuItem {
         super.init()
     }
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return ToggleNode(size: size, item: self, font: font)
     }
 }
@@ -77,7 +77,7 @@ public class TextChooserItem: NSObject & MenuItem {
         super.init()
     }
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return TextChooserNode(size: size, item: self, font: font)
     }
 }
@@ -96,7 +96,7 @@ public class NumberChooserItem: NSObject & MenuItem {
         super.init()
     }
     
-    public func getNode(size: CGSize, font: Font) -> SKShapeNode {
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
         return NumberChooserNode(size: size, item: self, font: font)
     }
 }

@@ -9,9 +9,7 @@
 import SpriteKit
 
 class MenuRowNode: SKShapeNode {
-    var menuItemNodes: [MenuItemNode] {
-        return self.children.filter({ $0 is MenuItemNode }) as! [MenuItemNode]
-    }
+    private(set) var itemNodes: [MenuItemNode] = []
     
     init(size: CGSize, items: [MenuItem], font: Font) {
         super.init()
@@ -24,6 +22,7 @@ class MenuRowNode: SKShapeNode {
             let node = item.getNode(size: nodeSize, font: font)
             addChild(node)
             node.position = CGPoint(x: CGFloat(idx) * nodeSize.width, y: 0)
+            self.itemNodes.append(node)
         }
     }
     

@@ -88,3 +88,9 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
     }
     */
 }
+
+extension NumberChooserNode: InputDeviceInteractable {
+    func handleInput(action: InputDeviceAction) {
+        print("\(self) - handle: \(action)")
+    }
+}

@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-public class LabelNode: SKShapeNode, MenuItemNode {
+class LabelNode: SKShapeNode, MenuItemNode {
     let item: MenuItem
     
     private var labelItem: LabelItem { return self.item as! LabelItem }

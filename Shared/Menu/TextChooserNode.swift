@@ -88,3 +88,9 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     }
      */
 }
+
+extension TextChooserNode: InputDeviceInteractable {
+    func handleInput(action: InputDeviceAction) {
+        print("\(self) - handle: \(action)")
+    }
+}

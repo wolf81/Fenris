@@ -9,6 +9,12 @@
 import SpriteKit
 
 public class MenuScene: SKScene, InputDeviceInteractable {
+    private var focusItems: [FocusItem] = []
+    
+    private var focusItemIdx: Int = Int.min
+    
+    private var focusNode: SKShapeNode?
+    
     public init(size: CGSize, menu: Menu) {
         super.init(size: size)
 
@@ -26,7 +32,8 @@ public class MenuScene: SKScene, InputDeviceInteractable {
         for rowIdx in (0 ..< rowCount) {
             let firstItem = menu.items[rowIdx * 2]
             let secondItem = menu.items[rowIdx * 2 + 1]
-            menuRows.append(MenuRowNode(size: rowSize, items: [firstItem, secondItem], font: menu.configuration.labelFont))
+            let menuRowNode = MenuRowNode(size: rowSize, items: [firstItem, secondItem], font: menu.configuration.labelFont)
+            menuRows.append(menuRowNode)
         }
         
         let tableHeight: CGFloat = CGFloat(1 + rowCount) * menu.configuration.rowHeight
@@ -37,6 +44,23 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             row.position = CGPoint(x: x, y: y)
             y += menu.configuration.rowHeight
         }
+        
+        // Create a list of focusable items
+        for menuRowNode in menuRows {
+            let interactableNodes = menuRowNode.itemNodes.filter({ $0 is InputDeviceInteractable }) as! [InputDeviceInteractable]
+            
+            switch interactableNodes.count {
+            case 0: continue
+            case 1:
+                let focusItem = FocusItem(frame: menuRowNode.frame, interactableNode: interactableNodes[0])
+                focusItems.append(focusItem)
+            default:
+                for interactableNode in interactableNodes {
+                    focusItems.append(FocusItem(frame: interactableNode.frame, interactableNode: interactableNode))
+                }
+            }
+        }
+        print(focusItems)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -44,14 +68,37 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     }
         
     func handleInput(action: InputDeviceAction) {
+        guard self.focusItems.count > 0 else { return }
+        
+        defer { updateFocusFrame() }
+        
+        guard self.focusItemIdx >= 0 else {
+            return self.focusItemIdx = 0
+        }
+        
         switch action {
         case _ where action.contains(.up):
-            print("focus previous")
+            self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
+                ? (self.focusItemIdx - 1)
+                : self.focusItemIdx
         case _ where action.contains(.down):
-            print("focus next")
-        default:
-            break
+            self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
+                ? (self.focusItemIdx + 1)
+                : self.focusItemIdx
+        default: break
         }
+    }
+    
+    func updateFocusFrame() {
+        if let focusNode = self.focusNode {
+            focusNode.removeFromParent()
+        }
+        
+        let focusItem = self.focusItems[self.focusItemIdx]
+        self.focusNode = SKShapeNode(path: CGPath(rect: focusItem.frame, transform: nil))
+        self.focusNode?.lineWidth = 1
+        self.focusNode?.strokeColor = .orange
+        addChild(self.focusNode!)
     }
 }
 

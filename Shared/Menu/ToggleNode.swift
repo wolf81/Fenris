@@ -80,3 +80,9 @@ class ToggleNode: SKShapeNode, MenuItemNode {
     }
      */
 }
+
+extension ToggleNode: InputDeviceInteractable {
+    func handleInput(action: InputDeviceAction) {
+        print("\(self) - handle: \(action)")
+    }
+}

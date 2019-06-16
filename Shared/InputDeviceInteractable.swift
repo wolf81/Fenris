@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import SpriteKit
 
-protocol InputDeviceInteractable {
+protocol InputDeviceInteractable where Self: SKNode {
     func handleInput(action: InputDeviceAction)
 }
 

@@ -46,3 +46,9 @@ class ButtonNode: SKShapeNode, MenuItemNode {
         }
     }
 }
+
+extension ButtonNode: InputDeviceInteractable {
+    func handleInput(action: InputDeviceAction) {
+        print("\(self) - handle: \(action)")
+    }
+}

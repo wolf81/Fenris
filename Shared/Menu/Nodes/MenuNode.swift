@@ -8,6 +8,6 @@
 
 import SpriteKit
 
-protocol MenuItemNode where Self: SKShapeNode {
+public protocol MenuItemNode where Self: SKNode {
     var item: MenuItem { get }
 }
