@@ -6,7 +6,7 @@
 //  Copyright © 2019 Wolftrail. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
 
 extension MenuBuilder {
     
@@ -16,6 +16,7 @@ extension MenuBuilder {
         let rowHeight: CGFloat
         let titleFont: Font
         let labelFont: Font
+        let focusRectColor: SKColor = .yellow
         
         public init(menuWidth: CGFloat, rowHeight: CGFloat, titleFont: Font, labelFont: Font) {
             self.menuWidth = menuWidth

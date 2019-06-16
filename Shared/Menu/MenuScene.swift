@@ -13,15 +13,10 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     
     private var focusItemIdx: Int = Int.min
     
-    private lazy var focusNode: SKShapeNode = {
-        let focusNode = SKShapeNode()
-        focusNode.lineWidth = 1
-        focusNode.strokeColor = .orange
-        addChild(focusNode)
-        return focusNode
-    }()
+    private var focusNode: FocusNode
     
     public init(size: CGSize, menu: Menu) {
+        self.focusNode = FocusNode(strokeColor: menu.configuration.focusRectColor)
         super.init(size: size)
 
         assert(menu.items.count.isMultiple(of: 2), "Menu should contain an even amount of items")
@@ -71,7 +66,8 @@ public class MenuScene: SKScene, InputDeviceInteractable {
                 }
             }
         }
-        print(focusItems)
+        
+        addChild(self.focusNode)
     }
     
     required init?(coder aDecoder: NSCoder) {

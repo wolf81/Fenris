@@ -44,6 +44,9 @@
 		794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CA22B703C600AA62AF /* MenuFooterNode.swift */; };
 		794366CC22B703C600AA62AF /* MenuFooterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CA22B703C600AA62AF /* MenuFooterNode.swift */; };
 		794366CD22B703C600AA62AF /* MenuFooterNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CA22B703C600AA62AF /* MenuFooterNode.swift */; };
+		794366CF22B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
+		794366D022B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
+		794366D122B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
@@ -121,6 +124,7 @@
 		794366BB22B5CEC400AA62AF /* FocusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusItem.swift; sourceTree = "<group>"; };
 		794366C522B6FC4600AA62AF /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		794366CA22B703C600AA62AF /* MenuFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterNode.swift; sourceTree = "<group>"; };
+		794366CE22B7092400AA62AF /* FocusNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNode.swift; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				79809E1122B26D6A008E4B49 /* TextChooserNode.swift */,
 				797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */,
 				79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */,
+				794366CE22B7092400AA62AF /* FocusNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
+				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCE22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
 				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
@@ -584,6 +590,7 @@
 				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
+				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
@@ -627,6 +634,7 @@
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
+				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCD22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,
