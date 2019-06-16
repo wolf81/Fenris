@@ -57,37 +57,9 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
             self.label.text = self.chooserItem.values[self.chooserItem.selectedValueIdx]
         }
     }
-    
-    /*
-    func action() {
-        // ignore
-    }
-    
-    func up() {
-        // ignore
-    }
-    
-    func down() {
-        // ignore
-    }
-    
-    func left() {
-        if self.item.selectedValueIdx - 1 >= 0 {
-            self.item.selectedValueIdx -= 1
-        } else {
-            self.item.selectedValueIdx = (self.menuItem.values.count - 1)
-        }
-    }
-    
-    func right() {
-        if self.item.selectedValueIdx + 1 < self.menuItem.values.count {
-            self.item.selectedValueIdx += 1
-        } else {
-            self.item.selectedValueIdx = 0
-        }
-    }
-     */
 }
+
+// MARK: - InputDeviceInteractable
 
 extension TextChooserNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {

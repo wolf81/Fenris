@@ -47,6 +47,8 @@ class ButtonNode: SKShapeNode, MenuItemNode {
     }
 }
 
+// MARK: - InputDeviceInteractable
+
 extension ButtonNode: InputDeviceInteractable {
     func handleInput(action: InputDeviceAction) {
         self.buttonItem.onClick()

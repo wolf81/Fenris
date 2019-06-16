@@ -57,36 +57,6 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
             self.label.text = "\(self.chooserItem.selectedValue)"
         }
     }
-
-    /*
-    func action() {
-        // ignore
-    }
-    
-    func up() {
-        // ignore
-    }
-    
-    func down() {
-        // ignore
-    }
-    
-    func left() {
-        self.item.selectedValue -= 1
-        
-        if self.item.range.contains(self.item.selectedValue) == false {
-            self.item.selectedValue = self.item.range.min() ?? 0
-        }
-    }
-    
-    func right() {
-        self.item.selectedValue += 1
-
-        if self.item.range.contains(self.item.selectedValue) == false {
-            self.item.selectedValue = self.item.range.max() ?? 0
-        }
-    }
-    */
 }
 
 // MARK: - InputDeviceInteractable
