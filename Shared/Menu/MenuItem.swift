@@ -9,6 +9,8 @@
 import Foundation
 import SpriteKit
 
+/// Use the validate block whenever a value of a menu item is set. If the result of the validate
+/// block is false, the value should be reset to the old value.
 public typealias ValidateBlock<T> = (T) -> Bool
 
 /// Objects conforming to the Item protocol can be added to the menu.
