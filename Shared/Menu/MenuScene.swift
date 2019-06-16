@@ -13,7 +13,13 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     
     private var focusItemIdx: Int = Int.min
     
-    private var focusNode: SKShapeNode?
+    private lazy var focusNode: SKShapeNode = {
+        let focusNode = SKShapeNode()
+        focusNode.lineWidth = 1
+        focusNode.strokeColor = .orange
+        addChild(focusNode)
+        return focusNode
+    }()
     
     public init(size: CGSize, menu: Menu) {
         super.init(size: size)
@@ -92,15 +98,14 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     }
     
     func updateFocusFrame() {
-        if let focusNode = self.focusNode {
-            focusNode.removeFromParent()
-        }
+        self.focusNode.isHidden = false
         
         let focusItem = self.focusItems[self.focusItemIdx]
-        self.focusNode = SKShapeNode(path: CGPath(rect: focusItem.frame, transform: nil))
-        self.focusNode?.lineWidth = 1
-        self.focusNode?.strokeColor = .orange
-        addChild(self.focusNode!)
+        self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
+    }
+    
+    fileprivate func hideFocusNode() {
+        self.focusNode.isHidden = true
     }
 }
 
@@ -112,6 +117,10 @@ extension MenuScene {
         print("handle mouse click @ \(location)")
     }
     
+    public override func mouseMoved(with event: NSEvent) {
+        hideFocusNode()
+    }
+
     open override func keyUp(with event: NSEvent) {
         switch event.keyCode {
         case 126: handleInput(action: .up)
