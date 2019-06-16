@@ -58,7 +58,7 @@ class ViewController: NSViewController {
                 .build()
             
             let scene = MenuScene(size: self.view.bounds.size, menu: menu)
-                    
+            
             self.strengthChooser.onValidate = { strength in
                 return self.attributeUpdater.update(strength: strength)
             }

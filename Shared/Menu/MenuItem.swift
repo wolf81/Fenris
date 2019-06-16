@@ -25,6 +25,8 @@ public protocol MenuItem: class {
     func getNode(size: CGSize, font: Font) -> MenuItemNode
 }
 
+// MARK: - FixedSpaceItem
+
 /// Fixed space items don't display any control, just empty space.
 class FixedSpaceItem: MenuItem {
     public init() {}
@@ -33,6 +35,8 @@ class FixedSpaceItem: MenuItem {
         return FixedSpaceNode(size: size, item: self)
     }
 }
+
+// MARK: - LabelItem
 
 /// A label with some text.
 public class LabelItem: NSObject & MenuItem {
@@ -48,6 +52,8 @@ public class LabelItem: NSObject & MenuItem {
         return LabelNode(size: size, item: self, font: font)
     }
 }
+
+// MARK: - ButtonItem
 
 /// A button with some text.
 public class ButtonItem: NSObject & MenuItem {
@@ -66,6 +72,8 @@ public class ButtonItem: NSObject & MenuItem {
         return ButtonNode(size: size, item: self, font: font)
     }
 }
+
+// MARK: - ToggleItem
 
 /// An on/off toggle.
 public class ToggleItem: NSObject & MenuItem {
@@ -90,11 +98,27 @@ public class ToggleItem: NSObject & MenuItem {
     }
 }
 
+// MARK: - TextChooserItem
+
 /// A chooser with a list of string values.
 public class TextChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
-    let values: [String]
+    public var values: [String] {
+        didSet {
+            assertArray(self.values, minimumLength: 1)
+
+            let range = (0 ..< values.count)
+            switch self.selectedValueIdx {
+            case _ where self.selectedValueIdx < range.lowerBound:
+                self.selectedValueIdx = range.lowerBound
+            case _ where self.selectedValueIdx > range.upperBound:
+                self.selectedValueIdx = range.upperBound
+            default:
+                break
+            }
+        }
+    }
     
     @objc dynamic var selectedValueIdx: Int {
         didSet {
@@ -105,8 +129,8 @@ public class TextChooserItem: NSObject & MenuItem {
     }
     
     public init(values: [String], selectedValueIdx: Int) {
-        assert(values.count > 0, "The values array should contain at least 1 value")
-        
+        assertArray(values, minimumLength: 1)
+
         self.values = values
         self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
         
@@ -118,11 +142,17 @@ public class TextChooserItem: NSObject & MenuItem {
     }
 }
 
+// MARK: - NumberChooserItem
+
 /// A chooser with a list of integer values.
 public class NumberChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
-    let range: ClosedRange<Int>
+    public var range: ClosedRange<Int> {
+        didSet {
+            assertRange(self.range, minimumDistance: 1)
+        }
+    }
     
     @objc dynamic var selectedValue: Int {
         didSet {
@@ -133,8 +163,8 @@ public class NumberChooserItem: NSObject & MenuItem {
     }
     
     public init(range: ClosedRange<Int>, selectedValue: Int) {
-        assert((range.upperBound - range.lowerBound) > 0, "The range should have a distance of at least 1")
-        
+        assertRange(range, minimumDistance: 1)
+
         self.range = range
         self.selectedValue = selectedValue
         
