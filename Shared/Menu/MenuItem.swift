@@ -32,7 +32,7 @@ class FixedSpaceItem: MenuItem {
 
 /// A label with some text.
 public class LabelItem: NSObject & MenuItem {
-    @objc dynamic var title: String
+    @objc public dynamic var title: String
     
     public init(title: String) {
         self.title = title
@@ -49,8 +49,11 @@ public class LabelItem: NSObject & MenuItem {
 public class ButtonItem: NSObject & MenuItem {
     @objc dynamic var title: String
     
-    public init(title: String) {
+    private let onClickBlock: () -> Void
+
+    public init(title: String, onClick: @escaping () -> Void) {
         self.title = title
+        self.onClickBlock = onClick
         
         super.init()
     }
@@ -62,10 +65,19 @@ public class ButtonItem: NSObject & MenuItem {
 
 /// An on/off toggle.
 public class ToggleItem: NSObject & MenuItem {
-    @objc dynamic var isEnabled: Bool
+    @objc dynamic var isEnabled: Bool {
+        didSet {
+            if onValueChangeBlock(self.isEnabled) == false {
+                self.isEnabled = oldValue
+            }
+        }
+    }
     
-    public init(enabled: Bool) {
+    private let onValueChangeBlock: (Bool) -> Bool
+    
+    public init(enabled: Bool, onValueChange: @escaping (Bool) -> Bool) {
         self.isEnabled = enabled
+        self.onValueChangeBlock = onValueChange
         
         super.init()
     }
@@ -79,14 +91,23 @@ public class ToggleItem: NSObject & MenuItem {
 public class TextChooserItem: NSObject & MenuItem {
     let values: [String]
     
-    @objc dynamic var selectedValueIdx: Int
+    @objc dynamic var selectedValueIdx: Int {
+        didSet {
+            if onValueChangeBlock(self.selectedValueIdx) == false {
+                self.selectedValueIdx = oldValue
+            }
+        }
+    }
     
-    public init(values: [String], selectedValueIdx: Int) {
+    private let onValueChangeBlock: (Int) -> Bool
+    
+    public init(values: [String], selectedValueIdx: Int, onValueChange: @escaping (Int) -> Bool) {
         assert(values.count > 0, "The values array should contain at least 1 value")
         
         self.values = values
         self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
-
+        self.onValueChangeBlock = onValueChange
+        
         super.init()
     }
     
@@ -99,13 +120,22 @@ public class TextChooserItem: NSObject & MenuItem {
 public class NumberChooserItem: NSObject & MenuItem {
     let range: ClosedRange<Int>
     
-    @objc dynamic var selectedValue: Int
+    @objc dynamic var selectedValue: Int {
+        didSet {
+            if onValueChangeBlock(self.selectedValue) == false {
+                self.selectedValue = oldValue
+            }
+        }
+    }
     
-    public init(range: ClosedRange<Int>, selectedValue: Int) {
+    private let onValueChangeBlock: (Int) -> Bool
+    
+    public init(range: ClosedRange<Int>, selectedValue: Int, onValueChange: @escaping (Int) -> Bool) {
         assert((range.upperBound - range.lowerBound) > 0, "The range should have a distance of at least 1")
         
         self.range = range
         self.selectedValue = selectedValue
+        self.onValueChangeBlock = onValueChange
         
         super.init()
     }
