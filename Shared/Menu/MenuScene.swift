@@ -98,8 +98,8 @@ public class MenuScene: SKScene, InputDeviceInteractable {
                 : self.focusItemIdx
         case _ where action.contains(.left): fallthrough
         case _ where action.contains(.right): fallthrough
-        case _ where action.contains(.triggerA): fallthrough
-        case _ where action.contains(.triggerB):
+        case _ where action.contains(.buttonA): fallthrough
+        case _ where action.contains(.buttonB):
             let focusItem = self.focusItems[self.focusItemIdx]
             focusItem.interactableNode.handleInput(action: action)
         default: break
@@ -136,8 +136,8 @@ extension MenuScene {
         case 125: handleInput(action: .down)
         case 123: handleInput(action: .left)
         case 124: handleInput(action: .right)
-        case 49: handleInput(action: .triggerA)
-        case 53: handleInput(action: .triggerB)
+        case 49: handleInput(action: .buttonA)
+        case 53: handleInput(action: .buttonB)
         default: break
         }
     }

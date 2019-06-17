@@ -26,10 +26,10 @@ public struct InputDeviceAction: OptionSet, CustomStringConvertible {
     static let down = InputDeviceAction(rawValue: 1 << 1)
     static let left = InputDeviceAction(rawValue: 1 << 2)
     static let right = InputDeviceAction(rawValue: 1 << 3)
-    static let triggerA = InputDeviceAction(rawValue: 1 << 4)
-    static let triggerB = InputDeviceAction(rawValue: 1 << 5)
+    static let buttonA = InputDeviceAction(rawValue: 1 << 4)
+    static let buttonB = InputDeviceAction(rawValue: 1 << 5)
 
-    static let all: InputDeviceAction = [.up, .down, .left, .right, .triggerA, .triggerB]
+    static let all: InputDeviceAction = [.up, .down, .left, .right, .buttonA, .buttonB]
     
     public init(rawValue: Int16) {
         self.rawValue = rawValue
@@ -43,8 +43,8 @@ public struct InputDeviceAction: OptionSet, CustomStringConvertible {
         case _ where contains(.down): input.append("↓")
         case _ where contains(.left): input.append("←")
         case _ where contains(.right): input.append("→")
-        case _ where contains(.triggerA): input.append("◎ A")
-        case _ where contains(.triggerB): input.append("◎ B")
+        case _ where contains(.buttonA): input.append("◎ A")
+        case _ where contains(.buttonB): input.append("◎ B")
         case _ where self == InputDeviceAction.none: input.append("-")
         default: break
         }
