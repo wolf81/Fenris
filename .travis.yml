@@ -5,3 +5,4 @@ xcode_workspace: Fenris.xcworkspace
 xcode_scheme: "Fenris macOS"
 script:
   - make build
+  - make test
