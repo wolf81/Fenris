@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash -ex
 
 # Create a custom keychain
 security create-keychain -p travis ios-build.keychain
