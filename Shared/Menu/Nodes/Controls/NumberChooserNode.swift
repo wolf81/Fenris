@@ -11,7 +11,7 @@ import SpriteKit
 class NumberChooserNode: SKShapeNode, MenuItemNode {
     let item: MenuItem
     
-    var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
+    private var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
     
     private let label: SKLabelNode
     private let minusSignButton: SignButtonNode
