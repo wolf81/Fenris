@@ -17,16 +17,16 @@ class ViewController: NSViewController {
     
     private let pointsRemainingLabel = LabelItem(title: "0")
     private let strengthChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
-    private let agilityChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
+    private let dexterityChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
     private let mindChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
-    private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Gnome"], selectedValueIdx: 0)
+    private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Halfling"], selectedValueIdx: 0)
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
         self.attributeUpdater = AttributeUpdater(
             strength: 12,
-            agility: 12,
+            dexterity: 12,
             mind: 12,
             onPointsRemainingUpdated: { (pointsRemaining) in
             self.pointsRemainingLabel.title = "\(pointsRemaining)"
@@ -53,15 +53,15 @@ class ViewController: NSViewController {
                 .withRow(title: "Race", item: raceChooser)
                 .withRow(title: "Class", item: TextChooserItem(values: ["Fighter", "Mage", "Thief", "Cleric"], selectedValueIdx: 0))
                 .withRow(title: "Strength", item: strengthChooser)
-                .withRow(title: "Agility", item: agilityChooser)
+                .withRow(title: "Agility", item: dexterityChooser)
                 .withRow(title: "Mind", item: mindChooser)
                 .withRow(title: "Points Remaining", item: pointsRemainingLabel)
                 .withEmptyRow()
                 .withFooter(items: [
-                    ButtonItem(title: "Back", onClick: { print("click") }),
+                    ButtonItem(title: "Back", onClick: { print("clicked back") }),
                     FixedSpaceItem(),
-                    ButtonItem(title: "Defaults", onClick: { print("click") }),
-                    ButtonItem(title: "Save", onClick: { print("click") }),
+                    ButtonItem(title: "Defaults", onClick: { print("clicked defaults") }),
+                    ButtonItem(title: "Save", onClick: { print("clicked save") }),
                 ])
                 .build()
             
@@ -71,8 +71,8 @@ class ViewController: NSViewController {
                 return self.attributeUpdater.update(strength: strength)
             }
 
-            self.agilityChooser.onValidate = { agility in
-                return self.attributeUpdater.update(agility: agility)
+            self.dexterityChooser.onValidate = { dexterity in
+                return self.attributeUpdater.update(dexterity: dexterity)
             }
 
             self.mindChooser.onValidate = { mind in
@@ -81,23 +81,23 @@ class ViewController: NSViewController {
             
             self.raceChooser.onValidate = { raceIdx in
                 var strengthRange = (6 ... 18)
-                var agilityRange = (6 ... 18)
+                var dexterityRange = (6 ... 18)
                 var mindRange = (6 ... 18)
                 
                 switch raceIdx {
                 case 0: /* Human */
                     break
                 case 1: /* Elf */
-                    agilityRange = (7 ... 19)
+                    mindRange = (8 ... 20)
                 case 2: /* Dwarf */
-                    strengthRange = (7 ... 19)
-                case 3: /* Gnome */
-                    mindRange = (7 ... 19)
+                    strengthRange = (8 ... 20)
+                case 3: /* Halfling */
+                    dexterityRange = (8 ... 20)
                 default: fatalError()
                 }
                 
                 self.strengthChooser.range = strengthRange
-                self.agilityChooser.range = agilityRange
+                self.dexterityChooser.range = dexterityRange
                 self.mindChooser.range = mindRange
                 
                 return true

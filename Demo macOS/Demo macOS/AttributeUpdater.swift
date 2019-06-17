@@ -13,23 +13,23 @@ extension ViewController {
         private let total = 42
         
         public func update(strength: Int) -> Bool {
-            return self.update(strength: strength, agility: self.agility, mind: self.mind)
+            return self.update(strength: strength, dexterity: self.dexterity, mind: self.mind)
         }
         
-        public func update(agility: Int) -> Bool {
-            return self.update(strength: self.strength, agility: agility, mind: self.mind)
+        public func update(dexterity: Int) -> Bool {
+            return self.update(strength: self.strength, dexterity: dexterity, mind: self.mind)
         }
         
         public func update(mind: Int) -> Bool {
-            return self.update(strength: self.strength, agility: self.agility, mind: mind)
+            return self.update(strength: self.strength, dexterity: self.dexterity, mind: mind)
         }
         
-        private func update(strength: Int, agility: Int, mind: Int) -> Bool {
-            let pointsRemaining = self.total - strength - agility - mind
+        private func update(strength: Int, dexterity: Int, mind: Int) -> Bool {
+            let pointsRemaining = self.total - strength - dexterity - mind
             let success = pointsRemaining >= 0
             if success {
                 self.strength = strength
-                self.agility = agility
+                self.dexterity = dexterity
                 self.mind = mind
             }
             return success
@@ -37,19 +37,19 @@ extension ViewController {
         
         private(set) var strength: Int {
             didSet {
-                self.pointsRemaining = self.total - self.strength - self.agility - self.mind
+                self.pointsRemaining = self.total - self.strength - self.dexterity - self.mind
             }
         }
         
-        private(set) var agility: Int {
+        private(set) var dexterity: Int {
             didSet {
-                self.pointsRemaining = self.total - self.strength - self.agility - self.mind
+                self.pointsRemaining = self.total - self.strength - self.dexterity - self.mind
             }
         }
         
         private(set) var mind: Int {
             didSet {
-                self.pointsRemaining = self.total - self.strength - self.agility - self.mind
+                self.pointsRemaining = self.total - self.strength - self.dexterity - self.mind
             }
         }
         
@@ -61,11 +61,11 @@ extension ViewController {
         
         private let pointsRemainingUpdateBlock: (Int) -> Void
         
-        init(strength: Int, agility: Int, mind: Int, onPointsRemainingUpdated: @escaping (Int) -> Void) {
+        init(strength: Int, dexterity: Int, mind: Int, onPointsRemainingUpdated: @escaping (Int) -> Void) {
             self.strength = strength
-            self.agility = agility
+            self.dexterity = dexterity
             self.mind = mind
-            self.pointsRemaining = self.total - self.strength - self.agility - self.mind
+            self.pointsRemaining = self.total - self.strength - self.dexterity - self.mind
             self.pointsRemainingUpdateBlock = onPointsRemainingUpdated
         }
     }
