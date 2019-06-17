@@ -9,6 +9,8 @@ env:
   - secure: hpTvnJbDFKHkNB37eVoHw/V7Cjubv0EAW+M/omqumJ0tKQNhxTtTVDf76Ss+kwH7+mPs3dRb2LCbzU4L4T2soPAHZiQ9lUS4RGKoqKRLxmPZAvlKVAq4z6PJYKAPitcXUoLyiWIH9tYAxjuXj3/OpPT4923uU1ejlV27t1LDih11zlk88RZ/pZNMLINtNEPC+0e9LstzsX0tAs+li2/nBD/VMGc8VmTk3dwyy15XXgfNlOIek6abW8gBNvvTlMPF0D1OsVM+xW4OjEnCjD9gsPuuQqZUG8NFPxLnvOqkYa83ZCNGcBgnL16Riea12ho5LAcXZdFkWXu3as5YSRDPXtjAMQSsAl7OIIUMPzCCaWarQztaqPtUYjffpd4fTxnbGjeZHlgdvLlMWKQhUR3ftmCv9SCcoVPnwP086Qk8ByM5unLVmED2sedvechGeh0UrQYOc21zdPbQkJU/eesktLGder0gIJaQmeo/+qe4yqu01qwaNmMUjUg243WUJ45Jgw8u/DguxdII1rXzNyZlwrygDqIHPnXpcNDmkuiZ0MNPCVBhsvmTFFzLTodcHyxSsDLg+7h4VhJPb5Sjcpwxp8FJeC8iL6HXd1tKgbenXFlIoR2XaqY7iGEvZ/tGvNL/Q4ybPle9W8a1FM18vTsVsUT2FQky0TMEd6j+Znkb/pw=
 
 before_script:
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.cer.enc -d -a -out scripts/certs/dist.cer
+- openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a -out scripts/certs/dist.p12
 - ./scripts/add-key.sh
 script:
 - make test
