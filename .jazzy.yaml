@@ -1,0 +1,8 @@
+module: Fenris
+xcodebuild_arguments: [-workspace,Fenris.xcworkspace,-scheme,"Fenris macOS"]
+author: Wolftrail
+clean: true
+skip_undocumented: true
+author_url: https://wolftrail.net
+github_url: http://github.com/wolf81/Fenris
+output: docs
