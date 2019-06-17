@@ -21,9 +21,12 @@ class FenrisTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEmptyTextChooser() {
+        let textChooser = TextChooserItem(values: [], selectedValueIdx: 1)
+        let menuItemNode = textChooser.getNode(size: CGSize.zero, font: Font(name: "Helvetica", size: 12)!)
+
+        XCTAssertTrue(menuItemNode is TextChooserNode)
+        XCTAssertTrue((menuItemNode as! TextChooserNode).text == nil)        
     }
     
     func testPerformanceExample() {

@@ -16,7 +16,9 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     private let label: SKLabelNode
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
-
+    
+    var text: String? { return self.label.text }
+    
     init(size: CGSize, item: TextChooserItem, font: Font) {
         let buttonSize = CGSize(width: size.height / 3 * 2, height: size.height)
         
@@ -54,7 +56,8 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValueIdx) {
-            self.label.text = self.chooserItem.values[self.chooserItem.selectedValueIdx]
+            let value = self.chooserItem.values.count > 0 ? self.chooserItem.values[self.chooserItem.selectedValueIdx] : nil
+            self.label.text = value
         }
     }
 }

@@ -112,8 +112,6 @@ public class TextChooserItem: NSObject & MenuItem {
 
     public var values: [String] {
         didSet {
-            assertArray(self.values, minimumLength: 1)
-
             let range = (0 ..< values.count)
             switch self.selectedValueIdx {
             case _ where self.selectedValueIdx < range.lowerBound:
@@ -135,8 +133,6 @@ public class TextChooserItem: NSObject & MenuItem {
     }
     
     public init(values: [String], selectedValueIdx: Int) {
-        assertArray(values, minimumLength: 1)
-
         self.values = values
         self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
         
@@ -156,8 +152,6 @@ public class NumberChooserItem: NSObject & MenuItem {
 
     public var range: ClosedRange<Int> {
         didSet {
-            assertRange(self.range, minimumDistance: 1)
-            
             switch self.range {
             case _ where self.selectedValue < range.lowerBound:
                 self.selectedValue = range.lowerBound
@@ -178,8 +172,6 @@ public class NumberChooserItem: NSObject & MenuItem {
     }
     
     public init(range: ClosedRange<Int>, selectedValue: Int) {
-        assertRange(range, minimumDistance: 1)
-
         self.range = range
         self.selectedValue = selectedValue
         
