@@ -1,0 +1,5 @@
+language: swift
+osx_image: xcode10.2
+xcode_destination: platform=macOS
+xcode_workspace: Fenris.xcworkspace
+xcode_scheme: Fenris macOS
