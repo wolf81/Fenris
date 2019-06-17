@@ -59,6 +59,7 @@ class ViewController: NSViewController {
                 .withEmptyRow()
                 .withFooter(items: [
                     ButtonItem(title: "Back", onClick: { print("click") }),
+                    FixedSpaceItem(),
                     ButtonItem(title: "Defaults", onClick: { print("click") }),
                     ButtonItem(title: "Save", onClick: { print("click") }),
                 ])
