@@ -10,5 +10,7 @@ env:
 
 before_script:
 - ./scripts/add-key.sh
+script:
+- make test
 after_script:
 - ./scripts/remove-key.sh
