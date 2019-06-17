@@ -100,16 +100,6 @@
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		79809DE922B21BD4008E4B49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 79809DCC22B21BD1008E4B49;
-			remoteInfo = "Demo macOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
@@ -134,7 +124,6 @@
 		797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButtonNode.swift; sourceTree = "<group>"; };
 		797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberChooserNode.swift; sourceTree = "<group>"; };
 		797DBFD022B38B3A00D0F8E7 /* SignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignNode.swift; sourceTree = "<group>"; };
-		79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Demo macOS.xcodeproj"; path = "Demo macOS/Demo macOS.xcodeproj"; sourceTree = "<group>"; };
 		79809E1122B26D6A008E4B49 /* TextChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChooserNode.swift; sourceTree = "<group>"; };
 		79809E1522B2A637008E4B49 /* ArrowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowNode.swift; sourceTree = "<group>"; };
 		79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowButtonNode.swift; sourceTree = "<group>"; };
@@ -231,14 +220,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		79809DE622B21BD3008E4B49 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				79809DEA22B21BD4008E4B49 /* Demo macOS.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		79809DF322B21DC4008E4B49 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,7 +257,6 @@
 		79C681C92111761B006E20D0 = {
 			isa = PBXGroup;
 			children = (
-				79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */,
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
@@ -477,12 +457,6 @@
 			mainGroup = 79C681C92111761B006E20D0;
 			productRefGroup = 79C681D42111761B006E20D0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 79809DE622B21BD3008E4B49 /* Products */;
-					ProjectRef = 79809DE522B21BD3008E4B49 /* Demo macOS.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				79C681DB2111761B006E20D0 /* FenrisTests */,
@@ -492,16 +466,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		79809DEA22B21BD4008E4B49 /* Demo macOS.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = "Demo macOS.app";
-			remoteRef = 79809DE922B21BD4008E4B49 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		792D427821E20A0E00D438F1 /* Resources */ = {
@@ -892,7 +856,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q97F9KZ3J6;
+				DEVELOPMENT_TEAM = J6E64C67VU;
 				INFOPLIST_FILE = FenrisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -911,7 +875,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q97F9KZ3J6;
+				DEVELOPMENT_TEAM = J6E64C67VU;
 				INFOPLIST_FILE = FenrisTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
