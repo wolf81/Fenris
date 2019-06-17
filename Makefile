@@ -1,4 +1,4 @@
-.PHONY: test clean
+.PHONY: test build clean docs
 
 test: 
 	# test project	
@@ -11,3 +11,7 @@ build:
 clean:
 	# clean project
 	xcodebuild clean
+
+docs:
+	# update docs
+	jazzy

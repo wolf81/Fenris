@@ -128,28 +128,28 @@
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuItem.swift",
-      "line": 137,
+      "line": 135,
       "symbol": "TextChooserItem.init(values:selectedValueIdx:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuItem.swift",
-      "line": 155,
+      "line": 151,
       "symbol": "NumberChooserItem.onValidate",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuItem.swift",
-      "line": 157,
+      "line": 153,
       "symbol": "NumberChooserItem.range",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuItem.swift",
-      "line": 180,
+      "line": 174,
       "symbol": "NumberChooserItem.init(range:selectedValue:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -163,7 +163,7 @@
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuScene.swift",
-      "line": 15,
+      "line": 11,
       "symbol": "MenuScene",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
