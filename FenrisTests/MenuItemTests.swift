@@ -66,11 +66,9 @@ class MenuItemTests: XCTestCase {
     
     func testButtonItemClickHandler() {
         let expectation = XCTestExpectation(description: "Receive button click")
-        
         let button = ButtonItem(title: "Test") { expectation.fulfill() }
         
-        button.onClick()
-        
+        button.onClick()        
         wait(for: [expectation], timeout: 1)
     }
     
