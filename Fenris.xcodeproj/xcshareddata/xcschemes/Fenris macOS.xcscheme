@@ -38,6 +38,11 @@
                BlueprintName = "FenrisTests"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "SceneManagerTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

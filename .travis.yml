@@ -5,6 +5,6 @@ xcode_workspace: Fenris.xcworkspace
 xcode_scheme: "Fenris macOS"
 script:
   - make build
-  - set -o pipefail && make test | xcpretty
+  - make test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Fenris'
