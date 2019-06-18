@@ -25,7 +25,23 @@ class MenuItemTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - FixedSpace
+    
+    func testFixedSpaceNode() {
+        let fixedSpaceItem = FixedSpaceItem()
+        let node = fixedSpaceItem.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue(node is FixedSpaceNode)
+    }
+    
     // MARK: - LabelItem
+    
+    func testLabelNode() {
+        let labelItem = LabelItem(title: "Title")
+        let node = labelItem.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue(node is LabelNode)
+    }
     
     func testLabelItemTitle() {
         let labelItem = LabelItem(title: "Title")
@@ -34,6 +50,13 @@ class MenuItemTests: XCTestCase {
     }
     
     // MARK: - ButtonItem
+    
+    func testButtonItemNode() {
+        let button = ButtonItem(title: "Title", onClick: {})
+        let node = button.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue(node is ButtonNode)
+    }
     
     func testButtonItemTitle() {
         let button = ButtonItem(title: "Title", onClick: {})
@@ -53,69 +76,105 @@ class MenuItemTests: XCTestCase {
     
     // MARK: - NumberChooserItem
     
-    func testEmptyNumberChooserOutOfRange() {
+    func testNumberChooserNode() {
         let numberChooser = NumberChooserItem(range: (0 ... 0), selectedValue: 0)
-        let menuItemNode = numberChooser.getNode(size: .zero, font: self.font)
+        let node = numberChooser.getNode(size: .zero, font: self.font)
         
-        XCTAssertTrue(menuItemNode is NumberChooserNode)
-        XCTAssertTrue((menuItemNode as! NumberChooserNode).text == "0")
+        XCTAssertTrue(node is NumberChooserNode)
+    }
+    
+    func testEmptyNumberChooserItemOutOfRange() {
+        let numberChooser = NumberChooserItem(range: (0 ... 0), selectedValue: 0)
+        let node = numberChooser.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue((node as! NumberChooserNode).text == "0")
     }
 
-    func testNumberChooserValueChangeValidateTrue() {
+    func testNumberChooserItemValueChangeValidateTrue() {
         let numberChooser = NumberChooserItem(range: (0 ... 3), selectedValue: 1)
+        numberChooser.onValidate = { selectedIdx in return true }
 
         XCTAssertTrue(numberChooser.selectedValue == 1)
-        numberChooser.onValidate = { selectedIdx in return true }
         numberChooser.selectedValue = 0
         XCTAssertTrue(numberChooser.selectedValue == 0)
     }
 
-    func testNumberChooserValueChangeValidateFalse() {
+    func testNumberChooserItemValueChangeValidateFalse() {
         let numberChooser = NumberChooserItem(range: (0 ... 3), selectedValue: 1)
-        
-        XCTAssertTrue(numberChooser.selectedValue == 1)
         numberChooser.onValidate = { selectedIdx in return false }
+
+        XCTAssertTrue(numberChooser.selectedValue == 1)
         numberChooser.selectedValue = 0
         XCTAssertTrue(numberChooser.selectedValue == 1)
     }
     
     // MARK: - TextChooserItem
     
-    func testEmptyTextChooserOutOfRange() {
+    func testTextChooserItemNode() {
         let textChooser = TextChooserItem(values: [], selectedValueIdx: 0)
-        let menuItemNode = textChooser.getNode(size: .zero, font: self.font)
+        let node = textChooser.getNode(size: .zero, font: self.font)
         
-        XCTAssertTrue(menuItemNode is TextChooserNode)
-        XCTAssertTrue((menuItemNode as! TextChooserNode).text == nil)
+        XCTAssertTrue(node is TextChooserNode)
+    }
+    
+    func testEmptyTextChooserItemOutOfRange() {
+        let textChooser = TextChooserItem(values: [], selectedValueIdx: 0)
+        let node = textChooser.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue((node as! TextChooserNode).text == nil)
     }
 
-    func testTextChooserValueChangeValidateTrue() {
+    func testTextChooserItemValueChangeValidateTrue() {
         let textChooser = TextChooserItem(values: ["Apple", "Banana", "Citrus"], selectedValueIdx: 1)
-        XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Banana")
         textChooser.onValidate = { selectedIdx in return true }
+
+        XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Banana")
         textChooser.selectedValueIdx = 0
         XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Apple")
     }
 
-    func testTextChooserValueChangeValidateFalse() {
+    func testTextChooserItemValueChangeValidateFalse() {
         let textChooser = TextChooserItem(values: ["Apple", "Banana", "Citrus"], selectedValueIdx: 2)
-        XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Citrus")
         textChooser.onValidate = { selectedIdx in return false }
+
+        XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Citrus")
         textChooser.selectedValueIdx = 1
         XCTAssertTrue(textChooser.values[textChooser.selectedValueIdx] == "Citrus")
     }
     
     // MARK: - ToggleItem
     
+    func testToggleItemNode() {
+        let toggle = ToggleItem(enabled: true)
+        let node = toggle.getNode(size: .zero, font: self.font)
+        
+        XCTAssertTrue(node is ToggleNode)
+    }
+    
     func testToggleItemTitle() {
         let toggle = ToggleItem(enabled: true)
-        let menuItemNode = toggle.getNode(size: .zero, font: self.font)
+        let node = toggle.getNode(size: .zero, font: self.font)
         
-        XCTAssertTrue(menuItemNode is ToggleNode)
-        XCTAssertTrue((menuItemNode as! ToggleNode).text == "On")
-
+        XCTAssertTrue((node as! ToggleNode).text == "On")
         toggle.isEnabled = false
-        
-        XCTAssertTrue((menuItemNode as! ToggleNode).text == "Off")
+        XCTAssertTrue((node as! ToggleNode).text == "Off")
+    }
+    
+    func testToggleItemValueChangeValidateFalse() {
+        let toggle = ToggleItem(enabled: true)
+        toggle.onValidate = { enabled in return false }
+
+        XCTAssertTrue(toggle.isEnabled == true)
+        toggle.isEnabled = false
+        XCTAssertTrue(toggle.isEnabled == true)
+    }
+    
+    func testToggleItemValueChangeValidateTrue() {
+        let toggle = ToggleItem(enabled: true)
+        toggle.onValidate = { enabled in return true }
+
+        XCTAssertTrue(toggle.isEnabled == true)
+        toggle.isEnabled = false
+        XCTAssertTrue(toggle.isEnabled == false)
     }
 }
