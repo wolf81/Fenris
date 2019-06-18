@@ -16,11 +16,9 @@ class SceneManagerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // 2
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: Bundle(for: SceneManagerTests.self))
-        self.sceneViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "ViewController")) as? TestingSceneViewController
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: Bundle(for: SceneManagerTests.self))
+        self.sceneViewController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("ViewController")) as? TestingSceneViewController
         
-        // 3
         _ = self.sceneViewController.view
     }
     
