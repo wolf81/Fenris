@@ -96,6 +96,10 @@
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
 		79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */; };
+		79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */; };
+		79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE3E0C22B8C8F1000AA665 /* Main.storyboard */; };
+		79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */; };
+		79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -143,6 +147,10 @@
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
+		79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerTests.swift; sourceTree = "<group>"; };
+		79DE3E0C22B8C8F1000AA665 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneViewController.swift; sourceTree = "<group>"; };
+		79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneManager.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,11 +291,13 @@
 		79C681E02111761B006E20D0 /* FenrisTests */ = {
 			isa = PBXGroup;
 			children = (
+				79DE3E1022B8CA4B000AA665 /* Resources */,
 				79C681E12111761B006E20D0 /* MenuItemTests.swift */,
 				79DE3E0222B8B735000AA665 /* MenuTests.swift */,
 				79DE3E0422B8BC97000AA665 /* FontTests.swift */,
-				79C681E32111761B006E20D0 /* Info.plist */,
 				79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */,
+				79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */,
+				79C681E32111761B006E20D0 /* Info.plist */,
 			);
 			path = FenrisTests;
 			sourceTree = "<group>";
@@ -315,6 +325,16 @@
 				79C681FD21117860006E20D0 /* Info.plist */,
 			);
 			path = "Fenris iOS";
+			sourceTree = "<group>";
+		};
+		79DE3E1022B8CA4B000AA665 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				79DE3E0C22B8C8F1000AA665 /* Main.storyboard */,
+				79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */,
+				79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		79EA8D6A2114B9B30072CBBE /* Extensions */ = {
@@ -490,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,8 +599,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */,
+				79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */,
+				79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */,
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
+				79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

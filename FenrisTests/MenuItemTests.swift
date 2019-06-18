@@ -7,8 +7,8 @@
 //
 
 import XCTest
-@testable import Fenris
 import SpriteKit
+@testable import Fenris
 
 class MenuItemTests: XCTestCase {
     private var font: Font!
