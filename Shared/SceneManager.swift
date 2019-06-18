@@ -12,11 +12,8 @@ import SpriteKit
 public typealias SceneViewController = (ViewController & ScenePresentable)
 
 public protocol SceneManagerProtocol: class {
-    
     /// The view controller that will be used by the scene manager.
-    /// PLEASE NOTE: classes that implement this protocol should make
-    /// this variable a weak reference to prevent retain cycles.
-    var viewController: SceneViewController? { get set }
+    var viewController: SceneViewController { get }
     
     init(viewController: SceneViewController)
     
@@ -25,7 +22,7 @@ public protocol SceneManagerProtocol: class {
 
 /// The SceneManager can be used to transition between scenes with a built-in animation.
 public class SceneManager: SceneManagerProtocol {
-    public weak var viewController: SceneViewController?
+    public let viewController: SceneViewController
     
     /// Designated initializer.
     ///
@@ -52,20 +49,26 @@ public class SceneManager: SceneManagerProtocol {
             transition = .push(with: .right, duration: duration)
         }
         
-        self.viewController?.presentScene(scene: scene, transition: transition)
+        self.viewController.presentScene(scene: scene, transition: transition)
     }
 }
 
 /// The DummySceneManager is for internal use only and is used as a stand-in in the ServiceLocator
 /// when no proper SceneManager is registered.
 internal class DummySceneManager: SceneManagerProtocol {
-    weak var viewController: SceneViewController?
+    let viewController: SceneViewController
 
     required init(viewController: SceneViewController) {
         self.viewController = viewController
     }    
     
-    public init() {}
+    public init() {
+        self.viewController = DummyViewController(nibName: nil, bundle: nil)
+    }
+    
+    internal class DummyViewController: ViewController & ScenePresentable {
+        
+    }
     
     public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
         print("[DUMMY] transition to scene \(type(of: scene)) with \(animation) animation")
