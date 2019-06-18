@@ -67,11 +67,11 @@ class MenuItemTests: XCTestCase {
     func testButtonItemClickHandler() {
         let expectation = XCTestExpectation(description: "Receive button click")
         
-        let button = ButtonItem(title: "Test") {
-            expectation.fulfill()
-        }
+        let button = ButtonItem(title: "Test") { expectation.fulfill() }
         
         button.onClick()
+        
+        wait(for: [expectation], timeout: 1)
     }
     
     // MARK: - NumberChooserItem
