@@ -227,20 +227,20 @@
     {
       "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
       "line": 16,
-      "symbol": "ServiceLocator.shared",
-      "symbol_kind": "source.lang.swift.decl.var.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
-      "line": 18,
       "symbol": "ServiceLocator.sceneManager",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
-      "line": 24,
+      "line": 18,
+      "symbol": "ServiceLocator.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
+      "line": 22,
       "symbol": "ServiceLocator.provide(sceneManager:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
