@@ -94,6 +94,7 @@
 		79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* MenuItemTests.swift */; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
+		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -139,6 +140,7 @@
 		79C681FC21117860006E20D0 /* Fenris_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_iOS.h; sourceTree = "<group>"; };
 		79C681FD21117860006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
+		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +283,7 @@
 			children = (
 				79C681E12111761B006E20D0 /* MenuItemTests.swift */,
 				79DE3E0222B8B735000AA665 /* MenuTests.swift */,
+				79DE3E0422B8BC97000AA665 /* FontTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
 			path = FenrisTests;
@@ -572,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,
+				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
