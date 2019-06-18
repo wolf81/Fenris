@@ -39,14 +39,14 @@ public class SimpleMenuBuilder: MenuBuilder {
 /// The labeled menu builder can be used to create a 2-column menu, appropriate for screens like
 /// settings.
 public class LabeledMenuBuilder: MenuBuilder {
-    private var headerItems: [[MenuItem]] = []
-    private var footerItems: [[MenuItem]] = []
+    private var headerItems: [MenuItem] = []
+    private var footerItems: [MenuItem] = []
     private var listItems: [[MenuItem]] = []
     
     public init() {}
     
     public func withHeader(title: String) -> Self {
-        self.headerItems = [[LabelItem(title: title)]]
+        self.headerItems = [LabelItem(title: title)]
         return self
     }
         
@@ -61,7 +61,7 @@ public class LabeledMenuBuilder: MenuBuilder {
     }
     
     public func withFooter(items: [MenuFooterContainable]) -> Self {
-        self.footerItems = [items]
+        self.footerItems = items
         return self
     }
     

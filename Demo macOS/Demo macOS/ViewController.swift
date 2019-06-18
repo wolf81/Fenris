@@ -46,7 +46,6 @@ class ViewController: NSViewController {
                 labelFont: Font(name: "Papyrus", size: 18)!
             )
             
-            /*
             let menu = LabeledMenuBuilder()
                 .withHeader(title: "New Character")
                 .withEmptyRow()
@@ -64,14 +63,14 @@ class ViewController: NSViewController {
                     ButtonItem(title: "Defaults", onClick: { print("clicked defaults") }),
                     ButtonItem(title: "Save", onClick: { print("clicked save") }),
                 ]).build()
-                */
-            let menu = SimpleMenuBuilder()
-                .withRow(item: ButtonItem(title: "New Game", onClick: { print("new game") }))
-                .withEmptyRow()
-                .withRow(item: ButtonItem(title: "Settings", onClick: { print("settings") }))
-                .withEmptyRow()
-                .withRow(item: ButtonItem(title: "Quit", onClick: { print("quit") }))
-                .build()
+
+//            let menu = SimpleMenuBuilder()
+//                .withRow(item: ButtonItem(title: "New Game", onClick: { print("new game") }))
+//                .withEmptyRow()
+//                .withRow(item: ButtonItem(title: "Settings", onClick: { print("settings") }))
+//                .withEmptyRow()
+//                .withRow(item: ButtonItem(title: "Quit", onClick: { print("quit") }))
+//                .build()
             
             let scene = MenuScene(size: self.view.bounds.size, configuration: configuration, menu: menu)
             

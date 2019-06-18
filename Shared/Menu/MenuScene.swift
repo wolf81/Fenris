@@ -22,21 +22,17 @@ public class MenuScene: SKScene, InputDeviceInteractable {
         let rowSize = CGSize(width: configuration.menuWidth, height: configuration.rowHeight)
         var menuRows: [MenuRowNode] = []
         
-        for menuItemRow in menu.headerItems {
-            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.titleFont)
-            menuRows.append(menuRow)
-        }
+        let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: configuration.titleFont)
+        menuRows.append(headerRow)
 
         for menuItemRow in menu.listItems {
             let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
             menuRows.append(menuRow)
         }
 
-        for menuItemRow in menu.footerItems {
-            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
-            menuRows.append(menuRow)
-        }
-        
+        let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: configuration.labelFont)
+        menuRows.append(footerRow)
+
         let menuHeight = menuRows.reduce(0) { $0 + $1.frame.size.height }
 
         var y = (size.height - menuHeight) / 2
