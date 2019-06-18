@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/wolf81/Fenris.svg?branch=master)](https://travis-ci.org/wolf81/Fenris)
-
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/wolf81/Fenris.svg) [![Build Status](https://travis-ci.org/wolf81/Fenris.svg?branch=master)](https://travis-ci.org/wolf81/Fenris) ![GitHub](https://img.shields.io/github/license/wolf81/Fenris.svg) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 #  Fenris
 
