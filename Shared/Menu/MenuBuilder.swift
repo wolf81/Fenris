@@ -8,38 +8,64 @@
 
 import Foundation
 
-/// The MenuBuilder can be used to generate a menu.
-public class MenuBuilder {
-    private let configuration: Configuration
-    private var items: [MenuItem] = []
-    private var footerItems: [MenuFooterContainable] = []
-    private var title: String?
+/// Conform to the MenuBuilder protocol to create custom menus or use the provided SimpleMenuBuilder
+/// or LabeledMenuBuilder instead.
+public protocol MenuBuilder {
+    func build() -> Menu
+}
+
+/// The simple menu builder can be used to create a 1-column menu, usable for example as a main
+/// menu in a game
+public class SimpleMenuBuilder: MenuBuilder {
+    private var listItems: [[MenuItem]] = []
+
+    public init() {}
     
-    public init(configuration: Configuration) {
-        self.configuration = configuration
-    }
-    
-    public func withHeader(title: String) -> Self {
-        self.title = title
-        return self
-    }
-        
-    public func withRow(title: String, item: MenuItem) -> Self {
-        self.items.append(contentsOf: [LabelItem(title: title), item])
+    public func withRow(item: MenuItem) -> Self {
+        self.listItems.append([item])
         return self
     }
     
     public func withEmptyRow() -> Self {
-        self.items.append(contentsOf: [FixedSpaceItem(), FixedSpaceItem()])
-        return self
-    }
-    
-    public func withFooter(items: [MenuFooterContainable]) -> Self {
-        self.footerItems = items
+        self.listItems.append([FixedSpaceItem()])
         return self
     }
     
     public func build() -> Menu {
-        return Menu(title: self.title, items: self.items, footerItems: self.footerItems, configuration: self.configuration)
+        return Menu(headerItems: [], listItems: self.listItems, footerItems: [])
+    }
+}
+
+/// The labeled menu builder can be used to create a 2-column menu, appropriate for screens like
+/// settings.
+public class LabeledMenuBuilder: MenuBuilder {
+    private var headerItems: [[MenuItem]] = []
+    private var footerItems: [[MenuItem]] = []
+    private var listItems: [[MenuItem]] = []
+    
+    public init() {}
+    
+    public func withHeader(title: String) -> Self {
+        self.headerItems = [[LabelItem(title: title)]]
+        return self
+    }
+        
+    public func withRow(title: String, item: MenuItem) -> Self {
+        self.listItems.append([LabelItem(title: title), item])
+        return self
+    }
+    
+    public func withEmptyRow() -> Self {
+        self.listItems.append([FixedSpaceItem(), FixedSpaceItem()])
+        return self
+    }
+    
+    public func withFooter(items: [MenuFooterContainable]) -> Self {
+        self.footerItems = [items]
+        return self
+    }
+    
+    public func build() -> Menu {
+        return Menu(headerItems: self.headerItems, listItems: self.listItems, footerItems: self.footerItems)
     }
 }

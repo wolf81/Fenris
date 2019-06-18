@@ -15,38 +15,36 @@ public class MenuScene: SKScene, InputDeviceInteractable {
     
     private var focusNode: FocusNode
     
-    public init(size: CGSize, menu: Menu) {
-        self.focusNode = FocusNode(strokeColor: menu.configuration.focusRectColor)
+    public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
+        self.focusNode = FocusNode(strokeColor: configuration.focusRectColor)
         super.init(size: size)
 
-        assert(menu.items.count.isMultiple(of: 2), "Menu should contain an even amount of items")
-        
+        let rowSize = CGSize(width: configuration.menuWidth, height: configuration.rowHeight)
         var menuRows: [MenuRowNode] = []
         
-        let rowSize = CGSize(width: menu.configuration.menuWidth, height: menu.configuration.rowHeight)
-        if let menuTitle = menu.title {
-            let headerItem = LabelItem(title: menuTitle)
-            menuRows.append(MenuRowNode(size: rowSize, items: [headerItem], font: menu.configuration.titleFont))
+        for menuItemRow in menu.headerItems {
+            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.titleFont)
+            menuRows.append(menuRow)
         }
-        
-        let rowCount = menu.items.count / 2
-        for rowIdx in (0 ..< rowCount) {
-            let firstItem = menu.items[rowIdx * 2]
-            let secondItem = menu.items[rowIdx * 2 + 1]
-            let menuRowNode = MenuRowNode(size: rowSize, items: [firstItem, secondItem], font: menu.configuration.labelFont)
-            menuRows.append(menuRowNode)
-        }
-        
-        let menuRowNode = MenuRowNode(size: rowSize, items: menu.footerItems, font: menu.configuration.labelFont)
-        menuRows.append(menuRowNode)
 
-        let tableHeight: CGFloat = CGFloat(1 + rowCount + ((menu.footerItems.count > 0) ? 1 : 0)) * menu.configuration.rowHeight
-        var y = (size.height - tableHeight) / 2
-        let x = ((size.width - menu.configuration.menuWidth) / 2)
+        for menuItemRow in menu.listItems {
+            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
+            menuRows.append(menuRow)
+        }
+
+        for menuItemRow in menu.footerItems {
+            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
+            menuRows.append(menuRow)
+        }
+        
+        let menuHeight = menuRows.reduce(0) { $0 + $1.frame.size.height }
+
+        var y = (size.height - menuHeight) / 2
+        let x = ((size.width - configuration.menuWidth) / 2)
         for row in menuRows.reversed() {
             addChild(row)
             row.position = CGPoint(x: x, y: y)
-            y += menu.configuration.rowHeight
+            y += row.frame.size.height
         }
         
         // Create a list of focusable items

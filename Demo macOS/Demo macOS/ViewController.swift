@@ -39,14 +39,15 @@ class ViewController: NSViewController {
         self.pointsRemainingLabel.title = "\(attributeUpdater.pointsRemaining)"
         
         if let view = self.skView {            
-            let configuration = MenuBuilder.Configuration(
+            let configuration = MenuConfiguration(
                 menuWidth: 460,
                 rowHeight: 40,
                 titleFont: Font(name: "Papyrus", size: 22)!,
                 labelFont: Font(name: "Papyrus", size: 18)!
             )
             
-            let menu = MenuBuilder(configuration: configuration)
+            /*
+            let menu = LabeledMenuBuilder()
                 .withHeader(title: "New Character")
                 .withEmptyRow()
                 .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
@@ -62,10 +63,17 @@ class ViewController: NSViewController {
                     FixedSpaceItem(),
                     ButtonItem(title: "Defaults", onClick: { print("clicked defaults") }),
                     ButtonItem(title: "Save", onClick: { print("clicked save") }),
-                ])
+                ]).build()
+                */
+            let menu = SimpleMenuBuilder()
+                .withRow(item: ButtonItem(title: "New Game", onClick: { print("new game") }))
+                .withEmptyRow()
+                .withRow(item: ButtonItem(title: "Settings", onClick: { print("settings") }))
+                .withEmptyRow()
+                .withRow(item: ButtonItem(title: "Quit", onClick: { print("quit") }))
                 .build()
             
-            let scene = MenuScene(size: self.view.bounds.size, menu: menu)
+            let scene = MenuScene(size: self.view.bounds.size, configuration: configuration, menu: menu)
             
             self.strengthChooser.onValidate = { strength in
                 return self.attributeUpdater.update(strength: strength)

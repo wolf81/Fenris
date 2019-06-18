@@ -10,16 +10,14 @@ import Foundation
 
 /// A Menu to display in a scene. Please note: the menu cannot be instantiated directly, instead
 /// make use of the MenuBuilder to create in instance.
-public class Menu {
-    let items: [MenuItem]
-    let title: String?
-    let configuration: MenuBuilder.Configuration
-    let footerItems: [MenuFooterContainable]
-    
-    internal init(title: String?, items: [MenuItem], footerItems: [MenuFooterContainable], configuration: MenuBuilder.Configuration) {
-        self.title = title
-        self.items = items
-        self.footerItems = footerItems
-        self.configuration = configuration
+public struct Menu {
+    let headerItems: [[MenuItem]]
+    let footerItems: [[MenuItem]]
+    let listItems: [[MenuItem]]
+
+    init(headerItems: [[MenuItem]], listItems: [[MenuItem]], footerItems: [[MenuItem]]) {
+        self.headerItems = headerItems
+        self.listItems = listItems
+        self.footerItems = footerItems        
     }
 }
