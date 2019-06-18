@@ -173,8 +173,8 @@ public class NumberChooserItem: NSObject & MenuItem {
     
     public init(range: ClosedRange<Int>, selectedValue: Int) {
         self.range = range
-        self.selectedValue = selectedValue
-        
+        self.selectedValue = range.contains(selectedValue) ? selectedValue : 0
+
         super.init()
     }
     
