@@ -29,9 +29,9 @@
 		794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AB22B50DE200AA62AF /* MenuBuilder.swift */; };
 		794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AB22B50DE200AA62AF /* MenuBuilder.swift */; };
 		794366AE22B50DE200AA62AF /* MenuBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AB22B50DE200AA62AF /* MenuBuilder.swift */; };
-		794366B022B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuBuilder.Configuration.swift */; };
-		794366B122B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuBuilder.Configuration.swift */; };
-		794366B222B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuBuilder.Configuration.swift */; };
+		794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */; };
+		794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */; };
+		794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */; };
 		794366B822B5CBF300AA62AF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366B722B5CBF300AA62AF /* MenuItem.swift */; };
 		794366B922B5CBF300AA62AF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366B722B5CBF300AA62AF /* MenuItem.swift */; };
 		794366BA22B5CBF300AA62AF /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366B722B5CBF300AA62AF /* MenuItem.swift */; };
@@ -113,7 +113,7 @@
 		792D42DD21E24F9300D438F1 /* Fenris_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_macOS.h; sourceTree = "<group>"; };
 		794366A722B4FD1900AA62AF /* MenuItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNode.swift; sourceTree = "<group>"; };
 		794366AB22B50DE200AA62AF /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
-		794366AF22B50E0A00AA62AF /* MenuBuilder.Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.Configuration.swift; sourceTree = "<group>"; };
+		794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
 		794366B722B5CBF300AA62AF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		794366BB22B5CEC400AA62AF /* FocusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusItem.swift; sourceTree = "<group>"; };
 		794366CA22B703C600AA62AF /* MenuFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterNode.swift; sourceTree = "<group>"; };
@@ -245,7 +245,7 @@
 				79809E5922B4DDF0008E4B49 /* Nodes */,
 				79809E3C22B4BCED008E4B49 /* MenuScene.swift */,
 				794366AB22B50DE200AA62AF /* MenuBuilder.swift */,
-				794366AF22B50E0A00AA62AF /* MenuBuilder.Configuration.swift */,
+				794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */,
 				79809E3722B4A617008E4B49 /* Menu.swift */,
 				794366B722B5CBF300AA62AF /* MenuItem.swift */,
 			);
@@ -540,7 +540,7 @@
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
-				794366B122B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
+				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCE22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
@@ -575,7 +575,7 @@
 				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
-				794366B222B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
+				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
@@ -624,7 +624,7 @@
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
-				794366B022B50E0A00AA62AF /* MenuBuilder.Configuration.swift in Sources */,
+				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCD22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
