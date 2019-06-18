@@ -16,6 +16,8 @@ class ToggleNode: SKShapeNode, MenuItemNode {
     private let label: SKLabelNode
     private let leftArrowButton: ArrowButtonNode
     private let rightArrowButton: ArrowButtonNode
+    
+    var text: String? { return self.label.text }
 
     init(size: CGSize, item: ToggleItem, font: Font) {
         self.item = item

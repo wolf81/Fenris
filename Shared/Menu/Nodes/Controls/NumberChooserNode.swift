@@ -16,6 +16,8 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
     private let label: SKLabelNode
     private let minusSignButton: SignButtonNode
     private let plusSignButton: SignButtonNode
+    
+    var text: String? { return label.text }
 
     init(size: CGSize, item: NumberChooserItem, font: Font) {
         self.item = item
