@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Fenris Docs</a> (40% documented)</p>
+        <p><a href="index.html">Fenris Docs</a> (45% documented)</p>
         <p class="header-right"><a href="http://github.com/wolf81/Fenris"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -41,36 +41,25 @@
                 <a href="Classes/LabelItem.html">LabelItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes.html#/s:6Fenris4MenuC">Menu</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MenuBuilder.html">MenuBuilder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MenuBuilder.html#/s:6Fenris11MenuBuilderC13ConfigurationV">– Configuration</a>
+                <a href="Classes.html#/s:6Fenris18LabeledMenuBuilderC">LabeledMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NumberChooserItem.html">NumberChooserItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SceneManager.html">SceneManager</a>
+                <a href="Classes/SceneView.html">SceneView</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes.html#/s:6Fenris14ServiceLocatorC">ServiceLocator</a>
+                <a href="Classes/ServiceLocator.html">ServiceLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:6Fenris17SimpleMenuBuilderC">SimpleMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TextChooserItem.html">TextChooserItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ToggleItem.html">ToggleItem</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums.html#/s:6Fenris24SceneTransitionAnimationO">SceneTransitionAnimation</a>
               </li>
             </ul>
           </li>
@@ -86,7 +75,27 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris17MenuConfigurationP">MenuConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/MenuItem.html">MenuItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ScenePresentable.html">ScenePresentable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:6Fenris4MenuV">Menu</a>
               </li>
             </ul>
           </li>
@@ -119,9 +128,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris4MenuC"></a>
-                    <a name="//apple_ref/swift/Class/Menu" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris4MenuC">Menu</a>
+                    <a name="/s:6Fenris17SimpleMenuBuilderC"></a>
+                    <a name="//apple_ref/swift/Class/SimpleMenuBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris17SimpleMenuBuilderC">SimpleMenuBuilder</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,31 +138,27 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Menu to display in a scene. Please note: the menu cannot be instantiated directly, instead
-make use of the MenuBuilder to create in instance.</p>
+                        <p>The simple menu builder can be used to create a 1-column menu, usable for example as a main
+menu in a game</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Menu</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SimpleMenuBuilder</span> <span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a></span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris11MenuBuilderC"></a>
-                    <a name="//apple_ref/swift/Class/MenuBuilder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris11MenuBuilderC">MenuBuilder</a>
+                    <a name="/s:6Fenris18LabeledMenuBuilderC"></a>
+                    <a name="//apple_ref/swift/Class/LabeledMenuBuilder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris18LabeledMenuBuilderC">LabeledMenuBuilder</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -161,15 +166,15 @@ make use of the MenuBuilder to create in instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The MenuBuilder can be used to generate a menu.</p>
+                        <p>The labeled menu builder can be used to create a 2-column menu, appropriate for screens like
+settings.</p>
 
-                        <a href="Classes/MenuBuilder.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">MenuBuilder</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">LabeledMenuBuilder</span> <span class="p">:</span> <span class="kt"><a href="Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a></span></code></pre>
 
                         </div>
                       </div>
@@ -417,9 +422,9 @@ make use of the MenuBuilder to create in instance.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris12SceneManagerC"></a>
-                    <a name="//apple_ref/swift/Class/SceneManager" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris12SceneManagerC">SceneManager</a>
+                    <a name="/c:@M@Fenris@objc(cs)SceneView"></a>
+                    <a name="//apple_ref/swift/Class/SceneView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Fenris@objc(cs)SceneView">SceneView</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -427,15 +432,17 @@ make use of the MenuBuilder to create in instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The SceneManager can be used to transition between scenes with a built-in animation.</p>
+                        <p>A subclass of SKView that mainly makes it easier to return back on a view stack of sorts by
+keeping track of presented scenes. When presenting scenes in SceneView, make sure these scenes
+conform to ScenePresentable.</p>
 
-                        <a href="Classes/SceneManager.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/SceneView.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SceneManager</span> <span class="p">:</span> <span class="kt">SceneManagerProtocol</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SceneView</span> <span class="p">:</span> <span class="kt">SKView</span></code></pre>
 
                         </div>
                       </div>
@@ -459,11 +466,12 @@ make use of the MenuBuilder to create in instance.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ServiceLocator can be used to register and retrieve various services. Use the service
-locator to prevent creating a lot of singletons in your codebase. Instead register classes for
-global use in the service locator and pass the service locator around as a dependency. That way
-all registered services will stay easily testable.</p>
+                        <p>The ServiceLocator can be used to register and classes conforming to LocatableService. Use the
+service locator to prevent creating a lot of singletons for instances you need to use accross
+the app. Instead, register such classes with the service locator and retrieve them from the
+service locator as needed. This prevents LocatableService from becoming hard to test.</p>
 
+                        <a href="Classes/ServiceLocator.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -481,7 +489,7 @@ all registered services will stay easily testable.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-18)</p>
+          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

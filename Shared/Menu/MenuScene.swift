@@ -8,13 +8,19 @@
 
 import SpriteKit
 
-public class MenuScene: SKScene, InputDeviceInteractable {
+open class MenuScene: SKScene, InputDeviceInteractable {
     private var focusItems: [FocusItem] = []
     
     private var focusItemIdx: Int = Int.min
     
     private var focusNode: FocusNode
     
+    public override init(size: CGSize) {
+        // We need to keep this initialized for the custom scene transitions to work without
+        // crashing when loading a menu.
+        fatalError("Don't call init(size:), use init(size:, configuration:, menu:) instead")
+    }
+        
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
         self.focusNode = FocusNode(strokeColor: configuration.focusRectColor)
         super.init(size: size)
@@ -64,7 +70,7 @@ public class MenuScene: SKScene, InputDeviceInteractable {
         addChild(self.focusNode)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError()
     }
         
@@ -120,7 +126,7 @@ extension MenuScene {
         print("handle mouse click @ \(location)")
     }
     
-    public override func mouseMoved(with event: NSEvent) {
+    open override func mouseMoved(with event: NSEvent) {
         hideFocusNode()
     }
 

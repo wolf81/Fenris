@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Enumerations  Reference</title>
+    <title>Structures  Reference</title>
     <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Section/Enumerations" class="dashAnchor"></a>
-    <a title="Enumerations  Reference"></a>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">Fenris Docs</a> (40% documented)</p>
+        <p><a href="index.html">Fenris Docs</a> (45% documented)</p>
         <p class="header-right"><a href="http://github.com/wolf81/Fenris"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="index.html">Fenris Reference</a>
         <img id="carat" src="img/carat.png" />
-        Enumerations  Reference
+        Structures  Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -41,36 +41,25 @@
                 <a href="Classes/LabelItem.html">LabelItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes.html#/s:6Fenris4MenuC">Menu</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MenuBuilder.html">MenuBuilder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/MenuBuilder.html#/s:6Fenris11MenuBuilderC13ConfigurationV">– Configuration</a>
+                <a href="Classes.html#/s:6Fenris18LabeledMenuBuilderC">LabeledMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/NumberChooserItem.html">NumberChooserItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/SceneManager.html">SceneManager</a>
+                <a href="Classes/SceneView.html">SceneView</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes.html#/s:6Fenris14ServiceLocatorC">ServiceLocator</a>
+                <a href="Classes/ServiceLocator.html">ServiceLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:6Fenris17SimpleMenuBuilderC">SimpleMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/TextChooserItem.html">TextChooserItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/ToggleItem.html">ToggleItem</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="Enums.html#/s:6Fenris24SceneTransitionAnimationO">SceneTransitionAnimation</a>
               </li>
             </ul>
           </li>
@@ -86,7 +75,27 @@
             <a href="Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris17MenuConfigurationP">MenuConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Protocols/MenuItem.html">MenuItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/ScenePresentable.html">ScenePresentable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:6Fenris4MenuV">Menu</a>
               </li>
             </ul>
           </li>
@@ -109,8 +118,8 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>Enumerations</h1>
-            <p>The following enumerations are available globally.</p>
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
 
           </section>
           <section class="section task-group-section">
@@ -119,9 +128,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris24SceneTransitionAnimationO"></a>
-                    <a name="//apple_ref/swift/Enum/SceneTransitionAnimation" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris24SceneTransitionAnimationO">SceneTransitionAnimation</a>
+                    <a name="/s:6Fenris4MenuV"></a>
+                    <a name="//apple_ref/swift/Struct/Menu" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris4MenuV">Menu</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -129,21 +138,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An enum that is used to specify an animation to use when switching between scenes with the
-SceneManager.</p>
-
-<ul>
-<li>fade: A crossfade animation.</li>
-<li>push: A push animation.</li>
-<li>pop: A pop animation.</li>
-</ul>
+                        <p>A Menu to display in a scene. Please note: the menu cannot be instantiated directly, instead
+make use of the MenuBuilder to create in instance.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">SceneTransitionAnimation</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Menu</span></code></pre>
 
                         </div>
                       </div>
@@ -155,7 +158,7 @@ SceneManager.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-18)</p>
+          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
