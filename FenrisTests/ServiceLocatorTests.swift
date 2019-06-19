@@ -11,37 +11,48 @@ import SpriteKit
 @testable import Fenris
 
 class ServiceLocatorTests: XCTestCase {
-    private var serviceLocator: ServiceLocator!
-    
     override func setUp() {
         super.setUp()
+        
+        _ = ServiceLocator.shared.remove(service: AdditionService.self)
     }
     
     override func tearDown() {
         super.tearDown()        
     }
     
-    func testDummySceneManager() {
-        let sceneManager = ServiceLocator().sceneManager
+    func testAddService() {
+        try! ServiceLocator.shared.add(service: AdditionService())
+        let service = try! ServiceLocator.shared.get(service: AdditionService.self)
+        let result = service.add(x: 1, y: 1)
         
-        XCTAssertTrue(sceneManager is DummySceneManager)
+        XCTAssertTrue(result == 2)
     }
     
-    func testCustomSceneManager() {
-        let serviceLocator = ServiceLocator()
-        let viewController = CustomSceneViewController(nibName: nil, bundle: nil)
-        let sceneManager = CustomSceneManager(viewController: viewController)
+    func testRemoveExistingService() {
+        try! ServiceLocator.shared.add(service: AdditionService())
+        let didRemove = ServiceLocator.shared.remove(service: AdditionService.self)
         
-        XCTAssertTrue(serviceLocator.sceneManager is DummySceneManager)
-        serviceLocator.provide(sceneManager: sceneManager)
-        XCTAssertTrue(serviceLocator.sceneManager is CustomSceneManager)
+        XCTAssertTrue(didRemove == true)
     }
     
-    private class CustomSceneViewController: ViewController & ScenePresentable {
-        // For use in tests
+    func testRemoveNonExistingService() {
+        let didRemove = ServiceLocator.shared.remove(service: AdditionService.self)
+        
+        XCTAssertTrue(didRemove == false)
     }
     
-    private class CustomSceneManager: SceneManager {
-        // For use in tests
+    func testServiceAlreadyAddedError() {
+        try! ServiceLocator.shared.add(service: AdditionService())
+        
+        XCTAssertThrowsError(try ServiceLocator.shared.add(service: AdditionService()))
+    }
+    
+    func testServiceNotAddedError() {
+        XCTAssertThrowsError(try ServiceLocator.shared.get(service: AdditionService.self))
+    }
+    
+    private class AdditionService: LocatableService {
+        func add(x: Int, y: Int) -> Int { return x + y }
     }
 }

@@ -52,25 +52,3 @@ public class SceneManager: SceneManagerProtocol {
         self.viewController.presentScene(scene: scene, transition: transition)
     }
 }
-
-/// The DummySceneManager is for internal use only and is used as a stand-in in the ServiceLocator
-/// when no proper SceneManager is registered.
-internal class DummySceneManager: SceneManagerProtocol {
-    let viewController: SceneViewController
-
-    required init(viewController: SceneViewController) {
-        self.viewController = viewController
-    }    
-    
-    public init() {
-        self.viewController = DummyViewController(nibName: nil, bundle: nil)
-    }
-    
-    internal class DummyViewController: ViewController & ScenePresentable {
-        
-    }
-    
-    public func transitionTo(scene: SKScene, animation: SceneTransitionAnimation) {
-        print("[DUMMY] transition to scene \(type(of: scene)) with \(animation) animation")
-    }
-}
