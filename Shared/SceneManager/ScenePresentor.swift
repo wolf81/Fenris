@@ -9,11 +9,11 @@
 import Foundation
 import SpriteKit
 
-public protocol ScenePresentable where Self: ViewController {
+public protocol ScenePresentor where Self: ViewController {
     func presentScene(scene: SKScene, transition: SKTransition)
 }
 
-public extension ScenePresentable where Self: ViewController {
+public extension ScenePresentor where Self: ViewController {
     func presentScene(scene: SKScene, transition: SKTransition) {
         guard self.view is SKView else {
             print("[ERROR] Invalid view, view should be of type SKView")

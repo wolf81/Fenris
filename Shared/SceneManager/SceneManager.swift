@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-public typealias SceneViewController = (ViewController & ScenePresentable)
+public typealias SceneViewController = (ViewController & ScenePresentor)
 
 public protocol SceneManagerProtocol: class {
     /// The view controller that will be used by the scene manager.

@@ -9,6 +9,6 @@
 import SpriteKit
 import Fenris
 
-class TestingSceneViewController: ViewController & ScenePresentable {
+class TestingSceneViewController: ViewController & ScenePresentor {
     var skView: SKView { return self.view as! SKView } 
 }

@@ -11,7 +11,7 @@
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428321E20A1900D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
+		792D428521E20A1D00D438F1 /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
@@ -20,7 +20,7 @@
 		792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
+		792D42D121E2115F00D438F1 /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
 		794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
@@ -47,7 +47,7 @@
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
 		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		795D7860211188A100F4547D /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
+		795D7860211188A100F4547D /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		795D786821119EEA00F4547D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
 		797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
@@ -121,7 +121,7 @@
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
-		795D785E211188A100F4547D /* ScenePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresentable.swift; sourceTree = "<group>"; };
+		795D785E211188A100F4547D /* ScenePresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresentor.swift; sourceTree = "<group>"; };
 		795D7865211199D500F4547D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		795D786621119EEA00F4547D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButtonNode.swift; sourceTree = "<group>"; };
@@ -203,6 +203,33 @@
 				792D42C121E2115100D438F1 /* Info.plist */,
 			);
 			path = "Fenris macOS";
+			sourceTree = "<group>";
+		};
+		7939188022BA0B3300CE069C /* SceneManager */ = {
+			isa = PBXGroup;
+			children = (
+				795D784F2111812D00F4547D /* SceneManager.swift */,
+				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
+				795D785E211188A100F4547D /* ScenePresentor.swift */,
+			);
+			path = SceneManager;
+			sourceTree = "<group>";
+		};
+		7939188122BA0B3C00CE069C /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				795D784C211180F700F4547D /* ServiceLocator.swift */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
+		7939188222BA0B5800CE069C /* InputDevice */ = {
+			isa = PBXGroup;
+			children = (
+				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
+				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
+			);
+			path = InputDevice;
 			sourceTree = "<group>";
 		};
 		794366A122B4DE5800AA62AF /* Controls */ = {
@@ -305,15 +332,12 @@
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7939188222BA0B5800CE069C /* InputDevice */,
+				7939188122BA0B3C00CE069C /* ServiceLocator */,
+				7939188022BA0B3300CE069C /* SceneManager */,
 				79809E0022B22907008E4B49 /* Menu */,
 				79809DF322B21DC4008E4B49 /* Types */,
 				79EA8D6A2114B9B30072CBBE /* Extensions */,
-				795D784C211180F700F4547D /* ServiceLocator.swift */,
-				795D784F2111812D00F4547D /* SceneManager.swift */,
-				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
-				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
-				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -531,7 +555,7 @@
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */,
+				792D428521E20A1D00D438F1 /* ScenePresentor.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -564,7 +588,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
-				792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */,
+				792D42D121E2115F00D438F1 /* ScenePresentor.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
@@ -615,7 +639,7 @@
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				795D7860211188A100F4547D /* ScenePresentable.swift in Sources */,
+				795D7860211188A100F4547D /* ScenePresentor.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
