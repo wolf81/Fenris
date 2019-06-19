@@ -65,9 +65,9 @@ public class LabelItem: NSObject & MenuItem {
 public class ButtonItem: NSObject & MenuItem & MenuFooterContainable {
     @objc dynamic var title: String
     
-    let onClick: ClickBlock
-
-    public init(title: String, onClick: @escaping ClickBlock) {
+    public var onClick: ClickBlock?
+    
+    public init(title: String, onClick: (ClickBlock)? = nil) {
         self.title = title
         self.onClick = onClick
         

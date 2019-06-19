@@ -7,22 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7904650D22BA4F4D00D0C9F0 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904650C22BA4F4D00D0C9F0 /* SceneView.swift */; };
+		7904650E22BA4F4D00D0C9F0 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904650C22BA4F4D00D0C9F0 /* SceneView.swift */; };
+		7904650F22BA4F4D00D0C9F0 /* SceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904650C22BA4F4D00D0C9F0 /* SceneView.swift */; };
+		7904651722BA982900D0C9F0 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904651622BA982900D0C9F0 /* ScenePresentable.swift */; };
+		7904651822BA982900D0C9F0 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904651622BA982900D0C9F0 /* ScenePresentable.swift */; };
+		7904651922BA982900D0C9F0 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904651622BA982900D0C9F0 /* ScenePresentable.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		792D428321E20A1900D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D428521E20A1D00D438F1 /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		792D42C721E2115F00D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D42D121E2115F00D438F1 /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
+		7939188422BA0CB700CE069C /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939188322BA0CB700CE069C /* SceneTransition.swift */; };
+		7939188522BA0CB700CE069C /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939188322BA0CB700CE069C /* SceneTransition.swift */; };
+		7939188622BA0CB700CE069C /* SceneTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939188322BA0CB700CE069C /* SceneTransition.swift */; };
 		794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
 		794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
 		794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
@@ -45,9 +48,6 @@
 		794366D022B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
 		794366D122B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		795D7860211188A100F4547D /* ScenePresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentor.swift */; };
 		795D786821119EEA00F4547D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
 		797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
@@ -96,21 +96,20 @@
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
 		79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */; };
-		79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */; };
-		79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE3E0C22B8C8F1000AA665 /* Main.storyboard */; };
-		79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */; };
-		79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7904650C22BA4F4D00D0C9F0 /* SceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneView.swift; sourceTree = "<group>"; };
+		7904651622BA982900D0C9F0 /* ScenePresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenePresentable.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792D42BE21E2115100D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D42C121E2115100D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792D42DD21E24F9300D438F1 /* Fenris_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_macOS.h; sourceTree = "<group>"; };
+		7939188322BA0CB700CE069C /* SceneTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransition.swift; sourceTree = "<group>"; };
 		794366A722B4FD1900AA62AF /* MenuItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNode.swift; sourceTree = "<group>"; };
 		794366AB22B50DE200AA62AF /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
 		794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
@@ -119,9 +118,6 @@
 		794366CA22B703C600AA62AF /* MenuFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterNode.swift; sourceTree = "<group>"; };
 		794366CE22B7092400AA62AF /* FocusNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNode.swift; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
-		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
-		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
-		795D785E211188A100F4547D /* ScenePresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresentor.swift; sourceTree = "<group>"; };
 		795D7865211199D500F4547D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		795D786621119EEA00F4547D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButtonNode.swift; sourceTree = "<group>"; };
@@ -147,10 +143,6 @@
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
-		79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerTests.swift; sourceTree = "<group>"; };
-		79DE3E0C22B8C8F1000AA665 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneViewController.swift; sourceTree = "<group>"; };
-		79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneManager.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,14 +197,14 @@
 			path = "Fenris macOS";
 			sourceTree = "<group>";
 		};
-		7939188022BA0B3300CE069C /* SceneManager */ = {
+		7939188022BA0B3300CE069C /* ScenePresenting */ = {
 			isa = PBXGroup;
 			children = (
-				795D784F2111812D00F4547D /* SceneManager.swift */,
-				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
-				795D785E211188A100F4547D /* ScenePresentor.swift */,
+				7904651622BA982900D0C9F0 /* ScenePresentable.swift */,
+				7939188322BA0CB700CE069C /* SceneTransition.swift */,
+				7904650C22BA4F4D00D0C9F0 /* SceneView.swift */,
 			);
-			path = SceneManager;
+			path = ScenePresenting;
 			sourceTree = "<group>";
 		};
 		7939188122BA0B3C00CE069C /* ServiceLocator */ = {
@@ -323,7 +315,6 @@
 				79DE3E0222B8B735000AA665 /* MenuTests.swift */,
 				79DE3E0422B8BC97000AA665 /* FontTests.swift */,
 				79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */,
-				79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
 			path = FenrisTests;
@@ -334,7 +325,7 @@
 			children = (
 				7939188222BA0B5800CE069C /* InputDevice */,
 				7939188122BA0B3C00CE069C /* ServiceLocator */,
-				7939188022BA0B3300CE069C /* SceneManager */,
+				7939188022BA0B3300CE069C /* ScenePresenting */,
 				79809E0022B22907008E4B49 /* Menu */,
 				79809DF322B21DC4008E4B49 /* Types */,
 				79EA8D6A2114B9B30072CBBE /* Extensions */,
@@ -354,9 +345,6 @@
 		79DE3E1022B8CA4B000AA665 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				79DE3E0C22B8C8F1000AA665 /* Main.storyboard */,
-				79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */,
-				79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -534,7 +522,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,15 +542,16 @@
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				792D428521E20A1D00D438F1 /* ScenePresentor.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
+				7939188522BA0CB700CE069C /* SceneTransition.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
+				7904651822BA982900D0C9F0 /* ScenePresentable.swift in Sources */,
 				794366BD22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
+				7904650E22BA4F4D00D0C9F0 /* SceneView.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -578,7 +566,6 @@
 				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				794366B922B5CBF300AA62AF /* MenuItem.swift in Sources */,
-				792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,17 +575,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
-				792D42D121E2115F00D438F1 /* ScenePresentor.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
+				7939188622BA0CB700CE069C /* SceneTransition.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BE22B5CEC400AA62AF /* FocusItem.swift in Sources */,
+				7904651922BA982900D0C9F0 /* ScenePresentable.swift in Sources */,
 				79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AE22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
-				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
+				7904650F22BA4F4D00D0C9F0 /* SceneView.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -623,11 +610,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */,
-				79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */,
-				79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */,
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
-				79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,15 +623,16 @@
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				795D7860211188A100F4547D /* ScenePresentor.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
+				7939188422BA0CB700CE069C /* SceneTransition.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
+				7904651722BA982900D0C9F0 /* ScenePresentable.swift in Sources */,
 				79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
+				7904650D22BA4F4D00D0C9F0 /* SceneView.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -660,7 +645,6 @@
 				794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,
-				795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
 				794366B822B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */,
