@@ -8,6 +8,7 @@
 
 
 import Cocoa
+import Fenris
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
