@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SceneManager Class Reference</title>
+    <title>ScenePresentable Protocol Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,11 +10,11 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/SceneManager" class="dashAnchor"></a>
-    <a title="SceneManager Class Reference"></a>
+    <a name="//apple_ref/swift/Protocol/ScenePresentable" class="dashAnchor"></a>
+    <a title="ScenePresentable Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Fenris Docs</a> (40% documented)</p>
+        <p><a href="../index.html">Fenris Docs</a> (45% documented)</p>
         <p class="header-right"><a href="http://github.com/wolf81/Fenris"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Fenris Reference</a>
         <img id="carat" src="../img/carat.png" />
-        SceneManager Class Reference
+        ScenePresentable Protocol Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -41,36 +41,25 @@
                 <a href="../Classes/LabelItem.html">LabelItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:6Fenris4MenuC">Menu</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MenuBuilder.html">MenuBuilder</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="../Classes/MenuBuilder.html#/s:6Fenris11MenuBuilderC13ConfigurationV">– Configuration</a>
+                <a href="../Classes.html#/s:6Fenris18LabeledMenuBuilderC">LabeledMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/NumberChooserItem.html">NumberChooserItem</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes/SceneManager.html">SceneManager</a>
+                <a href="../Classes/SceneView.html">SceneView</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Classes.html#/s:6Fenris14ServiceLocatorC">ServiceLocator</a>
+                <a href="../Classes/ServiceLocator.html">ServiceLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:6Fenris17SimpleMenuBuilderC">SimpleMenuBuilder</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/TextChooserItem.html">TextChooserItem</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/ToggleItem.html">ToggleItem</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-group-name">
-            <a href="../Enums.html">Enumerations</a>
-            <ul class="nav-group-tasks">
-              <li class="nav-group-task">
-                <a href="../Enums.html#/s:6Fenris24SceneTransitionAnimationO">SceneTransitionAnimation</a>
               </li>
             </ul>
           </li>
@@ -86,7 +75,27 @@
             <a href="../Protocols.html">Protocols</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="../Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:6Fenris17MenuConfigurationP">MenuConfiguration</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Protocols/MenuItem.html">MenuItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/ScenePresentable.html">ScenePresentable</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:6Fenris4MenuV">Menu</a>
               </li>
             </ul>
           </li>
@@ -109,14 +118,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>SceneManager</h1>
+            <h1>ScenePresentable</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">SceneManager</span> <span class="p">:</span> <span class="kt">SceneManagerProtocol</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">ScenePresentable</span> <span class="p">:</span> <span class="kt">SKScene</span></code></pre>
 
                 </div>
               </div>
-            <p>The SceneManager can be used to transition between scenes with a built-in animation.</p>
+            <p>Scenes that conform to ScenePresentable are able to directly present other ScenePresentable
+scenes and able to dismiss themselves, though only when the container view is of type SceneView.</p>
 
           </section>
           <section class="section task-group-section">
@@ -125,9 +135,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris20SceneManagerProtocolP14viewControllerAA0B11Presentable_So06NSViewF0CXcvp"></a>
-                    <a name="//apple_ref/swift/Property/viewController" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris20SceneManagerProtocolP14viewControllerAA0B11Presentable_So06NSViewF0CXcvp">viewController</a>
+                    <a name="/s:6Fenris16ScenePresentableP4sizexSo6CGSizeV_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(size:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris16ScenePresentableP4sizexSo6CGSizeV_tcfc">init(size:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -135,40 +145,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">viewController</span><span class="p">:</span> <span class="kt">SceneViewController</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:6Fenris12SceneManagerC14viewControllerAcA0B11Presentable_So06NSViewE0CXc_tcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(viewController:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris12SceneManagerC14viewControllerAcA0B11Presentable_So06NSViewE0CXc_tcfc">init(viewController:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Designated initializer.</p>
+                        <p>Default constructor.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">required</span> <span class="nf">init</span><span class="p">(</span><span class="nv">viewController</span><span class="p">:</span> <span class="kt">SceneViewController</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -179,12 +163,13 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>viewController</em>
+                                <em>size</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>A view controller that conforms to ScenePresentable.</p>
+                                  <p>The size of the scene. Please note: it&rsquo;s up to the developer to make sure
+the proper state is restored here, when required.</p>
                                 </div>
                               </td>
                             </tr>
@@ -197,24 +182,31 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris12SceneManagerC12transitionTo5scene9animationySo7SKSceneC_AA0B19TransitionAnimationOtF"></a>
-                    <a name="//apple_ref/swift/Method/transitionTo(scene:animation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris12SceneManagerC12transitionTo5scene9animationySo7SKSceneC_AA0B19TransitionAnimationOtF">transitionTo(scene:animation:)</a>
+                    <a name="/s:6Fenris16ScenePresentableP7present_10transitionyqd__m_AA0B10TransitionVtAaBRd__lF"></a>
+                    <a name="//apple_ref/swift/Method/present(_:transition:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris16ScenePresentableP7present_10transitionyqd__m_AA0B10TransitionVtAaBRd__lF">present(_:transition:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Perform a transition using a built-in animation.</p>
+                        <p>Present another ScenePresentable scene.</p>
 
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">transitionTo</span><span class="p">(</span><span class="nv">scene</span><span class="p">:</span> <span class="kt">SKScene</span><span class="p">,</span> <span class="nv">animation</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:6Fenris24SceneTransitionAnimationO">SceneTransitionAnimation</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="n">present</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">scene</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">,</span> <span class="nv">transition</span><span class="p">:</span> <span class="kt">SceneTransition</span><span class="p">)</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">ScenePresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -230,19 +222,19 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The scene to transition to.</p>
+                                  <p>A scene type.</p>
                                 </div>
                               </td>
                             </tr>
                             <tr>
                               <td>
                                 <code>
-                                <em>animation</em>
+                                <em>transition</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The animation to use for the scene transition.</p>
+                                  <p>A transition to use for presentation and dismissal.</p>
                                 </div>
                               </td>
                             </tr>
@@ -252,12 +244,49 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Fenris16ScenePresentableP7dismissyyF"></a>
+                    <a name="//apple_ref/swift/Method/dismiss()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris16ScenePresentableP7dismissyyF">dismiss()</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Dismiss this view, returning to the parent ScenePresentable view. Will not do anything if
+there is no parent. Please note: there is no real stack of views, instead views are
+recreated. It&rsquo;s up to the developer to make sure the scene restores it&rsquo;s proper state in
+the init(size:) constructor.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">dismiss</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-18)</p>
+          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

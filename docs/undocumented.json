@@ -1,59 +1,129 @@
 {
   "warnings": [
     {
-      "file": "/Users/wolf/Development/Fenris/Shared/InputDeviceInteractable.swift",
+      "file": "/Users/wolf/Development/Fenris/Shared/InputDevice/InputDeviceInteractable.swift",
       "line": 20,
       "symbol": "InputDeviceAction",
       "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.Configuration.swift",
-      "line": 21,
-      "symbol": "MenuBuilder.Configuration.init(menuWidth:rowHeight:titleFont:labelFont:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
-      "line": 18,
-      "symbol": "MenuBuilder.init(configuration:)",
+      "line": 14,
+      "symbol": "MenuBuilder.build()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
       "line": 22,
-      "symbol": "MenuBuilder.withHeader(title:)",
+      "symbol": "SimpleMenuBuilder.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
-      "line": 27,
-      "symbol": "MenuBuilder.withRow(title:item:)",
+      "line": 24,
+      "symbol": "SimpleMenuBuilder.withRow(item:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
-      "line": 32,
-      "symbol": "MenuBuilder.withEmptyRow()",
+      "line": 29,
+      "symbol": "SimpleMenuBuilder.withEmptyRow()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
-      "line": 37,
-      "symbol": "MenuBuilder.withFooter(items:)",
+      "line": 34,
+      "symbol": "SimpleMenuBuilder.build()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
-      "line": 42,
-      "symbol": "MenuBuilder.build()",
+      "line": 46,
+      "symbol": "LabeledMenuBuilder.init()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
+      "line": 48,
+      "symbol": "LabeledMenuBuilder.withHeader(title:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
+      "line": 53,
+      "symbol": "LabeledMenuBuilder.withRow(title:item:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
+      "line": 58,
+      "symbol": "LabeledMenuBuilder.withEmptyRow()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
+      "line": 63,
+      "symbol": "LabeledMenuBuilder.withFooter(items:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuBuilder.swift",
+      "line": 68,
+      "symbol": "LabeledMenuBuilder.build()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 14,
+      "symbol": "MenuConfiguration.menuWidth",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 15,
+      "symbol": "MenuConfiguration.rowHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 16,
+      "symbol": "MenuConfiguration.titleFont",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 17,
+      "symbol": "MenuConfiguration.labelFont",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 18,
+      "symbol": "MenuConfiguration.focusRectColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuConfiguration.swift",
+      "line": 22,
+      "symbol": "MenuConfiguration.focusRectColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -89,6 +159,13 @@
       "line": 51,
       "symbol": "LabelItem.init(title:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/Menu/MenuItem.swift",
+      "line": 68,
+      "symbol": "ButtonItem.onClick",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -176,73 +253,31 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/wolf/Development/Fenris/Shared/SceneManager.swift",
-      "line": 12,
-      "symbol": "SceneViewController",
-      "symbol_kind": "source.lang.swift.decl.typealias",
+      "file": "/Users/wolf/Development/Fenris/Shared/ScenePresenting/SceneTransition.swift",
+      "line": 11,
+      "symbol": "SceneTransition",
+      "symbol_kind": "source.lang.swift.decl.struct",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/wolf/Development/Fenris/Shared/SceneManager.swift",
-      "line": 14,
-      "symbol": "SceneManagerProtocol",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/ScenePresentable.swift",
-      "line": null,
-      "symbol": "ScenePresentable",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/ScenePresentable.swift",
-      "line": 12,
-      "symbol": "ScenePresentable",
-      "symbol_kind": "source.lang.swift.decl.protocol",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/SceneTransitionAnimation.swift",
-      "line": 18,
-      "symbol": "SceneTransitionAnimation.fade",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/SceneTransitionAnimation.swift",
-      "line": 19,
-      "symbol": "SceneTransitionAnimation.push",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/SceneTransitionAnimation.swift",
-      "line": 20,
-      "symbol": "SceneTransitionAnimation.pop",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
-      "line": 16,
-      "symbol": "ServiceLocator.sceneManager",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
-      "line": 18,
-      "symbol": "ServiceLocator.init()",
+      "file": "/Users/wolf/Development/Fenris/Shared/ScenePresenting/SceneView.swift",
+      "line": 17,
+      "symbol": "SceneView.presentScene(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator.swift",
-      "line": 22,
-      "symbol": "ServiceLocator.provide(sceneManager:)",
+      "file": "/Users/wolf/Development/Fenris/Shared/ScenePresenting/SceneView.swift",
+      "line": 31,
+      "symbol": "SceneView.presentScene(_:transition:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wolf/Development/Fenris/Shared/ServiceLocator/ServiceLocator.swift",
+      "line": 25,
+      "symbol": "ServiceLocator.shared",
+      "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
     },
     {

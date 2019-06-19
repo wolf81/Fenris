@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MenuItem Protocol Reference</title>
+    <title>ServiceLocator Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/MenuItem" class="dashAnchor"></a>
-    <a title="MenuItem Protocol Reference"></a>
+    <a name="//apple_ref/swift/Class/ServiceLocator" class="dashAnchor"></a>
+    <a title="ServiceLocator Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Fenris Docs</a> (45% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Fenris Reference</a>
         <img id="carat" src="../img/carat.png" />
-        MenuItem Protocol Reference
+        ServiceLocator Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -118,14 +118,17 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>MenuItem</h1>
+            <h1>ServiceLocator</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MenuItem</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">open</span> <span class="kd">class</span> <span class="kt">ServiceLocator</span></code></pre>
 
                 </div>
               </div>
-            <p>Objects conforming to the Item protocol can be added to the menu.</p>
+            <p>The ServiceLocator can be used to register and classes conforming to LocatableService. Use the
+service locator to prevent creating a lot of singletons for instances you need to use accross
+the app. Instead, register such classes with the service locator and retrieve them from the
+service locator as needed. This prevents LocatableService from becoming hard to test.</p>
 
           </section>
           <section class="section task-group-section">
@@ -134,9 +137,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:6Fenris8MenuItemP7getNode4size4fontAA0bcE0_pSo6CGSizeV_So6NSFontCtF"></a>
-                    <a name="//apple_ref/swift/Method/getNode(size:font:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:6Fenris8MenuItemP7getNode4size4fontAA0bcE0_pSo6CGSizeV_So6NSFontCtF">getNode(size:font:)</a>
+                    <a name="/s:6Fenris14ServiceLocatorC3add7serviceyx_tKAA09LocatableB0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(service:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris14ServiceLocatorC3add7serviceyx_tKAA09LocatableB0RzlF">add(service:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -144,14 +147,20 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Construct a node based on this item and some parameters.</p>
+                        <p>Add a service.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    An error if the service was already added. Please note only 1 service per type
+can be added.
+
+</div>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getNode</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="nv">font</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/Font">Font</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">MenuItemNode</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a></span></code></pre>
 
                         </div>
                       </div>
@@ -162,24 +171,63 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>size</em>
+                                <em>service</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The size of the node.</p>
+                                  <p>The service to add.</p>
                                 </div>
                               </td>
                             </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Fenris14ServiceLocatorC3get7servicexxm_tKAA09LocatableB0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/get(service:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris14ServiceLocatorC3get7servicexxm_tKAA09LocatableB0RzlF">get(service:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retrieve a service.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    An error if the service wasn&rsquo;t registered previously.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="k">get</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
                             <tr>
                               <td>
                                 <code>
-                                <em>font</em>
+                                <em>service</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>A font to use inside labels in the node.</p>
+                                  <p>The service to retrieve.</p>
                                 </div>
                               </td>
                             </tr>
@@ -188,7 +236,57 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>A menu item node.</p>
+                        <p>The service.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:6Fenris14ServiceLocatorC6remove7serviceSbxm_tAA09LocatableB0RzlF"></a>
+                    <a name="//apple_ref/swift/Method/remove(service:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:6Fenris14ServiceLocatorC6remove7serviceSbxm_tAA09LocatableB0RzlF">remove(service:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove a registered service.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">remove</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">service</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>service</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The service to remove.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True if the service was removed, false if the service wasn&rsquo;t found.</p>
                       </div>
                     </section>
                   </div>
