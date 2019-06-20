@@ -14,11 +14,14 @@ import Fenris
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        NSApp.mainWindow?.acceptsMouseMovedEvents = true
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
+    }
+    
+    func applicationDidBecomeActive(_ notification: Notification) {
+        NSApp.mainWindow?.acceptsMouseMovedEvents = true
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

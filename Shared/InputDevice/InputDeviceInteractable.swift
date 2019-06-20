@@ -9,27 +9,60 @@
 import Foundation
 import SpriteKit
 
-/// Nodes that implement this protocol are able to receive interaction through an input device such
-/// as a mouse, keyboard or gamepad. These nodes can also receive focus when displayed in the menu.
-protocol InputDeviceInteractable where Self: SKNode {
-    func handleInput(action: InputDeviceAction)
+protocol MouseDeviceInteractable where Self: SKNode {
+    func handleMouseUp(location: CGPoint)
+    func handleMouseMoved(location: CGPoint)
+}
+
+protocol KeyboardDeviceInteractable where Self: SKNode {
+    func handleKeyUp(action: KeyboardAction)
+}
+
+protocol GameControllerDeviceInteractable where Self: SKNode {
+    func handleInput(action: GameControllerAction)
+}
+
+protocol TouchDeviceInteractable where Self: SKNode {
+    
+}
+
+typealias InputDeviceInteractable = (
+    MouseDeviceInteractable &
+    GameControllerDeviceInteractable &
+    KeyboardDeviceInteractable &
+    TouchDeviceInteractable
+)
+
+struct KeyboardAction: OptionSet {
+    let rawValue: Int16
+    
+    static let none = KeyboardAction(rawValue: 0)
+
+    static let up = KeyboardAction(rawValue: 1 << 0)
+    static let down = KeyboardAction(rawValue: 1 << 1)
+    static let left = KeyboardAction(rawValue: 1 << 2)
+    static let right = KeyboardAction(rawValue: 1 << 3)
+    static let action1 = KeyboardAction(rawValue: 1 << 4)
+    static let action2 = KeyboardAction(rawValue: 1 << 5)
+    
+    static let all: KeyboardAction = [.up, .down, .left, .right, .action1, .action2]
 }
 
 /// An OptionSet that can contain multiple simultaneous actions. For example when using a gamepad,
 // 2 buttons might be pressed at the same time.
-public struct InputDeviceAction: OptionSet, CustomStringConvertible {
+public struct GameControllerAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
     
-    static let none = InputDeviceAction(rawValue: 0)
+    static let none = GameControllerAction(rawValue: 0)
     
-    static let up = InputDeviceAction(rawValue: 1 << 0)
-    static let down = InputDeviceAction(rawValue: 1 << 1)
-    static let left = InputDeviceAction(rawValue: 1 << 2)
-    static let right = InputDeviceAction(rawValue: 1 << 3)
-    static let buttonA = InputDeviceAction(rawValue: 1 << 4)
-    static let buttonB = InputDeviceAction(rawValue: 1 << 5)
+    static let up = GameControllerAction(rawValue: 1 << 0)
+    static let down = GameControllerAction(rawValue: 1 << 1)
+    static let left = GameControllerAction(rawValue: 1 << 2)
+    static let right = GameControllerAction(rawValue: 1 << 3)
+    static let buttonA = GameControllerAction(rawValue: 1 << 4)
+    static let buttonB = GameControllerAction(rawValue: 1 << 5)
 
-    static let all: InputDeviceAction = [.up, .down, .left, .right, .buttonA, .buttonB]
+    static let all: GameControllerAction = [.up, .down, .left, .right, .buttonA, .buttonB]
     
     public init(rawValue: Int16) {
         self.rawValue = rawValue
@@ -45,10 +78,11 @@ public struct InputDeviceAction: OptionSet, CustomStringConvertible {
         case _ where contains(.right): input.append("→")
         case _ where contains(.buttonA): input.append("◎ A")
         case _ where contains(.buttonB): input.append("◎ B")
-        case _ where self == InputDeviceAction.none: input.append("-")
+        case _ where self == GameControllerAction.none: input.append("-")
         default: break
         }
         
         return input.joined(separator: ", ")
     }
 }
+
