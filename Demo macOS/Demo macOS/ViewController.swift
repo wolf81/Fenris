@@ -11,13 +11,14 @@ import SpriteKit
 import Fenris
 
 class ViewController: NSViewController {
-    @IBOutlet var skView: SceneView!
+    @IBOutlet var skView: SKView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.skView {
-            view.presentScene(MainMenuScene.self)
+            let scene = MainMenuScene(size: self.view.bounds.size)
+            view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true

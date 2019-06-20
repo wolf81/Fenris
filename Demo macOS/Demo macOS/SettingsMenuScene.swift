@@ -9,8 +9,9 @@
 import Fenris
 import Cocoa
 import CoreGraphics
+import SpriteKit
 
-final class SettingsMenuScene: MenuScene & ScenePresentable {
+final class SettingsMenuScene: MenuScene {
     private var attributeUpdater: AttributeUpdater!
 
     private let pointsRemainingLabel = LabelItem(title: "0")
@@ -42,7 +43,8 @@ final class SettingsMenuScene: MenuScene & ScenePresentable {
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
         
         self.backItem.onClick = {
-            self.dismiss()            
+            let scene = MainMenuScene(size: self.size)
+            self.view?.presentScene(scene, transition: SKTransition.push(with: .right, duration: 0.5))
         }
         
         self.attributeUpdater = AttributeUpdater(

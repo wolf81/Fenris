@@ -9,8 +9,9 @@
 import Fenris
 import Cocoa
 import CoreGraphics
+import SpriteKit
 
-final class MainMenuScene: MenuScene & ScenePresentable {
+final class MainMenuScene: MenuScene {
     private let settingsItem = ButtonItem(title: "Settings")
     
     required override init(size: CGSize) {        
@@ -25,7 +26,8 @@ final class MainMenuScene: MenuScene & ScenePresentable {
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
         
         self.settingsItem.onClick = {
-            self.present(SettingsMenuScene.self, transition: SceneTransition.crossfade(duration: 0.3))
+            let settingsScene = SettingsMenuScene(size: self.size)
+            self.view?.presentScene(settingsScene, transition: SKTransition.push(with: .left, duration: 0.5))
         }
     }
     
