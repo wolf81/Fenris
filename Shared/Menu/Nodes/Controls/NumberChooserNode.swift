@@ -14,8 +14,8 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
     private var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
     
     private let label: SKLabelNode
-    private let minusSignButton: SignButtonNode
-    private let plusSignButton: SignButtonNode
+    fileprivate let minusSignButton: SignButtonNode
+    fileprivate let plusSignButton: SignButtonNode
     
     var text: String? { return label.text }
 
@@ -59,26 +59,55 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
             self.label.text = "\(self.chooserItem.selectedValue)"
         }
     }
+    
+    fileprivate func decrement() {
+        let newValue = self.chooserItem.selectedValue - 1
+        if self.chooserItem.range.contains(newValue) {
+            self.chooserItem.selectedValue = newValue
+        }
+    }
+    
+    fileprivate func increment() {
+        let newValue = self.chooserItem.selectedValue + 1
+        if self.chooserItem.range.contains(newValue) {
+            self.chooserItem.selectedValue = newValue
+        }
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
 extension NumberChooserNode: InputDeviceInteractable {
-    func handleInput(action: InputDeviceAction) {
-        let validActions: InputDeviceAction = [.left, .right]
+    func handleInput(action: GameControllerAction) {
+        let validActions: GameControllerAction = [.left, .right]
         guard validActions.contains(action) else { return }
         
         switch action {
-        case .left:
-            let newValue = self.chooserItem.selectedValue - 1
-            if self.chooserItem.range.contains(newValue) {
-                self.chooserItem.selectedValue = newValue
-            }
-        case .right:
-            let newValue = self.chooserItem.selectedValue + 1
-            if self.chooserItem.range.contains(newValue) {
-                self.chooserItem.selectedValue = newValue
-            }
+        case .left: decrement()
+        case .right: increment()
+        default: /* Should never happen */ fatalError()
+        }
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        if self.minusSignButton.contains(location) {
+            decrement()
+        } else if self.plusSignButton.contains(location) {
+            increment()
+        }
+    }
+    
+    func handleMouseMoved(location: CGPoint) {
+        
+    }
+
+    func handleKeyUp(action: KeyboardAction) {
+        let validActions: KeyboardAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        switch action {
+        case .left: decrement()
+        case .right: increment()
         default: /* Should never happen */ fatalError()
         }
     }

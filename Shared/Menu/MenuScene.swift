@@ -9,16 +9,23 @@
 import SpriteKit
 
 open class MenuScene: SKScene, InputDeviceInteractable {
-    private var focusItems: [FocusItem] = []
+    fileprivate var focusItems: [FocusItem] = []
     
-    private var focusItemIdx: Int = Int.min
+    private var focusItemIdx: Int = Int.min {
+        didSet {
+            if self.focusItemIdx == Int.min {
+                hideFocusNode()
+            } else {
+                showFocusNode()
+            }
+        }
+    }
     
     private var focusNode: FocusNode
     
-    public override init(size: CGSize) {
-        // We need to keep this initialized for the custom scene transitions to work without
-        // crashing when loading a menu.
-        fatalError("Don't call init(size:), use init(size:, configuration:, menu:) instead")
+    private var focusedItem: FocusItem? {
+        guard self.focusItemIdx != Int.min else { return nil }
+        return self.focusItems[self.focusItemIdx]
     }
         
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
@@ -57,12 +64,12 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             case 0: continue
             case 1:
                 let focusItem = FocusItem(frame: menuRowNode.frame, interactableNode: interactableNodes[0])
-                focusItems.append(focusItem)
+                self.focusItems.append(focusItem)
             default:
                 for interactableNode in interactableNodes {
                     let origin = menuRowNode.convert(interactableNode.frame.origin, to: self)
                     let size = interactableNode.frame.size
-                    focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
+                    self.focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
                 }
             }
         }
@@ -74,7 +81,7 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         fatalError()
     }
         
-    func handleInput(action: InputDeviceAction) {
+    func handleInput(action: GameControllerAction) {
         guard self.focusItems.count > 0 else { return }
         
         defer { showFocusNode() }
@@ -88,14 +95,8 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         }
         
         switch action {
-        case _ where action.contains(.up):
-            self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
-                ? (self.focusItemIdx - 1)
-                : self.focusItemIdx
-        case _ where action.contains(.down):
-            self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
-                ? (self.focusItemIdx + 1)
-                : self.focusItemIdx
+        case _ where action.contains(.up): focusPrevious()
+        case _ where action.contains(.down): focusNext()
         case _ where action.contains(.left): fallthrough
         case _ where action.contains(.right): fallthrough
         case _ where action.contains(.buttonA): fallthrough
@@ -113,8 +114,66 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
     }
     
+    private func focusPrevious() {
+        self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
+            ? (self.focusItemIdx - 1)
+            : self.focusItemIdx
+    }
+    
+    private func focusNext() {
+        self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
+            ? (self.focusItemIdx + 1)
+            : self.focusItemIdx
+    }
+    
     fileprivate func hideFocusNode() {
         self.focusNode.isHidden = true
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        guard let focusedNode = self.focusedItem?.interactableNode else {
+            return
+        }
+        
+        let nodeLocation = convert(location, to: focusedNode)
+        focusedNode.handleMouseUp(location: nodeLocation)
+    }
+    
+    func handleMouseMoved(location: CGPoint) {
+        self.focusItemIdx = Int.min
+        
+        for (idx, focusItem) in self.focusItems.enumerated() {
+            if focusItem.frame.contains(location) {
+                self.focusItemIdx = idx
+                break
+            }
+        }
+    }
+    
+    func handleKeyUp(action: KeyboardAction) {
+        guard self.focusItems.count > 0 else { return }
+        
+        defer { showFocusNode() }
+        
+        guard self.focusItemIdx >= 0 else {
+            return self.focusItemIdx = 0
+        }
+        
+        guard self.focusNode.isHidden == false else {
+            return
+        }
+        
+        switch action {
+        case _ where action.contains(.up): focusPrevious()
+        case _ where action.contains(.down): focusNext()
+        case _ where action.contains(.left): fallthrough
+        case _ where action.contains(.right): fallthrough
+        case _ where action.contains(.action1): fallthrough
+        case _ where action.contains(.action2):
+            let focusItem = self.focusItems[self.focusItemIdx]
+            focusItem.interactableNode.handleKeyUp(action: action)
+        default: break
+        }
     }
 }
 
@@ -123,21 +182,25 @@ open class MenuScene: SKScene, InputDeviceInteractable {
 extension MenuScene {
     open override func mouseUp(with event: NSEvent) {
         let location = event.location(in: self)
-        print("handle mouse click @ \(location)")
+        handleMouseUp(location: location)
     }
     
     open override func mouseMoved(with event: NSEvent) {
-        hideFocusNode()
+        let location = event.location(in: self)
+        handleMouseMoved(location: location)
     }
 
     open override func keyUp(with event: NSEvent) {
+        // TODO: A keymap file might be used bind key codes with key actions, this could be part of
+        // the app settings and provide a default implementation that can be changed
+        
         switch event.keyCode {
-        case 126: handleInput(action: .up)
-        case 125: handleInput(action: .down)
-        case 123: handleInput(action: .left)
-        case 124: handleInput(action: .right)
-        case 49: handleInput(action: .buttonA)
-        case 53: handleInput(action: .buttonB)
+        case 126: handleKeyUp(action: .up)
+        case 125: handleKeyUp(action: .down)
+        case 123: handleKeyUp(action: .left)
+        case 124: handleKeyUp(action: .right)
+        case 49: handleKeyUp(action: .action1)
+        case 53: handleKeyUp(action: .action2)
         default: break
         }
     }
