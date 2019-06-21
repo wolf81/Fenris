@@ -138,7 +138,7 @@
 		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowNode.swift; sourceTree = "<group>"; };
 		79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceInteractable.swift; sourceTree = "<group>"; };
-		79C681DC2111761B006E20D0 /* FenrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C681DC2111761B006E20D0 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681E12111761B006E20D0 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		79C681E32111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C681FA21117860006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -286,7 +286,7 @@
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
-				79C681E02111761B006E20D0 /* FenrisTests */,
+				79C681E02111761B006E20D0 /* Tests */,
 				792D427B21E20A0E00D438F1 /* Fenris tvOS */,
 				792D42BF21E2115100D438F1 /* Fenris macOS */,
 				79C681D42111761B006E20D0 /* Products */,
@@ -296,7 +296,7 @@
 		79C681D42111761B006E20D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				79C681DC2111761B006E20D0 /* FenrisTests.xctest */,
+				79C681DC2111761B006E20D0 /* Tests.xctest */,
 				79C681FA21117860006E20D0 /* Fenris.framework */,
 				792D427A21E20A0E00D438F1 /* Fenris.framework */,
 				792D42BE21E2115100D438F1 /* Fenris.framework */,
@@ -304,7 +304,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		79C681E02111761B006E20D0 /* FenrisTests */ = {
+		79C681E02111761B006E20D0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				79DE3E1022B8CA4B000AA665 /* Resources */,
@@ -314,7 +314,7 @@
 				79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
-			path = FenrisTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		79C681ED21117621006E20D0 /* Shared */ = {
@@ -420,9 +420,9 @@
 			productReference = 792D42BE21E2115100D438F1 /* Fenris.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C681DB2111761B006E20D0 /* FenrisTests */ = {
+		79C681DB2111761B006E20D0 /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "FenrisTests" */;
+			buildConfigurationList = 79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				79C681D82111761B006E20D0 /* Sources */,
 				79C681D92111761B006E20D0 /* Frameworks */,
@@ -432,9 +432,9 @@
 			);
 			dependencies = (
 			);
-			name = FenrisTests;
+			name = Tests;
 			productName = FenrisTests;
-			productReference = 79C681DC2111761B006E20D0 /* FenrisTests.xctest */;
+			productReference = 79C681DC2111761B006E20D0 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		79C681F921117860006E20D0 /* Fenris iOS */ = {
@@ -492,7 +492,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				79C681DB2111761B006E20D0 /* FenrisTests */,
+				79C681DB2111761B006E20D0 /* Tests */,
 				79C681F921117860006E20D0 /* Fenris iOS */,
 				792D427921E20A0E00D438F1 /* Fenris tvOS */,
 				792D42BD21E2115100D438F1 /* Fenris macOS */,
@@ -893,7 +893,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FenrisTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -912,7 +912,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FenrisTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1005,7 +1005,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "FenrisTests" */ = {
+		79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79C681EB2111761B006E20D0 /* Debug */,

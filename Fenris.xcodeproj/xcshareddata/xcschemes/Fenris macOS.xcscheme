@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "79C681DB2111761B006E20D0"
-               BuildableName = "FenrisTests.xctest"
-               BlueprintName = "FenrisTests"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
                ReferencedContainer = "container:Fenris.xcodeproj">
             </BuildableReference>
             <SkippedTests>
