@@ -46,5 +46,5 @@ class InputDeviceManager: LocatableService {
         })
         
         self.controllers.discoverWired()
-    }    
+    }
  }

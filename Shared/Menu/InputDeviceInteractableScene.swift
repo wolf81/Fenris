@@ -9,20 +9,16 @@
 import SpriteKit
 
 open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {
-    public func handleMouseUp(location: CGPoint) {
-        print("handleMouseUp")
+    open func handleMouseUp(location: CGPoint) {
     }
     
-    public func handleMouseMoved(location: CGPoint) {
-        print("handleMouseMoved")
+    open func handleMouseMoved(location: CGPoint) {
     }
     
-    public func handleInput(action: GameControllerAction) {
-        print("handleInput")
+    open func handleInput(action: GameControllerAction) {
     }
     
-    public func handleKeyUp(action: KeyboardAction) {
-        print("handleKeyUp")
+    open func handleKeyUp(action: KeyboardAction) {
     }
     
     open override func didMove(to view: SKView) {

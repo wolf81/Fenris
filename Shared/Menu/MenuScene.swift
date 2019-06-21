@@ -104,6 +104,7 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         
         // TODO: For footer we should probably allow left and right buttons for navigation
         switch action {
+        case _ where action.contains(.pause): break
         case _ where action.contains(.up): focusPrevious()
         case _ where action.contains(.down): focusNext()
         case _ where action.contains(.left): fallthrough

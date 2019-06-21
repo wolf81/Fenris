@@ -7,7 +7,15 @@
 //
 
 import Fenris
+import SpriteKit
 
 class GameScene: InputDeviceInteractableScene {
-    
+    override func handleInput(action: GameControllerAction) {
+        switch action {
+        case _ where action.contains(.pause):
+            let menuScene = MainMenuScene(size: self.size)
+            self.view?.presentScene(menuScene, transition: SKTransition.crossFade(withDuration: 0.5))
+        default: break
+        }
+    }
 }

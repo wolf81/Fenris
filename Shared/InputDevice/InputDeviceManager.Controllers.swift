@@ -60,6 +60,12 @@ extension InputDeviceManager {
                 deviceManager.interactableScene?.handleInput(action: .right)
             }
         }
+        private var pauseHandler: (GCController) -> Void = { controller in
+            let deviceManager = try! ServiceLocator.shared.get(service: InputDeviceManager.self)
+            
+            guard deviceManager.scheme == .gamepad else { return }
+            deviceManager.interactableScene?.handleInput(action: .pause)
+        }
         
         var player1: GCController? = nil {
             didSet {
@@ -109,11 +115,11 @@ extension InputDeviceManager {
             fatalError()
         }
         
+        private var controller: GCController?
+        
         private func configure(controller: GCController) {
-            controller.controllerPausedHandler = { controller in
-                print("pause scene / player")
-            }
-            
+            controller.controllerPausedHandler = self.pauseHandler
+
             if let gamepad = controller.gamepad { // TODO: Add support for multiple players?
                 gamepad.dpad.up.pressedChangedHandler = self.dpadUpHandler
                 gamepad.dpad.down.pressedChangedHandler = self.dpadDownHandler

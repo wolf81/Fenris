@@ -57,16 +57,17 @@ public struct KeyboardAction: OptionSet {
 public struct GameControllerAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
     
-    static let none = GameControllerAction(rawValue: 0)
+    public static let none = GameControllerAction(rawValue: 0)
     
-    static let up = GameControllerAction(rawValue: 1 << 0)
-    static let down = GameControllerAction(rawValue: 1 << 1)
-    static let left = GameControllerAction(rawValue: 1 << 2)
-    static let right = GameControllerAction(rawValue: 1 << 3)
-    static let buttonA = GameControllerAction(rawValue: 1 << 4)
-    static let buttonB = GameControllerAction(rawValue: 1 << 5)
+    public static let up = GameControllerAction(rawValue: 1 << 0)
+    public static let down = GameControllerAction(rawValue: 1 << 1)
+    public static let left = GameControllerAction(rawValue: 1 << 2)
+    public static let right = GameControllerAction(rawValue: 1 << 3)
+    public static let buttonA = GameControllerAction(rawValue: 1 << 4)
+    public static let buttonB = GameControllerAction(rawValue: 1 << 5)
+    public static let pause = GameControllerAction(rawValue: 1 << 6)
 
-    static let all: GameControllerAction = [.up, .down, .left, .right, .buttonA, .buttonB]
+    public static let all: GameControllerAction = [.up, .down, .left, .right, .buttonA, .buttonB, .pause]
     
     public init(rawValue: Int16) {
         self.rawValue = rawValue
@@ -82,6 +83,7 @@ public struct GameControllerAction: OptionSet, CustomStringConvertible {
         case _ where contains(.right): input.append("→")
         case _ where contains(.buttonA): input.append("◎ A")
         case _ where contains(.buttonB): input.append("◎ B")
+        case _ where contains(.pause): input.append("pause")
         case _ where self == GameControllerAction.none: input.append("-")
         default: break
         }
