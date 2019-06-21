@@ -9,32 +9,32 @@
 import Foundation
 import SpriteKit
 
-protocol MouseDeviceInteractable where Self: SKNode {
+public protocol MouseDeviceInteractable where Self: SKNode {
     func handleMouseUp(location: CGPoint)
     func handleMouseMoved(location: CGPoint)
 }
 
-protocol KeyboardDeviceInteractable where Self: SKNode {
+public protocol KeyboardDeviceInteractable where Self: SKNode {
     func handleKeyUp(action: KeyboardAction)
 }
 
-protocol GameControllerDeviceInteractable where Self: SKNode {
+public protocol GameControllerDeviceInteractable where Self: SKNode {
     func handleInput(action: GameControllerAction)
 }
 
-protocol TouchDeviceInteractable where Self: SKNode {
+public protocol TouchDeviceInteractable where Self: SKNode {
     
 }
 
-typealias InputDeviceInteractable = (
+public typealias InputDeviceInteractable = (
+    TouchDeviceInteractable &
     MouseDeviceInteractable &
-    GameControllerDeviceInteractable &
     KeyboardDeviceInteractable &
-    TouchDeviceInteractable
+    GameControllerDeviceInteractable
 )
 
-struct KeyboardAction: OptionSet {
-    let rawValue: Int16
+public struct KeyboardAction: OptionSet {
+    public let rawValue: Int16
     
     static let none = KeyboardAction(rawValue: 0)
 
@@ -46,6 +46,10 @@ struct KeyboardAction: OptionSet {
     static let action2 = KeyboardAction(rawValue: 1 << 5)
     
     static let all: KeyboardAction = [.up, .down, .left, .right, .action1, .action2]
+    
+    public init(rawValue: Int16) {
+        self.rawValue = rawValue
+    }
 }
 
 /// An OptionSet that can contain multiple simultaneous actions. For example when using a gamepad,
@@ -53,16 +57,17 @@ struct KeyboardAction: OptionSet {
 public struct GameControllerAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
     
-    static let none = GameControllerAction(rawValue: 0)
+    public static let none = GameControllerAction(rawValue: 0)
     
-    static let up = GameControllerAction(rawValue: 1 << 0)
-    static let down = GameControllerAction(rawValue: 1 << 1)
-    static let left = GameControllerAction(rawValue: 1 << 2)
-    static let right = GameControllerAction(rawValue: 1 << 3)
-    static let buttonA = GameControllerAction(rawValue: 1 << 4)
-    static let buttonB = GameControllerAction(rawValue: 1 << 5)
+    public static let up = GameControllerAction(rawValue: 1 << 0)
+    public static let down = GameControllerAction(rawValue: 1 << 1)
+    public static let left = GameControllerAction(rawValue: 1 << 2)
+    public static let right = GameControllerAction(rawValue: 1 << 3)
+    public static let buttonA = GameControllerAction(rawValue: 1 << 4)
+    public static let buttonB = GameControllerAction(rawValue: 1 << 5)
+    public static let pause = GameControllerAction(rawValue: 1 << 6)
 
-    static let all: GameControllerAction = [.up, .down, .left, .right, .buttonA, .buttonB]
+    public static let all: GameControllerAction = [.up, .down, .left, .right, .buttonA, .buttonB, .pause]
     
     public init(rawValue: Int16) {
         self.rawValue = rawValue
@@ -78,6 +83,7 @@ public struct GameControllerAction: OptionSet, CustomStringConvertible {
         case _ where contains(.right): input.append("→")
         case _ where contains(.buttonA): input.append("◎ A")
         case _ where contains(.buttonB): input.append("◎ B")
+        case _ where contains(.pause): input.append("pause")
         case _ where self == GameControllerAction.none: input.append("-")
         default: break
         }

@@ -20,6 +20,8 @@ final class CreateCharacterMenuScene: MenuScene {
     private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Halfling"], selectedValueIdx: 0)
     private let backItem = ButtonItem(title: "Back")
     
+    private let nextItem = ButtonItem(title: "Next")
+    
     init(size: CGSize) {
         let menu = LabeledMenuBuilder()
             .withHeader(title: "New Character")
@@ -35,39 +37,44 @@ final class CreateCharacterMenuScene: MenuScene {
             .withFooter(items: [
                 self.backItem,
                 FixedSpaceItem(),
-                ButtonItem(title: "Next"),
+                self.nextItem,
                 ]).build()
         
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
         
-        self.backItem.onClick = {
+        self.backItem.onClick = { [unowned self] in
             let scene = MainMenuScene(size: self.size)
             self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))
+        }
+        
+        self.nextItem.onClick = { [unowned self] in
+            let scene = GameScene(size: self.size)
+            self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))            
         }
         
         self.attributeUpdater = AttributeUpdater(
             strength: 12,
             dexterity: 12,
             mind: 12,
-            onPointsRemainingUpdated: { (pointsRemaining) in
+            onPointsRemainingUpdated: { [unowned self] pointsRemaining in
                 self.pointsRemainingLabel.title = "\(pointsRemaining)"
         })
         
         self.pointsRemainingLabel.title = "\(attributeUpdater.pointsRemaining)"
         
-        self.strengthChooser.onValidate = { strength in
+        self.strengthChooser.onValidate = { [unowned self] strength in
             return self.attributeUpdater.update(strength: strength)
         }
         
-        self.dexterityChooser.onValidate = { dexterity in
+        self.dexterityChooser.onValidate = { [unowned self] dexterity in
             return self.attributeUpdater.update(dexterity: dexterity)
         }
         
-        self.mindChooser.onValidate = { mind in
+        self.mindChooser.onValidate = { [unowned self] mind in
             return self.attributeUpdater.update(mind: mind)
         }
         
-        self.raceChooser.onValidate = { raceIdx in
+        self.raceChooser.onValidate = { [unowned self] raceIdx in
             var strengthRange = (6 ... 18)
             var dexterityRange = (6 ... 18)
             var mindRange = (6 ... 18)
