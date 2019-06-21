@@ -22,7 +22,6 @@ open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {
     }
     
     open func updateForInputDevice(_ scheme: InputDeviceScheme) {
-        
     }
     
     open override func didMove(to view: SKView) {
