@@ -87,7 +87,7 @@ public class ToggleItem: NSObject & MenuItem {
 
     @objc dynamic var isEnabled: Bool {
         didSet {
-            if onValidate?(self.isEnabled) == false {
+            if onValidate?(self.isEnabled) == false { 
                 self.isEnabled = oldValue
             }
         }

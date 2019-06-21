@@ -71,7 +71,6 @@ extension InputDeviceManager {
             didSet {
                 if let controller = self.player1 {
                     controller.playerIndex = .index1
-                    configure(controller: controller)
                 }
             }
         }
@@ -97,11 +96,17 @@ extension InputDeviceManager {
             NotificationCenter.default.removeObserver(self, name: NSNotification.Name.GCControllerDidDisconnect, object: nil)
         }
         
-        func discoverWired() {
-            print("discover wired controllers ...")
-            let controllers = GCController.controllers()
-            if controllers.count > 0 {
-                self.player1 = controllers.first!
+        func connect() {
+            if let controller = GCController.controllers().first {
+                self.player1 = controller
+                configure(controller: controller)
+            }
+        }
+        
+        func disconnect() {
+            self.player1 = nil
+            if GCController.controllers().count == 0 {
+                onConnectionChange(false)
             }
         }
         
@@ -139,18 +144,13 @@ extension InputDeviceManager {
         @objc private func controllerDidConnect(_ notification: Notification) {
             let controller = notification.object as! GCController
             print("connected: \(controller)")
-            self.player1 = controller
-            configure(controller: self.player1!)
-            discoverWired()
+            connect()
         }
         
         @objc private func controllerDidDisconnect(_ notification: Notification) {
             let controller = notification.object as! GCController
             print("disconnected: \(controller)")
-            self.player1 = nil
-            if GCController.controllers().count == 0 {
-                onConnectionChange(false)
-            }
+            disconnect()
         }
     }
 }

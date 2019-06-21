@@ -30,7 +30,7 @@ class SettingsMenuScene: MenuScene {
         
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
         
-        self.backItem.onClick = {
+        self.backItem.onClick = { [unowned self] in
             let scene = MainMenuScene(size: self.size)
             self.view?.presentScene(scene, transition: SKTransition.push(with: .right, duration: 0.5))
         }

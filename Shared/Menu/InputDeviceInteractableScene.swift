@@ -21,10 +21,16 @@ open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {
     open func handleKeyUp(action: KeyboardAction) {
     }
     
+    open func updateForInputDevice(_ scheme: InputDeviceScheme) {
+        
+    }
+    
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        initializeInputDeviceManagerIfNeeded(scene: self)
+        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { [unowned self] scheme in
+            self.updateForInputDevice(scheme)
+        })
     }    
 }
 

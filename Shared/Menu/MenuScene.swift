@@ -31,7 +31,16 @@ open class MenuScene: SKScene, InputDeviceInteractable {
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
     
-        initializeInputDeviceManagerIfNeeded(scene: self)
+        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
+            switch scheme {
+            case .gamepad:
+                self.focusItemIdx = 0
+                self.showFocusNode()
+            case .mouseKeyboard: self.hideFocusNode()
+            case .touch: print("touch")
+            case .tvRemote: print("tv remote")
+            }
+        })
     }
     
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {

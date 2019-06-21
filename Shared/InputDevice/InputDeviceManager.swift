@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 import GameKit
 
-enum InputDeviceScheme {
+public enum InputDeviceScheme {
     case mouseKeyboard
     case touch
     case tvRemote
@@ -31,20 +31,24 @@ enum InputDeviceScheme {
 
 class InputDeviceManager: LocatableService {
     var scheme: InputDeviceScheme = .default {
-        didSet {
-            print("input scheme changed: \(self.scheme)")
+        didSet(newValue) {
+            if newValue != self.scheme {
+                onSchemeChange?(self.scheme)
+            }
         }
     }
     
     weak var interactableScene: (SKScene & InputDeviceInteractable)?
     
+    var onSchemeChange: ((InputDeviceScheme) -> Void)?
+    
     private var controllers: Controllers!
     
     init() {        
-        self.controllers = Controllers(onConnectionChange: { (connected) in
+        self.controllers = Controllers(onConnectionChange: { [unowned self] (connected) in
             self.scheme = connected ? .gamepad : .default
         })
         
-        self.controllers.discoverWired()
+        self.controllers.connect()
     }
  }

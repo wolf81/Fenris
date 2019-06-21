@@ -8,11 +8,12 @@
 
 import SpriteKit
 
-internal func initializeInputDeviceManagerIfNeeded(scene: (SKScene & InputDeviceInteractable)) {
+internal func initializeInputDeviceManagerIfNeeded(scene: (SKScene & InputDeviceInteractable), onInputDeviceChanged: ((InputDeviceScheme) -> Void)?) {
     if (try? ServiceLocator.shared.get(service: InputDeviceManager.self)) == nil {
         try? ServiceLocator.shared.add(service: InputDeviceManager())
     }
     
     let manager = try! ServiceLocator.shared.get(service: InputDeviceManager.self)
     manager.interactableScene = scene
+    manager.onSchemeChange = onInputDeviceChanged
 }
