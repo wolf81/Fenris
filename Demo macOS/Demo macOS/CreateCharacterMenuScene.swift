@@ -20,6 +20,8 @@ final class CreateCharacterMenuScene: MenuScene {
     private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Halfling"], selectedValueIdx: 0)
     private let backItem = ButtonItem(title: "Back")
     
+    private let nextItem = ButtonItem(title: "Next")
+    
     init(size: CGSize) {
         let menu = LabeledMenuBuilder()
             .withHeader(title: "New Character")
@@ -35,7 +37,7 @@ final class CreateCharacterMenuScene: MenuScene {
             .withFooter(items: [
                 self.backItem,
                 FixedSpaceItem(),
-                ButtonItem(title: "Next"),
+                self.nextItem,
                 ]).build()
         
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
@@ -43,6 +45,11 @@ final class CreateCharacterMenuScene: MenuScene {
         self.backItem.onClick = {
             let scene = MainMenuScene(size: self.size)
             self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))
+        }
+        
+        self.nextItem.onClick = {
+            let scene = GameScene(size: self.size)
+            self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))            
         }
         
         self.attributeUpdater = AttributeUpdater(

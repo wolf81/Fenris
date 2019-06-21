@@ -9,32 +9,32 @@
 import Foundation
 import SpriteKit
 
-protocol MouseDeviceInteractable where Self: SKNode {
+public protocol MouseDeviceInteractable where Self: SKNode {
     func handleMouseUp(location: CGPoint)
     func handleMouseMoved(location: CGPoint)
 }
 
-protocol KeyboardDeviceInteractable where Self: SKNode {
+public protocol KeyboardDeviceInteractable where Self: SKNode {
     func handleKeyUp(action: KeyboardAction)
 }
 
-protocol GameControllerDeviceInteractable where Self: SKNode {
+public protocol GameControllerDeviceInteractable where Self: SKNode {
     func handleInput(action: GameControllerAction)
 }
 
-protocol TouchDeviceInteractable where Self: SKNode {
+public protocol TouchDeviceInteractable where Self: SKNode {
     
 }
 
-typealias InputDeviceInteractable = (
+public typealias InputDeviceInteractable = (
+    TouchDeviceInteractable &
     MouseDeviceInteractable &
-    GameControllerDeviceInteractable &
     KeyboardDeviceInteractable &
-    TouchDeviceInteractable
+    GameControllerDeviceInteractable
 )
 
-struct KeyboardAction: OptionSet {
-    let rawValue: Int16
+public struct KeyboardAction: OptionSet {
+    public let rawValue: Int16
     
     static let none = KeyboardAction(rawValue: 0)
 
@@ -46,6 +46,10 @@ struct KeyboardAction: OptionSet {
     static let action2 = KeyboardAction(rawValue: 1 << 5)
     
     static let all: KeyboardAction = [.up, .down, .left, .right, .action1, .action2]
+    
+    public init(rawValue: Int16) {
+        self.rawValue = rawValue
+    }
 }
 
 /// An OptionSet that can contain multiple simultaneous actions. For example when using a gamepad,
