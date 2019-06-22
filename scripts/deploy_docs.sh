@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "deploy docs"
-
 DOCS_DIR="${1}"
 echo "DOCS_DIR: ${DOCS_DIR}"
 
