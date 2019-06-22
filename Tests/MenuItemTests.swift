@@ -74,6 +74,22 @@ class MenuItemTests: XCTestCase {
     
     // MARK: - NumberChooserItem
     
+    func testNumberChooserItemRangeChange() {
+        let numberChooser = NumberChooserItem(range: (1 ... 1), selectedValue: 10)
+        XCTAssert(numberChooser.range.count == 1)
+        XCTAssert(numberChooser.selectedValue == 1)
+        
+        numberChooser.range = (2 ... 8)
+    }
+    
+    func testNumberChooserSelectedIndexInBoundsOnValuesChange() {
+        let numberChooser = NumberChooserItem(range: (0 ... 5), selectedValue: 4)
+        XCTAssert(numberChooser.selectedValue == 4)
+
+        numberChooser.range = (6 ... 10)
+        XCTAssert(numberChooser.selectedValue == 6)
+    }
+    
     func testNumberChooserNode() {
         let numberChooser = NumberChooserItem(range: (0 ... 0), selectedValue: 0)
         let node = numberChooser.getNode(size: .zero, font: self.font)
@@ -107,6 +123,23 @@ class MenuItemTests: XCTestCase {
     }
     
     // MARK: - TextChooserItem
+    
+    func testTextChooserItemRangeChange() {
+        let textChooser = TextChooserItem(values: [], selectedValueIdx: 0)
+        XCTAssert(textChooser.values.count == 0)
+        
+        let values = ["a", "b", "c"]
+        textChooser.values = values
+        XCTAssert(textChooser.values == values)
+    }
+    
+    func testTextChooserSelectedIndexInBoundsOnValuesChange() {
+        let textChooser = TextChooserItem(values: ["a", "b", "c"], selectedValueIdx: 4)
+        XCTAssert(textChooser.selectedValueIdx == 2)
+        
+        textChooser.values = ["a", "b"]
+        XCTAssert(textChooser.selectedValueIdx == 1)
+    }
     
     func testTextChooserItemNode() {
         let textChooser = TextChooserItem(values: [], selectedValueIdx: 0)

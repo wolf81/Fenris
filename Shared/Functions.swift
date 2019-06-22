@@ -17,3 +17,18 @@ internal func initializeInputDeviceManagerIfNeeded(scene: (SKScene & InputDevice
     manager.interactableScene = scene
     manager.onSchemeChange = onInputDeviceChanged
 }
+
+internal func constrain(value: Int, to range: Range<Int>) -> Int {
+    var value = value
+    switch value {
+    case _ where range.count == 0:
+        value = Int.min
+    case _ where value < range.lowerBound:
+        value = range.lowerBound
+    case _ where value >= range.upperBound:
+        value = (range.upperBound - 1)
+    default:
+        break
+    }
+    return value
+}
