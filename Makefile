@@ -12,8 +12,7 @@ clean:
 	# clean project
 	set -o pipefail && xcodebuild clean | xcpretty
 
-deploy_docs:
-	# deploy docs
+docs:
+	# generate docs
 	jazzy
-	bash ./scripts/deploy_docs.sh "$(TRAVIS_BUILD_DIR)/docs"
 
