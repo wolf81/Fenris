@@ -41,12 +41,6 @@ class SignNode: SKShapeNode {
             path.addLine(to: CGPoint(x: 0, y: (size.height - lineWidth) / 2))
             path.addLine(to: CGPoint(x: (size.width - lineWidth) / 2, y: (size.height - lineWidth) / 2))
             path.closeSubpath()
-
-//            path.addLine(to: CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>))
-//            path.addLine(to: CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>))
-//            path.addLine(to: CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>))
-//            path.addLine(to: CGPoint(x: <#T##CGFloat#>, y: <#T##CGFloat#>))
-
         case .minus:
             let y = (size.height - lineWidth) / 2
             path.addRect(CGRect(x: 0, y: y, width: size.width, height: lineWidth))

@@ -14,8 +14,8 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     private var chooserItem: TextChooserItem { return self.item as! TextChooserItem }
     
     private let label: SKLabelNode
-    private let leftArrowButton: ArrowButtonNode
-    private let rightArrowButton: ArrowButtonNode
+    fileprivate let leftArrowButton: ArrowButtonNode
+    fileprivate let rightArrowButton: ArrowButtonNode
     
     var text: String? { return self.label.text }
     
@@ -60,33 +60,65 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
             self.label.text = value
         }
     }
+    
+    fileprivate func next() {
+        let valueRange = (0 ..< self.chooserItem.values.count)
+
+        let newValue = self.chooserItem.selectedValueIdx + 1
+        if valueRange.contains(newValue) {
+            self.chooserItem.selectedValueIdx = newValue
+        } else {
+            self.chooserItem.selectedValueIdx = 0
+        }
+
+    }
+    
+    fileprivate func previous() {
+        let valueRange = (0 ..< self.chooserItem.values.count)
+
+        let newValue = self.chooserItem.selectedValueIdx - 1
+        if valueRange.contains(newValue) {
+            self.chooserItem.selectedValueIdx = newValue
+        } else {
+            self.chooserItem.selectedValueIdx = (self.chooserItem.values.count - 1)
+        }
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
 extension TextChooserNode: InputDeviceInteractable {
-    func handleInput(action: InputDeviceAction) {
-        let validActions: InputDeviceAction = [.left, .right]
+    func handleKeyUp(action: KeyboardAction) {
+        let validActions: KeyboardAction = [.left, .right]
         guard validActions.contains(action) else { return }
         
-        let valueRange = (0 ..< self.chooserItem.values.count)
-        
         switch action {
-        case .left:
-            let newValue = self.chooserItem.selectedValueIdx - 1
-            if valueRange.contains(newValue) {
-                self.chooserItem.selectedValueIdx = newValue
-            } else {
-                self.chooserItem.selectedValueIdx = (self.chooserItem.values.count - 1)
-            }
-        case .right:
-            let newValue = self.chooserItem.selectedValueIdx + 1
-            if valueRange.contains(newValue) {
-                self.chooserItem.selectedValueIdx = newValue
-            } else {
-                self.chooserItem.selectedValueIdx = 0
-            }
+        case .left: previous()
+        case .right: next()
         default: /* Should never happen */ fatalError()
         }
+    }
+    
+    func handleInput(action: GameControllerAction) {
+        let validActions: GameControllerAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        switch action {
+        case .left: previous()
+        case .right: next()
+        default: /* Should never happen */ fatalError()
+        }
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        if self.leftArrowButton.contains(location) {
+            previous()
+        } else if self.rightArrowButton.contains(location) {
+            next()
+        }
+    }
+    
+    func handleMouseMoved(location: CGPoint) {
+        
     }
 }

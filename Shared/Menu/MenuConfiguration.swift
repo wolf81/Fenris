@@ -7,19 +7,17 @@
 //
 
 import SpriteKit
+import CoreGraphics
 
 /// A menu configuration contains verious properties used for display of the menu.
-public struct MenuConfiguration {
-    let menuWidth: CGFloat
-    let rowHeight: CGFloat
-    let titleFont: Font
-    let labelFont: Font
-    let focusRectColor: SKColor = .yellow
-    
-    public init(menuWidth: CGFloat, rowHeight: CGFloat, titleFont: Font, labelFont: Font) {
-        self.menuWidth = menuWidth
-        self.rowHeight = rowHeight
-        self.titleFont = titleFont
-        self.labelFont = labelFont
-    }
+public protocol MenuConfiguration {
+    var menuWidth: CGFloat { get }
+    var rowHeight: CGFloat { get }
+    var titleFont: Font { get }
+    var labelFont: Font { get }
+    var focusRectColor: SKColor { get }
+}
+
+public extension MenuConfiguration {
+    var focusRectColor: SKColor { return SKColor.yellow }
 }

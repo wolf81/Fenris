@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7904651522BA95E100D0C9F0 /* DefaultMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */; };
+		7939188822BA28BE00CE069C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939188722BA28BE00CE069C /* MainMenuScene.swift */; };
 		794366C422B652EC00AA62AF /* AttributeUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366C322B652EC00AA62AF /* AttributeUpdater.swift */; };
+		796B708322BBE8E40033EBB7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708222BBE8E40033EBB7 /* GameScene.swift */; };
 		79809DD022B21BD1008E4B49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809DCF22B21BD1008E4B49 /* AppDelegate.swift */; };
 		79809DD822B21BD1008E4B49 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809DD722B21BD1008E4B49 /* ViewController.swift */; };
 		79809DDA22B21BD3008E4B49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79809DD922B21BD3008E4B49 /* Assets.xcassets */; };
 		79809DDD22B21BD3008E4B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79809DDB22B21BD3008E4B49 /* Main.storyboard */; };
 		79809DED22B21BEA008E4B49 /* Fenris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79809DEC22B21BEA008E4B49 /* Fenris.framework */; };
 		79809DEE22B21BEA008E4B49 /* Fenris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79809DEC22B21BEA008E4B49 /* Fenris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		79AFD3B122BB76260083669B /* CreateCharacterMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFD3B022BB76250083669B /* CreateCharacterMenuScene.swift */; };
+		79AFD3B322BB763B0083669B /* SettingsMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFD3B222BB763B0083669B /* SettingsMenuScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,7 +36,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMenuConfiguration.swift; sourceTree = "<group>"; };
+		7939188722BA28BE00CE069C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		794366C322B652EC00AA62AF /* AttributeUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeUpdater.swift; sourceTree = "<group>"; };
+		796B708222BBE8E40033EBB7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		79809DCC22B21BD1008E4B49 /* Demo macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Demo macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79809DCF22B21BD1008E4B49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79809DD722B21BD1008E4B49 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +48,8 @@
 		79809DDE22B21BD3008E4B49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79809DDF22B21BD3008E4B49 /* Demo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo_macOS.entitlements; sourceTree = "<group>"; };
 		79809DEC22B21BEA008E4B49 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79AFD3B022BB76250083669B /* CreateCharacterMenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateCharacterMenuScene.swift; sourceTree = "<group>"; };
+		79AFD3B222BB763B0083669B /* SettingsMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,11 @@
 				79809DDE22B21BD3008E4B49 /* Info.plist */,
 				79809DDF22B21BD3008E4B49 /* Demo_macOS.entitlements */,
 				794366C322B652EC00AA62AF /* AttributeUpdater.swift */,
+				7939188722BA28BE00CE069C /* MainMenuScene.swift */,
+				79AFD3B022BB76250083669B /* CreateCharacterMenuScene.swift */,
+				7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */,
+				79AFD3B222BB763B0083669B /* SettingsMenuScene.swift */,
+				796B708222BBE8E40033EBB7 /* GameScene.swift */,
 			);
 			path = "Demo macOS";
 			sourceTree = "<group>";
@@ -158,7 +173,12 @@
 			files = (
 				79809DD822B21BD1008E4B49 /* ViewController.swift in Sources */,
 				79809DD022B21BD1008E4B49 /* AppDelegate.swift in Sources */,
+				796B708322BBE8E40033EBB7 /* GameScene.swift in Sources */,
+				7939188822BA28BE00CE069C /* MainMenuScene.swift in Sources */,
 				794366C422B652EC00AA62AF /* AttributeUpdater.swift in Sources */,
+				7904651522BA95E100D0C9F0 /* DefaultMenuConfiguration.swift in Sources */,
+				79AFD3B322BB763B0083669B /* SettingsMenuScene.swift in Sources */,
+				79AFD3B122BB76260083669B /* CreateCharacterMenuScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

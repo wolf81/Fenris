@@ -14,8 +14,8 @@ class ToggleNode: SKShapeNode, MenuItemNode {
     private var toggleItem: ToggleItem { return self.item as! ToggleItem }
     
     private let label: SKLabelNode
-    private let leftArrowButton: ArrowButtonNode
-    private let rightArrowButton: ArrowButtonNode
+    fileprivate let leftArrowButton: ArrowButtonNode
+    fileprivate let rightArrowButton: ArrowButtonNode
     
     var text: String? { return self.label.text }
 
@@ -59,15 +59,36 @@ class ToggleNode: SKShapeNode, MenuItemNode {
             self.label.text = self.toggleItem.isEnabled ? "On" : "Off"
         }
     }
+    
+    fileprivate func toggle() {
+        self.toggleItem.isEnabled = !self.toggleItem.isEnabled
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
 extension ToggleNode: InputDeviceInteractable {
-    func handleInput(action: InputDeviceAction) {
-        let validActions: InputDeviceAction = [.left, .right]
+    func handleInput(action: GameControllerAction) {
+        let validActions: GameControllerAction = [.left, .right]
         guard validActions.contains(action) else { return }
         
-        self.toggleItem.isEnabled = !self.toggleItem.isEnabled
+        toggle()
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        if self.leftArrowButton.contains(location) || self.rightArrowButton.contains(location) {
+            toggle()
+        }
+    }
+    
+    func handleMouseMoved(location: CGPoint) {
+        
+    }
+    
+    func handleKeyUp(action: KeyboardAction) {
+        let validActions: KeyboardAction = [.left, .right]
+        guard validActions.contains(action) else { return }
+        
+        toggle()
     }
 }

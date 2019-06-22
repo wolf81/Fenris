@@ -65,9 +65,9 @@ public class LabelItem: NSObject & MenuItem {
 public class ButtonItem: NSObject & MenuItem & MenuFooterContainable {
     @objc dynamic var title: String
     
-    let onClick: ClickBlock
-
-    public init(title: String, onClick: @escaping ClickBlock) {
+    public var onClick: ClickBlock?
+    
+    public init(title: String, onClick: (ClickBlock)? = nil) {
         self.title = title
         self.onClick = onClick
         
@@ -87,7 +87,7 @@ public class ToggleItem: NSObject & MenuItem {
 
     @objc dynamic var isEnabled: Bool {
         didSet {
-            if onValidate?(self.isEnabled) == false {
+            if onValidate?(self.isEnabled) == false { 
                 self.isEnabled = oldValue
             }
         }
@@ -112,15 +112,7 @@ public class TextChooserItem: NSObject & MenuItem {
 
     public var values: [String] {
         didSet {
-            let range = (0 ..< values.count)
-            switch self.selectedValueIdx {
-            case _ where self.selectedValueIdx < range.lowerBound:
-                self.selectedValueIdx = range.lowerBound
-            case _ where self.selectedValueIdx > range.upperBound:
-                self.selectedValueIdx = range.upperBound
-            default:
-                break
-            }
+            self.selectedValueIdx = constrain(value: self.selectedValueIdx, to: (0 ..< self.values.count))
         }
     }
     
@@ -134,7 +126,7 @@ public class TextChooserItem: NSObject & MenuItem {
     
     public init(values: [String], selectedValueIdx: Int) {
         self.values = values
-        self.selectedValueIdx = (0 ..< values.count).contains(selectedValueIdx) ? selectedValueIdx : 0
+        self.selectedValueIdx = constrain(value: selectedValueIdx, to: (0 ..< values.count))
         
         super.init()
     }
@@ -152,14 +144,7 @@ public class NumberChooserItem: NSObject & MenuItem {
 
     public var range: ClosedRange<Int> {
         didSet {
-            switch self.range {
-            case _ where self.selectedValue < range.lowerBound:
-                self.selectedValue = range.lowerBound
-            case _ where self.selectedValue > range.upperBound:
-                self.selectedValue = range.upperBound
-            default:
-                break
-            }
+            self.selectedValue = constrain(value: self.selectedValue, to: (self.range.lowerBound ..< self.range.upperBound + 1))
         }
     }
     
@@ -173,7 +158,7 @@ public class NumberChooserItem: NSObject & MenuItem {
     
     public init(range: ClosedRange<Int>, selectedValue: Int) {
         self.range = range
-        self.selectedValue = range.contains(selectedValue) ? selectedValue : 0
+        self.selectedValue = constrain(value: selectedValue, to: (range.lowerBound ..< (range.upperBound + 1)))
 
         super.init()
     }

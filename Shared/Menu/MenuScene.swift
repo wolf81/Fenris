@@ -8,12 +8,40 @@
 
 import SpriteKit
 
-public class MenuScene: SKScene, InputDeviceInteractable {
-    private var focusItems: [FocusItem] = []
+open class MenuScene: SKScene, InputDeviceInteractable {
+    fileprivate var focusItems: [FocusItem] = []
     
-    private var focusItemIdx: Int = Int.min
+    private var focusItemIdx: Int = Int.min {
+        didSet {
+            if self.focusItemIdx == Int.min {
+                hideFocusNode()
+            } else {
+                showFocusNode()
+            }
+        }
+    }
     
     private var focusNode: FocusNode
+    
+    private var focusedItem: FocusItem? {
+        guard self.focusItemIdx != Int.min else { return nil }
+        return self.focusItems[self.focusItemIdx]
+    }
+    
+    open override func didMove(to view: SKView) {
+        super.didMove(to: view)
+    
+        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
+            switch scheme {
+            case .gamepad:
+                self.focusItemIdx = 0
+                self.showFocusNode()
+            case .mouseKeyboard: self.hideFocusNode()
+            case .touch: print("touch")
+            case .tvRemote: print("tv remote")
+            }
+        })
+    }
     
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
         self.focusNode = FocusNode(strokeColor: configuration.focusRectColor)
@@ -51,24 +79,26 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             case 0: continue
             case 1:
                 let focusItem = FocusItem(frame: menuRowNode.frame, interactableNode: interactableNodes[0])
-                focusItems.append(focusItem)
+                self.focusItems.append(focusItem)
+                self.focusItemIdx = 0
             default:
                 for interactableNode in interactableNodes {
                     let origin = menuRowNode.convert(interactableNode.frame.origin, to: self)
                     let size = interactableNode.frame.size
-                    focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
+                    self.focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
                 }
+                self.focusItemIdx = 0
             }
         }
         
         addChild(self.focusNode)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError()
     }
         
-    func handleInput(action: InputDeviceAction) {
+    public func handleInput(action: GameControllerAction) {
         guard self.focusItems.count > 0 else { return }
         
         defer { showFocusNode() }
@@ -81,15 +111,11 @@ public class MenuScene: SKScene, InputDeviceInteractable {
             return
         }
         
+        // TODO: For footer we should probably allow left and right buttons for navigation
         switch action {
-        case _ where action.contains(.up):
-            self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
-                ? (self.focusItemIdx - 1)
-                : self.focusItemIdx
-        case _ where action.contains(.down):
-            self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
-                ? (self.focusItemIdx + 1)
-                : self.focusItemIdx
+        case _ where action.contains(.pause): break
+        case _ where action.contains(.up): focusPrevious()
+        case _ where action.contains(.down): focusNext()
         case _ where action.contains(.left): fallthrough
         case _ where action.contains(.right): fallthrough
         case _ where action.contains(.buttonA): fallthrough
@@ -107,8 +133,67 @@ public class MenuScene: SKScene, InputDeviceInteractable {
         self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
     }
     
+    private func focusPrevious() {
+        self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
+            ? (self.focusItemIdx - 1)
+            : self.focusItemIdx
+    }
+    
+    private func focusNext() {
+        self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
+            ? (self.focusItemIdx + 1)
+            : self.focusItemIdx
+    }
+    
     fileprivate func hideFocusNode() {
         self.focusNode.isHidden = true
+    }
+    
+    public func handleMouseUp(location: CGPoint) {
+        guard let focusedNode = self.focusedItem?.interactableNode else {
+            return
+        }
+        
+        let nodeLocation = convert(location, to: focusedNode)
+        focusedNode.handleMouseUp(location: nodeLocation)
+    }
+    
+    public func handleMouseMoved(location: CGPoint) {
+        self.focusItemIdx = Int.min
+        
+        for (idx, focusItem) in self.focusItems.enumerated() {
+            if focusItem.frame.contains(location) {
+                self.focusItemIdx = idx
+                break
+            }
+        }
+    }
+    
+    public func handleKeyUp(action: KeyboardAction) {
+        guard self.focusItems.count > 0 else { return }
+        
+        defer { showFocusNode() }
+        
+        guard self.focusItemIdx >= 0 else {
+            return self.focusItemIdx = 0
+        }
+        
+        guard self.focusNode.isHidden == false else {
+            return
+        }
+        
+        // TODO: For footer we should probably allow left and right buttons for navigation
+        switch action {
+        case _ where action.contains(.up): focusPrevious()
+        case _ where action.contains(.down): focusNext()
+        case _ where action.contains(.left): fallthrough
+        case _ where action.contains(.right): fallthrough
+        case _ where action.contains(.action1): fallthrough
+        case _ where action.contains(.action2):
+            let focusItem = self.focusItems[self.focusItemIdx]
+            focusItem.interactableNode.handleKeyUp(action: action)
+        default: break
+        }
     }
 }
 
@@ -116,27 +201,55 @@ public class MenuScene: SKScene, InputDeviceInteractable {
 
 extension MenuScene {
     open override func mouseUp(with event: NSEvent) {
+        guard
+            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
+            inputDeviceManager.scheme == .mouseKeyboard else {
+                return
+        }
+
         let location = event.location(in: self)
-        print("handle mouse click @ \(location)")
+        handleMouseUp(location: location)
     }
     
-    public override func mouseMoved(with event: NSEvent) {
-        hideFocusNode()
+    open override func mouseMoved(with event: NSEvent) {
+        guard
+            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
+            inputDeviceManager.scheme == .mouseKeyboard else {
+                return
+        }
+
+        let location = event.location(in: self)
+        handleMouseMoved(location: location)
     }
 
     open override func keyUp(with event: NSEvent) {
+        guard
+            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
+            inputDeviceManager.scheme == .mouseKeyboard else {
+                return
+        }
+
+        // TODO: A keymap file might be used bind key codes with key actions, this could be part of
+        // the app settings and provide a default implementation that can be changed
+        
         switch event.keyCode {
-        case 126: handleInput(action: .up)
-        case 125: handleInput(action: .down)
-        case 123: handleInput(action: .left)
-        case 124: handleInput(action: .right)
-        case 49: handleInput(action: .buttonA)
-        case 53: handleInput(action: .buttonB)
+        case 126: handleKeyUp(action: .up)
+        case 125: handleKeyUp(action: .down)
+        case 123: handleKeyUp(action: .left)
+        case 124: handleKeyUp(action: .right)
+        case 49: handleKeyUp(action: .action1)
+        case 53: handleKeyUp(action: .action2)
         default: break
         }
     }
     
     open override func keyDown(with event: NSEvent) {
+        guard
+            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
+            inputDeviceManager.scheme == .mouseKeyboard else {
+                return
+        }
+
         // We override this method to silence the macOS beep on key press
     }
 }

@@ -50,7 +50,23 @@ class ButtonNode: SKShapeNode, MenuItemNode {
 // MARK: - InputDeviceInteractable
 
 extension ButtonNode: InputDeviceInteractable {
-    func handleInput(action: InputDeviceAction) {
-        self.buttonItem.onClick()
+    func handleKeyUp(action: KeyboardAction) {
+        self.buttonItem.onClick?()
     }
+
+    func handleInput(action: GameControllerAction) {
+        let validActions: GameControllerAction = [.buttonA, .buttonB]
+        if validActions.contains(action) {
+            self.buttonItem.onClick?()
+        }
+    }
+
+    func handleMouseMoved(location: CGPoint) {
+        
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        self.buttonItem.onClick?()
+    }
+
 }

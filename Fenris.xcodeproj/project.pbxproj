@@ -9,18 +9,12 @@
 /* Begin PBXBuildFile section */
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		792D428321E20A1900D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D428F21E20A2500D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 		792D42C721E2115F00D438F1 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
 		794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
@@ -45,10 +39,19 @@
 		794366D022B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
 		794366D122B7092400AA62AF /* FocusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366CE22B7092400AA62AF /* FocusNode.swift */; };
 		795D784E211180F700F4547D /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
-		795D78512111812D00F4547D /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784F2111812D00F4547D /* SceneManager.swift */; };
-		795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D7858211182C100F4547D /* SceneTransitionAnimation.swift */; };
-		795D7860211188A100F4547D /* ScenePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D785E211188A100F4547D /* ScenePresentable.swift */; };
 		795D786821119EEA00F4547D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
+		796B707D22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B707C22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift */; };
+		796B707E22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B707C22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift */; };
+		796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B707C22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift */; };
+		796B708522BC5F880033EBB7 /* InputDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708422BC5F880033EBB7 /* InputDeviceManager.swift */; };
+		796B708622BC5F880033EBB7 /* InputDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708422BC5F880033EBB7 /* InputDeviceManager.swift */; };
+		796B708722BC5F880033EBB7 /* InputDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708422BC5F880033EBB7 /* InputDeviceManager.swift */; };
+		796B708922BC633F0033EBB7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708822BC633F0033EBB7 /* Functions.swift */; };
+		796B708A22BC633F0033EBB7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708822BC633F0033EBB7 /* Functions.swift */; };
+		796B708B22BC633F0033EBB7 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708822BC633F0033EBB7 /* Functions.swift */; };
+		796B708D22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708C22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift */; };
+		796B708E22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708C22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift */; };
+		796B708F22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796B708C22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift */; };
 		797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
 		797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
 		797DBFCA22B385CB00D0F8E7 /* SignButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */; };
@@ -95,11 +98,10 @@
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
-		79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */; };
-		79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */; };
-		79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE3E0C22B8C8F1000AA665 /* Main.storyboard */; };
-		79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */; };
-		79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */; };
+		79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */; };
+		79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */; };
+		79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0A22BCED65005E491C /* FunctionsTests.swift */; };
+		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -115,15 +117,16 @@
 		794366AB22B50DE200AA62AF /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
 		794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
 		794366B722B5CBF300AA62AF /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		794366BB22B5CEC400AA62AF /* FocusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusItem.swift; sourceTree = "<group>"; };
+		794366BB22B5CEC400AA62AF /* FocusItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FocusItem.swift; path = ../InputDevice/FocusItem.swift; sourceTree = "<group>"; };
 		794366CA22B703C600AA62AF /* MenuFooterNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuFooterNode.swift; sourceTree = "<group>"; };
 		794366CE22B7092400AA62AF /* FocusNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNode.swift; sourceTree = "<group>"; };
 		795D784C211180F700F4547D /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
-		795D784F2111812D00F4547D /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
-		795D7858211182C100F4547D /* SceneTransitionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTransitionAnimation.swift; sourceTree = "<group>"; };
-		795D785E211188A100F4547D /* ScenePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenePresentable.swift; sourceTree = "<group>"; };
 		795D7865211199D500F4547D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		795D786621119EEA00F4547D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		796B707C22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InputDeviceInteractableScene.swift; path = ../Menu/InputDeviceInteractableScene.swift; sourceTree = "<group>"; };
+		796B708422BC5F880033EBB7 /* InputDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManager.swift; sourceTree = "<group>"; };
+		796B708822BC633F0033EBB7 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		796B708C22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManager.Controllers.swift; sourceTree = "<group>"; };
 		797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignButtonNode.swift; sourceTree = "<group>"; };
 		797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberChooserNode.swift; sourceTree = "<group>"; };
 		797DBFD022B38B3A00D0F8E7 /* SignNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignNode.swift; sourceTree = "<group>"; };
@@ -138,7 +141,7 @@
 		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowNode.swift; sourceTree = "<group>"; };
 		79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceInteractable.swift; sourceTree = "<group>"; };
-		79C681DC2111761B006E20D0 /* FenrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FenrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		79C681DC2111761B006E20D0 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681E12111761B006E20D0 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		79C681E32111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79C681FA21117860006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,11 +149,10 @@
 		79C681FD21117860006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
-		79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
-		79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManagerTests.swift; sourceTree = "<group>"; };
-		79DE3E0C22B8C8F1000AA665 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneViewController.swift; sourceTree = "<group>"; };
-		79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneManager.swift; sourceTree = "<group>"; };
+		79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
+		79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManagerTests.swift; sourceTree = "<group>"; };
+		79E39C0A22BCED65005E491C /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
+		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +207,25 @@
 			path = "Fenris macOS";
 			sourceTree = "<group>";
 		};
+		7939188122BA0B3C00CE069C /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				795D784C211180F700F4547D /* ServiceLocator.swift */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
+		7939188222BA0B5800CE069C /* InputDevice */ = {
+			isa = PBXGroup;
+			children = (
+				796B708422BC5F880033EBB7 /* InputDeviceManager.swift */,
+				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
+				796B707C22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift */,
+				796B708C22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift */,
+			);
+			path = InputDevice;
+			sourceTree = "<group>";
+		};
 		794366A122B4DE5800AA62AF /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,6 +269,7 @@
 				794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */,
 				79809E3722B4A617008E4B49 /* Menu.swift */,
 				794366B722B5CBF300AA62AF /* MenuItem.swift */,
+				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -270,7 +292,7 @@
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
-				79C681E02111761B006E20D0 /* FenrisTests */,
+				79C681E02111761B006E20D0 /* Tests */,
 				792D427B21E20A0E00D438F1 /* Fenris tvOS */,
 				792D42BF21E2115100D438F1 /* Fenris macOS */,
 				79C681D42111761B006E20D0 /* Products */,
@@ -280,7 +302,7 @@
 		79C681D42111761B006E20D0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				79C681DC2111761B006E20D0 /* FenrisTests.xctest */,
+				79C681DC2111761B006E20D0 /* Tests.xctest */,
 				79C681FA21117860006E20D0 /* Fenris.framework */,
 				792D427A21E20A0E00D438F1 /* Fenris.framework */,
 				792D42BE21E2115100D438F1 /* Fenris.framework */,
@@ -288,32 +310,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		79C681E02111761B006E20D0 /* FenrisTests */ = {
+		79C681E02111761B006E20D0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				79DE3E1022B8CA4B000AA665 /* Resources */,
 				79C681E12111761B006E20D0 /* MenuItemTests.swift */,
 				79DE3E0222B8B735000AA665 /* MenuTests.swift */,
 				79DE3E0422B8BC97000AA665 /* FontTests.swift */,
-				79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */,
-				79DE3E0822B8C515000AA665 /* SceneManagerTests.swift */,
+				79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */,
+				79E39C0A22BCED65005E491C /* FunctionsTests.swift */,
+				79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */,
+				79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
-			path = FenrisTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7939188222BA0B5800CE069C /* InputDevice */,
+				7939188122BA0B3C00CE069C /* ServiceLocator */,
 				79809E0022B22907008E4B49 /* Menu */,
 				79809DF322B21DC4008E4B49 /* Types */,
 				79EA8D6A2114B9B30072CBBE /* Extensions */,
-				795D784C211180F700F4547D /* ServiceLocator.swift */,
-				795D784F2111812D00F4547D /* SceneManager.swift */,
-				795D7858211182C100F4547D /* SceneTransitionAnimation.swift */,
-				795D785E211188A100F4547D /* ScenePresentable.swift */,
-				79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */,
-				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
+				796B708822BC633F0033EBB7 /* Functions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -325,16 +345,6 @@
 				79C681FD21117860006E20D0 /* Info.plist */,
 			);
 			path = "Fenris iOS";
-			sourceTree = "<group>";
-		};
-		79DE3E1022B8CA4B000AA665 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				79DE3E0C22B8C8F1000AA665 /* Main.storyboard */,
-				79DE3E0E22B8C96F000AA665 /* TestingSceneViewController.swift */,
-				79DE3E1122B8CA72000AA665 /* TestingSceneManager.swift */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		79EA8D6A2114B9B30072CBBE /* Extensions */ = {
@@ -411,9 +421,9 @@
 			productReference = 792D42BE21E2115100D438F1 /* Fenris.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		79C681DB2111761B006E20D0 /* FenrisTests */ = {
+		79C681DB2111761B006E20D0 /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "FenrisTests" */;
+			buildConfigurationList = 79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				79C681D82111761B006E20D0 /* Sources */,
 				79C681D92111761B006E20D0 /* Frameworks */,
@@ -423,9 +433,9 @@
 			);
 			dependencies = (
 			);
-			name = FenrisTests;
+			name = Tests;
 			productName = FenrisTests;
-			productReference = 79C681DC2111761B006E20D0 /* FenrisTests.xctest */;
+			productReference = 79C681DC2111761B006E20D0 /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		79C681F921117860006E20D0 /* Fenris iOS */ = {
@@ -483,7 +493,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				79C681DB2111761B006E20D0 /* FenrisTests */,
+				79C681DB2111761B006E20D0 /* Tests */,
 				79C681F921117860006E20D0 /* Fenris iOS */,
 				792D427921E20A0E00D438F1 /* Fenris tvOS */,
 				792D42BD21E2115100D438F1 /* Fenris macOS */,
@@ -510,7 +520,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DE3E0D22B8C8F1000AA665 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,7 +540,7 @@
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				792D428521E20A1D00D438F1 /* ScenePresentable.swift in Sources */,
+				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -539,7 +548,6 @@
 				794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				792D428321E20A1900D438F1 /* SceneManager.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -549,12 +557,14 @@
 				79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
+				796B707E22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CC22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
+				796B708622BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				794366B922B5CBF300AA62AF /* MenuItem.swift in Sources */,
-				792D428421E20A1D00D438F1 /* SceneTransitionAnimation.swift in Sources */,
+				796B708E22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -564,17 +574,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
-				792D42D121E2115F00D438F1 /* ScenePresentable.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BE22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AE22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
-				792D42D021E2115F00D438F1 /* SceneTransitionAnimation.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				792D42CF21E2115F00D438F1 /* SceneManager.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -585,11 +593,14 @@
 				797DBFCA22B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				794366CD22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
+				796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
+				796B708722BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366BA22B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4322B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
+				796B708F22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				79809E4722B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,13 +609,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */,
-				79DE3E0922B8C515000AA665 /* SceneManagerTests.swift in Sources */,
-				79DE3E1222B8CA72000AA665 /* TestingSceneManager.swift in Sources */,
+				79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */,
+				79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */,
+				79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */,
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
-				79DE3E0F22B8C96F000AA665 /* TestingSceneViewController.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
+				79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +626,7 @@
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
-				795D7860211188A100F4547D /* ScenePresentable.swift in Sources */,
+				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
@@ -623,7 +634,6 @@
 				794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
-				795D78512111812D00F4547D /* SceneManager.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
@@ -633,12 +643,14 @@
 				79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
+				796B707D22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
+				796B708522BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,
-				795D785A211182C100F4547D /* SceneTransitionAnimation.swift in Sources */,
 				794366B822B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
+				796B708D22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -885,7 +897,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FenrisTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -904,7 +916,7 @@
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = FenrisTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -997,7 +1009,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "FenrisTests" */ = {
+		79C681EA2111761B006E20D0 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79C681EB2111761B006E20D0 /* Debug */,
