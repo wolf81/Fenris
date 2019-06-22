@@ -23,6 +23,8 @@ class MenuItemNodeTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - ToggleNode
+    
     func testToggleNodeMouseClick() {
         let toggleItem = ToggleItem(enabled: true)
         let node = toggleItem.getNode(size: .zero, font: self.font) as! ToggleNode
@@ -61,4 +63,56 @@ class MenuItemNodeTests: XCTestCase {
         node.handleKeyUp(action: .right)
         XCTAssert(toggleItem.isEnabled == true)
     }
+    
+    // MARK: - ChooserNode
+    
+    func testTextChooserNodeMouseClick() {
+        let nodeSize = CGSize(width: 100, height: 20)
+        let textChooserItem = TextChooserItem(values: ["A", "B", "C"], selectedValueIdx: 1)
+        let node = textChooserItem.getNode(size: nodeSize, font: self.font) as! TextChooserNode
+        
+        // TODO: These clicks are a bit "hacky", but basically we're testing the following:
+        // - taps in the center (label) shouldn't change the selected value
+        // - taps in the left arrow button should decrease the selected value
+        // - taps in the right arrow button should increase the selected value
+        // Figure out how to improve the test, perhaps by exposing button frames?
+        
+        node.handleMouseUp(location: CGPoint(x: nodeSize.width / 2, y: nodeSize.height / 2))
+        XCTAssert(textChooserItem.selectedValueIdx == 1)
+        
+        node.handleMouseUp(location: CGPoint(x: 0, y: nodeSize.height / 2))
+        XCTAssert(textChooserItem.selectedValueIdx == 0)
+
+        node.handleMouseUp(location: CGPoint(x: nodeSize.width - 1, y: nodeSize.height / 2))
+        XCTAssert(textChooserItem.selectedValueIdx == 1)
+    }
+    
+    func testTextChooserNodeKeyboardButtonClick() {
+        let textChooserItem = TextChooserItem(values: ["A", "B", "C"], selectedValueIdx: 0)
+        let node = textChooserItem.getNode(size: .zero, font: self.font) as! TextChooserNode
+
+        node.handleKeyUp(action: .action1)
+        XCTAssert(textChooserItem.selectedValueIdx == 0)
+        
+        node.handleKeyUp(action: .left)
+        XCTAssert(textChooserItem.selectedValueIdx == 2)
+
+        node.handleKeyUp(action: .right)
+        XCTAssert(textChooserItem.selectedValueIdx == 0)
+    }
+    
+    func testTextChooserNodeGamepadButtonClick() {
+        let textChooserItem = TextChooserItem(values: ["A", "B", "C"], selectedValueIdx: 0)
+        let node = textChooserItem.getNode(size: .zero, font: self.font) as! TextChooserNode
+
+        node.handleInput(action: .buttonA)
+        XCTAssert(textChooserItem.selectedValueIdx == 0)
+
+        node.handleInput(action: .left)
+        XCTAssert(textChooserItem.selectedValueIdx == 2)
+
+        node.handleInput(action: .right)
+        XCTAssert(textChooserItem.selectedValueIdx == 0)
+    }
+
 }
