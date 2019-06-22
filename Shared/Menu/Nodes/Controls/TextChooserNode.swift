@@ -64,23 +64,22 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
     fileprivate func next() {
         let valueRange = (0 ..< self.chooserItem.values.count)
 
-        let newValue = self.chooserItem.selectedValueIdx + 1
-        if valueRange.contains(newValue) {
-            self.chooserItem.selectedValueIdx = newValue
-        } else {
+        let newValue = constrain(value: self.chooserItem.selectedValueIdx + 1, to: valueRange)
+        if newValue == self.chooserItem.selectedValueIdx {
             self.chooserItem.selectedValueIdx = 0
+        } else {
+            self.chooserItem.selectedValueIdx = newValue
         }
-
     }
     
     fileprivate func previous() {
         let valueRange = (0 ..< self.chooserItem.values.count)
 
-        let newValue = self.chooserItem.selectedValueIdx - 1
-        if valueRange.contains(newValue) {
-            self.chooserItem.selectedValueIdx = newValue
-        } else {
+        let newValue = constrain(value: self.chooserItem.selectedValueIdx - 1, to: valueRange)
+        if newValue == self.chooserItem.selectedValueIdx {
             self.chooserItem.selectedValueIdx = (self.chooserItem.values.count - 1)
+        } else {
+            self.chooserItem.selectedValueIdx = newValue
         }
     }
 }

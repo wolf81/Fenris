@@ -99,6 +99,7 @@
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
 		79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */; };
+		79E2CE5E22BE07F500446F70 /* MenuItemNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */; };
 		79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */; };
 		79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0A22BCED65005E491C /* FunctionsTests.swift */; };
 		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
@@ -150,6 +151,7 @@
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
+		79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNodeTests.swift; sourceTree = "<group>"; };
 		79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManagerTests.swift; sourceTree = "<group>"; };
 		79E39C0A22BCED65005E491C /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				79E39C0A22BCED65005E491C /* FunctionsTests.swift */,
 				79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */,
 				79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */,
+				79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
 			path = Tests;
@@ -616,6 +619,7 @@
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
 				79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */,
+				79E2CE5E22BE07F500446F70 /* MenuItemNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
