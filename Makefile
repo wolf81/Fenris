@@ -15,5 +15,5 @@ clean:
 deploy_docs:
 	# deploy docs
 	jazzy
-	bash ./scripts/deploy_docs.sh "$(PWD)/docs"
+	bash ./scripts/deploy_docs.sh "$(TRAVIS_BUILD_DIR)/docs"
 
