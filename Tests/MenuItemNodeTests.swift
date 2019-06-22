@@ -23,7 +23,7 @@ class MenuItemNodeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testToggleNode() {
+    func testToggleNodeMouseClick() {
         let toggleItem = ToggleItem(enabled: true)
         let node = toggleItem.getNode(size: .zero, font: self.font) as! ToggleNode
         
@@ -32,5 +32,33 @@ class MenuItemNodeTests: XCTestCase {
         
         node.handleMouseUp(location: .zero)
         XCTAssert(toggleItem.isEnabled == false)
+    }
+
+    func testToggleNodeGamepadButtonClick() {
+        let toggleItem = ToggleItem(enabled: true)
+        let node = toggleItem.getNode(size: .zero, font: self.font) as! ToggleNode
+        
+        node.handleInput(action: .buttonA)
+        XCTAssert(toggleItem.isEnabled == true)
+        
+        node.handleInput(action: .left)
+        XCTAssert(toggleItem.isEnabled == false)
+
+        node.handleInput(action: .right)
+        XCTAssert(toggleItem.isEnabled == true)
+    }
+
+    func testToggleNodeKeyboardButtonClick() {
+        let toggleItem = ToggleItem(enabled: true)
+        let node = toggleItem.getNode(size: .zero, font: self.font) as! ToggleNode
+        
+        node.handleKeyUp(action: .action1)
+        XCTAssert(toggleItem.isEnabled == true)
+
+        node.handleKeyUp(action: .left)
+        XCTAssert(toggleItem.isEnabled == false)
+
+        node.handleKeyUp(action: .right)
+        XCTAssert(toggleItem.isEnabled == true)
     }
 }
