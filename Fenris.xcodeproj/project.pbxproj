@@ -98,7 +98,7 @@
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
-		79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */; };
+		79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */; };
 		79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */; };
 		79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0A22BCED65005E491C /* FunctionsTests.swift */; };
 		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
@@ -149,7 +149,7 @@
 		79C681FD21117860006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
-		79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
+		79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
 		79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManagerTests.swift; sourceTree = "<group>"; };
 		79E39C0A22BCED65005E491C /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
@@ -313,14 +313,13 @@
 		79C681E02111761B006E20D0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				79DE3E1022B8CA4B000AA665 /* Resources */,
 				79C681E12111761B006E20D0 /* MenuItemTests.swift */,
 				79DE3E0222B8B735000AA665 /* MenuTests.swift */,
 				79DE3E0422B8BC97000AA665 /* FontTests.swift */,
-				79DE3E0622B8BD32000AA665 /* ServiceLocatorTests.swift */,
 				79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */,
 				79E39C0A22BCED65005E491C /* FunctionsTests.swift */,
 				79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */,
+				79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
 			);
 			path = Tests;
@@ -346,13 +345,6 @@
 				79C681FD21117860006E20D0 /* Info.plist */,
 			);
 			path = "Fenris iOS";
-			sourceTree = "<group>";
-		};
-		79DE3E1022B8CA4B000AA665 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		79EA8D6A2114B9B30072CBBE /* Extensions */ = {
@@ -619,7 +611,7 @@
 			files = (
 				79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */,
 				79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */,
-				79DE3E0722B8BD32000AA665 /* ServiceLocatorTests.swift in Sources */,
+				79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */,
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,

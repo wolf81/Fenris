@@ -18,6 +18,7 @@ class ViewController: NSViewController {
         
         if let view = self.skView {
             let scene = MainMenuScene(size: self.view.bounds.size)
+                        
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = true

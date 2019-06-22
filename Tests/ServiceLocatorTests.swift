@@ -1,8 +1,8 @@
 //
 //  ServiceLocatorTests.swift
-//  FenrisTests
+//  Tests
 //
-//  Created by Wolfgang Schreurs on 18/06/2019.
+//  Created by Wolfgang Schreurs on 22/06/2019.
 //  Copyright © 2019 Wolftrail. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ class ServiceLocatorTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()        
+        super.tearDown()
     }
     
     func testAddService() {
