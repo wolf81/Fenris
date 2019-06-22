@@ -13,5 +13,6 @@ clean:
 	set -o pipefail && xcodebuild clean | xcpretty
 
 docs:
-	# update docs
+	# generate docs
 	jazzy
+

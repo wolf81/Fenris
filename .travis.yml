@@ -3,8 +3,12 @@ osx_image: xcode10.2
 xcode_destination: platform=macOS
 xcode_workspace: Fenris.xcworkspace
 xcode_scheme: "Fenris macOS"
+install:
+  - gem install jazzy
 script:
   - make build
   - make test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Fenris'
+  - make docs
+  - bash ${TRAVIS_BUILD_DIR}/scripts/deploy_docs.sh ${TRAVIS_BUILD_DIR}/docs
