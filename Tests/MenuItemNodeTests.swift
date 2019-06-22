@@ -64,7 +64,7 @@ class MenuItemNodeTests: XCTestCase {
         XCTAssert(toggleItem.isEnabled == true)
     }
     
-    // MARK: - ChooserNode
+    // MARK: - TextChooserNode
     
     func testTextChooserNodeMouseClick() {
         let nodeSize = CGSize(width: 100, height: 20)
@@ -115,4 +115,86 @@ class MenuItemNodeTests: XCTestCase {
         XCTAssert(textChooserItem.selectedValueIdx == 0)
     }
 
+    // MARK: - NumberChooserNode
+
+    func testNumberChooserNodeMouseClick() {
+        let nodeSize = CGSize(width: 100, height: 20)
+        let numberChooserItem = NumberChooserItem(range: 0 ... 3, selectedValue: 1)
+        let node = numberChooserItem.getNode(size: nodeSize, font: self.font) as! NumberChooserNode
+
+        // TODO: These clicks are a bit "hacky", but basically we're testing the following:
+        // - taps in the center (label) shouldn't change the selected value
+        // - taps in the left arrow button should decrease the selected value
+        // - taps in the right arrow button should increase the selected value
+        // Figure out how to improve the test, perhaps by exposing button frames?
+        
+        node.handleMouseUp(location: CGPoint(x: nodeSize.width / 2, y: nodeSize.height / 2))
+        XCTAssert(numberChooserItem.selectedValue == 1)
+        
+        node.handleMouseUp(location: CGPoint(x: 0, y: nodeSize.height / 2))
+        XCTAssert(numberChooserItem.selectedValue == 0)
+        
+        node.handleMouseUp(location: CGPoint(x: nodeSize.width - 1, y: nodeSize.height / 2))
+        XCTAssert(numberChooserItem.selectedValue == 1)
+    }
+    
+    func testNumberChooserNodeKeyboardButtonClick() {
+        let numberChooserItem = NumberChooserItem(range: 0 ... 1, selectedValue: 0)
+        let node = numberChooserItem.getNode(size: .zero, font: self.font) as! NumberChooserNode
+
+        node.handleKeyUp(action: .action1)
+        XCTAssert(numberChooserItem.selectedValue == 0)
+        
+        node.handleKeyUp(action: .left)
+        XCTAssert(numberChooserItem.selectedValue == 0)
+        
+        node.handleKeyUp(action: .right)
+        XCTAssert(numberChooserItem.selectedValue == 1)
+
+        node.handleKeyUp(action: .right)
+        XCTAssert(numberChooserItem.selectedValue == 1)
+    }
+    
+    func testNumberChooserNodeGamepadButtonClick() {
+        let numberChooserItem = NumberChooserItem(range: 0 ... 1, selectedValue: 1)
+        let node = numberChooserItem.getNode(size: .zero, font: self.font) as! NumberChooserNode
+
+        node.handleInput(action: .buttonA)
+        XCTAssert(numberChooserItem.selectedValue == 1)
+        
+        node.handleInput(action: .left)
+        XCTAssert(numberChooserItem.selectedValue == 0)
+        
+        node.handleInput(action: .right)
+        XCTAssert(numberChooserItem.selectedValue == 1)
+    }
+    
+    // MARK: - ButtonNode
+
+    func testButtonNodeMouseClick() {
+        let expectation = XCTestExpectation(description: "Receive button click")
+        let button = ButtonItem(title: "Test") { expectation.fulfill() }
+        let node = button.getNode(size: .zero, font: self.font) as! ButtonNode
+        node.handleMouseUp(location: .zero)
+        
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testButtonNodeGamepadButtonClick() {
+        let expectation = XCTestExpectation(description: "Receive button click")
+        let button = ButtonItem(title: "Test") { expectation.fulfill() }
+        let node = button.getNode(size: .zero, font: self.font) as! ButtonNode
+        node.handleInput(action: .buttonA)
+        
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testButtonNodeKeyboardButtonClick() {
+        let expectation = XCTestExpectation(description: "Receive button click")
+        let button = ButtonItem(title: "Test") { expectation.fulfill() }
+        let node = button.getNode(size: .zero, font: self.font) as! ButtonNode
+        node.handleKeyUp(action: .action1)
+        
+        wait(for: [expectation], timeout: 1)
+    }
 }
