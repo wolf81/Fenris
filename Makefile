@@ -12,6 +12,6 @@ clean:
 	# clean project
 	set -o pipefail && xcodebuild clean | xcpretty
 
-docs:
-	# update docs
+deploy_docs:
+	# deploy docs
 	jazzy
