@@ -8,5 +8,5 @@ script:
   - make test
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Fenris'
-deploy:
-  - make deploy_docs
+  - jazzy
+  - bash ./scripts/deploy_docs.sh "$(pwd)/docs"

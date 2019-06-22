@@ -15,3 +15,5 @@ clean:
 deploy_docs:
 	# deploy docs
 	jazzy
+	bash ./scripts/deploy_docs.sh "$(PWD)/docs"
+
