@@ -9,4 +9,4 @@ script:
 after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Fenris'
   - make docs
-  - bash ./scripts/deploy_docs.sh "${TRAVIS_BUILD_DIR}/docs"
+  - bash ./scripts/deploy_docs.sh $TRAVIS_BUILD_DIR/docs
