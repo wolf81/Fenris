@@ -25,9 +25,19 @@ class SKLabelNodeTests: XCTestCase {
         let font = Font(name: fontName, size: fontSize)
         
         let label = SKLabelNode()
-        XCTAssert(label.fontName != fontName && label.fontSize != fontSize)
+        XCTAssertTrue(label.fontName != fontName && label.fontSize != fontSize)
         
         label.font = font
-        XCTAssert(label.fontName == fontName && label.fontSize == fontSize)
+        XCTAssertTrue(label.font == font)
+        XCTAssertTrue(label.fontName == fontName && label.fontSize == fontSize)
+    }
+    
+    func testInvalidFont() {
+        let font = Font(name: "(° ͜ʖ °)", size: 10)
+        
+        let label = SKLabelNode()
+        label.font = font
+        
+        XCTAssertTrue(label.fontName == nil)
     }
 }
