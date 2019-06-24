@@ -68,4 +68,20 @@ extension ButtonNode: InputDeviceInteractable {
     func handleMouseUp(location: CGPoint) {
         self.buttonItem.onClick?()
     }
+
+    func handleInput(action: GameControllerAction) {
+        let validActions: GameControllerAction = [.buttonA, .buttonB]
+        if validActions.contains(action) {
+            self.buttonItem.onClick?()
+        }
+    }
+
+    func handleMouseMoved(location: CGPoint) {
+        
+    }
+    
+    func handleMouseUp(location: CGPoint) {
+        self.buttonItem.onClick?()
+    }
+
 }

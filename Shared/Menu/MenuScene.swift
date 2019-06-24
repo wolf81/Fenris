@@ -26,6 +26,26 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         })
     }
     
+    private var focusedItem: FocusItem? {
+        guard self.focusItemIdx != Int.min else { return nil }
+        return self.focusItems[self.focusItemIdx]
+    }
+    
+    open override func didMove(to view: SKView) {
+        super.didMove(to: view)
+    
+        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
+            switch scheme {
+            case .gamepad:
+                self.focusItemIdx = 0
+                self.showFocusNode()
+            case .mouseKeyboard: self.hideFocusNode()
+            case .touch: print("touch")
+            case .tvRemote: print("tv remote")
+            }
+        })
+    }
+    
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
         self.focusNode = FocusNode(strokeColor: configuration.focusRectColor)
         super.init(size: size)
@@ -69,6 +89,7 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             return
         }
         
+        // TODO: For footer we should probably allow left and right buttons for navigation
         switch action {
         case _ where action.contains(.pause): break
         case _ where action.contains(.up): self.focusItemController.focusUp()
