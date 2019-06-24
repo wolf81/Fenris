@@ -98,8 +98,11 @@ extension InputDeviceManager {
         
         func connect() {
             if let controller = GCController.controllers().first {
-                self.player1 = controller
                 configure(controller: controller)
+                
+                if self.player1 != controller {
+                    self.player1 = controller
+                }
             }
         }
         
