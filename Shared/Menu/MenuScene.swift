@@ -9,33 +9,16 @@
 import SpriteKit
 
 open class MenuScene: SKScene, InputDeviceInteractable {
-    fileprivate var focusItems: [FocusItem] = []
-    
-    private var focusItemIdx: Int = Int.min {
-        didSet {
-            if self.focusItemIdx == Int.min {
-                hideFocusNode()
-            } else {
-                showFocusNode()
-            }
-        }
-    }
+    fileprivate var focusItemController: FocusItemController!
     
     private var focusNode: FocusNode
-    
-    private var focusedItem: FocusItem? {
-        guard self.focusItemIdx != Int.min else { return nil }
-        return self.focusItems[self.focusItemIdx]
-    }
-    
+
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
     
         initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
             switch scheme {
-            case .gamepad:
-                self.focusItemIdx = 0
-                self.showFocusNode()
+            case .gamepad: self.showFocusNode()
             case .mouseKeyboard: self.hideFocusNode()
             case .touch: print("touch")
             case .tvRemote: print("tv remote")
@@ -70,26 +53,9 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             row.position = CGPoint(x: x, y: y)
             y += row.frame.size.height
         }
-        
-        // Create a list of focusable items
-        for menuRowNode in menuRows {
-            let interactableNodes = menuRowNode.itemNodes.filter({ $0 is InputDeviceInteractable }) as! [InputDeviceInteractable]
-            
-            switch interactableNodes.count {
-            case 0: continue
-            case 1:
-                let focusItem = FocusItem(frame: menuRowNode.frame, interactableNode: interactableNodes[0])
-                self.focusItems.append(focusItem)
-                self.focusItemIdx = 0
-            default:
-                for interactableNode in interactableNodes {
-                    let origin = menuRowNode.convert(interactableNode.frame.origin, to: self)
-                    let size = interactableNode.frame.size
-                    self.focusItems.append(FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableNode))
-                }
-                self.focusItemIdx = 0
-            }
-        }
+
+        self.focusItemController = FocusItemController(menuRowNodes: menuRows, parentNode: self)
+        self.focusItemController.delegate = self
         
         addChild(self.focusNode)
     }
@@ -99,58 +65,36 @@ open class MenuScene: SKScene, InputDeviceInteractable {
     }
         
     public func handleInput(action: GameControllerAction) {
-        guard self.focusItems.count > 0 else { return }
-        
-        defer { showFocusNode() }
-        
-        guard self.focusItemIdx >= 0 else {
-            return self.focusItemIdx = 0
-        }
-        
-        guard self.focusNode.isHidden == false else {
+        guard self.focusItemController.itemCount > 0 else {
             return
         }
         
-        // TODO: For footer we should probably allow left and right buttons for navigation
         switch action {
         case _ where action.contains(.pause): break
-        case _ where action.contains(.up): focusPrevious()
-        case _ where action.contains(.down): focusNext()
-        case _ where action.contains(.left): fallthrough
-        case _ where action.contains(.right): fallthrough
+        case _ where action.contains(.up): self.focusItemController.focusUp()
+        case _ where action.contains(.down): self.focusItemController.focusDown()
+        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
+        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
         case _ where action.contains(.buttonA): fallthrough
         case _ where action.contains(.buttonB):
-            let focusItem = self.focusItems[self.focusItemIdx]
-            focusItem.interactableNode.handleInput(action: action)
+            self.focusItemController.focusedItem?.interactableNode.handleInput(action: action)
         default: break
         }
     }
     
     func showFocusNode() {
+        guard let focusItem = self.focusItemController.focusedItem else { return }
+
         self.focusNode.isHidden = false
-        
-        let focusItem = self.focusItems[self.focusItemIdx]
         self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
     }
-    
-    private func focusPrevious() {
-        self.focusItemIdx = ((self.focusItemIdx - 1) >= 0)
-            ? (self.focusItemIdx - 1)
-            : self.focusItemIdx
-    }
-    
-    private func focusNext() {
-        self.focusItemIdx = ((self.focusItemIdx + 1) < self.focusItems.count)
-            ? (self.focusItemIdx + 1)
-            : self.focusItemIdx
-    }
-    
+
     fileprivate func hideFocusNode() {
         self.focusNode.isHidden = true
     }
     
     public func handleMouseUp(location: CGPoint) {
-        guard let focusedNode = self.focusedItem?.interactableNode else {
+        guard let focusedNode = self.focusItemController.focusedItem?.interactableNode else {
             return
         }
         
@@ -159,40 +103,33 @@ open class MenuScene: SKScene, InputDeviceInteractable {
     }
     
     public func handleMouseMoved(location: CGPoint) {
-        self.focusItemIdx = Int.min
-        
-        for (idx, focusItem) in self.focusItems.enumerated() {
-            if focusItem.frame.contains(location) {
-                self.focusItemIdx = idx
-                break
-            }
-        }
+        self.focusItemController.focusItem(at: location)
     }
     
     public func handleKeyUp(action: KeyboardAction) {
-        guard self.focusItems.count > 0 else { return }
-        
-        defer { showFocusNode() }
-        
-        guard self.focusItemIdx >= 0 else {
-            return self.focusItemIdx = 0
-        }
-        
-        guard self.focusNode.isHidden == false else {
+        guard self.focusItemController.itemCount > 0 else {
             return
         }
-        
-        // TODO: For footer we should probably allow left and right buttons for navigation
+
         switch action {
-        case _ where action.contains(.up): focusPrevious()
-        case _ where action.contains(.down): focusNext()
-        case _ where action.contains(.left): fallthrough
-        case _ where action.contains(.right): fallthrough
+        case _ where action.contains(.up): self.focusItemController.focusUp()
+        case _ where action.contains(.down): self.focusItemController.focusDown()
+        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
+        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
         case _ where action.contains(.action1): fallthrough
         case _ where action.contains(.action2):
-            let focusItem = self.focusItems[self.focusItemIdx]
-            focusItem.interactableNode.handleKeyUp(action: action)
+            self.focusItemController.focusedItem?.interactableNode.handleKeyUp(action: action)
         default: break
+        }
+    }
+}
+
+extension MenuScene: FocusItemControllerDelegate {
+    func focusItemController(_ controller: FocusItemController, didChangeFocusedItem focusItem: FocusItem?) {
+        if focusItem == nil {
+            hideFocusNode()
+        } else {
+            showFocusNode()
         }
     }
 }

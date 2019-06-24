@@ -102,6 +102,10 @@
 		79E2CE5E22BE07F500446F70 /* MenuItemNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */; };
 		79E2CE6022BE51B700446F70 /* FocusNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5F22BE51B700446F70 /* FocusNodeTests.swift */; };
 		79E2CE6222BE58E000446F70 /* MenuBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE6122BE58E000446F70 /* MenuBuilderTests.swift */; };
+		79E2CE6422BF43F800446F70 /* FocusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE6322BF43F800446F70 /* FocusItemController.swift */; };
+		79E2CE6522BF43F900446F70 /* FocusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE6322BF43F800446F70 /* FocusItemController.swift */; };
+		79E2CE6622BF43F900446F70 /* FocusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE6322BF43F800446F70 /* FocusItemController.swift */; };
+		79E2CE6822BF60F900446F70 /* FocusItemControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE6722BF60F900446F70 /* FocusItemControllerTests.swift */; };
 		79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */; };
 		79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0A22BCED65005E491C /* FunctionsTests.swift */; };
 		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
@@ -156,6 +160,8 @@
 		79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNodeTests.swift; sourceTree = "<group>"; };
 		79E2CE5F22BE51B700446F70 /* FocusNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNodeTests.swift; sourceTree = "<group>"; };
 		79E2CE6122BE58E000446F70 /* MenuBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilderTests.swift; sourceTree = "<group>"; };
+		79E2CE6322BF43F800446F70 /* FocusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusItemController.swift; sourceTree = "<group>"; };
+		79E2CE6722BF60F900446F70 /* FocusItemControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusItemControllerTests.swift; sourceTree = "<group>"; };
 		79E39C0822BCEA43005E491C /* InputDeviceManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceManagerTests.swift; sourceTree = "<group>"; };
 		79E39C0A22BCED65005E491C /* FunctionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionsTests.swift; sourceTree = "<group>"; };
 		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 				79809E3722B4A617008E4B49 /* Menu.swift */,
 				794366B722B5CBF300AA62AF /* MenuItem.swift */,
 				794366BB22B5CEC400AA62AF /* FocusItem.swift */,
+				79E2CE6322BF43F800446F70 /* FocusItemController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -330,6 +337,7 @@
 				79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */,
 				79E2CE5F22BE51B700446F70 /* FocusNodeTests.swift */,
 				79C681E32111761B006E20D0 /* Info.plist */,
+				79E2CE6722BF60F900446F70 /* FocusItemControllerTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -555,6 +563,7 @@
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BD22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				79E2CE6522BF43F900446F70 /* FocusItemController.swift in Sources */,
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
@@ -591,6 +600,7 @@
 				794366BE22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AE22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				79E2CE6622BF43F900446F70 /* FocusItemController.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
@@ -627,6 +637,7 @@
 				79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */,
 				79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */,
 				79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */,
+				79E2CE6822BF60F900446F70 /* FocusItemControllerTests.swift in Sources */,
 				79E2CE5E22BE07F500446F70 /* MenuItemNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -644,6 +655,7 @@
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				79E2CE6422BF43F800446F70 /* FocusItemController.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
