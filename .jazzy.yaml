@@ -6,3 +6,4 @@ skip_undocumented: true
 author_url: https://wolftrail.net
 github_url: http://github.com/wolf81/Fenris
 output: docs
+readme: README_DOCS.md

@@ -68,5 +68,4 @@ extension ButtonNode: InputDeviceInteractable {
     func handleMouseUp(location: CGPoint) {
         self.buttonItem.onClick?()
     }
-
 }
