@@ -32,47 +32,55 @@ class FocusItemControllerTests: XCTestCase {
     }
     
     func testItemCount() {
-        XCTAssert(self.focusItemController.itemCount == 5)
+        let interactableNodes = self.testMenuScene.menuRowNodes.compactMap({ $0.itemNodes is [InputDeviceInteractable ]})
+        XCTAssertTrue(self.focusItemController.itemCount == interactableNodes.count)
     }
     
     func testFocusAtLocation() {
-        self.focusItemController.focusItem(at: CGPoint(x: 1, y: 1))
-        XCTAssert(self.focusItemController.focusedItem == nil)
+        XCTAssertTrue(self.focusItemController.focusItem(at: CGPoint.zero))
+        XCTAssertFalse(self.focusItemController.focusItem(at: CGPoint(x: 1, y: 1)))
+        XCTAssertTrue(self.focusItemController.focusedItem == nil)
+        
+        let menuRowNode = self.testMenuScene.listRowNodes[0]
+        let firstItemFrameCenter = CGPoint(x: menuRowNode.frame.midX, y: menuRowNode.frame.midY)
+        
+        XCTAssertTrue(self.focusItemController.focusItem(at: firstItemFrameCenter))
+        XCTAssertTrue(self.focusItemController.focusedItem != nil)
     }
     
     func testFocusUp() {
-        let didChangeFocus = self.focusItemController.focusUp()
-        self.testMenuScene.menuRowNodes.forEach({ print($0.frame) })
-        XCTAssert(didChangeFocus == false)
-        XCTAssert(self.testMenuScene.menuRowNodes[1].intersects(self.focusItemController.focusedItem!.interactableNode))
+        XCTAssertFalse(self.focusItemController.focusUp())
+        XCTAssertTrue(self.testMenuScene.listRowNodes[0].intersects(self.focusItemController.focusedItem!.interactableNode))
+        
+        self.focusItemController.focusDown()
+        XCTAssertTrue(self.focusItemController.focusUp())
     }
 
     func testFocusDown() {
-        let didChangeFocus = self.focusItemController.focusDown()
-        self.testMenuScene.menuRowNodes.forEach({ print($0.frame) })
-        XCTAssert(didChangeFocus == true)
-        XCTAssert(self.testMenuScene.menuRowNodes[2].intersects(self.focusItemController.focusedItem!.interactableNode))
+        for i in (0 ..< self.testMenuScene.listRowNodes.count) {
+            let expectedResult = i == self.testMenuScene.listRowNodes.count ? false : true
+            XCTAssertTrue(self.testMenuScene.listRowNodes[i].intersects(self.focusItemController.focusedItem!.interactableNode))
+            XCTAssertTrue(self.focusItemController.focusDown() == expectedResult)
+        }
+
+        XCTAssertFalse(self.focusItemController.focusDown())
     }
     
     func testFocusLeft() {
-        var didChangeFocus = self.focusItemController.focusLeft()
-        self.testMenuScene.menuRowNodes.forEach({ print($0.frame) })
-        XCTAssert(didChangeFocus == false)
-        XCTAssert(self.testMenuScene.menuRowNodes[1].intersects(self.focusItemController.focusedItem!.interactableNode))
+        XCTAssertFalse(self.focusItemController.focusLeft())
+        XCTAssertTrue(self.testMenuScene.menuRowNodes[1].intersects(self.focusItemController.focusedItem!.interactableNode))
         
-        self.focusItemController.focusDown()
-        self.focusItemController.focusDown()
-        self.focusItemController.focusDown()
+        for _ in (0 ..< self.testMenuScene.listRowNodes.count) {
+            self.focusItemController.focusDown()
+        }
+
         _ = self.focusItemController.focusRight()
-        didChangeFocus = self.focusItemController.focusLeft()
-        XCTAssert(didChangeFocus == true)
+        XCTAssertTrue(self.focusItemController.focusLeft())
     }
     
     func testFocusRight() {
-        let didChangeFocus = self.focusItemController.focusLeft()
-        self.testMenuScene.menuRowNodes.forEach({ print($0.frame) })
-        XCTAssert(didChangeFocus == false)
-        XCTAssert(self.testMenuScene.menuRowNodes[1].intersects(self.focusItemController.focusedItem!.interactableNode))
+        XCTAssertFalse(self.focusItemController.focusRight())
+        XCTAssertTrue(self.testMenuScene.menuRowNodes[1].intersects(self.focusItemController.focusedItem!.interactableNode))
     }
     
     func testFocusChangeInvokesDelegate() {
@@ -83,6 +91,19 @@ class FocusItemControllerTests: XCTestCase {
         self.focusItemController.focusDown()
         
         wait(for: [expectation], timeout: 1)
+    }
+    
+    func testEmptyMenuSceneNoFocus() {
+        let testScene = SKScene(size: .zero)
+        let focusItemController = FocusItemController(menuRowNodes: [],
+                                                       parentNode: testScene)
+        
+        XCTAssertTrue(focusItemController.focusedItem == nil)
+        XCTAssertFalse(focusItemController.focusUp())
+        XCTAssertFalse(focusItemController.focusDown())
+        XCTAssertFalse(focusItemController.focusLeft())
+        XCTAssertFalse(focusItemController.focusRight())
+        XCTAssertFalse(focusItemController.focusItem(at: .zero))
     }
     
     private class TestDelegate: FocusItemControllerDelegate {
@@ -98,7 +119,13 @@ class FocusItemControllerTests: XCTestCase {
     }
     
     private class TestMenuScene: SKScene {
-        let menuRowNodes: [MenuRowNode]
+        var menuRowNodes: [MenuRowNode] {
+            return [[self.headerNode], self.listRowNodes, [self.footerRowNode]].flatMap{ $0 }
+        }
+        
+        let headerNode: MenuRowNode
+        let listRowNodes: [MenuRowNode]
+        let footerRowNode: MenuRowNode
         
         override init(size: CGSize) {
             let menu = LabeledMenuBuilder()
@@ -112,27 +139,24 @@ class FocusItemControllerTests: XCTestCase {
             let font = Font(name: "Helvetica", size: 12)!
             let menuWidth: CGFloat = 100
             let rowSize = CGSize(width: menuWidth, height: 30)
-            var menuRows: [MenuRowNode] = []
             
-            let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: font)
-            menuRows.append(headerRow)
+            self.headerNode = MenuRowNode(size: rowSize, items: menu.headerItems, font: font)
             
+            var listRows: [MenuRowNode] = []
             for menuItemRow in menu.listItems {
                 let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: font)
-                menuRows.append(menuRow)
+                listRows.append(menuRow)
             }
+            self.listRowNodes = listRows
             
-            let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: font)
-            menuRows.append(footerRow)
-            
-            self.menuRowNodes = menuRows.reversed()
+            self.footerRowNode = MenuRowNode(size: rowSize, items: menu.footerItems, font: font)
             
             super.init(size: size)
 
-            let menuHeight = menuRows.reduce(0) { $0 + $1.frame.size.height }
+            let menuHeight = self.menuRowNodes.reduce(0) { $0 + $1.frame.size.height }
             var y = (size.height - menuHeight) / 2
             let x = ((size.width - menuWidth) / 2)
-            for row in menuRows.reversed() {
+            for row in self.menuRowNodes.reversed() {
                 addChild(row)
                 row.position = CGPoint(x: x, y: y)
                 y += row.frame.size.height

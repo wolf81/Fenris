@@ -152,6 +152,7 @@ class FocusItemController {
         
         for (sectionIdx, section) in self.sections.enumerated() {
             for (itemIdx, item) in section.enumerated() {
+                print("test: \(location) in \(item.frame)")
                 if item.frame.contains(location) {
                     focusItemIdx = IndexPath(item: itemIdx, section: sectionIdx)
                     break
