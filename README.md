@@ -2,8 +2,6 @@
 
 #  Fenris
 
-_**PLEASE NOTE: Both the library and this README as a work in progress. Not all information might be correct.**_
-
 Fenris is a framewok to help accelerate game development for SpriteKit games. 
 
 ## Installation
