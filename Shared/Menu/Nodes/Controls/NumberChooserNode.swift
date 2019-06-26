@@ -8,7 +8,9 @@
 
 import SpriteKit
 
-class NumberChooserNode: SKShapeNode, MenuItemNode {
+class NumberChooserNode: SKShapeNode, MenuItemNode, InputDeviceInteractable {
+    var actions: InputDeviceAction = .none
+    
     let item: MenuItem
     
     private var chooserItem: NumberChooserItem { return self.item as! NumberChooserItem }
@@ -73,10 +75,19 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
             self.chooserItem.selectedValue = newValue
         }
     }
+    
+    func handlePress(_ action: InputDeviceAction) {
+        //
+    }
+    
+    func handleRelease(_ action: InputDeviceAction) {
+        //
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
+/*
 extension NumberChooserNode: InputDeviceInteractable {
     func handleInput(action: GameControllerAction) {
         let validActions: GameControllerAction = [.left, .right]
@@ -112,3 +123,4 @@ extension NumberChooserNode: InputDeviceInteractable {
         }
     }
 }
+ */

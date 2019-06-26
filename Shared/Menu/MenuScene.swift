@@ -8,22 +8,18 @@
 
 import SpriteKit
 
-open class MenuScene: SKScene, InputDeviceInteractable {
+open class MenuScene: InputDeviceInteractableScene {
     fileprivate var focusItemController: FocusItemController!
     
     private var focusNode: FocusNode
-
-    open override func didMove(to view: SKView) {
-        super.didMove(to: view)
     
-        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
-            switch scheme {
-            case .gamepad: self.showFocusNode()                
-            case .mouseKeyboard: self.hideFocusNode()
-            case .touch: print("touch")
-            case .tvRemote: print("tv remote")
-            }
-        })
+    public override func didChangeInputScheme(_ inputScheme: InputDeviceScheme) {
+        switch inputScheme {
+        case .gamepad: self.showFocusNode()
+        case .mouseKeyboard: self.hideFocusNode()
+        case .touch: print("touch")
+        case .tvRemote: print("tv remote")
+        }
     }
         
     public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
@@ -63,25 +59,53 @@ open class MenuScene: SKScene, InputDeviceInteractable {
     required public init?(coder aDecoder: NSCoder) {
         fatalError()
     }
-        
-    public func handleInput(action: GameControllerAction) {
-        guard self.focusItemController.itemCount > 0 else {
-            return
-        }
-        
-        // TODO: For footer we should probably allow left and right buttons for navigation
+    
+    public override func onInputActionChange(_ action: InputDeviceAction, isPressed: Bool) {
         switch action {
-        case _ where action.contains(.pause): break
-        case _ where action.contains(.up): self.focusItemController.focusUp()
-        case _ where action.contains(.down): self.focusItemController.focusDown()
-        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
-        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
-        case _ where action.contains(.buttonA): fallthrough
-        case _ where action.contains(.buttonB):
-            self.focusItemController.focusedItem?.interactableNode.handleInput(action: action)
-        default: break
+        case _ where action.contains(.up) && !isPressed: self.focusItemController.focusUp()
+        case _ where action.contains(.down) && !isPressed: self.focusItemController.focusDown()
+        case _ where action.contains(.left) && !isPressed: self.focusItemController.focusLeft()
+        case _ where action.contains(.right) && !isPressed: self.focusItemController.focusRight()
+        default:
+            if isPressed {
+                self.focusItemController.focusedItem?.interactableNode.handlePress(action)
+            } else {
+                self.focusItemController.focusedItem?.interactableNode.handleRelease(action)
+            }
         }
     }
+    
+    open override func update(_ currentTime: TimeInterval) {
+        super.update(currentTime)
+        
+        if let pointUp = self.inputActions.getPointUp() {
+            print("handle touch @ \(pointUp)")
+            inputActions.removePointUp()
+        } else if let pointMove = self.inputActions.getPointMove() {
+            print("handle move @ \(pointMove)")
+            let position = pointMove.cgPoint
+        }
+
+    }
+    
+//    public func handleInput(action: GameControllerAction) {
+//        guard self.focusItemController.itemCount > 0 else {
+//            return
+//        }
+//
+//        // TODO: For footer we should probably allow left and right buttons for navigation
+//        switch action {
+//        case _ where action.contains(.pause): break
+//        case _ where action.contains(.up): self.focusItemController.focusUp()
+//        case _ where action.contains(.down): self.focusItemController.focusDown()
+//        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
+//        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
+//        case _ where action.contains(.buttonA): fallthrough
+//        case _ where action.contains(.buttonB):
+//            self.focusItemController.focusedItem?.interactableNode.handleInput(action: action)
+//        default: break
+//        }
+//    }
     
     func showFocusNode() {
         guard let focusItem = self.focusItemController.focusedItem else { return }
@@ -94,35 +118,35 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         self.focusNode.isHidden = true
     }
     
-    public func handleMouseUp(location: CGPoint) {
-        guard let focusedNode = self.focusItemController.focusedItem?.interactableNode else {
-            return
-        }
-        
-        let nodeLocation = convert(location, to: focusedNode)
-        focusedNode.handleMouseUp(location: nodeLocation)
-    }
-    
-    public func handleMouseMoved(location: CGPoint) {
-        self.focusItemController.focusItem(at: location)
-    }
-    
-    public func handleKeyUp(action: KeyboardAction) {
-        guard self.focusItemController.itemCount > 0 else {
-            return
-        }
-
-        switch action {
-        case _ where action.contains(.up): self.focusItemController.focusUp()
-        case _ where action.contains(.down): self.focusItemController.focusDown()
-        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
-        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
-        case _ where action.contains(.action1): fallthrough
-        case _ where action.contains(.action2):
-            self.focusItemController.focusedItem?.interactableNode.handleKeyUp(action: action)
-        default: break
-        }
-    }
+//    public func handleMouseUp(location: CGPoint) {
+//        guard let focusedNode = self.focusItemController.focusedItem?.interactableNode else {
+//            return
+//        }
+//
+//        let nodeLocation = convert(location, to: focusedNode)
+//        focusedNode.handleMouseUp(location: nodeLocation)
+//    }
+//
+//    public func handleMouseMoved(location: CGPoint) {
+//        self.focusItemController.focusItem(at: location)
+//    }
+//
+//    public func handleKeyUp(action: KeyboardAction) {
+//        guard self.focusItemController.itemCount > 0 else {
+//            return
+//        }
+//
+//        switch action {
+//        case _ where action.contains(.up): self.focusItemController.focusUp()
+//        case _ where action.contains(.down): self.focusItemController.focusDown()
+//        case _ where action.contains(.left): guard self.focusItemController.focusLeft() else { fallthrough }
+//        case _ where action.contains(.right): guard self.focusItemController.focusRight() else { fallthrough }
+//        case _ where action.contains(.action1): fallthrough
+//        case _ where action.contains(.action2):
+//            self.focusItemController.focusedItem?.interactableNode.handleKeyUp(action: action)
+//        default: break
+//        }
+//    }
 }
 
 extension MenuScene: FocusItemControllerDelegate {
@@ -134,77 +158,3 @@ extension MenuScene: FocusItemControllerDelegate {
         }
     }
 }
-
-#if os(macOS)
-
-extension MenuScene {
-    open override func mouseUp(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
-
-        let location = event.location(in: self)
-        handleMouseUp(location: location)
-    }
-    
-    open override func mouseMoved(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
-
-        let location = event.location(in: self)
-        handleMouseMoved(location: location)
-    }
-
-    open override func keyUp(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
-
-        // TODO: A keymap file might be used bind key codes with key actions, this could be part of
-        // the app settings and provide a default implementation that can be changed
-        
-        switch event.keyCode {
-        case 126: handleKeyUp(action: .up)
-        case 125: handleKeyUp(action: .down)
-        case 123: handleKeyUp(action: .left)
-        case 124: handleKeyUp(action: .right)
-        case 49: handleKeyUp(action: .action1)
-        case 53: handleKeyUp(action: .action2)
-        default: break
-        }
-    }
-    
-    open override func keyDown(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
-
-        // We override this method to silence the macOS beep on key press
-    }
-}
-
-#endif
-
-#if os(iOS)
-
-extension MenuScene {
-    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        
-        let location = touch.location(in: self)
-        print("handle touch end @ \(location)")
-    }
-}
-
-#endif

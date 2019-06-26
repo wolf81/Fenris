@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class TextChooserNode: SKShapeNode, MenuItemNode {
+class TextChooserNode: SKShapeNode, MenuItemNode, InputDeviceInteractable {
     let item: MenuItem
     
     private var chooserItem: TextChooserItem { return self.item as! TextChooserItem }
@@ -82,10 +82,19 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
             self.chooserItem.selectedValueIdx = newValue
         }
     }
+    
+    func handlePress(_ action: InputDeviceAction) {
+        //
+    }
+    
+    func handleRelease(_ action: InputDeviceAction) {
+        //
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
+/*
 extension TextChooserNode: InputDeviceInteractable {
     func handleKeyUp(action: KeyboardAction) {
         let validActions: KeyboardAction = [.left, .right]
@@ -121,3 +130,4 @@ extension TextChooserNode: InputDeviceInteractable {
         
     }
 }
+*/

@@ -29,26 +29,3 @@ public enum InputDeviceScheme {
     }
 }
 
-class InputDeviceManager: LocatableService {
-    var scheme: InputDeviceScheme = .default {
-        didSet(newValue) {
-            if newValue != self.scheme {
-                onSchemeChange?(self.scheme)
-            }
-        }
-    }
-    
-    weak var interactableScene: (SKScene & InputDeviceInteractable)?
-    
-    var onSchemeChange: ((InputDeviceScheme) -> Void)?
-    
-    private var controllers: Controllers!
-    
-    init() {        
-        self.controllers = Controllers(onConnectionChange: { [unowned self] (connected) in
-            self.scheme = connected ? .gamepad : .default
-        })
-        
-        self.controllers.connect()
-    }
- }

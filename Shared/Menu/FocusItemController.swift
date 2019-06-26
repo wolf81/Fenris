@@ -109,6 +109,7 @@ class FocusItemController {
     /// Change the focus to 1 item left of the current focused item.
     ///
     /// - Returns: True if the focus was changed, otherwise false.
+    @discardableResult
     public func focusLeft() -> Bool {
         guard let idx = self.focusedItemIdx else { return false }
         
@@ -126,6 +127,7 @@ class FocusItemController {
     /// Change the focus to 1 item right of the current focused item.
     ///
     /// - Returns: True if the focus was changed, otherwise false.
+    @discardableResult
     public func focusRight() -> Bool {
         guard let idx = self.focusedItemIdx else { return false }
 

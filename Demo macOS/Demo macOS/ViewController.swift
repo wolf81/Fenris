@@ -15,7 +15,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let view = self.skView {
             let scene = MainMenuScene(size: self.view.bounds.size)
                         

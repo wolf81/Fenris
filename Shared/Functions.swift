@@ -8,21 +8,20 @@
 
 import SpriteKit
 
-internal func initializeInputDeviceManagerIfNeeded(scene: (SKScene & InputDeviceInteractable), onInputDeviceChanged: ((InputDeviceScheme) -> Void)?) {
-    if (try? ServiceLocator.shared.get(service: InputDeviceManager.self)) == nil {
-        try? ServiceLocator.shared.add(service: InputDeviceManager())
-    }
-    
-    let manager = try! ServiceLocator.shared.get(service: InputDeviceManager.self)
-    manager.interactableScene = scene
-    manager.onSchemeChange = onInputDeviceChanged
+internal func initializeInputDeviceManagerIfNeeded(scene: (SKScene & InputDeviceInteractable)) {
+//    if (try? ServiceLocator.shared.get(service: InputDeviceManager.self)) == nil {
+//        try? ServiceLocator.shared.add(service: InputDeviceManager())
+//    }
+//    
+//    let manager = try! ServiceLocator.shared.get(service: InputDeviceManager.self)
+//    manager.interactableScene = scene
 }
 
-internal func constrain(value: Int, to range: Range<Int>) -> Int {
+internal func constrain(value: IntegerLiteralType, to range: Range<IntegerLiteralType>) -> IntegerLiteralType {
     var value = value
     switch value {
     case _ where range.count == 0:
-        value = Int.min
+        value = IntegerLiteralType.min
     case _ where value < range.lowerBound:
         value = range.lowerBound
     case _ where value >= range.upperBound:

@@ -8,7 +8,8 @@
 
 import SpriteKit
 
-class ToggleNode: SKShapeNode, MenuItemNode {
+class ToggleNode: SKShapeNode, MenuItemNode, InputDeviceInteractable {
+    var actions: InputDeviceAction = .none
     let item: MenuItem
 
     private var toggleItem: ToggleItem { return self.item as! ToggleItem }
@@ -63,10 +64,19 @@ class ToggleNode: SKShapeNode, MenuItemNode {
     fileprivate func toggle() {
         self.toggleItem.isEnabled = !self.toggleItem.isEnabled
     }
+    
+    func handlePress(_ action: InputDeviceAction) {
+        
+    }
+    
+    func handleRelease(_ action: InputDeviceAction) {
+        
+    }
 }
 
 // MARK: - InputDeviceInteractable
 
+/*
 extension ToggleNode: InputDeviceInteractable {
     func handleInput(action: GameControllerAction) {
         let validActions: GameControllerAction = [.left, .right]
@@ -92,3 +102,4 @@ extension ToggleNode: InputDeviceInteractable {
         toggle()
     }
 }
+*/

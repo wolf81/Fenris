@@ -25,18 +25,20 @@ final class MainMenuScene: MenuScene {
             .build()
         
         super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
-        
-        self.newGameItem.onClick = {
+
+        self.name = "Main Menu Scene"
+
+        self.newGameItem.onClick = { [unowned self] in
             let createCharacterScene = CreateCharacterMenuScene(size: self.size)
             self.view?.presentScene(createCharacterScene, transition: SKTransition.crossFade(withDuration: 0.5))
         }
         
-        self.settingsItem.onClick = {
+        self.settingsItem.onClick = { [unowned self] in
             let settingsScene = SettingsMenuScene(size: self.size)
             self.view?.presentScene(settingsScene, transition: SKTransition.push(with: .left, duration: 0.5))
         }
         
-        self.quitItem.onClick = {
+        self.quitItem.onClick = { [unowned self] in
             NSApp.terminate(self)
         }
     }

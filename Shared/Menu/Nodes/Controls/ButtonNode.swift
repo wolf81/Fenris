@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class ButtonNode: SKShapeNode, MenuItemNode {
+class ButtonNode: SKShapeNode, MenuItemNode, InputDeviceInteractable {
     let item: MenuItem
     
     private var buttonItem: ButtonItem { return self.item as! ButtonItem }
@@ -45,27 +45,15 @@ class ButtonNode: SKShapeNode, MenuItemNode {
             self.label.text = self.buttonItem.title
         }
     }
-}
-
-// MARK: - InputDeviceInteractable
-
-extension ButtonNode: InputDeviceInteractable {
-    func handleKeyUp(action: KeyboardAction) {
-        self.buttonItem.onClick?()
+    
+    func handlePress(_ action: InputDeviceAction) {
+        //
     }
-
-    func handleInput(action: GameControllerAction) {
-        let validActions: GameControllerAction = [.buttonA, .buttonB]
+    
+    func handleRelease(_ action: InputDeviceAction) {
+        let validActions: InputDeviceAction = [.action1, .action2]
         if validActions.contains(action) {
             self.buttonItem.onClick?()
         }
-    }
-
-    func handleMouseMoved(location: CGPoint) {
-        
-    }
-    
-    func handleMouseUp(location: CGPoint) {
-        self.buttonItem.onClick?()
     }
 }

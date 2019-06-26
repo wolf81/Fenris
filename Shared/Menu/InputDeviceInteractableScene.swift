@@ -7,86 +7,143 @@
 //
 
 import SpriteKit
+import GameKit
 
-open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {
-    open func handleMouseUp(location: CGPoint) {
+open class InputDeviceInteractableScene: SKScene {
+    private var inputScheme: InputDeviceScheme = .default {
+        didSet {
+            didChangeInputScheme(self.inputScheme)
+        }
     }
     
-    open func handleMouseMoved(location: CGPoint) {
-    }
+    // TODO: in the future the controller node might add some HUD for iOS devices - something to
+    // think about
+    private let controllerNode: ControllerNode = ControllerNode()
     
-    open func handleInput(action: GameControllerAction) {
-    }
+    // TODO: should load this from some settings file, allowing the user to change the keys
+    private var keyActionInfo: [UInt16: InputDeviceAction] = [
+        126: .up,
+        125: .down,
+        123: .left,
+        124: .right,
+        49: .action1,
+        53: .action2
+    ]
+
+    private var lastActions: InputDeviceAction = .none
     
-    open func handleKeyUp(action: KeyboardAction) {
+    public var inputActions: InputDeviceAction = .none {
+        didSet {
+            var filteredActions = self.inputActions
+            filteredActions.removePointUp()
+            
+            // compare with last actions to see if press state was changed for some buttons
+            if filteredActions != self.lastActions {
+                // retrieve the action that is changed compared to last update
+                let action = self.lastActions.symmetricDifference(filteredActions)
+                
+                // make a mask of the action
+                let mask = self.inputActions.rawValue & action.rawValue
+                
+                // get the value of the action using the mask
+                let value = self.inputActions.rawValue & mask
+                
+                // if the value did become 0, the button was released, otherwise it's pressed
+                onInputActionChange(action, isPressed: value != 0)
+            }
+            
+            self.lastActions = filteredActions
+        }
     }
-    
-    open func updateForInputDevice(_ scheme: InputDeviceScheme) {
-    }
-    
+        
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
+
+        // whenever a scene moves to a view, connect controllers if needed and receive
+        // notifications whenever the input scheme changes
+        self.addChild(self.controllerNode)
+        self.controllerNode.connect()
+        self.controllerNode.onConnectionChanged = { [unowned self] connected in
+            self.inputScheme = connected ? .gamepad : .default
+        }
+    }
+    
+    deinit {
+        self.controllerNode.removeFromParent()
+    }
+    
+    public func onInputActionChange(_ action: InputDeviceAction, isPressed: Bool) {
+        switch action {
+        case _ where action.contains(.up) && !isPressed: print("up")
+        case _ where action.contains(.down) && !isPressed: print("down")
+        default:
+            print("action: \(action) - pressed: \(isPressed)")
+        }
+    }
+    
+    open override func update(_ currentTime: TimeInterval) {
+        self.inputActions = self.controllerNode.readControllerActions()
         
-        initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { [unowned self] scheme in
-            self.updateForInputDevice(scheme)
-        })
-    }    
+        switch self.inputActions {
+        case _ where inputActions.contains(.up): print("move up")
+        case _ where inputActions.contains(.down): print("move down")
+        case _ where inputActions.contains(.left): print("move left")
+        case _ where inputActions.contains(.right): print("move right")
+        case _ where inputActions.contains(.pause): print("-- pause -- ")
+        default: break
+        }
+        
+//        if let pointUp = inputActions.getPointUp() {
+//            print("handle touch @ \(pointUp)")
+//            inputActions.removePointUp()
+//        } else if let pointMove = inputActions.getPointMove() {
+//            print("handle move @ \(pointMove)")
+//            let position = pointMove.cgPoint
+//        }
+    }
+    
+    public func didChangeInputScheme(_ inputScheme: InputDeviceScheme) {
+        // overridable by subclasses
+    }
 }
 
 #if os(macOS)
 
 extension InputDeviceInteractableScene {
     open override func mouseUp(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-            return
-        }
-
+        guard self.inputScheme == .mouseKeyboard else { return }
+        
         let location = event.location(in: self)
-        handleMouseUp(location: location)
+        self.inputActions.setPointUp(location.point)
+    }
+    
+    open override func mouseDown(with event: NSEvent) {
+        guard self.inputScheme == .mouseKeyboard else { return }
+
+        // ...
     }
     
     open override func mouseMoved(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
+        guard self.inputScheme == .mouseKeyboard else { return }
 
         let location = event.location(in: self)
-        handleMouseMoved(location: location)
+        self.inputActions.setPointMove(location.point)
     }
     
     open override func keyUp(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
+        guard self.inputScheme == .mouseKeyboard else { return }
 
-        // TODO: A keymap file might be used bind key codes with key actions, this could be part of
-        // the app settings and provide a default implementation that can be changed
-        
-        switch event.keyCode {
-        case 126: handleKeyUp(action: .up)
-        case 125: handleKeyUp(action: .down)
-        case 123: handleKeyUp(action: .left)
-        case 124: handleKeyUp(action: .right)
-        case 49: handleKeyUp(action: .action1)
-        case 53: handleKeyUp(action: .action2)
-        default: break
+        if let action = self.keyActionInfo[event.keyCode] {
+            self.inputActions.remove(action)
         }
     }
     
     open override func keyDown(with event: NSEvent) {
-        guard
-            let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),
-            inputDeviceManager.scheme == .mouseKeyboard else {
-                return
-        }
+        guard self.inputScheme == .mouseKeyboard else { return }
 
-        // We override this method to silence the macOS beep on key press
+        if let action = self.keyActionInfo[event.keyCode] {
+            self.inputActions.insert(action)
+        }
     }
 }
 
@@ -96,6 +153,8 @@ extension InputDeviceInteractableScene {
 
 extension MenuScene {
     open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard self.inputScheme == .touch else { return }
+
         guard let touch = touches.first else {
             return
         }
@@ -106,6 +165,3 @@ extension MenuScene {
 }
 
 #endif
-
-
-
