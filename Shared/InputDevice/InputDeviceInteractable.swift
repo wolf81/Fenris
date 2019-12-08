@@ -53,7 +53,7 @@ public struct KeyboardAction: OptionSet {
 }
 
 /// An OptionSet that can contain multiple simultaneous actions. For example when using a gamepad,
-// 2 buttons might be pressed at the same time.
+/// 2 buttons might be pressed at the same time.
 public struct GameControllerAction: OptionSet, CustomStringConvertible {
     public let rawValue: Int16
     
