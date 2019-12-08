@@ -82,7 +82,7 @@ final class CreateCharacterMenuScene: MenuScene {
             var strengthRange = (6 ... 18)
             var dexterityRange = (6 ... 18)
             var mindRange = (6 ... 18)
-            
+                        
             switch raceIdx {
             case 0: /* Human */
                 break

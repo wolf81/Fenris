@@ -89,6 +89,8 @@ public class ToggleItem: NSObject & MenuItem {
 
     public var onValueChanged: ValueChangeBlock<Bool>? = nil
 
+    public var value: Bool { return self.isEnabled }
+    
     @objc dynamic var isEnabled: Bool {
         didSet {
             if onValidate?(self.isEnabled) == false { 
@@ -116,7 +118,9 @@ public class TextChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
     public var onValueChanged: ValueChangeBlock<String>? = nil
-    
+
+    public var value: String { return self.values[self.selectedValueIdx] }
+
     public var values: [String] {
         didSet {
             self.selectedValueIdx = constrain(value: self.selectedValueIdx, to: (0 ..< self.values.count))
@@ -152,6 +156,8 @@ public class NumberChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
     public var onValueChanged: ValueChangeBlock<Int>? = nil
+
+    public var value: Int { return self.selectedValue }
 
     public var range: ClosedRange<Int> {
         didSet {
