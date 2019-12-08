@@ -16,8 +16,12 @@ final class CreateCharacterMenuScene: MenuScene {
     private let pointsRemainingLabel = LabelItem(title: "0")
     private let strengthChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
     private let dexterityChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
-    private let mindChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12)
-    private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Halfling"], selectedValueIdx: 0)
+    private let mindChooser = NumberChooserItem(range: (6 ... 18), selectedValue: 12, onValueChanged: { newValue in
+        print("new value: \(newValue)")
+    })
+    private let raceChooser = TextChooserItem(values: ["Human", "Elf", "Dwarf", "Halfling"], selectedValueIdx: 0, onValueChanged: { newValue in
+        print("new value: \(newValue)")
+    })
     private let backItem = ButtonItem(title: "Back")
     
     private let nextItem = ButtonItem(title: "Next")

@@ -15,6 +15,8 @@ public typealias ValidateBlock<T> = (T) -> Bool
 
 public typealias ClickBlock = () -> Void
 
+public typealias ValueChangeBlock<T> = (T) -> Void
+
 /// Objects conforming to the Item protocol can be added to the menu.
 public protocol MenuItem: class {
     
@@ -85,6 +87,8 @@ public class ButtonItem: NSObject & MenuItem & MenuFooterContainable {
 public class ToggleItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Bool>? = nil
 
+    public var onValueChanged: ValueChangeBlock<Bool>? = nil
+
     @objc dynamic var isEnabled: Bool {
         didSet {
             if onValidate?(self.isEnabled) == false { 
@@ -93,8 +97,9 @@ public class ToggleItem: NSObject & MenuItem {
         }
     }
     
-    public init(enabled: Bool) {
+    public init(enabled: Bool, onValueChanged: (ValueChangeBlock<Bool>)? = nil) {
         self.isEnabled = enabled
+        self.onValueChanged = onValueChanged
         
         super.init()
     }
@@ -110,6 +115,8 @@ public class ToggleItem: NSObject & MenuItem {
 public class TextChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
+    public var onValueChanged: ValueChangeBlock<String>? = nil
+    
     public var values: [String] {
         didSet {
             self.selectedValueIdx = constrain(value: self.selectedValueIdx, to: (0 ..< self.values.count))
@@ -124,9 +131,11 @@ public class TextChooserItem: NSObject & MenuItem {
         }
     }
     
-    public init(values: [String], selectedValueIdx: Int) {
+    public init(values: [String], selectedValueIdx: Int, onValueChanged: (ValueChangeBlock<String>)? = nil) {
+        // TODO: throw error if the values array doesn't contain at least 1 item
         self.values = values
         self.selectedValueIdx = constrain(value: selectedValueIdx, to: (0 ..< values.count))
+        self.onValueChanged = onValueChanged
         
         super.init()
     }
@@ -142,6 +151,8 @@ public class TextChooserItem: NSObject & MenuItem {
 public class NumberChooserItem: NSObject & MenuItem {
     public var onValidate: ValidateBlock<Int>? = nil
 
+    public var onValueChanged: ValueChangeBlock<Int>? = nil
+
     public var range: ClosedRange<Int> {
         didSet {
             self.selectedValue = constrain(value: self.selectedValue, to: (self.range.lowerBound ..< self.range.upperBound + 1))
@@ -156,10 +167,12 @@ public class NumberChooserItem: NSObject & MenuItem {
         }
     }
     
-    public init(range: ClosedRange<Int>, selectedValue: Int) {
+    public init(range: ClosedRange<Int>, selectedValue: Int, onValueChanged: (ValueChangeBlock<Int>)? = nil) {
+        // TODO: throw error if the range isn't at least of length 1
         self.range = range
         self.selectedValue = constrain(value: selectedValue, to: (range.lowerBound ..< (range.upperBound + 1)))
-
+        self.onValueChanged = onValueChanged
+        
         super.init()
     }
     

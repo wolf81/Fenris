@@ -57,6 +57,8 @@ class NumberChooserNode: SKShapeNode, MenuItemNode {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is NumberChooserItem && keyPath == #keyPath(NumberChooserItem.selectedValue) {
             self.label.text = "\(self.chooserItem.selectedValue)"
+            
+            self.chooserItem.onValueChanged?(self.chooserItem.selectedValue)
         }
     }
     

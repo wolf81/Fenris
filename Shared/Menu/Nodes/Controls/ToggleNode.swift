@@ -57,6 +57,8 @@ class ToggleNode: SKShapeNode, MenuItemNode {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if object is ToggleItem && keyPath == #keyPath(ToggleItem.isEnabled) {
             self.label.text = self.toggleItem.isEnabled ? "On" : "Off"
+            
+            self.toggleItem.onValueChanged?(self.toggleItem.isEnabled)
         }
     }
     

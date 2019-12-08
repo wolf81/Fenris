@@ -58,6 +58,9 @@ class TextChooserNode: SKShapeNode, MenuItemNode {
         if object is TextChooserItem && keyPath == #keyPath(TextChooserItem.selectedValueIdx) {
             let value = self.chooserItem.values.count > 0 ? self.chooserItem.values[self.chooserItem.selectedValueIdx] : nil
             self.label.text = value
+            
+            // value should never be nil
+            self.chooserItem.onValueChanged?(value!)
         }
     }
     
