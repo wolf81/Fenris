@@ -11,7 +11,9 @@ import Cocoa
 import SpriteKit
 
 class SettingsMenuScene: MenuScene {
-    private let musicItem = ToggleItem(enabled: false)
+    private let musicItem = ToggleItem(enabled: false, onValueChanged: { newValue in
+        print("new value: \(newValue)")
+    })
     private let backItem = ButtonItem(title: "Back")
     
     init(size: CGSize) {

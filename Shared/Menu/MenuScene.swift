@@ -18,7 +18,7 @@ open class MenuScene: SKScene, InputDeviceInteractable {
     
         initializeInputDeviceManagerIfNeeded(scene: self, onInputDeviceChanged: { scheme in
             switch scheme {
-            case .gamepad: self.showFocusNode()                
+            case .gamepad: self.showFocusNode()
             case .mouseKeyboard: self.hideFocusNode()
             case .touch: print("touch")
             case .tvRemote: print("tv remote")
@@ -69,7 +69,6 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             return
         }
         
-        // TODO: For footer we should probably allow left and right buttons for navigation
         switch action {
         case _ where action.contains(.pause): break
         case _ where action.contains(.up): self.focusItemController.focusUp()
@@ -194,17 +193,17 @@ extension MenuScene {
 
 #endif
 
-#if os(iOS)
-
-extension MenuScene {
-    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else {
-            return
-        }
-        
-        let location = touch.location(in: self)
-        print("handle touch end @ \(location)")
-    }
-}
-
-#endif
+//#if os(iOS)
+//
+//extension MenuScene {
+//    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        guard let touch = touches.first else {
+//            return
+//        }
+//        
+//        let location = touch.location(in: self)
+//        print("handle touch end @ \(location)")
+//    }
+//}
+//
+//#endif
