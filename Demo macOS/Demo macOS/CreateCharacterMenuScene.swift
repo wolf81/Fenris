@@ -52,8 +52,8 @@ final class CreateCharacterMenuScene: MenuScene {
         }
         
         self.nextItem.onClick = { [unowned self] in
-            let scene = GameScene(size: self.size)
-            self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))            
+            let loadingScene = LoadingScene(size: self.size)
+            self.view?.presentScene(loadingScene, transition: SKTransition.push(with: .left, duration: 0.5))
         }
         
         self.attributeUpdater = AttributeUpdater(

@@ -33,6 +33,21 @@ public protocol MenuFooterContainable where Self: MenuItem {
     
 }
 
+// MARK: - ProgressBarItem
+
+/// A progress bar. A value should be a float between 0.0 and 1.0.
+public class ProgressBarItem: NSObject & MenuItem & MenuFooterContainable {
+    @objc public dynamic var value: Float = 0
+
+    public override init() {
+        super.init()
+    }
+    
+    public func getNode(size: CGSize, font: Font) -> MenuItemNode {
+        return ProgressBarNode(size: size, item: self, font: font)
+    }
+}
+
 // MARK: - FixedSpaceItem
 
 /// Fixed space items don't display any control, just empty space.

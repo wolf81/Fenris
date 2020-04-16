@@ -17,6 +17,12 @@
 		792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D42D221E2115F00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
 		792D42DE21E24F9A00D438F1 /* Fenris_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D42DD21E24F9300D438F1 /* Fenris_macOS.h */; };
+		793A5765244909C10089E693 /* ProgressBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A5764244909C10089E693 /* ProgressBarNode.swift */; };
+		793A5766244909C10089E693 /* ProgressBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A5764244909C10089E693 /* ProgressBarNode.swift */; };
+		793A5767244909C10089E693 /* ProgressBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A5764244909C10089E693 /* ProgressBarNode.swift */; };
+		793A576924490C730089E693 /* BarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A576824490C730089E693 /* BarNode.swift */; };
+		793A576A24490C730089E693 /* BarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A576824490C730089E693 /* BarNode.swift */; };
+		793A576B24490C730089E693 /* BarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793A576824490C730089E693 /* BarNode.swift */; };
 		794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
 		794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
 		794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366A722B4FD1900AA62AF /* MenuItemNode.swift */; };
@@ -120,6 +126,8 @@
 		792D42BE21E2115100D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D42C121E2115100D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		792D42DD21E24F9300D438F1 /* Fenris_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_macOS.h; sourceTree = "<group>"; };
+		793A5764244909C10089E693 /* ProgressBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarNode.swift; sourceTree = "<group>"; };
+		793A576824490C730089E693 /* BarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarNode.swift; sourceTree = "<group>"; };
 		794366A722B4FD1900AA62AF /* MenuItemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNode.swift; sourceTree = "<group>"; };
 		794366AB22B50DE200AA62AF /* MenuBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBuilder.swift; sourceTree = "<group>"; };
 		794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConfiguration.swift; sourceTree = "<group>"; };
@@ -248,6 +256,7 @@
 				797DBFCC22B3879000D0F8E7 /* NumberChooserNode.swift */,
 				79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */,
 				794366CE22B7092400AA62AF /* FocusNode.swift */,
+				793A5764244909C10089E693 /* ProgressBarNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 				797DBFC722B385CB00D0F8E7 /* SignButtonNode.swift */,
 				79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */,
 				79809E1522B2A637008E4B49 /* ArrowNode.swift */,
+				793A576824490C730089E693 /* BarNode.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -557,6 +567,7 @@
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				793A576A24490C730089E693 /* BarNode.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
@@ -573,6 +584,7 @@
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
 				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
+				793A5766244909C10089E693 /* ProgressBarNode.swift in Sources */,
 				797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707E22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
@@ -594,6 +606,7 @@
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				793A576B24490C730089E693 /* BarNode.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -610,6 +623,7 @@
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFCA22B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
+				793A5767244909C10089E693 /* ProgressBarNode.swift in Sources */,
 				79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				794366CD22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
@@ -649,6 +663,7 @@
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				793A576924490C730089E693 /* BarNode.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -665,6 +680,7 @@
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
+				793A5765244909C10089E693 /* ProgressBarNode.swift in Sources */,
 				797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
 				79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707D22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,

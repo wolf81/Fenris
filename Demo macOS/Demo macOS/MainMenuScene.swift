@@ -35,7 +35,7 @@ final class MainMenuScene: MenuScene {
             let settingsScene = SettingsMenuScene(size: self.size)
             self.view?.presentScene(settingsScene, transition: SKTransition.push(with: .left, duration: 0.5))
         }
-        
+                
         self.quitItem.onClick = {
             NSApp.terminate(self)
         }

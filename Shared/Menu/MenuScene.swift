@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-open class MenuScene: SKScene, InputDeviceInteractable {
+open class MenuScene: SKScene {
     fileprivate var focusItemController: FocusItemController!
     
     private var focusNode: FocusNode
@@ -64,6 +64,19 @@ open class MenuScene: SKScene, InputDeviceInteractable {
         fatalError()
     }
         
+    fileprivate func showFocusNode() {
+        guard let focusItem = self.focusItemController.focusedItem else { return }
+
+        self.focusNode.isHidden = false
+        self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
+    }
+
+    fileprivate func hideFocusNode() {
+        self.focusNode.isHidden = true
+    }
+}
+
+extension MenuScene: InputDeviceInteractable {
     public func handleInput(action: GameControllerAction) {
         guard self.focusItemController.itemCount > 0 else {
             return
@@ -80,17 +93,6 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             self.focusItemController.focusedItem?.interactableNode.handleInput(action: action)
         default: break
         }
-    }
-    
-    func showFocusNode() {
-        guard let focusItem = self.focusItemController.focusedItem else { return }
-
-        self.focusNode.isHidden = false
-        self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
-    }
-
-    fileprivate func hideFocusNode() {
-        self.focusNode.isHidden = true
     }
     
     public func handleMouseUp(location: CGPoint) {
@@ -192,18 +194,3 @@ extension MenuScene {
 }
 
 #endif
-
-//#if os(iOS)
-//
-//extension MenuScene {
-//    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        guard let touch = touches.first else {
-//            return
-//        }
-//        
-//        let location = touch.location(in: self)
-//        print("handle touch end @ \(location)")
-//    }
-//}
-//
-//#endif
