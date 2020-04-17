@@ -157,6 +157,10 @@ class FocusItemController {
                     break
                 }
             }
+            
+            if focusItemIdx != nil {
+                break
+            }
         }
         
         guard focusItemIdx != self.focusedItemIdx else { return false }

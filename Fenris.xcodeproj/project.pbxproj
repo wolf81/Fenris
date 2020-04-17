@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		792ADE952449348E00990DAE /* MenuSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792ADE942449348E00990DAE /* MenuSceneTests.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
@@ -122,6 +123,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		792ADE942449348E00990DAE /* MenuSceneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneTests.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				79E2CE6722BF60F900446F70 /* FocusItemControllerTests.swift */,
 				793A576E24492C440089E693 /* MenuFooterNodeTests.swift */,
 				793A577024492DF10089E693 /* MenuConfigurationTests.swift */,
+				792ADE942449348E00990DAE /* MenuSceneTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -651,6 +654,7 @@
 				79E39C0922BCEA43005E491C /* InputDeviceManagerTests.swift in Sources */,
 				79E39C0B22BCED65005E491C /* FunctionsTests.swift in Sources */,
 				79E2CE6222BE58E000446F70 /* MenuBuilderTests.swift in Sources */,
+				792ADE952449348E00990DAE /* MenuSceneTests.swift in Sources */,
 				79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */,
 				79E2CE6022BE51B700446F70 /* FocusNodeTests.swift in Sources */,
 				79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */,

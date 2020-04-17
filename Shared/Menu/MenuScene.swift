@@ -9,10 +9,14 @@
 import SpriteKit
 
 open class MenuScene: SKScene {
-    fileprivate var focusItemController: FocusItemController!
+    internal var focusItemController: FocusItemController!
     
-    private var focusNode: FocusNode
-
+    internal var focusNode: FocusNode
+    
+    private var menuRows: [MenuRowNode] = []
+    
+    internal var menuItemNodes: [MenuItemNode] { return self.menuRows.compactMap({ $0.itemNodes }).reduce([], +) }
+    
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
     
@@ -20,8 +24,8 @@ open class MenuScene: SKScene {
             switch scheme {
             case .gamepad: self.showFocusNode()
             case .mouseKeyboard: self.hideFocusNode()
-            case .touch: print("touch")
-            case .tvRemote: print("tv remote")
+            case .touch: self.hideFocusNode()
+            case .tvRemote: self.showFocusNode()
             }
         })
     }
@@ -31,30 +35,29 @@ open class MenuScene: SKScene {
         super.init(size: size)
 
         let rowSize = CGSize(width: configuration.menuWidth, height: configuration.rowHeight)
-        var menuRows: [MenuRowNode] = []
         
         let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: configuration.titleFont)
-        menuRows.append(headerRow)
+        self.menuRows.append(headerRow)
 
         for menuItemRow in menu.listItems {
             let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
-            menuRows.append(menuRow)
+            self.menuRows.append(menuRow)
         }
 
         let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: configuration.labelFont)
-        menuRows.append(footerRow)
+        self.menuRows.append(footerRow)
 
-        let menuHeight = menuRows.reduce(0) { $0 + $1.frame.size.height }
+        let menuHeight = self.menuRows.reduce(0) { $0 + $1.frame.size.height }
 
         var y = (size.height - menuHeight) / 2
         let x = ((size.width - configuration.menuWidth) / 2)
-        for row in menuRows.reversed() {
+        for row in self.menuRows.reversed() {
             addChild(row)
             row.position = CGPoint(x: x, y: y)
             y += row.frame.size.height
         }
 
-        self.focusItemController = FocusItemController(menuRowNodes: menuRows, parentNode: self)
+        self.focusItemController = FocusItemController(menuRowNodes: self.menuRows, parentNode: self)
         self.focusItemController.delegate = self
         
         addChild(self.focusNode)

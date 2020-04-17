@@ -11,7 +11,7 @@ import SpriteKit
 
 /// A focus item is an item that can receive focus in the UI, in the menu this is indicated by
 /// showing a box around the focused control. Only 1 node can receive focus at any time.
-struct FocusItem {
+internal struct FocusItem {
     
     /// The frame to use for display of the focus box.
     let frame: CGRect
