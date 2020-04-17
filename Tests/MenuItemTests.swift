@@ -48,7 +48,7 @@ class MenuItemTests: XCTestCase {
         
         XCTAssertTrue(labelItem.title == "Title")
     }
-    
+        
     // MARK: - ProgressBarItem
     
     func testProgressBarItemNode() {
