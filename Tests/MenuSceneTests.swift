@@ -81,7 +81,7 @@ class MenuSceneTests: XCTestCase {
     private func focusFirstMenuItemNodeInMenuScene(_ menuScene: MenuScene) {
         // In order to test focus node visibility (node hidden or not), we first need to make sure an item is focused.
         // A focus node visibility is only changed if a focus node is set.
-        let frame = menuScene.menuItemNodes.first!.calculateAccumulatedFrame()
+        let frame = menuScene.menuItemNodes.first!.frame
         var position = menuScene.convert(frame.origin, from: menuScene.menuItemNodes.first!)
         position = CGPoint(x: position.x + frame.width / 2, y: position.y + frame.height / 2)
         menuScene.focusItemController.focusItem(at: position)
