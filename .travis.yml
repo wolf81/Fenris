@@ -12,3 +12,5 @@ after_success:
   - bash <(curl -s https://codecov.io/bash) -J 'Fenris'
   - make docs
   - bash ${TRAVIS_BUILD_DIR}/scripts/deploy_docs.sh ${TRAVIS_BUILD_DIR}/docs
+after_failure:
+  - find ${HOME}/Library/Developer/Xcode/DerivedData/Fenris* -name '*.log' -exec cat {} +
