@@ -52,7 +52,7 @@ final class CreateCharacterMenuScene: MenuScene {
         }
         
         self.nextItem.onClick = { [unowned self] in
-            let loadingScene = LoadingScene(size: self.size)
+            let loadingScene = LoadingScene(size: self.size, configuration: DefaultMenuConfiguration(), dataLoader: DataLoader(view: self.view!))
             self.view?.presentScene(loadingScene, transition: SKTransition.push(with: .left, duration: 0.5))
         }
         
@@ -105,5 +105,33 @@ final class CreateCharacterMenuScene: MenuScene {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
+    }
+}
+
+class DataLoader: DataLoaderProtocol {
+    private let view: SKView
+    
+    private var size: CGSize { return self.view.scene?.size ?? CGSize.zero }
+    
+    init(view: SKView) {
+        self.view = view
+    }
+    
+    func loadDataFinished() {
+        print("load data finished")
+        
+        let scene = GameScene(size: self.size)
+        self.view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))
+    }
+        
+    func loadData(progress: @escaping (Float) -> ()) {
+        DispatchQueue.global(qos: .background).async {
+            for i in 0 ... 100 {
+                usleep(arc4random() % 800 + 800)
+                DispatchQueue.main.async {
+                    progress(Float(i) / 100)
+                }                
+            }
+        }
     }
 }
