@@ -13,4 +13,4 @@ after_success:
   - make docs
   - bash ${TRAVIS_BUILD_DIR}/scripts/deploy_docs.sh ${TRAVIS_BUILD_DIR}/docs
 after_failure:
-  - find /Users/travis/Library/Developer/Xcode/DerivedData/Fenris*/Logs/ -name '*.log' -exec cat {} +
+  - find '/Users/travis/Library/Developer/Xcode/DerivedData/' -name '*.log' -exec cat {} +
