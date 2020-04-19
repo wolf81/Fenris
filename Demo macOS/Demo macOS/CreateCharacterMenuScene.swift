@@ -10,7 +10,9 @@ import Fenris
 import Cocoa
 import SpriteKit
 
-final class CreateCharacterMenuScene: MenuScene {
+final class CreateCharacterMenuScene: MenuSceneBase {
+    override var configuration: MenuConfiguration { return DefaultMenuConfiguration.shared }
+
     private var attributeUpdater: AttributeUpdater!
 
     private let pointsRemainingLabel = LabelItem(title: "0")
@@ -26,8 +28,8 @@ final class CreateCharacterMenuScene: MenuScene {
     
     private let nextItem = ButtonItem(title: "Next")
     
-    init(size: CGSize) {
-        let menu = LabeledMenuBuilder()
+    override func getMenu() -> Menu {
+        return LabeledMenuBuilder()
             .withHeader(title: "New Character")
             .withEmptyRow()
             .withRow(title: "Hard Mode", item: ToggleItem(enabled: true))
@@ -43,17 +45,17 @@ final class CreateCharacterMenuScene: MenuScene {
                 FixedSpaceItem(),
                 self.nextItem,
                 ]).build()
+    }
+    
+    required init(size: CGSize, userInfo: [String : Any]) {
+        super.init(size: size, userInfo: userInfo)
         
-        super.init(size: size, configuration: DefaultMenuConfiguration(), menu: menu)
-        
-        self.backItem.onClick = { [unowned self] in
-            let scene = MainMenuScene(size: self.size)
-            self.view?.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))
+        self.backItem.onClick = {
+            try! ServiceLocator.shared.get(service: SceneManager.self).pop(to: MainMenuScene.self)
         }
         
-        self.nextItem.onClick = { [unowned self] in
-            let loadingScene = LoadingScene(size: self.size, configuration: DefaultMenuConfiguration(), dataLoader: DataLoader(view: self.view!))
-            self.view?.presentScene(loadingScene, transition: SKTransition.push(with: .left, duration: 0.5))
+        self.nextItem.onClick = {
+            try! ServiceLocator.shared.get(service: SceneManager.self).fade(to: LoadingScene.self)
         }
         
         self.attributeUpdater = AttributeUpdater(
@@ -105,33 +107,5 @@ final class CreateCharacterMenuScene: MenuScene {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
-    }
-}
-
-class DataLoader: DataLoaderProtocol {
-    private let view: SKView
-    
-    private var size: CGSize { return self.view.scene?.size ?? CGSize.zero }
-    
-    init(view: SKView) {
-        self.view = view
-    }
-    
-    func loadDataFinished() {
-        print("load data finished")
-        
-        let scene = GameScene(size: self.size)
-        self.view.presentScene(scene, transition: SKTransition.crossFade(withDuration: 0.5))
-    }
-        
-    func loadData(progress: @escaping (Float) -> ()) {
-        DispatchQueue.global(qos: .background).async {
-            for i in 0 ... 100 {
-                usleep(arc4random() % 800 + 800)
-                DispatchQueue.main.async {
-                    progress(Float(i) / 100)
-                }                
-            }
-        }
     }
 }

@@ -46,7 +46,9 @@ class FocusItemController {
     /// - Parameters:
     ///   - menuRowNodes: A MenuRowNode list for which we want to keep focus.
     ///   - parentNode: The node that maintains the MenuRowNode list.
-    init(menuRowNodes: [MenuRowNode], parentNode: SKNode) {
+    init(menuRowNodes: [MenuRowNode], parentNode: SKNode, delegate: FocusItemControllerDelegate? = nil) {
+        self.delegate = delegate
+        
         for menuRowNode in menuRowNodes {
             let interactableItems = menuRowNode.itemNodes.filter({ $0 is InputDeviceInteractable }) as! [InputDeviceInteractable]
             

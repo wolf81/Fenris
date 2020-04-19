@@ -8,15 +8,24 @@
 
 import SpriteKit
 
-open class MenuScene: SKScene {
+open class MenuSceneBase: SKScene, SceneManagerConstructable {
+    
+    /// Use this method to configure the menu items, this method must be implemented by subclasses.
+    open func getMenu() -> Menu { fatalError()}
+    
+    /// Use this method to configure the menu layout, this method must be implemented by subclasses.
+    open var configuration: MenuConfiguration { get { fatalError() } }
+    
     internal var focusItemController: FocusItemController!
     
-    internal var focusNode: FocusNode
+    internal var focusNode: FocusNode!
     
     private var menuRows: [MenuRowNode] = []
+        
+    private let userInfo: [String: Any]
     
     internal var menuItemNodes: [MenuItemNode] { return self.menuRows.compactMap({ $0.itemNodes }).reduce([], +) }
-    
+
     open override func didMove(to view: SKView) {
         super.didMove(to: view)
     
@@ -30,37 +39,23 @@ open class MenuScene: SKScene {
         })
     }
         
-    public init(size: CGSize, configuration: MenuConfiguration, menu: Menu) {
-        self.focusNode = FocusNode(strokeColor: configuration.focusRectColor)
+    open override func sceneDidLoad() {
+        super.sceneDidLoad()
+        
+        updateMenu()
+    }
+    
+    public required init(size: CGSize, userInfo: [String : Any]) {
+        self.userInfo = userInfo
+                
         super.init(size: size)
+                
+        self.focusNode = FocusNode(strokeColor: self.configuration.focusRectColor)
+        self.focusNode.zPosition = 1_000
 
-        let rowSize = CGSize(width: configuration.menuWidth, height: configuration.rowHeight)
-        
-        let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: configuration.titleFont)
-        self.menuRows.append(headerRow)
-
-        for menuItemRow in menu.listItems {
-            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: configuration.labelFont)
-            self.menuRows.append(menuRow)
-        }
-
-        let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: configuration.labelFont)
-        self.menuRows.append(footerRow)
-
-        let menuHeight = self.menuRows.reduce(0) { $0 + $1.frame.size.height }
-
-        var y = (size.height - menuHeight) / 2
-        let x = ((size.width - configuration.menuWidth) / 2)
-        for row in self.menuRows.reversed() {
-            addChild(row)
-            row.position = CGPoint(x: x, y: y)
-            y += row.frame.size.height
-        }
-
-        self.focusItemController = FocusItemController(menuRowNodes: self.menuRows, parentNode: self)
-        self.focusItemController.delegate = self
-        
         addChild(self.focusNode)
+        
+        self.focusItemController = FocusItemController(menuRowNodes: self.menuRows, parentNode: self, delegate: self)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -77,9 +72,40 @@ open class MenuScene: SKScene {
     fileprivate func hideFocusNode() {
         self.focusNode.isHidden = true
     }
+    
+    internal func updateMenu() {
+        let menu = getMenu()
+        
+        let rowSize = CGSize(width: self.configuration.menuWidth, height: self.configuration.rowHeight)
+        
+        let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: self.configuration.titleFont)
+        self.menuRows.append(headerRow)
+
+        for menuItemRow in menu.listItems {
+            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: self.configuration.labelFont)
+            self.menuRows.append(menuRow)
+        }
+
+        let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: self.configuration.labelFont)
+        self.menuRows.append(footerRow)
+
+        let menuHeight = self.menuRows.reduce(0) { $0 + $1.frame.size.height }
+
+        var y = (size.height - menuHeight) / 2
+        let x = ((size.width - self.configuration.menuWidth) / 2)
+        for row in self.menuRows.reversed() {
+            addChild(row)
+            row.position = CGPoint(x: x, y: y)
+            y += row.frame.size.height
+        }
+
+        self.focusItemController = FocusItemController(menuRowNodes: self.menuRows, parentNode: self, delegate: self)
+    }
 }
 
-extension MenuScene: InputDeviceInteractable {
+// MARK: - InputDeviceInteractable
+
+extension MenuSceneBase: InputDeviceInteractable {
     public func handleInput(action: GameControllerAction) {
         guard self.focusItemController.itemCount > 0 else {
             return
@@ -129,7 +155,9 @@ extension MenuScene: InputDeviceInteractable {
     }
 }
 
-extension MenuScene: FocusItemControllerDelegate {
+// MARK: - FocusItemControllerDelegate
+
+extension MenuSceneBase: FocusItemControllerDelegate {
     func focusItemController(_ controller: FocusItemController, didChangeFocusedItem focusItem: FocusItem?) {
         if focusItem == nil {
             hideFocusNode()
@@ -141,7 +169,7 @@ extension MenuScene: FocusItemControllerDelegate {
 
 #if os(macOS)
 
-extension MenuScene {
+extension MenuSceneBase {
     open override func mouseUp(with event: NSEvent) {
         guard
             let inputDeviceManager = try? ServiceLocator.shared.get(service: InputDeviceManager.self),

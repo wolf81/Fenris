@@ -87,9 +87,9 @@
 		79809E3822B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
 		79809E3922B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
 		79809E3A22B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
-		79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
-		79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
-		79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuScene.swift */; };
+		79809E3D22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuSceneBase.swift */; };
+		79809E3E22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuSceneBase.swift */; };
+		79809E3F22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3C22B4BCED008E4B49 /* MenuSceneBase.swift */; };
 		79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
 		79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
 		79809E4322B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
@@ -104,12 +104,6 @@
 		79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
 		79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* MenuItemTests.swift */; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		79D6DDFB244A07B700988938 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFA244A07B700988938 /* LoadingScene.swift */; };
-		79D6DDFC244A07B700988938 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFA244A07B700988938 /* LoadingScene.swift */; };
-		79D6DDFD244A07B700988938 /* LoadingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFA244A07B700988938 /* LoadingScene.swift */; };
-		79D6DDFF244A07C400988938 /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFE244A07C400988938 /* DataLoaderProtocol.swift */; };
-		79D6DE00244A07C400988938 /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFE244A07C400988938 /* DataLoaderProtocol.swift */; };
-		79D6DE01244A07C400988938 /* DataLoaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D6DDFE244A07C400988938 /* DataLoaderProtocol.swift */; };
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
 		79DE3E0522B8BC97000AA665 /* FontTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0422B8BC97000AA665 /* FontTests.swift */; };
 		79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */; };
@@ -125,6 +119,9 @@
 		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
+		79FC68E6244C256900E6D63C /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC68E5244C256900E6D63C /* SceneManager.swift */; };
+		79FC68E7244C256900E6D63C /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC68E5244C256900E6D63C /* SceneManager.swift */; };
+		79FC68E8244C256900E6D63C /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79FC68E5244C256900E6D63C /* SceneManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,7 +159,7 @@
 		79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
 		79809E2B22B39CE5008E4B49 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
 		79809E3722B4A617008E4B49 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
-		79809E3C22B4BCED008E4B49 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		79809E3C22B4BCED008E4B49 /* MenuSceneBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneBase.swift; sourceTree = "<group>"; };
 		79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedSpaceNode.swift; sourceTree = "<group>"; };
 		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowNode.swift; sourceTree = "<group>"; };
@@ -173,8 +170,6 @@
 		79C681FA21117860006E20D0 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681FC21117860006E20D0 /* Fenris_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_iOS.h; sourceTree = "<group>"; };
 		79C681FD21117860006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		79D6DDFA244A07B700988938 /* LoadingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScene.swift; sourceTree = "<group>"; };
-		79D6DDFE244A07C400988938 /* DataLoaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaderProtocol.swift; sourceTree = "<group>"; };
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
@@ -188,6 +183,7 @@
 		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
+		79FC68E5244C256900E6D63C /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,7 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				79809E5922B4DDF0008E4B49 /* Nodes */,
-				79809E3C22B4BCED008E4B49 /* MenuScene.swift */,
+				79809E3C22B4BCED008E4B49 /* MenuSceneBase.swift */,
 				794366AB22B50DE200AA62AF /* MenuBuilder.swift */,
 				794366AF22B50E0A00AA62AF /* MenuConfiguration.swift */,
 				79809E3722B4A617008E4B49 /* Menu.swift */,
@@ -371,6 +367,7 @@
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				79FC68E4244C255700E6D63C /* SceneManager */,
 				79D6DDF9244A079500988938 /* Loading */,
 				7939188222BA0B5800CE069C /* InputDevice */,
 				7939188122BA0B3C00CE069C /* ServiceLocator */,
@@ -394,8 +391,6 @@
 		79D6DDF9244A079500988938 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
-				79D6DDFA244A07B700988938 /* LoadingScene.swift */,
-				79D6DDFE244A07C400988938 /* DataLoaderProtocol.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -406,6 +401,14 @@
 				79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		79FC68E4244C255700E6D63C /* SceneManager */ = {
+			isa = PBXGroup;
+			children = (
+				79FC68E5244C256900E6D63C /* SceneManager.swift */,
+			);
+			path = SceneManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,7 +593,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D6DE00244A07C400988938 /* DataLoaderProtocol.swift in Sources */,
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
@@ -607,6 +609,7 @@
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
+				79FC68E7244C256900E6D63C /* SceneManager.swift in Sources */,
 				797DBFCE22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
 				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
@@ -618,8 +621,7 @@
 				794366CC22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				796B708622BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
-				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
-				79D6DDFC244A07B700988938 /* LoadingScene.swift in Sources */,
+				79809E3E22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */,
 				79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				794366B922B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				796B708E22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
@@ -631,7 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D6DE01244A07C400988938 /* DataLoaderProtocol.swift in Sources */,
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
@@ -648,6 +649,7 @@
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
+				79FC68E8244C256900E6D63C /* SceneManager.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
@@ -658,9 +660,8 @@
 				796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				796B708722BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
-				79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */,
+				79809E3F22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */,
 				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
-				79D6DDFD244A07B700988938 /* LoadingScene.swift in Sources */,
 				794366BA22B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4322B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				796B708F22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
@@ -692,7 +693,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79D6DDFF244A07C400988938 /* DataLoaderProtocol.swift in Sources */,
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
@@ -709,6 +709,7 @@
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
+				79FC68E6244C256900E6D63C /* SceneManager.swift in Sources */,
 				797DBFCD22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,
@@ -720,8 +721,7 @@
 				794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				796B708522BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
-				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,
-				79D6DDFB244A07B700988938 /* LoadingScene.swift in Sources */,
+				79809E3D22B4BCED008E4B49 /* MenuSceneBase.swift in Sources */,
 				794366B822B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				796B708D22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,

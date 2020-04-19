@@ -17,12 +17,14 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         if let view = self.skView {
-            let scene = MainMenuScene(size: self.view.bounds.size)
-                        
-            view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true
+
+            let sceneManager = SceneManager(view: view)
+            try! ServiceLocator.shared.add(service: sceneManager)
         }
+        
+        try! ServiceLocator.shared.get(service: SceneManager.self).fade(to: MainMenuScene.self)
     }    
 }

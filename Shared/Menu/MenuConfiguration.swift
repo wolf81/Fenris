@@ -19,5 +19,13 @@ public protocol MenuConfiguration {
 }
 
 public extension MenuConfiguration {
-    var focusRectColor: SKColor { return SKColor.yellow }
+    var menuWidth: CGFloat { 400 }
+    
+    var rowHeight: CGFloat { 40 }
+
+    var titleFont: Font { Font(name: "Helvetica", size: 20)! }
+
+    var labelFont: Font { Font(name: "Helvetica", size: 16)! }
+    
+    var focusRectColor: SKColor { SKColor.yellow }
 }

@@ -7,11 +7,20 @@
 //
 
 import Fenris
-import CoreGraphics
+import SpriteKit
 
 class DefaultMenuConfiguration: MenuConfiguration {
-    var titleFont: Font { return Font(name: "Papyrus", size: 22)! }
-    var labelFont: Font { return Font(name: "Papyrus", size: 18)! }
-    var menuWidth: CGFloat { return 460 }
-    var rowHeight: CGFloat { return 40 }
+    var titleFont: Font { Font(name: "Papyrus", size: 22)! }
+    
+    var labelFont: Font { Font(name: "Papyrus", size: 18)! }
+    
+    var menuWidth: CGFloat { 460 }
+    
+    var rowHeight: CGFloat { 40 }
+    
+    var focusRectColor: SKColor { SKColor.yellow }
+    
+    private init() {}
+    
+    public static let shared = DefaultMenuConfiguration()
 }
