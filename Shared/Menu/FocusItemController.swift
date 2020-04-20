@@ -63,7 +63,7 @@ class FocusItemController {
                 for interactableItem in interactableItems {
                     let origin = menuRowNode.convert(interactableItem.frame.origin, to: parentNode)
                     let size = interactableItem.frame.size
-                    let focusItem = FocusItem(frame: CGRect(origin: origin, size: size), interactableNode: interactableItem)
+                    let focusItem = FocusItem(frame: CGRect(origin: CGPoint(x: origin.x + 1.4, y: origin.y + 1.4), size: CGSize(width: size.width - 2.8, height: size.height - 2.8)), interactableNode: interactableItem)
                     section.append(focusItem)
                 }
                 self.sections.append(section)

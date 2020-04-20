@@ -25,7 +25,7 @@ final class CreateCharacterMenuScene: MenuSceneBase {
         print("new value: \(newValue)")
     })
     private let backItem = ButtonItem(title: "Back")
-    
+
     private let nextItem = ButtonItem(title: "Next")
     
     override func getMenu() -> Menu {
@@ -42,7 +42,6 @@ final class CreateCharacterMenuScene: MenuSceneBase {
             .withEmptyRow()
             .withFooter(items: [
                 self.backItem,
-                FixedSpaceItem(),
                 self.nextItem,
                 ]).build()
     }

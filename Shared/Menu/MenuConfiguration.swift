@@ -16,6 +16,7 @@ public protocol MenuConfiguration {
     var titleFont: Font { get }
     var labelFont: Font { get }
     var focusRectColor: SKColor { get }
+    var footerMinimumHorizontalSpacing: CGFloat { get }
 }
 
 public extension MenuConfiguration {
@@ -27,5 +28,7 @@ public extension MenuConfiguration {
 
     var labelFont: Font { Font(name: "Helvetica", size: 16)! }
     
+    var footerMinimumHorizontalSpacing: CGFloat { 5 }
+
     var focusRectColor: SKColor { SKColor.yellow }
 }

@@ -66,6 +66,11 @@ open class MenuSceneBase: SKScene, SceneManagerConstructable {
         guard let focusItem = self.focusItemController.focusedItem else { return }
 
         self.focusNode.isHidden = false
+        
+        if focusItem.interactableNode.parent is MenuFooterNode {
+            print("in footer")
+        }
+        
         self.focusNode.path = CGPath(rect: focusItem.frame, transform: nil)
     }
 
@@ -78,15 +83,15 @@ open class MenuSceneBase: SKScene, SceneManagerConstructable {
         
         let rowSize = CGSize(width: self.configuration.menuWidth, height: self.configuration.rowHeight)
         
-        let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: self.configuration.titleFont)
+        let headerRow = MenuRowNode(size: rowSize, items: menu.headerItems, font: self.configuration.titleFont, footerMinimumHorizontalSpacing: self.configuration.footerMinimumHorizontalSpacing)
         self.menuRows.append(headerRow)
 
         for menuItemRow in menu.listItems {
-            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: self.configuration.labelFont)
+            let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: self.configuration.labelFont, footerMinimumHorizontalSpacing: self.configuration.footerMinimumHorizontalSpacing)
             self.menuRows.append(menuRow)
         }
 
-        let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: self.configuration.labelFont)
+        let footerRow = MenuRowNode(size: rowSize, items: menu.footerItems, font: self.configuration.labelFont, footerMinimumHorizontalSpacing: self.configuration.footerMinimumHorizontalSpacing)
         self.menuRows.append(footerRow)
 
         let menuHeight = self.menuRows.reduce(0) { $0 + $1.frame.size.height }
