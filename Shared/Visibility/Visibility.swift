@@ -34,7 +34,7 @@ final public class RaycastVisibility: Visibility {
     ///   - blocksLight: A block method that determines if a coordinate blocks a light (e.g. a wall would return true, an open area would return false).
     ///   - setVisible: A block method that is used to make a coordinate visibile.
     ///   - getDistance: Calculate the distance between 2 coordinates, which is used to determine if a coordinate is in the visibility range limit.
-    init(mapSize: CGSize,
+    public init(mapSize: CGSize,
          blocksLight: @escaping (vector_int2) -> (Bool),
          setVisible: @escaping (vector_int2) -> (),
          getDistance: @escaping (vector_int2, vector_int2) -> Int)  {
