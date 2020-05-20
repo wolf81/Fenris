@@ -6,7 +6,7 @@
 //  Copyright © 2020 Wolftrail. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 import simd
 
 // Code is based on the algorithm described here:
