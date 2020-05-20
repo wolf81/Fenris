@@ -140,16 +140,16 @@ class FocusItemControllerTests: XCTestCase {
             let menuWidth: CGFloat = 100
             let rowSize = CGSize(width: menuWidth, height: 30)
             
-            self.headerNode = MenuRowNode(size: rowSize, items: menu.headerItems, font: font)
+            self.headerNode = MenuRowNode(size: rowSize, items: menu.headerItems, font: font, footerMinimumHorizontalSpacing: 5)
             
             var listRows: [MenuRowNode] = []
             for menuItemRow in menu.listItems {
-                let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: font)
+                let menuRow = MenuRowNode(size: rowSize, items: menuItemRow, font: font, footerMinimumHorizontalSpacing: 5)
                 listRows.append(menuRow)
             }
             self.listRowNodes = listRows
             
-            self.footerRowNode = MenuRowNode(size: rowSize, items: menu.footerItems, font: font)
+            self.footerRowNode = MenuRowNode(size: rowSize, items: menu.footerItems, font: font, footerMinimumHorizontalSpacing: 5)
             
             super.init(size: size)
 
