@@ -128,10 +128,6 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         if self.state.contains(.disabled) { return }
 
         updateForState()
-        
-        if self.isSelected {
-            self.onSelected?(self)
-        }
     }
     
     func updateForState() {
@@ -148,11 +144,11 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
 
             let fadeInOut = SKAction.sequence([
                 SKAction.fadeIn(withDuration: 0.1),
-                SKAction.wait(forDuration: 0.1),
                 SKAction.fadeOut(withDuration: 0.1),
                 SKAction.run { [unowned self] in
                     sprite.removeFromParent()
                     self.isSelected = false
+                    self.onSelected?(self)
                 }
             ])
             sprite.run(fadeInOut)

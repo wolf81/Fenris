@@ -49,8 +49,7 @@ open class InteractableScene: SKScene {
 
         for node in nodes {
             if let highlightable = node as? Highlightable {
-                highlightable.isHighlighted = highlightable.contains(location)
-                
+                highlightable.isHighlighted = true
                 self.highlightedNodes.insert(highlightable)
             }
         }
@@ -69,7 +68,7 @@ open class InteractableScene: SKScene {
         
         for node in self.nodes(at: location) {
             if let highlightable = node as? Highlightable {
-                highlightable.isHighlighted = highlightable.contains(location)
+                highlightable.isHighlighted = true
                 
                 self.highlightedNodes.insert(highlightable)
             }
@@ -96,7 +95,7 @@ open class InteractableScene: SKScene {
 
         for node in nodes {
             if let selectable = node as? Selectable {
-                selectable.isSelected = selectable.contains(location)
+                selectable.isSelected = true
                 selectable.isHighlighted = false
             }
         }

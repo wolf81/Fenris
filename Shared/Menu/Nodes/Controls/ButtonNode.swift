@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class ButtonNode: SKShapeNode, MenuItemNode {
+class ButtonNode: SKShapeNode, MenuItemNode, CustomStringConvertible {
     let item: MenuItem
     
     private var buttonItem: ButtonItem { return self.item as! ButtonItem }
