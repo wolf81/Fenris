@@ -22,8 +22,6 @@ public class GridNode: SKSpriteNode {
         }
     }
     
-    var contentSize: CGSize = .zero
-    
     public init(color: SKColor, size: CGSize) {
         super.init(texture: nil, color: color, size: size)
         
