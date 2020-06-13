@@ -17,12 +17,24 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         if let view = self.skView {
-            let scene = MainMenuScene(size: self.view.bounds.size)
-                        
+            let scene = GridScene(size: self.view.bounds.size)
+//            let scene = MainMenuScene(size: self.view.bounds.size)
+            
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true
         }
-    }    
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        self.view.window?.acceptsMouseMovedEvents = true
+    }
+    
+    override func mouseMoved(with event: NSEvent) {
+        super.mouseMoved(with: event)
+        print("moved")
+    }
 }

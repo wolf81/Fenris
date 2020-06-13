@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7918D8B52493E0E1002E81D9 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8B42493E0E1002E81D9 /* GridNode.swift */; };
+		7918D8B62493E0E1002E81D9 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8B42493E0E1002E81D9 /* GridNode.swift */; };
+		7918D8B72493E0E1002E81D9 /* GridNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8B42493E0E1002E81D9 /* GridNode.swift */; };
+		7918D8BB2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */; };
+		7918D8BC2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */; };
+		7918D8BD2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */; };
+		7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
+		7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
+		7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
@@ -85,9 +94,6 @@
 		79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
 		79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
 		79809E4322B4C507008E4B49 /* FixedSpaceNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4022B4C507008E4B49 /* FixedSpaceNode.swift */; };
-		79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
-		79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
-		79809E4722B4C72D008E4B49 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4422B4C72D008E4B49 /* ButtonNode.swift */; };
 		79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
 		79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
 		79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */; };
@@ -111,9 +117,24 @@
 		79E39C0D22BCF061005E491C /* SKLabelNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */; };
 		79EA8D692114B95D0072CBBE /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D672114B95D0072CBBE /* Font.swift */; };
 		79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */; };
+		79EE254024946E5F00D85135 /* Highlightable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE253F24946E5F00D85135 /* Highlightable.swift */; };
+		79EE254124946E5F00D85135 /* Highlightable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE253F24946E5F00D85135 /* Highlightable.swift */; };
+		79EE254224946E5F00D85135 /* Highlightable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE253F24946E5F00D85135 /* Highlightable.swift */; };
+		79EE25482494CBD100D85135 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25472494CBD100D85135 /* Selectable.swift */; };
+		79EE25492494CBD100D85135 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25472494CBD100D85135 /* Selectable.swift */; };
+		79EE254A2494CBD100D85135 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25472494CBD100D85135 /* Selectable.swift */; };
+		79EE254C2494D61F00D85135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EE254B2494D61F00D85135 /* Assets.xcassets */; };
+		79EE254D2494D61F00D85135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EE254B2494D61F00D85135 /* Assets.xcassets */; };
+		79EE254E2494D61F00D85135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79EE254B2494D61F00D85135 /* Assets.xcassets */; };
+		79EE25552494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
+		79EE25562494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
+		79EE25572494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7918D8B42493E0E1002E81D9 /* GridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
+		7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringConvertibleExtensions.swift; sourceTree = "<group>"; };
+		7918D8BE2493F702002E81D9 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +188,10 @@
 		79E39C0C22BCF061005E491C /* SKLabelNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeTests.swift; sourceTree = "<group>"; };
 		79EA8D672114B95D0072CBBE /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKLabelNodeExtensions.swift; sourceTree = "<group>"; };
+		79EE253F24946E5F00D85135 /* Highlightable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlightable.swift; sourceTree = "<group>"; };
+		79EE25472494CBD100D85135 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		79EE254B2494D61F00D85135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		79EE25542494F6BD00D85135 /* InteractableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +226,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7918D8B32493E0AA002E81D9 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				7918D8B42493E0E1002E81D9 /* GridNode.swift */,
+				7918D8BE2493F702002E81D9 /* ButtonNode.swift */,
+				79EE253F24946E5F00D85135 /* Highlightable.swift */,
+				79EE25472494CBD100D85135 /* Selectable.swift */,
+				79EE25542494F6BD00D85135 /* InteractableScene.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		792D427B21E20A0E00D438F1 /* Fenris tvOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +339,7 @@
 		79C681C92111761B006E20D0 = {
 			isa = PBXGroup;
 			children = (
+				79EE254B2494D61F00D85135 /* Assets.xcassets */,
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
 				79C681FB21117860006E20D0 /* Fenris iOS */,
@@ -345,6 +383,7 @@
 		79C681ED21117621006E20D0 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7918D8B32493E0AA002E81D9 /* Controls */,
 				7939188222BA0B5800CE069C /* InputDevice */,
 				7939188122BA0B3C00CE069C /* ServiceLocator */,
 				79809E0022B22907008E4B49 /* Menu */,
@@ -368,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */,
+				7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -523,6 +563,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE254D2494D61F00D85135 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +571,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE254E2494D61F00D85135 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +586,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79EE254C2494D61F00D85135 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +598,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
+				7918D8BC2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
+				79EE25562494F6BD00D85135 /* InteractableScene.swift in Sources */,
+				7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
@@ -563,11 +609,13 @@
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BD22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				794366AD22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				7918D8B62493E0E1002E81D9 /* GridNode.swift in Sources */,
 				79E2CE6522BF43F900446F70 /* FocusItemController.swift in Sources */,
 				79809E1322B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
+				79EE25492494CBD100D85135 /* Selectable.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCE22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
@@ -582,8 +630,8 @@
 				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				79809E4222B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
 				794366B922B5CBF300AA62AF /* MenuItem.swift in Sources */,
+				79EE254124946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708E22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
-				79809E4622B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,6 +640,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
+				7918D8BD2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
+				79EE25572494F6BD00D85135 /* InteractableScene.swift in Sources */,
+				7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
@@ -600,11 +651,13 @@
 				794366BE22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				79809E1422B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AE22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				7918D8B72493E0E1002E81D9 /* GridNode.swift in Sources */,
 				79E2CE6622BF43F900446F70 /* FocusItemController.swift in Sources */,
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
+				79EE254A2494CBD100D85135 /* Selectable.swift in Sources */,
 				797DBFCF22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
@@ -619,8 +672,8 @@
 				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				794366BA22B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4322B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
+				79EE254224946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708F22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
-				79809E4722B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +700,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
+				7918D8BB2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
+				79EE25552494F6BD00D85135 /* InteractableScene.swift in Sources */,
+				7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
@@ -655,11 +711,13 @@
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
 				79809E1222B26D6A008E4B49 /* TextChooserNode.swift in Sources */,
 				794366AC22B50DE200AA62AF /* MenuBuilder.swift in Sources */,
+				7918D8B52493E0E1002E81D9 /* GridNode.swift in Sources */,
 				79E2CE6422BF43F800446F70 /* FocusItemController.swift in Sources */,
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
+				79EE25482494CBD100D85135 /* Selectable.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
 				797DBFCD22B3879000D0F8E7 /* NumberChooserNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
@@ -674,8 +732,8 @@
 				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				794366B822B5CBF300AA62AF /* MenuItem.swift in Sources */,
 				79809E4122B4C507008E4B49 /* FixedSpaceNode.swift in Sources */,
+				79EE254024946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708D22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
-				79809E4522B4C72D008E4B49 /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,6 +1031,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -998,6 +1057,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = net.wolftrail.Fenris;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

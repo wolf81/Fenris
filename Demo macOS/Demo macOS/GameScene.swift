@@ -18,7 +18,7 @@ class GameScene: InputDeviceInteractableScene {
         default: break
         }
     }
-    
+        
     override func updateForInputDevice(_ scheme: InputDeviceScheme) {
         print("new input device scheme: \(scheme)")
     }
