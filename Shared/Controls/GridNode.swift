@@ -15,7 +15,9 @@ public protocol GridNodeDelegate: class {
     func gridNode(_ gridNode: GridNode, heightForRow row: Int) -> CGFloat
 }
 
-public class GridNode: SKSpriteNode {
+public class GridNode: ScrollNode {
+    private var content: SKSpriteNode
+    
     public weak var delegate: GridNodeDelegate? {
         didSet {
             reloadData()
@@ -23,9 +25,9 @@ public class GridNode: SKSpriteNode {
     }
     
     public init(color: SKColor, size: CGSize) {
-        super.init(texture: nil, color: color, size: size)
+        self.content = SKSpriteNode(color: .clear, size: size)
         
-        self.anchorPoint = CGPoint.zero
+        super.init(texture: nil, color: color, size: size)
     }
         
     public required init?(coder aDecoder: NSCoder) {
@@ -41,20 +43,20 @@ public class GridNode: SKSpriteNode {
         for i in (0 ..< rowCount) {
             height += delegate.gridNode(self, heightForRow: i)
         }
-                
+                        
         var n: Int = 0
-        var y: CGFloat = self.size.height
+        var y: CGFloat = self.size.height / 2
         for i in (0 ..< rowCount) {
             let rowItemCount = delegate.gridNode(self, numberOfItemsInRow: i)
             let itemWidth = floor(self.size.width / CGFloat(rowItemCount))
             let itemHeight = delegate.gridNode(self, heightForRow: i)
 
-            var x: CGFloat = itemWidth / 2
+            var x: CGFloat = 0
 
             for _ in 0 ..< rowItemCount {
                 let node = delegate.gridNode(self, nodeForItemAtIndex: n)
 
-                self.addChild(node)
+                self.content.addChild(node)
                 
                 switch node {
                 case _ where node is SKSpriteNode:
@@ -70,5 +72,9 @@ public class GridNode: SKSpriteNode {
             
             y -= itemHeight
         }
+        
+        addContent(sprite: self.content)
+        
+        self.contentHeight = height
     }
 }

@@ -31,9 +31,9 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     public var isEnabled: Bool = true {
         didSet {
             if self.isEnabled {
-                self.state.remove(.disabled)
+                self.state = .default
             } else {
-                self.state.insert(.disabled)
+                self.state = .disabled
             }
             
             updateForState()
@@ -160,6 +160,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             self.texture = self.textureInfo[.highlighted]
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
+                self.texture = self.textureInfo[.default]
                 return self.alpha = 0.5
             }
             self.texture = texture

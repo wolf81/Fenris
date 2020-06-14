@@ -21,8 +21,25 @@ public class ScrollNode: SKSpriteNode {
     private let upButton: ButtonNode
     private let downButton: ButtonNode
     
-    private var contentHeight: CGFloat = 0
+    public var contentHeight: CGFloat = 0 {
+        didSet {
+            guard let sprite = self.cropNode.children.first as? SKSpriteNode else { return }
+            
+            sprite.run(SKAction.resize(toHeight: self.contentHeight, duration: 0))
+
+            self.contentY = self.contentHeight - self.size.height / 2
+            
+            self.setScrollbarVisible(self.contentHeight > self.size.height)
+        }
+    }
     
+    public private(set) var contentY: CGFloat = 0 {
+        didSet {
+            didScroll()
+            updateLayout()
+        }
+    }
+
     private var scrollTimer: Timer?
 
     private var scrollDirection: ScrollDirection = .none {
@@ -36,17 +53,18 @@ public class ScrollNode: SKSpriteNode {
                 self.scrollTimer = Timer.scheduledTimer(timeInterval: 0.005, target: self, selector: #selector(ScrollNode.performAutoscroll), userInfo: nil, repeats: true)
             }
         }
-    }
-    
-    private var contentY: CGFloat = 0
+    }    
 
     public func addContent(sprite: SKSpriteNode) {
         self.contentHeight = sprite.size.height
-        self.contentY = self.content.size.height
         
-        sprite.anchorPoint = CGPoint(x: 0, y: 1)
-        sprite.position = CGPoint(x: 0, y: self.contentY)
+//        sprite.position = CGPoint(x: sprite.size.width / 2, y: self.contentY)
         self.cropNode.addChild(sprite)
+        
+        let y = max(self.contentY, self.size.height / 2)
+        self.contentY = y
+        
+        updateLayout()
     }
     
     public override init(texture: SKTexture?, color: NSColor, size: CGSize) {
@@ -55,42 +73,49 @@ public class ScrollNode: SKSpriteNode {
         self.cropNode = SKCropNode()
         self.contentHeight = size.height
         
-        let contentSize = CGSize(width: size.width - buttonSize.width, height: size.height)
+        let contentSize = CGSize(width: size.width, height: size.height)
         self.content = SKSpriteNode(texture: nil, color: .lightGray, size: contentSize)
-        self.scrollbar = SKSpriteNode(texture: nil, color: .orange, size: CGSize(width: buttonSize.width, height: size.height - buttonSize.height * 2))
+        self.scrollbar = SKSpriteNode(color: SKColor.black.withAlphaComponent(0.5), size: CGSize(width: buttonSize.width, height: size.height))
         self.upButton = ButtonNode(title: "u", size: buttonSize)
         self.downButton = ButtonNode(title: "d", size: buttonSize)
         
         super.init(texture: texture, color: color, size: size)
+        
+        self.anchorPoint = .zero
         
         self.content.anchorPoint = .zero
         self.content.position = .zero
         addChild(self.content)
         
         self.scrollbar.anchorPoint = CGPoint.zero
-        self.scrollbar.position = CGPoint(x: size.width - self.scrollbar.size.width, y: buttonSize.height)
+        self.scrollbar.position = CGPoint(x: size.width - self.scrollbar.size.width, y: 0)
+        self.scrollbar.zPosition = 1000
         addChild(self.scrollbar)
         
         self.upButton.onHighlighted = scrollUp(buttonNode:)
         self.upButton.onSelected = cancelScroll(buttonNode:)
-        self.upButton.position = CGPoint(x: size.width - buttonSize.width / 2, y: size.height - buttonSize.height / 2)
-        addChild(upButton)
+        self.upButton.position = CGPoint(x: buttonSize.width / 2, y: size.height - buttonSize.height / 2)
+        self.scrollbar.addChild(self.upButton)
         
-        self.downButton.position = CGPoint(x: size.width - buttonSize.width / 2, y: buttonSize.height / 2)
+        self.downButton.position = CGPoint(x: buttonSize.width / 2, y: buttonSize.height / 2)
         self.downButton.onSelected = cancelScroll(buttonNode:)
         self.downButton.onHighlighted = scrollDown(buttonNode:)
-        addChild(self.downButton)
+        self.scrollbar.addChild(self.downButton)
         
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
         
-        setScrollbarVisible(false)
+        setScrollbarVisible(true)
     }
-    
+        
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
     
+    open func didScroll() {
+        
+    }
+
     private func cancelScroll(buttonNode: ButtonNode) {
         self.scrollDirection = .none
     }
@@ -104,7 +129,7 @@ public class ScrollNode: SKSpriteNode {
         print("down")
         self.scrollDirection = .down
     }
-    
+        
     private func setScrollbarVisible(_ isVisible: Bool) {
         self.upButton.alpha = isVisible ? 1.0 : 0.0
         self.downButton.alpha = isVisible ? 1.0 : 0.0
@@ -115,9 +140,13 @@ public class ScrollNode: SKSpriteNode {
         DispatchQueue.main.async { [unowned self] in
             switch self.scrollDirection {
             case .down:
-                self.contentY = min(self.contentY + 1, self.contentHeight)
+                let y = min(self.contentY + 1, max(self.size.height / 2, self.contentHeight / 2))
+                if self.downButton.isEnabled == false { self.scrollDirection = .none }
+                self.contentY = y
             case .up:
-                self.contentY = max(self.contentY - 1, self.content.size.height)
+                let y = max(self.contentY - 1, self.size.height / 2)
+                if self.upButton.isEnabled == false { self.scrollDirection = .none }
+                self.contentY = y
             default: break
             }
             self.updateLayout()
@@ -125,8 +154,11 @@ public class ScrollNode: SKSpriteNode {
     }
     
     private func updateLayout() {
-        guard let childNode = self.cropNode.children.first else { return }
+        guard let childNode = self.cropNode.children.first as? SKSpriteNode else { return }
         
-        childNode.position = CGPoint(x: 0, y: self.contentY)
+        self.upButton.isEnabled = self.contentY != self.size.height / 2
+        self.downButton.isEnabled = self.contentY != max(self.size.height / 2, self.contentHeight / 2)
+
+        childNode.position = CGPoint(x: childNode.size.width / 2, y: self.contentY)
     }
 }

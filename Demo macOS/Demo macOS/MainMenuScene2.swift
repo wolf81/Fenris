@@ -27,7 +27,7 @@ class MainMenuScene2: InteractableScene {
         let sprite = SKSpriteNode(texture: texture)
         self.scrollNode.addContent(sprite: sprite)
         
-        self.scrollNode.anchorPoint = .zero
+//        self.scrollNode.anchorPoint = .zero
         self.scrollNode.position = CGPoint(x: 10, y: 10)
         addChild(self.scrollNode)
 
