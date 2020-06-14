@@ -14,11 +14,23 @@ class MainMenuScene2: InteractableScene {
     let settingsButton = ButtonNode(title: "Settings", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showSettings() })
     let quitButton = ButtonNode(title: "Quit", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.quit() })
     
+    let scrollNode: ScrollNode
+
     var menuNodes: [SKNode] { [self.newGameButton, self.settingsButton, self.quitButton] }
     
     override init(size: CGSize) {
+        self.scrollNode = ScrollNode(texture: nil, color: .brown, size: CGSize(width: 200, height: 200))
+
         super.init(size: size)
+
+        let texture = SKTexture(noiseWithSmoothness: 0.6, size: CGSize(width: 200, height: 1000), grayscale: false)
+        let sprite = SKSpriteNode(texture: texture)
+        self.scrollNode.addContent(sprite: sprite)
         
+        self.scrollNode.anchorPoint = .zero
+        self.scrollNode.position = CGPoint(x: 10, y: 10)
+        addChild(self.scrollNode)
+
         let grid = GridNode(color: .gray, size: CGSize(width: 200, height: 180))
         grid.delegate = self
         addChild(grid)

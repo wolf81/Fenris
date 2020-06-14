@@ -129,6 +129,9 @@
 		79EE25552494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
 		79EE25562494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
 		79EE25572494F6BD00D85135 /* InteractableScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25542494F6BD00D85135 /* InteractableScene.swift */; };
+		79EE25592495975C00D85135 /* ScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25582495975C00D85135 /* ScrollNode.swift */; };
+		79EE255A2495975C00D85135 /* ScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25582495975C00D85135 /* ScrollNode.swift */; };
+		79EE255B2495975C00D85135 /* ScrollNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25582495975C00D85135 /* ScrollNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,6 +195,7 @@
 		79EE25472494CBD100D85135 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		79EE254B2494D61F00D85135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79EE25542494F6BD00D85135 /* InteractableScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractableScene.swift; sourceTree = "<group>"; };
+		79EE25582495975C00D85135 /* ScrollNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +238,7 @@
 				79EE253F24946E5F00D85135 /* Highlightable.swift */,
 				79EE25472494CBD100D85135 /* Selectable.swift */,
 				79EE25542494F6BD00D85135 /* InteractableScene.swift */,
+				79EE25582495975C00D85135 /* ScrollNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707E22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CC22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
+				79EE255A2495975C00D85135 /* ScrollNode.swift in Sources */,
 				796B708622BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				79809E3E22B4BCED008E4B49 /* MenuScene.swift in Sources */,
@@ -667,6 +673,7 @@
 				794366CD22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
+				79EE255B2495975C00D85135 /* ScrollNode.swift in Sources */,
 				796B708722BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E3F22B4BCED008E4B49 /* MenuScene.swift in Sources */,
 				792D42C621E2115F00D438F1 /* SKLabelNodeExtensions.swift in Sources */,
@@ -727,6 +734,7 @@
 				79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707D22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
+				79EE25592495975C00D85135 /* ScrollNode.swift in Sources */,
 				796B708522BC5F880033EBB7 /* InputDeviceManager.swift in Sources */,
 				79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
 				79809E3D22B4BCED008E4B49 /* MenuScene.swift in Sources */,

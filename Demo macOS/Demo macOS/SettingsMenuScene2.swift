@@ -14,12 +14,12 @@ class SettingsMenuScene2: InteractableScene {
     let musicLabel = SKLabelNode(text: "Music")
     let musicButton = ButtonNode(title: "On", size: CGSize(width: 100, height: 50))
     let backButton = ButtonNode(title: "Back", size: CGSize(width: 200, height: 50))
-    
+        
     var nodes: [SKNode] { [self.titleLabel, self.musicLabel, self.musicButton , self.backButton] }
     
     override init(size: CGSize) {
         super.init(size: size)
-                
+        
         let grid = GridNode(color: .gray, size: CGSize(width: 200, height: 180))
         grid.delegate = self        
         addChild(grid)

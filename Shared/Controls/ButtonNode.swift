@@ -45,6 +45,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private var textureInfo: [ControlState: SKTexture] = [:]
     
     public var onSelected: ((ButtonNode) -> ())?
+    
+    public var onHighlighted: ((ButtonNode) -> ())?
         
     public var item: MenuItem = LabelItem(title: "bla")
             
@@ -134,7 +136,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         switch self.state {
         case _ where state.contains(.selected):
             guard self.childNode(withName: SpriteKey.selected) == nil else { return }
-            
+                        
             let texture = self.textureInfo[.selected]
             let sprite = SKSpriteNode(texture: texture, color: color, size: size)
             sprite.centerRect = self.centerRect
@@ -153,6 +155,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             ])
             sprite.run(fadeInOut)
         case _ where state.contains(.highlighted):
+            self.onHighlighted?(self)
+
             self.texture = self.textureInfo[.highlighted]
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
