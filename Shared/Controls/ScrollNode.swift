@@ -8,18 +8,24 @@
 
 import SpriteKit
 
-public class ScrollNode: SKSpriteNode {
+public class ScrollNode: SKSpriteNode, Highlightable {
     enum ScrollDirection {
         case up
         case down
         case none
     }
     
+    public var isHighlighted: Bool = false {
+        didSet {
+            toggleScrollbarVisibility()
+        }
+    }
+    
     private let cropNode: SKCropNode
     private let content: SKSpriteNode
-    private let scrollbar: SKSpriteNode
-    private let upButton: ButtonNode
-    private let downButton: ButtonNode
+    private let scrollbar: ScrollbarNode
+//    private let upButton: ButtonNode
+//    private let downButton: ButtonNode
     
     public var contentHeight: CGFloat = 0 {
         didSet {
@@ -75,9 +81,7 @@ public class ScrollNode: SKSpriteNode {
                 
         let contentSize = CGSize(width: size.width, height: size.height)
         self.content = SKSpriteNode(texture: nil, color: color, size: contentSize)
-        self.scrollbar = SKSpriteNode(color: SKColor.black.withAlphaComponent(0.5), size: CGSize(width: buttonSize.width, height: size.height))
-        self.upButton = ButtonNode(title: "▲", size: buttonSize)        
-        self.downButton = ButtonNode(title: "▼", size: buttonSize)
+        self.scrollbar = ScrollbarNode(texture: nil, color: SKColor.black.withAlphaComponent(0.5), size: CGSize(width: buttonSize.width, height: size.height))
         
         super.init(texture: texture, color: color, size: size)
         
@@ -92,18 +96,13 @@ public class ScrollNode: SKSpriteNode {
         self.scrollbar.zPosition = 1000
         addChild(self.scrollbar)
         
-        self.upButton.onStateChanged = scrollUp(buttonNode:)
-        self.upButton.position = CGPoint(x: buttonSize.width / 2, y: size.height - buttonSize.height / 2)
-        self.scrollbar.addChild(self.upButton)
-        
-        self.downButton.position = CGPoint(x: buttonSize.width / 2, y: buttonSize.height / 2)
-        self.downButton.onStateChanged = scrollDown(buttonNode:)
-        self.scrollbar.addChild(self.downButton)
+        self.scrollbar.upButton.onStateChanged = scrollUp(buttonNode:)
+        self.scrollbar.downButton.onStateChanged = scrollDown(buttonNode:)
         
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
         
-        setScrollbarVisible(true)
+        setScrollbarVisible(false)
     }
         
     public required init?(coder aDecoder: NSCoder) {
@@ -139,11 +138,11 @@ public class ScrollNode: SKSpriteNode {
             switch self.scrollDirection {
             case .down:
                 let y = min(self.contentY + 1, max(self.size.height / 2, self.contentHeight / 2))
-                if self.downButton.isEnabled == false { self.scrollDirection = .none }
+                if self.scrollbar.downButton.isEnabled == false { self.scrollDirection = .none }
                 self.contentY = y
             case .up:
                 let y = max(self.contentY - 1, self.size.height / 2)
-                if self.upButton.isEnabled == false { self.scrollDirection = .none }
+                if self.scrollbar.upButton.isEnabled == false { self.scrollDirection = .none }
                 self.contentY = y
             default: break
             }
@@ -154,9 +153,19 @@ public class ScrollNode: SKSpriteNode {
     private func updateLayout() {
         guard let childNode = self.cropNode.children.first as? SKSpriteNode else { return }
         
-        self.upButton.isEnabled = self.contentY != self.size.height / 2
-        self.downButton.isEnabled = self.contentY != max(self.size.height / 2, self.contentHeight / 2)
+        self.scrollbar.upButton.isEnabled = self.contentY != self.size.height / 2
+        self.scrollbar.downButton.isEnabled = self.contentY != max(self.size.height / 2, self.contentHeight / 2)
 
         childNode.position = CGPoint(x: childNode.size.width / 2, y: self.contentY)
+    }
+    
+    private func toggleScrollbarVisibility() {
+        guard self.contentHeight > self.size.height else { return }
+
+        if self.isHighlighted {
+            self.scrollbar.run(SKAction.fadeIn(withDuration: 0.1))
+        } else {
+            self.scrollbar.run(SKAction.fadeOut(withDuration: 0.1))
+        }
     }
 }

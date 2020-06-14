@@ -16,6 +16,9 @@
 		7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
 		7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
 		7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7918D8BE2493F702002E81D9 /* ButtonNode.swift */; };
+		7927B50A249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
+		7927B50B249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
+		7927B50C249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
@@ -138,6 +141,7 @@
 		7918D8B42493E0E1002E81D9 /* GridNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridNode.swift; sourceTree = "<group>"; };
 		7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringConvertibleExtensions.swift; sourceTree = "<group>"; };
 		7918D8BE2493F702002E81D9 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		7927B509249644B20022FCB7 /* ScrollbarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollbarNode.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 				79EE25472494CBD100D85135 /* Selectable.swift */,
 				79EE25542494F6BD00D85135 /* InteractableScene.swift */,
 				79EE25582495975C00D85135 /* ScrollNode.swift */,
+				7927B509249644B20022FCB7 /* ScrollbarNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7927B50B249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
 				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BC2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25562494F6BD00D85135 /* InteractableScene.swift in Sources */,
@@ -645,6 +651,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7927B50C249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
 				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BD2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25572494F6BD00D85135 /* InteractableScene.swift in Sources */,
@@ -706,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7927B50A249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
 				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BB2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25552494F6BD00D85135 /* InteractableScene.swift in Sources */,
