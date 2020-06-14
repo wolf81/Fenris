@@ -22,21 +22,21 @@ public struct ControlState: OptionSet, Hashable {
 }
 
 open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
-    private var state: ControlState = .default
+    private(set) var state: ControlState = .default
     
     private struct SpriteKey {
         static let selected = "selected"
     }
     
-    public var isEnabled: Bool = true {
-        didSet {
-            if self.isEnabled {
-                self.state = .default
-            } else {
-                self.state = .disabled
+    public var isEnabled: Bool {
+        set(value) {
+            if value != self.isEnabled {
+                self.state = value == true ? .default : .disabled
+                updateForState()
             }
-            
-            updateForState()
+        }
+        get {
+            (self.state == .disabled) == false
         }
     }
             
@@ -44,33 +44,35 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     
     private var textureInfo: [ControlState: SKTexture] = [:]
     
-    public var onSelected: ((ButtonNode) -> ())?
-    
-    public var onHighlighted: ((ButtonNode) -> ())?
-        
+    public var onStateChanged: ((ButtonNode) -> ())?
+            
     public var item: MenuItem = LabelItem(title: "bla")
             
-    public var isHighlighted: Bool = false {
-        didSet {
-            if self.isHighlighted {
+    public var isHighlighted: Bool {
+        set(value) {
+            if value == true {
                 self.state.insert(.highlighted)
             } else {
                 self.state.remove(.highlighted)
             }
-
             updateForHighlightState()
+        }
+        get {
+            return self.state.contains(.highlighted)
         }
     }
     
-    public var isSelected: Bool = false {
-        didSet {
-            if self.isSelected {
+    public var isSelected: Bool {
+        set(value) {
+            if value == true {
                 self.state.insert(.selected)
             } else {
                 self.state.remove(.selected)
             }
-
             updateForSelectionState()
+        }
+        get {
+            self.state.contains(.selected)
         }
     }
     
@@ -79,7 +81,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     }
     
     init(size: CGSize, item: ButtonItem, font: Font) {
-        self.onSelected = { buttonNode in }
+        self.onStateChanged = { buttonNode in }
         self.label = SKLabelNode(text: "Hi")
         
         let texture = SKTexture(imageNamed: "button")
@@ -88,8 +90,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         self.label.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
-    public init(title: String, size: CGSize, onSelected: ((ButtonNode) -> ())? = nil) {
-        self.onSelected = onSelected
+    public init(title: String, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
+        self.onStateChanged = onStateChanged
         self.label = SKLabelNode(text: title)
         
         let bundle = Bundle(for: type(of: self))
@@ -128,46 +130,45 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     
     func updateForSelectionState() {
         if self.state.contains(.disabled) { return }
-
+        
         updateForState()
     }
     
     func updateForState() {
+        print("state: \(self.state)")
         switch self.state {
-        case _ where state.contains(.selected):
-            guard self.childNode(withName: SpriteKey.selected) == nil else { return }
-                        
-            let texture = self.textureInfo[.selected]
-            let sprite = SKSpriteNode(texture: texture, color: color, size: size)
-            sprite.centerRect = self.centerRect
-            sprite.name = SpriteKey.selected
-            sprite.alpha = 0.0
-            addChild(sprite)
-
-            let fadeInOut = SKAction.sequence([
-                SKAction.fadeIn(withDuration: 0.1),
-                SKAction.fadeOut(withDuration: 0.1),
-                SKAction.run { [unowned self] in
-                    sprite.removeFromParent()
-                    self.isSelected = false
-                    self.onSelected?(self)
-                }
-            ])
-            sprite.run(fadeInOut)
-        case _ where state.contains(.highlighted):
-            self.onHighlighted?(self)
-
-            self.texture = self.textureInfo[.highlighted]
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
                 self.texture = self.textureInfo[.default]
                 return self.alpha = 0.5
             }
             self.texture = texture
+        case _ where state.contains(.selected):
+//            guard self.childNode(withName: SpriteKey.selected) == nil else { return }
+                        
+            self.texture = self.textureInfo[.selected]
+//            let sprite = SKSpriteNode(texture: texture, color: color, size: size)
+//            sprite.centerRect = self.centerRect
+//            sprite.name = SpriteKey.selected
+////            sprite.alpha = 0.0
+//            addChild(sprite)
+
+//            let fadeInOut = SKAction.sequence([
+//                SKAction.fadeIn(withDuration: 0.1),
+//                SKAction.fadeOut(withDuration: 0.1),
+//                SKAction.run {
+//                    sprite.removeFromParent()
+//                }
+//            ])
+//            sprite.run(fadeInOut)
+        case _ where state.contains(.highlighted):
+            self.texture = self.textureInfo[.highlighted]
         default:
             self.texture = self.textureInfo[.default]
             self.alpha = 1.0
         }
+        
+        self.onStateChanged?(self)
     }
 }
 

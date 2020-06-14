@@ -27,7 +27,7 @@ class SettingsMenuScene2: InteractableScene {
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
         
-        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }
+        self.backButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showMainMenu() } }
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -92,14 +92,12 @@ public class ScrollNode: SKSpriteNode {
         self.scrollbar.zPosition = 1000
         addChild(self.scrollbar)
         
-        self.upButton.onHighlighted = scrollUp(buttonNode:)
-        self.upButton.onSelected = cancelScroll(buttonNode:)
+        self.upButton.onStateChanged = scrollUp(buttonNode:)
         self.upButton.position = CGPoint(x: buttonSize.width / 2, y: size.height - buttonSize.height / 2)
         self.scrollbar.addChild(self.upButton)
         
         self.downButton.position = CGPoint(x: buttonSize.width / 2, y: buttonSize.height / 2)
-        self.downButton.onSelected = cancelScroll(buttonNode:)
-        self.downButton.onHighlighted = scrollDown(buttonNode:)
+        self.downButton.onStateChanged = scrollDown(buttonNode:)
         self.scrollbar.addChild(self.downButton)
         
         self.cropNode.maskNode = self.content
@@ -115,24 +113,24 @@ public class ScrollNode: SKSpriteNode {
     open func didScroll() {
         
     }
-
-    private func cancelScroll(buttonNode: ButtonNode) {
-        self.scrollDirection = .none
-    }
     
     private func scrollUp(buttonNode: ButtonNode) {
-        print("up")        
-        self.scrollDirection = .up
+        print("up")
+        
+        if self.scrollDirection == .down { return }
+        
+        self.scrollDirection = buttonNode.isSelected ? .up : .none
     }
     
     private func scrollDown(buttonNode: ButtonNode) {
         print("down")
-        self.scrollDirection = .down
+
+        if self.scrollDirection == .up { return }
+
+        self.scrollDirection = buttonNode.isSelected ? .down : .none
     }
         
     private func setScrollbarVisible(_ isVisible: Bool) {
-        self.upButton.alpha = isVisible ? 1.0 : 0.0
-        self.downButton.alpha = isVisible ? 1.0 : 0.0
         self.scrollbar.alpha = isVisible ? 1.0 : 0.0
     }
     

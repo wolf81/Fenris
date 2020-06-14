@@ -38,9 +38,9 @@ class MainMenuScene2: InteractableScene {
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
         
-        self.newGameButton.onSelected = { [unowned self] _ in self.showCreateCharacter() }
-        self.settingsButton.onSelected = { [unowned self] _ in self.showSettings() }
-        self.quitButton.onSelected = { [unowned self] _ in self.quit() }
+        self.newGameButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showCreateCharacter() } }
+        self.settingsButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showSettings() } }
+        self.quitButton.onStateChanged = { [unowned self] button in if button.isSelected { self.quit() } }
     }
     
     required init?(coder aDecoder: NSCoder) {
