@@ -72,12 +72,12 @@ public class ScrollNode: SKSpriteNode {
 
         self.cropNode = SKCropNode()
         self.contentHeight = size.height
-        
+                
         let contentSize = CGSize(width: size.width, height: size.height)
-        self.content = SKSpriteNode(texture: nil, color: .lightGray, size: contentSize)
+        self.content = SKSpriteNode(texture: nil, color: color, size: contentSize)
         self.scrollbar = SKSpriteNode(color: SKColor.black.withAlphaComponent(0.5), size: CGSize(width: buttonSize.width, height: size.height))
-        self.upButton = ButtonNode(title: "u", size: buttonSize)
-        self.downButton = ButtonNode(title: "d", size: buttonSize)
+        self.upButton = ButtonNode(title: "▲", size: buttonSize)        
+        self.downButton = ButtonNode(title: "▼", size: buttonSize)
         
         super.init(texture: texture, color: color, size: size)
         

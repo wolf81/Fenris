@@ -31,7 +31,7 @@ class MainMenuScene2: InteractableScene {
         self.scrollNode.position = CGPoint(x: 10, y: 10)
         addChild(self.scrollNode)
 
-        let grid = GridNode(color: .gray, size: CGSize(width: 200, height: 180))
+        let grid = GridNode(color: self.backgroundColor, size: CGSize(width: 200, height: 180))
         grid.delegate = self
         addChild(grid)
         
