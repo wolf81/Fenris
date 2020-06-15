@@ -48,8 +48,8 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
         self.values = values
         
         self.label = SKLabelNode(text: "\(self.values.first!)")
-        self.leftButton = ButtonNode(title: "◄", size: CGSize(width: 32, height: size.height))
-        self.rightButton = ButtonNode(title: "►", size: CGSize(width: 32, height: size.height))
+        self.leftButton = ButtonNode(title: "←", size: CGSize(width: 32, height: size.height))
+        self.rightButton = ButtonNode(title: "→", size: CGSize(width: 32, height: size.height))
 
         super.init(texture: nil, color: .clear, size: size)
         

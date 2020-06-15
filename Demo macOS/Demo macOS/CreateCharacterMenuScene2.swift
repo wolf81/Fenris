@@ -38,6 +38,7 @@ class CreateCharacterMenuScene2: InteractableScene {
     // MARK: - Private
     
     func showMainMenu() {
+        print("back clicked")
         let scene = MainMenuScene2(size: self.size)
         self.view?.presentScene(scene, transition: SKTransition.push(with: .right, duration: 0.5))
     }

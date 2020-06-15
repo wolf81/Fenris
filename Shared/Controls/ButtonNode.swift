@@ -98,8 +98,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         setTexture(texture: selectedTexture, for: .selected)
 
         self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)
-        self.label.position = CGPoint.zero
-        self.label.verticalAlignmentMode = .center
+        self.label.position = CGPoint(x: 0, y: -(self.size.height / 4))
+        self.label.verticalAlignmentMode = .baseline
         addChild(self.label)
     }
     
