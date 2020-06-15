@@ -8,24 +8,17 @@
 
 import SpriteKit
 
-public class ScrollNode: SKSpriteNode, Highlightable {
+public class ScrollNode: SKSpriteNode {
     enum ScrollDirection {
         case up
         case down
         case none
     }
-    
-    public var isHighlighted: Bool = false {
-        didSet {
-            toggleScrollbarVisibility()
-        }
-    }
-    
+        
     private let cropNode: SKCropNode
     private let content: SKSpriteNode
     private let scrollbar: ScrollbarNode
-//    private let upButton: ButtonNode
-//    private let downButton: ButtonNode
+    private let highlightNode: HighlightNode
     
     public var contentHeight: CGFloat = 0 {
         didSet {
@@ -45,6 +38,9 @@ public class ScrollNode: SKSpriteNode, Highlightable {
             updateLayout()
         }
     }
+    
+    private var contentMaxY: CGFloat { max(self.size.height / 2, self.contentHeight / 2) }
+    private var contentMinY: CGFloat { self.size.height / 2 }
 
     private var scrollTimer: Timer?
 
@@ -64,11 +60,9 @@ public class ScrollNode: SKSpriteNode, Highlightable {
     public func addContent(sprite: SKSpriteNode) {
         self.contentHeight = sprite.size.height
         
-//        sprite.position = CGPoint(x: sprite.size.width / 2, y: self.contentY)
         self.cropNode.addChild(sprite)
         
-        let y = max(self.contentY, self.size.height / 2)
-        self.contentY = y
+        self.contentY = max(self.contentY, self.size.height / 2)
         
         updateLayout()
     }
@@ -78,6 +72,7 @@ public class ScrollNode: SKSpriteNode, Highlightable {
 
         self.cropNode = SKCropNode()
         self.contentHeight = size.height
+        self.highlightNode = HighlightNode(size: size)
                 
         let contentSize = CGSize(width: size.width, height: size.height)
         self.content = SKSpriteNode(texture: nil, color: color, size: contentSize)
@@ -101,7 +96,11 @@ public class ScrollNode: SKSpriteNode, Highlightable {
         
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
-        
+
+        self.highlightNode.position = .zero
+        self.highlightNode.highlightChanged = { [unowned self] in self.toggleScrollbarVisibility(isHighlighted: $0) }
+        addChild(self.highlightNode)
+
         setScrollbarVisible(false)
     }
         
@@ -110,38 +109,34 @@ public class ScrollNode: SKSpriteNode, Highlightable {
     }
     
     open func didScroll() {
-        
+        // can be implemented by subclasses
     }
     
     private func scrollUp(buttonNode: ButtonNode) {
-        print("up")
-        
         if self.scrollDirection == .down { return }
         
         self.scrollDirection = buttonNode.isSelected ? .up : .none
     }
     
     private func scrollDown(buttonNode: ButtonNode) {
-        print("down")
-
         if self.scrollDirection == .up { return }
 
         self.scrollDirection = buttonNode.isSelected ? .down : .none
     }
         
     private func setScrollbarVisible(_ isVisible: Bool) {
-        self.scrollbar.alpha = isVisible ? 1.0 : 0.0
+        self.scrollbar.alpha = isVisible ? 1.0 : 0.0            
     }
     
     @objc private func performAutoscroll() {
         DispatchQueue.main.async { [unowned self] in
             switch self.scrollDirection {
             case .down:
-                let y = min(self.contentY + 1, max(self.size.height / 2, self.contentHeight / 2))
+                let y = min(self.contentY + 1, self.contentMaxY)
                 if self.scrollbar.downButton.isEnabled == false { self.scrollDirection = .none }
                 self.contentY = y
             case .up:
-                let y = max(self.contentY - 1, self.size.height / 2)
+                let y = max(self.contentY - 1, self.contentMinY)
                 if self.scrollbar.upButton.isEnabled == false { self.scrollDirection = .none }
                 self.contentY = y
             default: break
@@ -156,16 +151,41 @@ public class ScrollNode: SKSpriteNode, Highlightable {
         self.scrollbar.upButton.isEnabled = self.contentY != self.size.height / 2
         self.scrollbar.downButton.isEnabled = self.contentY != max(self.size.height / 2, self.contentHeight / 2)
 
+        let yRange = abs(self.contentMaxY - self.contentMinY)
+        self.scrollbar.scrollerY = (self.contentY - self.contentMinY) / yRange
+
         childNode.position = CGPoint(x: childNode.size.width / 2, y: self.contentY)
     }
     
-    private func toggleScrollbarVisibility() {
+    private func toggleScrollbarVisibility(isHighlighted: Bool) {
         guard self.contentHeight > self.size.height else { return }
 
-        if self.isHighlighted {
+        if isHighlighted {
             self.scrollbar.run(SKAction.fadeIn(withDuration: 0.1))
         } else {
             self.scrollbar.run(SKAction.fadeOut(withDuration: 0.1))
+            clearHighlightingOnChildNodes()
         }
+    }
+    
+    private class HighlightNode: SKShapeNode & Highlightable {
+        var highlightChanged: ((Bool) -> Void)? = nil
+
+        init(size: CGSize) {
+            super.init()
+            
+            self.lineWidth = 0
+            self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError()
+        }
+        
+        var isHighlighted: Bool = false {
+            didSet {
+                self.highlightChanged?(self.isHighlighted)
+            }
+        }        
     }
 }

@@ -50,7 +50,6 @@ open class InteractableScene: SKScene {
         for node in nodes {
             if let selectable = node as? Selectable {
                 selectable.isSelected = true
-//                self.highlightedNodes.insert(highlightable)
             }
         }
     }
@@ -61,22 +60,28 @@ open class InteractableScene: SKScene {
         let location = event.location(in: self)
         let locationNodes = self.nodes(at: location)
 
-        print("1: nodes: \(self.highlightedNodes)")
+//        print("1: nodes: \(self.highlightedNodes)")
 
         let removedNodes = self.highlightedNodes.filter({ locationNodes.contains($0) == false })
         let addedNodes = locationNodes.filter({ self.highlightedNodes.contains($0) == false })
         for node in removedNodes {
-            (node as? Selectable)?.isSelected = false
+            if let selectableNode = node as? Selectable {
+                selectableNode.isSelected = false
+            } else {
+                if let highlightableNode = node as? Highlightable {
+                    highlightableNode.isHighlighted = false
+                }
+            }
             self.highlightedNodes.remove(node)
         }
         
         for node in addedNodes {
-            if let highlightable = node as? Selectable {
-                highlightable.isSelected = true
+            if let selectable = node as? Selectable {
+                selectable.isSelected = true
                 self.highlightedNodes.insert(node)
             }
         }
-        print("2: nodes: \(self.highlightedNodes)")
+//        print("2: nodes: \(self.highlightedNodes)")
     }
     
     override open func mouseMoved(with event: NSEvent) {
@@ -85,7 +90,7 @@ open class InteractableScene: SKScene {
         let location = event.location(in: self)
         let locationNodes = self.nodes(at: location)
 
-        print("1: nodes: \(self.highlightedNodes)")
+//        print("1: nodes: \(self.highlightedNodes)")
 
         let removedNodes = self.highlightedNodes.filter({ locationNodes.contains($0) == false })
         let addedNodes = locationNodes.filter({ self.highlightedNodes.contains($0) == false })
@@ -99,7 +104,7 @@ open class InteractableScene: SKScene {
                 self.highlightedNodes.insert(node)
             }
         }
-        print("2: nodes: \(self.highlightedNodes)")
+//        print("2: nodes: \(self.highlightedNodes)")
     }
     
     override open func mouseUp(with event: NSEvent) {
@@ -107,7 +112,7 @@ open class InteractableScene: SKScene {
         
         let location = event.location(in: self)
         let nodes = self.nodes(at: location)
-
+        
         for node in nodes {
             if let selectable = node as? Selectable {
                 selectable.isSelected = false

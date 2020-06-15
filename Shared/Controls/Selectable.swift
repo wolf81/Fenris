@@ -9,5 +9,5 @@
 import SpriteKit
 
 public protocol Selectable: Highlightable {
-    var isSelected: Bool { get set }
+    var isSelected: Bool { get set }    
 }

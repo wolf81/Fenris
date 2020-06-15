@@ -19,7 +19,7 @@ class MainMenuScene2: InteractableScene {
     var menuNodes: [SKNode] { [self.newGameButton, self.settingsButton, self.quitButton] }
     
     override init(size: CGSize) {
-        self.scrollNode = ScrollNode(texture: nil, color: .brown, size: CGSize(width: 200, height: 200))
+        self.scrollNode = ScrollNode(texture: nil, color: .brown, size: CGSize(width: 200, height: 400))
 
         super.init(size: size)
 
@@ -27,7 +27,6 @@ class MainMenuScene2: InteractableScene {
         let sprite = SKSpriteNode(texture: texture)
         self.scrollNode.addContent(sprite: sprite)
         
-//        self.scrollNode.anchorPoint = .zero
         self.scrollNode.position = CGPoint(x: 10, y: 10)
         addChild(self.scrollNode)
 

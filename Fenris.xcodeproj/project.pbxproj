@@ -19,6 +19,9 @@
 		7927B50A249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
 		7927B50B249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
 		7927B50C249644B20022FCB7 /* ScrollbarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B509249644B20022FCB7 /* ScrollbarNode.swift */; };
+		7927B512249718050022FCB7 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B511249718050022FCB7 /* SKNodeExtensions.swift */; };
+		7927B513249718050022FCB7 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B511249718050022FCB7 /* SKNodeExtensions.swift */; };
+		7927B514249718050022FCB7 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B511249718050022FCB7 /* SKNodeExtensions.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
@@ -142,6 +145,7 @@
 		7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStringConvertibleExtensions.swift; sourceTree = "<group>"; };
 		7918D8BE2493F702002E81D9 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		7927B509249644B20022FCB7 /* ScrollbarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollbarNode.swift; sourceTree = "<group>"; };
+		7927B511249718050022FCB7 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 			children = (
 				79EA8D6B2114B9C30072CBBE /* SKLabelNodeExtensions.swift */,
 				7918D8BA2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift */,
+				7927B511249718050022FCB7 /* SKNodeExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				7927B513249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
@@ -658,6 +664,7 @@
 				7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				7927B514249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -720,6 +727,7 @@
 				7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				7927B512249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,

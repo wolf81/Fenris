@@ -135,7 +135,6 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     }
     
     func updateForState() {
-        print("state: \(self.state)")
         switch self.state {
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
@@ -144,23 +143,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             }
             self.texture = texture
         case _ where state.contains(.selected):
-//            guard self.childNode(withName: SpriteKey.selected) == nil else { return }
-                        
             self.texture = self.textureInfo[.selected]
-//            let sprite = SKSpriteNode(texture: texture, color: color, size: size)
-//            sprite.centerRect = self.centerRect
-//            sprite.name = SpriteKey.selected
-////            sprite.alpha = 0.0
-//            addChild(sprite)
-
-//            let fadeInOut = SKAction.sequence([
-//                SKAction.fadeIn(withDuration: 0.1),
-//                SKAction.fadeOut(withDuration: 0.1),
-//                SKAction.run {
-//                    sprite.removeFromParent()
-//                }
-//            ])
-//            sprite.run(fadeInOut)
         case _ where state.contains(.highlighted):
             self.texture = self.textureInfo[.highlighted]
         default:
