@@ -11,10 +11,6 @@ import SpriteKit
 open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private(set) var state: ControlState = .default
     
-    private struct SpriteKey {
-        static let selected = "selected"
-    }
-    
     public var isEnabled: Bool {
         set(value) {
             if value != self.isEnabled {
