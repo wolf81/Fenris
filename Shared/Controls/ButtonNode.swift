@@ -59,6 +59,10 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     
     public func setTexture(texture: SKTexture, for state: ControlState) {        
         self.textureInfo[state] = texture
+        
+        if self.state == state {
+            updateForState()
+        }
     }
     
     init(size: CGSize, item: ButtonItem, font: Font) {
