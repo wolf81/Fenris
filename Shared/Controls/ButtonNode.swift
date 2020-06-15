@@ -8,19 +8,6 @@
 
 import SpriteKit
 
-public struct ControlState: OptionSet, Hashable {
-    public let rawValue: UInt8
-    
-    static let `default` = ControlState(rawValue: 1 << 0)
-    static let highlighted = ControlState(rawValue: 1 << 1)
-    static let selected = ControlState(rawValue: 1 << 2)
-    static let disabled = ControlState(rawValue: 1 << 3)
-    
-    public init(rawValue: UInt8) {
-        self.rawValue = rawValue
-    }
-}
-
 open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private(set) var state: ControlState = .default
     

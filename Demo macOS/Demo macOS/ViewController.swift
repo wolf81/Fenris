@@ -17,7 +17,7 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         if let view = self.skView {
-            let scene = MainMenuScene2(size: self.view.bounds.size)
+            let scene = CreateCharacterMenuScene2(size: self.view.bounds.size)
 //            let scene = MainMenuScene(size: self.view.bounds.size)
             
             view.presentScene(scene)
