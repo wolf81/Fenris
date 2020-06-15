@@ -27,6 +27,8 @@ open class InteractableScene: SKScene {
         view.addTrackingArea(trackingArea)
         
         #endif
+                
+        NotificationCenter.default.addObserver(self, selector: #selector(updateForButtonNodeDidChangeStateNotification(_:)), name: Constants.buttonNodeDidChangeStateNotification, object: nil)
     }
 
     override open func willMove(from view: SKView) {
@@ -121,4 +123,11 @@ open class InteractableScene: SKScene {
     }
     
     #endif
+    
+    @objc private func updateForButtonNodeDidChangeStateNotification(_ notification: Notification) {
+        let button = notification.userInfo![Constants.buttonNodeUserInfoKey] as! ButtonNode
+        if button.isSelected == false && button.isHighlighted == false {
+            self.highlightedNodes.remove(button)
+        }
+    }
 }

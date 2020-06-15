@@ -26,9 +26,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             (self.state == .disabled) == false
         }
     }
-            
-    private var label: SKLabelNode
-    
+                
     private var textureInfo: [ControlState: SKTexture] = [:]
     
     public var onStateChanged: ((ButtonNode) -> ())?
@@ -69,17 +67,13 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     
     init(size: CGSize, item: ButtonItem, font: Font) {
         self.onStateChanged = { buttonNode in }
-        self.label = SKLabelNode(text: "Hi")
         
         let texture = SKTexture(imageNamed: "button")
-        super.init(texture: texture, color: .yellow, size: size)
-                
-        self.label.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        super.init(texture: texture, color: .yellow, size: size)                
     }
     
-    public init(title: String, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
+    public init(size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
         self.onStateChanged = onStateChanged
-        self.label = SKLabelNode(text: title)
         
         let bundle = Bundle(for: type(of: self))
         let image = bundle.image(forResource: "button")!
@@ -98,9 +92,6 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         setTexture(texture: selectedTexture, for: .selected)
 
         self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)
-        self.label.position = CGPoint(x: 0, y: -(self.size.height / 4))
-        self.label.verticalAlignmentMode = .baseline
-        addChild(self.label)
     }
     
     public required init?(coder aDecoder: NSCoder) {

@@ -12,8 +12,8 @@ import SpriteKit
 class SettingsMenuScene2: InteractableScene {
     let titleLabel = SKLabelNode(text: "Settings")
     let musicLabel = SKLabelNode(text: "Music")
-    let musicButton = ButtonNode(title: "On", size: CGSize(width: 100, height: 50))
-    let backButton = ButtonNode(title: "Back", size: CGSize(width: 200, height: 50))
+    let musicButton = TextButtonNode(title: "On", size: CGSize(width: 100, height: 50))
+    let backButton = TextButtonNode(title: "Back", size: CGSize(width: 200, height: 50))
         
     var nodes: [SKNode] { [self.titleLabel, self.musicLabel, self.musicButton , self.backButton] }
     

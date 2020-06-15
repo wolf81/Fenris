@@ -13,14 +13,15 @@ class CreateCharacterMenuScene2: InteractableScene {
     let titleLabel = SKLabelNode(text: "Create Character")
     let textChooser = TextChooserNode(values: ["Mage", "Fighter", "Rogue", "Cleric"], size: CGSize(width: 200, height: 50))
     let numberChooser = NumberChooserNode(values: [1, 2, 4, 6], size: CGSize(width: 200, height: 50))
-    let backButton = ButtonNode(title: "Back", size: CGSize(width: 100, height: 50))
+    let toggle = ToggleNode(size: CGSize(width: 100, height: 50))
+    let backButton = TextButtonNode(title: "Back", size: CGSize(width: 100, height: 50))
 
-    var nodes: [SKNode] { [self.titleLabel, self.textChooser, self.numberChooser, self.backButton] }
+    var nodes: [SKNode] { [self.titleLabel, self.textChooser, self.toggle, self.numberChooser, self.backButton] }
 
     override init(size: CGSize) {
         super.init(size: size)
         
-        let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 240))
+        let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 300))
         addChild(grid)
         grid.delegate = self
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
@@ -46,7 +47,7 @@ class CreateCharacterMenuScene2: InteractableScene {
 
 extension CreateCharacterMenuScene2: GridNodeDelegate {
     func gridNodeNumberOfRows(_ gridNode: GridNode) -> Int {
-        return 4
+        return 5
     }
     
     func gridNode(_ gridNode: GridNode, heightForRow row: Int) -> CGFloat {

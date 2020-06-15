@@ -10,9 +10,9 @@ import Fenris
 import SpriteKit
 
 class MainMenuScene2: InteractableScene {
-    let newGameButton = ButtonNode(title: "New Game", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showCreateCharacter() })
-    let settingsButton = ButtonNode(title: "Settings", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showSettings() })
-    let quitButton = ButtonNode(title: "Quit", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.quit() })
+    let newGameButton = TextButtonNode(title: "New Game", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showCreateCharacter() })
+    let settingsButton = TextButtonNode(title: "Settings", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showSettings() })
+    let quitButton = TextButtonNode(title: "Quit", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.quit() })
     
     let scrollNode: ScrollNode
 

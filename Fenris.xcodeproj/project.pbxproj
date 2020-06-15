@@ -28,6 +28,18 @@
 		7927B51A24971FB10022FCB7 /* ControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51924971FB10022FCB7 /* ControlState.swift */; };
 		7927B51B24971FB10022FCB7 /* ControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51924971FB10022FCB7 /* ControlState.swift */; };
 		7927B51C24971FB10022FCB7 /* ControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51924971FB10022FCB7 /* ControlState.swift */; };
+		7927B52024978F630022FCB7 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51F24978F630022FCB7 /* TextButtonNode.swift */; };
+		7927B52124978F630022FCB7 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51F24978F630022FCB7 /* TextButtonNode.swift */; };
+		7927B52224978F630022FCB7 /* TextButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51F24978F630022FCB7 /* TextButtonNode.swift */; };
+		7927B52424978F740022FCB7 /* ImageButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52324978F740022FCB7 /* ImageButtonNode.swift */; };
+		7927B52524978F740022FCB7 /* ImageButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52324978F740022FCB7 /* ImageButtonNode.swift */; };
+		7927B52624978F740022FCB7 /* ImageButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52324978F740022FCB7 /* ImageButtonNode.swift */; };
+		7927B5282497986D0022FCB7 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B5272497986D0022FCB7 /* ToggleNode.swift */; };
+		7927B5292497986D0022FCB7 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B5272497986D0022FCB7 /* ToggleNode.swift */; };
+		7927B52A2497986D0022FCB7 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B5272497986D0022FCB7 /* ToggleNode.swift */; };
+		7927B5302497AA1E0022FCB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52F2497AA1E0022FCB7 /* Constants.swift */; };
+		7927B5312497AA1E0022FCB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52F2497AA1E0022FCB7 /* Constants.swift */; };
+		7927B5322497AA1E0022FCB7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B52F2497AA1E0022FCB7 /* Constants.swift */; };
 		792D427E21E20A0E00D438F1 /* Fenris_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D784C211180F700F4547D /* ServiceLocator.swift */; };
 		792D428621E20A1D00D438F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795D786621119EEA00F4547D /* ViewController.swift */; };
@@ -85,9 +97,6 @@
 		79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
 		79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
 		79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
-		79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
-		79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
-		79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1D22B2AE8F008E4B49 /* ToggleNode.swift */; };
 		79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
 		79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
 		79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
@@ -148,6 +157,10 @@
 		7927B511249718050022FCB7 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		7927B51524971F820022FCB7 /* ChooserNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooserNode.swift; sourceTree = "<group>"; };
 		7927B51924971FB10022FCB7 /* ControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlState.swift; sourceTree = "<group>"; };
+		7927B51F24978F630022FCB7 /* TextButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonNode.swift; sourceTree = "<group>"; };
+		7927B52324978F740022FCB7 /* ImageButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageButtonNode.swift; sourceTree = "<group>"; };
+		7927B5272497986D0022FCB7 /* ToggleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleNode.swift; sourceTree = "<group>"; };
+		7927B52F2497AA1E0022FCB7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		792D427A21E20A0E00D438F1 /* Fenris.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Fenris.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		792D427C21E20A0E00D438F1 /* Fenris_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Fenris_tvOS.h; sourceTree = "<group>"; };
 		792D427D21E20A0E00D438F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -252,6 +265,9 @@
 				7927B509249644B20022FCB7 /* ScrollbarNode.swift */,
 				7927B51524971F820022FCB7 /* ChooserNode.swift */,
 				7927B51924971FB10022FCB7 /* ControlState.swift */,
+				7927B51F24978F630022FCB7 /* TextButtonNode.swift */,
+				7927B52324978F740022FCB7 /* ImageButtonNode.swift */,
+				7927B5272497986D0022FCB7 /* ToggleNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -408,6 +424,7 @@
 				79809DF322B21DC4008E4B49 /* Types */,
 				79EA8D6A2114B9B30072CBBE /* Extensions */,
 				796B708822BC633F0033EBB7 /* Functions.swift */,
+				7927B52F2497AA1E0022FCB7 /* Constants.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -623,9 +640,11 @@
 				7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */,
 				792D428621E20A1D00D438F1 /* ViewController.swift in Sources */,
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				7927B5292497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B513249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				7927B51724971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
+				7927B5312497AA1E0022FCB7 /* Constants.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
 				797DBFD222B38B3A00D0F8E7 /* SignNode.swift in Sources */,
@@ -637,12 +656,12 @@
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				79EE25492494CBD100D85135 /* Selectable.swift in Sources */,
+				7927B52524978F740022FCB7 /* ImageButtonNode.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
 				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC922B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
-				79809E1F22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707E22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CC22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				79EE255A2495975C00D85135 /* ScrollNode.swift in Sources */,
@@ -654,6 +673,7 @@
 				79EE254124946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708E22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				7927B51B24971FB10022FCB7 /* ControlState.swift in Sources */,
+				7927B52124978F630022FCB7 /* TextButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,9 +688,11 @@
 				7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */,
 				79809E4B22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
+				7927B52A2497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B514249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				7927B51824971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
+				7927B5322497AA1E0022FCB7 /* Constants.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD322B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BE22B5CEC400AA62AF /* FocusItem.swift in Sources */,
@@ -682,11 +704,11 @@
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
 				79EE254A2494CBD100D85135 /* Selectable.swift in Sources */,
+				7927B52624978F740022FCB7 /* ImageButtonNode.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFCA22B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
-				79809E2022B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				794366CD22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				796B707F22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */,
@@ -699,6 +721,7 @@
 				79EE254224946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708F22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				7927B51C24971FB10022FCB7 /* ControlState.swift in Sources */,
+				7927B52224978F630022FCB7 /* TextButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,9 +754,11 @@
 				7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */,
 				795D786821119EEA00F4547D /* ViewController.swift in Sources */,
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
+				7927B5282497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B512249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				7927B51624971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
+				7927B5302497AA1E0022FCB7 /* Constants.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
 				797DBFD122B38B3A00D0F8E7 /* SignNode.swift in Sources */,
 				794366BC22B5CEC400AA62AF /* FocusItem.swift in Sources */,
@@ -745,12 +770,12 @@
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				79EE25482494CBD100D85135 /* Selectable.swift in Sources */,
+				7927B52424978F740022FCB7 /* ImageButtonNode.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
 				797DBFC822B385CB00D0F8E7 /* SignButtonNode.swift in Sources */,
-				79809E1E22B2AE8F008E4B49 /* ToggleNode.swift in Sources */,
 				796B707D22BBDEF40033EBB7 /* InputDeviceInteractableScene.swift in Sources */,
 				794366CB22B703C600AA62AF /* MenuFooterNode.swift in Sources */,
 				79EE25592495975C00D85135 /* ScrollNode.swift in Sources */,
@@ -762,6 +787,7 @@
 				79EE254024946E5F00D85135 /* Highlightable.swift in Sources */,
 				796B708D22BC8FD80033EBB7 /* InputDeviceManager.Controllers.swift in Sources */,
 				7927B51A24971FB10022FCB7 /* ControlState.swift in Sources */,
+				7927B52024978F630022FCB7 /* TextButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
