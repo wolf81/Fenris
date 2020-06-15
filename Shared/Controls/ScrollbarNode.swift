@@ -18,7 +18,7 @@ class ScrollbarNode : SKSpriteNode {
     // value between 0 and 1?
     var scrollerY: CGFloat = 0 {
         didSet {
-            let y = (self.scrollerY * self.scrollAreaHeight) + ScrollbarNode.buttonSize.height * 3 / 2
+            let y = ((1.0 - self.scrollerY) * self.scrollAreaHeight) + ScrollbarNode.buttonSize.height * 3 / 2
             self.scroller.position = CGPoint(x: self.scroller.size.width / 2, y: y)
         }
     }
@@ -47,7 +47,7 @@ class ScrollbarNode : SKSpriteNode {
         self.addChild(self.downButton)
         
         self.scroller.position = CGPoint(x: self.scroller.size.width / 2,
-                                         y: scrollerMinY)
+                                         y: self.scrollerMaxY)
         self.addChild(self.scroller)
     }
     
