@@ -20,24 +20,32 @@ class CreateCharacterMenuScene2: InteractableScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 180))
+        let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 240))
         addChild(grid)
         grid.delegate = self
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
         
-//        self.backButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showMainMenu() } }
+        
+        textChooser.selectedValueIndex = 3
+        self.backButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showMainMenu() } }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
+    
+    // MARK: - Private
+    
+    func showMainMenu() {
+        let scene = MainMenuScene2(size: self.size)
+        self.view?.presentScene(scene, transition: SKTransition.push(with: .right, duration: 0.5))
+    }
 }
-
 
 extension CreateCharacterMenuScene2: GridNodeDelegate {
     func gridNodeNumberOfRows(_ gridNode: GridNode) -> Int {
-        return 3
+        return 4
     }
     
     func gridNode(_ gridNode: GridNode, heightForRow row: Int) -> CGFloat {

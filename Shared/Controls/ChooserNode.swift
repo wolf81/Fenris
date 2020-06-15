@@ -17,11 +17,17 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
     
     private var rightButton: ButtonNode
     
-    private var selectedValueIndex: Int = 0
-    
-    var isLoopValuesEnabled: Bool = true {
+    public var selectedValueIndex: Int = 0 {
         didSet {
-            updateButtonState()
+            let validRange = 0 ..< self.values.count
+            assert(validRange.contains(self.selectedValueIndex), "selectedValueIndex \(self.selectedValueIndex) ouf of range \(validRange)")
+            update()
+        }
+    }
+    
+    public var isLoopValuesEnabled: Bool = true {
+        didSet {
+            update()
         }
     }
     
@@ -67,28 +73,26 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
     private func selectNextValue() {
         if self.isLoopValuesEnabled {
             self.selectedValueIndex = (self.selectedValueIndex + 1) % self.values.count
-            self.label.text = "\(self.values[self.selectedValueIndex])"
         } else {
             self.selectedValueIndex = min(self.selectedValueIndex + 1, self.values.count - 1)
-            self.label.text = "\(self.values[self.selectedValueIndex])"
         }
         
-        updateButtonState()
+        update()
     }
     
     private func selectPreviousValue() {
         if self.isLoopValuesEnabled {
             self.selectedValueIndex = (self.selectedValueIndex - 1 + self.values.count) % self.values.count
-            self.label.text = "\(self.values[self.selectedValueIndex])"
         } else {
             self.selectedValueIndex = max(self.selectedValueIndex - 1, 0)
-            self.label.text = "\(self.values[self.selectedValueIndex])"
         }
         
-        updateButtonState()
+        update()
     }
     
-    private func updateButtonState() {
+    private func update() {
+        self.label.text = "\(self.values[self.selectedValueIndex])"
+
         self.leftButton.isEnabled = self.isLoopValuesEnabled == true || self.selectedValueIndex > 0
         self.rightButton.isEnabled = self.isLoopValuesEnabled == true || self.selectedValueIndex < (self.values.count - 1)
     }
