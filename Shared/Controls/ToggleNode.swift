@@ -45,7 +45,7 @@ open class ToggleNode: ButtonNode {
         let defaultTexture = SKTexture(image: defaultImage)
         setTexture(texture: defaultTexture, for: .default)
 
-        let highlightImage = bundle.image(forResource: "toggle-highlighted")!
+        let highlightImage = bundle.image(forResource: "toggle")!
         let highlightTexture = SKTexture(image: highlightImage)
         setTexture(texture: highlightTexture, for: .highlighted)
 
@@ -70,15 +70,13 @@ open class ToggleNode: ButtonNode {
         super.updateForState()
 
         let bundle = Bundle.init(for: type(of: self))
-        var image: NSImage
+        var image: NSImage = bundle.image(forResource: "toggle-switch")!
         
         var x: CGFloat = 0
 
         if self.isOn {
-            image = bundle.image(forResource: "toggle-switch-highlighted")!
             x = -(self.size.width / 2) + self.switchSprite.size.width / 2 + 6
         } else {
-            image = bundle.image(forResource: "toggle-switch")!
             x = (self.size.width / 2) - self.size.height / 2 - 6
         }
         
