@@ -46,6 +46,12 @@ open class TextButtonNode: ButtonNode {
         TextButtonNode.appearance.addObserver(self, forKeyPath: #keyPath(fontColor), options: [.new], context: nil)
     }
     
+    deinit {
+        TextButtonNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontName))
+        TextButtonNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontSize))
+        TextButtonNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontColor))
+    }
+    
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard object is Appearance else { return }
 

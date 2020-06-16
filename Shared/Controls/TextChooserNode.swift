@@ -12,7 +12,7 @@ import SpriteKit
 public class TextChooserNode: ChooserNode<String>   {
     @objc public var fontName: String? {
         get { self.label.fontName }
-        set { self.label.fontName = newValue ?? TextButtonNode.appearance.fontName }
+        set { self.label.fontName = newValue ?? TextChooserNode.appearance.fontName }
     }
 
     @objc public var fontSize: CGFloat {
@@ -22,7 +22,7 @@ public class TextChooserNode: ChooserNode<String>   {
 
     @objc public var fontColor: SKColor? {
         get { self.label.fontColor }
-        set { self.label.fontColor = newValue ?? TextButtonNode.appearance.fontColor }
+        set { self.label.fontColor = newValue ?? TextChooserNode.appearance.fontColor }
     }
 
     init(size: CGSize, item: TextChooserItem, font: Font) {
@@ -42,7 +42,13 @@ public class TextChooserNode: ChooserNode<String>   {
         TextChooserNode.appearance.addObserver(self, forKeyPath: #keyPath(fontSize), options: [.new], context: nil)
         TextChooserNode.appearance.addObserver(self, forKeyPath: #keyPath(fontColor), options: [.new], context: nil)
     }
-    
+
+    deinit {
+        TextChooserNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontName))
+        TextChooserNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontSize))
+        TextChooserNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontColor))
+    }
+
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard object is Appearance else { return }
 

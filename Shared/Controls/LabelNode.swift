@@ -33,6 +33,12 @@ public class LabelNode: SKLabelNode, MenuItemNode {
         LabelNode.appearance.addObserver(self, forKeyPath: #keyPath(fontColor), options: [.new], context: nil)
     }
     
+    deinit {
+        LabelNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontName))
+        LabelNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontSize))
+        LabelNode.appearance.removeObserver(self, forKeyPath: #keyPath(fontColor))
+    }
+        
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard object is Appearance else { return }
 
@@ -43,7 +49,7 @@ public class LabelNode: SKLabelNode, MenuItemNode {
         default: break
         }
     }
-        
+    
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
