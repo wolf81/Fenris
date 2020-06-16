@@ -52,7 +52,7 @@ class MainMenuScene2: InteractableScene {
     // MARK: - Private
     
     func showCreateCharacter() {
-        let createCharacterScene = CreateCharacterMenuScene(size: self.size)
+        let createCharacterScene = CreateCharacterMenuScene2(size: self.size)
         self.view?.presentScene(createCharacterScene, transition: SKTransition.crossFade(withDuration: 0.5))
     }
     

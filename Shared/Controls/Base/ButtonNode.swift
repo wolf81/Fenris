@@ -28,6 +28,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             (self.state == .disabled) == false
         }
     }
+    
+    @objc dynamic public var highlightColor: SKColor = ButtonNode.appearance.highlightColor        
                 
     private var textureInfo: [ControlState: SKTexture] = [:]
     
@@ -91,9 +93,9 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         let image = bundle.image(forResource: "button")!
         let texture = SKTexture(image: image)
                 
-        let imageHighlighted = bundle.image(forResource: "button-highlighted")!
+        let imageHighlighted = bundle.image(forResource: "button")!
         let highlightTexture = SKTexture(image: imageHighlighted)
-
+    
         let imageSelected = bundle.image(forResource: "button-selected")!
         let selectedTexture = SKTexture(image: imageSelected)
 
@@ -105,7 +107,24 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         setTexture(texture: highlightTexture, for: .highlighted)
         setTexture(texture: selectedTexture, for: .selected)
 
-        self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)        
+        self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)
+    
+        self.highlightColor = ButtonNode.appearance.highlightColor
+                    
+        ButtonNode.appearance.addObserver(self, forKeyPath: #keyPath(highlightColor), options: [.new], context: nil)
+    }
+    
+    deinit {
+        ButtonNode.appearance.removeObserver(self, forKeyPath: #keyPath(highlightColor))
+    }
+
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard object is Appearance else { return }
+
+        switch keyPath {
+        case #keyPath(Appearance.highlightColor): self.highlightColor = ButtonNode.appearance.highlightColor
+        default: break
+        }
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -140,12 +159,16 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
                 return self.alpha = 0.5
             }
             self.texture = texture
+            self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
         case _ where state.contains(.selected):
             self.texture = self.textureInfo[.selected]
+            self.run(SKAction.colorize(with: self.highlightColor, colorBlendFactor: 1.0, duration: 0))
         case _ where state.contains(.highlighted):
             self.texture = self.textureInfo[.highlighted]
+            self.run(SKAction.colorize(with: self.highlightColor, colorBlendFactor: 1.0, duration: 0))
         default:
             self.texture = self.textureInfo[.default]
+            self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
             self.alpha = 1.0
         }
         

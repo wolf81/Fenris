@@ -33,6 +33,7 @@ open class ToggleNode: ButtonNode {
     
     public init(size: CGSize) {
         self.switchSprite = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 32, height: 32))
+        self.switchSprite.zPosition = 1_000
         
         super.init(size: CGSize(width: 64, height: 32))
         

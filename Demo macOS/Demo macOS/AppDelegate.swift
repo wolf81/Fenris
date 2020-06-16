@@ -19,13 +19,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         TextButtonNode.appearance.fontSize = 22
         TextButtonNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
 
+        ButtonNode.appearance.highlightColor = .green
+        
         LabelNode.appearance.fontName = "Impact"
         LabelNode.appearance.fontSize = 24
         LabelNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
         
         TextChooserNode.appearance.fontName = "Papyrus"
         TextChooserNode.appearance.fontSize = 24
-        TextChooserNode.appearance.fontColor = .purple
+        TextChooserNode.appearance.fontColor = .orange
 
         NumberChooserNode.appearance.fontName = "Papyrus"
         NumberChooserNode.appearance.fontSize = 24

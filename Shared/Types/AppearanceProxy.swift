@@ -17,6 +17,7 @@ public class Appearance: NSObject {
         self.fontSize = 32
         self.fontName = "HelveticaNeue-UltraLight"
         self.fontColor = .white
+        self.highlightColor = .yellow
         
         super.init()
     }
@@ -26,13 +27,11 @@ public class Appearance: NSObject {
     @objc dynamic public var fontColor: SKColor
     
     @objc dynamic public var fontSize: CGFloat
+    
+    @objc dynamic public var highlightColor: SKColor
 }
 
 extension LabelNode: AppearanceProxy {
-    @objc dynamic public static let appearance = Appearance()
-}
-
-extension TextButtonNode: AppearanceProxy {
     @objc dynamic public static let appearance = Appearance()
 }
 
@@ -42,4 +41,8 @@ extension TextChooserNode: AppearanceProxy {
 
 extension NumberChooserNode: AppearanceProxy {
     @objc dynamic public static let appearance = Appearance()
+}
+
+extension ButtonNode: AppearanceProxy {
+    @objc dynamic public static let appearance = Appearance()    
 }

@@ -24,7 +24,7 @@ open class TextButtonNode: ButtonNode {
     @objc public var fontColor: SKColor? {
         get { self.label.fontColor }
         set { self.label.fontColor = newValue ?? TextButtonNode.appearance.fontColor }
-    }
+    }        
 
     public init(title: String, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
         self.label = SKLabelNode(text: title)
@@ -34,7 +34,8 @@ open class TextButtonNode: ButtonNode {
         self.name = "TextButtonNode \"\(title)\""
         
         self.label.position = CGPoint(x: 0, y: -(self.size.height / 4))
-        self.label.verticalAlignmentMode = .baseline        
+        self.label.verticalAlignmentMode = .baseline
+        self.label.zPosition = 1_000
         addChild(self.label)
 
         self.fontName = TextButtonNode.appearance.fontName
