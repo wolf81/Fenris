@@ -29,7 +29,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         }
     }
     
-    @objc dynamic public var highlightColor: SKColor = ButtonNode.appearance.highlightColor        
+    @objc dynamic public var highlightColor: SKColor = ButtonNode.appearance.highlightColor
                 
     private var textureInfo: [ControlState: SKTexture] = [:]
     
@@ -156,10 +156,10 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
                 self.texture = self.textureInfo[.default]
+                self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
                 return self.alpha = 0.5
             }
             self.texture = texture
-            self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
         case _ where state.contains(.selected):
             self.texture = self.textureInfo[.selected]
             self.run(SKAction.colorize(with: self.highlightColor, colorBlendFactor: 1.0, duration: 0))

@@ -15,10 +15,9 @@ import SpriteKit
 class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        TextButtonNode.appearance.fontName = "Papyrus"
-        TextButtonNode.appearance.fontSize = 22
-        TextButtonNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
-
+        ButtonNode.appearance.fontName = "Papyrus"
+        ButtonNode.appearance.fontSize = 22
+        ButtonNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
         ButtonNode.appearance.highlightColor = .green
         
         LabelNode.appearance.fontName = "Impact"
