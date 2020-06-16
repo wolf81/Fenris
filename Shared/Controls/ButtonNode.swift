@@ -10,7 +10,7 @@ import SpriteKit
 
 open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private(set) var state: ControlState = .default
-    
+        
     private(set) var isSelecting: Bool = false {
         didSet {
             updateForSelectionState()
@@ -105,9 +105,9 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         setTexture(texture: highlightTexture, for: .highlighted)
         setTexture(texture: selectedTexture, for: .selected)
 
-        self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)
+        self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)        
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
@@ -189,4 +189,3 @@ extension ButtonNode: MouseDeviceInteractable {
         }
     }
 }
-

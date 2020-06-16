@@ -31,7 +31,7 @@ public class GridNode: ScrollNode {
 
         self.name = "GridNode"
     }
-        
+            
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }

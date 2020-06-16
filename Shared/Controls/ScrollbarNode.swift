@@ -29,7 +29,7 @@ class ScrollbarNode : SKSpriteNode {
     
     private var scrollerMaxY: CGFloat { 0 }
     
-    public override init(texture: SKTexture?, color: NSColor, size: CGSize) {
+    public override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         let bundle = Bundle(for: type(of: self))
         
         let upImage = bundle.image(forResource: "arrow-up")!

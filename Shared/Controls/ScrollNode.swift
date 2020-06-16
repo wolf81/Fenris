@@ -67,7 +67,7 @@ public class ScrollNode: SKSpriteNode {
         updateLayout()
     }
     
-    public override init(texture: SKTexture?, color: NSColor, size: CGSize) {
+    public override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         let buttonSize = CGSize(width: 32, height: 32)
 
         self.cropNode = SKCropNode()

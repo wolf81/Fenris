@@ -10,8 +10,8 @@ import Fenris
 import SpriteKit
 
 class SettingsMenuScene2: InteractableScene {
-    let titleLabel = SKLabelNode(text: "Settings")
-    let musicLabel = SKLabelNode(text: "Music")
+    let titleLabel = LabelNode(text: "Settings")
+    let musicLabel = LabelNode(text: "Music")
     let musicButton = TextButtonNode(title: "On", size: CGSize(width: 100, height: 50))
     let backButton = TextButtonNode(title: "Back", size: CGSize(width: 200, height: 50))
         

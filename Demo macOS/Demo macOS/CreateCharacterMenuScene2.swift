@@ -10,7 +10,7 @@ import Fenris
 import SpriteKit
 
 class CreateCharacterMenuScene2: InteractableScene {
-    let titleLabel = SKLabelNode(text: "Create Character")
+    let titleLabel = LabelNode(text: "Create Character")
     let textChooser = TextChooserNode(values: ["Mage", "Fighter", "Rogue", "Cleric"], size: CGSize(width: 200, height: 50))
     let numberChooser = NumberChooserNode(values: [1, 2, 4, 6], size: CGSize(width: 200, height: 50))
     let toggle = ToggleNode(size: CGSize(width: 100, height: 50))
@@ -31,7 +31,7 @@ class CreateCharacterMenuScene2: InteractableScene {
         
         
         textChooser.selectedValueIndex = 3
-        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }
+        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }        
     }
     
     required init?(coder aDecoder: NSCoder) {

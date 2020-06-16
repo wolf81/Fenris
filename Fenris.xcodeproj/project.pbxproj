@@ -97,9 +97,6 @@
 		79809E1A22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
 		79809E1B22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
 		79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E1922B2A7B4008E4B49 /* ArrowButtonNode.swift */; };
-		79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
-		79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
-		79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E2B22B39CE5008E4B49 /* LabelNode.swift */; };
 		79809E3822B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
 		79809E3922B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
 		79809E3A22B4A617008E4B49 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E3722B4A617008E4B49 /* Menu.swift */; };
@@ -115,6 +112,15 @@
 		79809E4D22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
 		79809E4E22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
 		79809E4F22B4CA7F008E4B49 /* InputDeviceInteractable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */; };
+		79ABFA392498E02600914767 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA382498E02600914767 /* LabelNode.swift */; };
+		79ABFA3A2498E02600914767 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA382498E02600914767 /* LabelNode.swift */; };
+		79ABFA3B2498E02600914767 /* LabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA382498E02600914767 /* LabelNode.swift */; };
+		79ABFA3D2498E45700914767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA3C2498E45700914767 /* Constants.swift */; };
+		79ABFA3E2498E45700914767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA3C2498E45700914767 /* Constants.swift */; };
+		79ABFA3F2498E45700914767 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA3C2498E45700914767 /* Constants.swift */; };
+		79ABFA412498E5D800914767 /* AppearanceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA402498E5D800914767 /* AppearanceProxy.swift */; };
+		79ABFA422498E5D800914767 /* AppearanceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA402498E5D800914767 /* AppearanceProxy.swift */; };
+		79ABFA432498E5D800914767 /* AppearanceProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79ABFA402498E5D800914767 /* AppearanceProxy.swift */; };
 		79C681E22111761B006E20D0 /* MenuItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C681E12111761B006E20D0 /* MenuItemTests.swift */; };
 		79C681FE21117860006E20D0 /* Fenris_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 79C681FC21117860006E20D0 /* Fenris_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79DE3E0322B8B735000AA665 /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DE3E0222B8B735000AA665 /* MenuTests.swift */; };
@@ -195,6 +201,9 @@
 		79809E4422B4C72D008E4B49 /* ButtonNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
 		79809E4822B4CA0E008E4B49 /* MenuRowNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowNode.swift; sourceTree = "<group>"; };
 		79809E4C22B4CA7F008E4B49 /* InputDeviceInteractable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceInteractable.swift; sourceTree = "<group>"; };
+		79ABFA382498E02600914767 /* LabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelNode.swift; sourceTree = "<group>"; };
+		79ABFA3C2498E45700914767 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		79ABFA402498E5D800914767 /* AppearanceProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceProxy.swift; sourceTree = "<group>"; };
 		79C681DC2111761B006E20D0 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		79C681E12111761B006E20D0 /* MenuItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTests.swift; sourceTree = "<group>"; };
 		79C681E32111761B006E20D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -269,6 +278,7 @@
 				7927B52324978F740022FCB7 /* ImageButtonNode.swift */,
 				7927B5272497986D0022FCB7 /* ToggleNode.swift */,
 				7927B53B2497C6B70022FCB7 /* MouseInteractionResponder.swift */,
+				79ABFA382498E02600914767 /* LabelNode.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -340,6 +350,7 @@
 			children = (
 				795D786621119EEA00F4547D /* ViewController.swift */,
 				79EA8D672114B95D0072CBBE /* Font.swift */,
+				79ABFA402498E5D800914767 /* AppearanceProxy.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -374,6 +385,7 @@
 		79C681C92111761B006E20D0 = {
 			isa = PBXGroup;
 			children = (
+				79ABFA3C2498E45700914767 /* Constants.swift */,
 				79EE254B2494D61F00D85135 /* Assets.xcassets */,
 				795D7865211199D500F4547D /* README.md */,
 				79C681ED21117621006E20D0 /* Shared */,
@@ -634,7 +646,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7927B50B249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
-				79809E2D22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BC2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25562494F6BD00D85135 /* InteractableScene.swift in Sources */,
 				7918D8C02493F702002E81D9 /* ButtonNode.swift in Sources */,
@@ -642,6 +653,7 @@
 				79809E4A22B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				7927B5292497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B513249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
+				79ABFA3E2498E45700914767 /* Constants.swift in Sources */,
 				7927B51724971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A922B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
@@ -654,9 +666,11 @@
 				79E2CE6522BF43F900446F70 /* FocusItemController.swift in Sources */,
 				79809E1722B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B122B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
+				79ABFA422498E5D800914767 /* AppearanceProxy.swift in Sources */,
 				792D429021E20A2700D438F1 /* SKLabelNodeExtensions.swift in Sources */,
 				79EE25492494CBD100D85135 /* Selectable.swift in Sources */,
 				7927B52524978F740022FCB7 /* ImageButtonNode.swift in Sources */,
+				79ABFA3A2498E02600914767 /* LabelNode.swift in Sources */,
 				794366D022B7092400AA62AF /* FocusNode.swift in Sources */,
 				792D428221E20A1700D438F1 /* ServiceLocator.swift in Sources */,
 				79809E3922B4A617008E4B49 /* Menu.swift in Sources */,
@@ -682,7 +696,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7927B50C249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
-				79809E2E22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BD2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25572494F6BD00D85135 /* InteractableScene.swift in Sources */,
 				7918D8C12493F702002E81D9 /* ButtonNode.swift in Sources */,
@@ -690,6 +703,7 @@
 				792D42CE21E2115F00D438F1 /* ServiceLocator.swift in Sources */,
 				7927B52A2497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B514249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
+				79ABFA3F2498E45700914767 /* Constants.swift in Sources */,
 				7927B51824971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366AA22B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
@@ -702,9 +716,11 @@
 				79809E1822B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B222B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
 				792D42C721E2115F00D438F1 /* Font.swift in Sources */,
+				79ABFA432498E5D800914767 /* AppearanceProxy.swift in Sources */,
 				794366D122B7092400AA62AF /* FocusNode.swift in Sources */,
 				79EE254A2494CBD100D85135 /* Selectable.swift in Sources */,
 				7927B52624978F740022FCB7 /* ImageButtonNode.swift in Sources */,
+				79ABFA3B2498E02600914767 /* LabelNode.swift in Sources */,
 				792D42D221E2115F00D438F1 /* ViewController.swift in Sources */,
 				79809E3A22B4A617008E4B49 /* Menu.swift in Sources */,
 				79809E1C22B2A7B4008E4B49 /* ArrowButtonNode.swift in Sources */,
@@ -748,7 +764,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7927B50A249644B20022FCB7 /* ScrollbarNode.swift in Sources */,
-				79809E2C22B39CE5008E4B49 /* LabelNode.swift in Sources */,
 				7918D8BB2493EBFD002E81D9 /* CustomStringConvertibleExtensions.swift in Sources */,
 				79EE25552494F6BD00D85135 /* InteractableScene.swift in Sources */,
 				7918D8BF2493F702002E81D9 /* ButtonNode.swift in Sources */,
@@ -756,6 +771,7 @@
 				79809E4922B4CA0E008E4B49 /* MenuRowNode.swift in Sources */,
 				7927B5282497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B512249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
+				79ABFA3D2498E45700914767 /* Constants.swift in Sources */,
 				7927B51624971F820022FCB7 /* ChooserNode.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
 				794366A822B4FD1900AA62AF /* MenuItemNode.swift in Sources */,
@@ -768,9 +784,11 @@
 				79EA8D6D2114B9C30072CBBE /* SKLabelNodeExtensions.swift in Sources */,
 				79809E1622B2A637008E4B49 /* ArrowNode.swift in Sources */,
 				794366B022B50E0A00AA62AF /* MenuConfiguration.swift in Sources */,
+				79ABFA412498E5D800914767 /* AppearanceProxy.swift in Sources */,
 				79EA8D692114B95D0072CBBE /* Font.swift in Sources */,
 				79EE25482494CBD100D85135 /* Selectable.swift in Sources */,
 				7927B52424978F740022FCB7 /* ImageButtonNode.swift in Sources */,
+				79ABFA392498E02600914767 /* LabelNode.swift in Sources */,
 				794366CF22B7092400AA62AF /* FocusNode.swift in Sources */,
 				795D784E211180F700F4547D /* ServiceLocator.swift in Sources */,
 				79809E3822B4A617008E4B49 /* Menu.swift in Sources */,

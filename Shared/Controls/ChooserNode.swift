@@ -33,7 +33,7 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
     
     let values: [T]
 
-    override init(texture: SKTexture?, color: NSColor, size: CGSize) {        
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {        
         self.label = SKLabelNode()
         self.leftButton = TextButtonNode(title: "◄", size: CGSize(width: 32, height: size.height))
         self.rightButton = TextButtonNode(title: "►", size: CGSize(width: 32, height: size.height))

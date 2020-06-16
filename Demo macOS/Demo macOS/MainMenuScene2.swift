@@ -10,13 +10,14 @@ import Fenris
 import SpriteKit
 
 class MainMenuScene2: InteractableScene {
+    let titleLabel = LabelNode(text: "Quest")
     let newGameButton = TextButtonNode(title: "New Game", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showCreateCharacter() })
     let settingsButton = TextButtonNode(title: "Settings", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.showSettings() })
     let quitButton = TextButtonNode(title: "Quit", size: CGSize(width: 200, height: 50)) //, onSelected: { [unowned self] _ in self.quit() })
     
     let scrollNode: ScrollNode
 
-    var menuNodes: [SKNode] { [self.newGameButton, self.settingsButton, self.quitButton] }
+    var menuNodes: [SKNode] { [self.titleLabel, self.newGameButton, self.settingsButton, self.quitButton] }
     
     override init(size: CGSize) {
         self.scrollNode = ScrollNode(texture: nil, color: .brown, size: CGSize(width: 200, height: 400))
@@ -32,7 +33,7 @@ class MainMenuScene2: InteractableScene {
         self.scrollNode.position = CGPoint(x: 10, y: 10)
         addChild(self.scrollNode)
 
-        let grid = GridNode(color: self.backgroundColor, size: CGSize(width: 200, height: 180))
+        let grid = GridNode(color: self.backgroundColor, size: CGSize(width: 200, height: 240))
         grid.delegate = self
         addChild(grid)
         
@@ -41,7 +42,7 @@ class MainMenuScene2: InteractableScene {
         
         self.newGameButton.onSelected = { [unowned self] _ in self.showCreateCharacter() }
         self.settingsButton.onSelected = { [unowned self] _ in self.showSettings() }
-        self.quitButton.onSelected = { [unowned self] _ in self.quit() }
+        self.quitButton.onSelected = { [unowned self] _ in self.quit() }        
     }
     
     required init?(coder aDecoder: NSCoder) {

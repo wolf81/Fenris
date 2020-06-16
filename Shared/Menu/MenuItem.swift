@@ -51,7 +51,7 @@ public class LabelItem: NSObject & MenuItem {
     public init(title: String) {
         self.title = title
         
-        super.init()
+        super.init()                
     }
     
     public func getNode(size: CGSize, font: Font) -> MenuItemNode {
