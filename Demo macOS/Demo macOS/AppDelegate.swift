@@ -16,10 +16,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         TextButtonNode.appearance.fontName = "Papyrus"
-        
+        TextButtonNode.appearance.fontSize = 22
+        TextButtonNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
+
         LabelNode.appearance.fontName = "Impact"
-        LabelNode.appearance.fontSize = 16
-        LabelNode.appearance.fontColor = SKColor.red
+        LabelNode.appearance.fontSize = 24
+        LabelNode.appearance.fontColor = SKColor.init(white: 0.95, alpha: 1)
         
         print(TextButtonNode.appearance)
         print(LabelNode.appearance)

@@ -11,7 +11,7 @@ import SpriteKit
 public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNode {
     public var item: MenuItem = LabelItem(title: "bla")
     
-    private var label: SKLabelNode
+    internal let label: SKLabelNode
     
     private var leftButton: ButtonNode
     
@@ -33,10 +33,17 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
     
     let values: [T]
 
-    override init(texture: SKTexture?, color: SKColor, size: CGSize) {        
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+        let bundle = Bundle(for: type(of: self))
+        let leftImage = bundle.image(forResource: "arrow-left")!
+        let leftTexture = SKTexture(image: leftImage)
+        
+        let rightImage = bundle.image(forResource: "arrow-right")!
+        let rightTexture = SKTexture(image: rightImage)
+        
         self.label = SKLabelNode()
-        self.leftButton = TextButtonNode(title: "◄", size: CGSize(width: 32, height: size.height))
-        self.rightButton = TextButtonNode(title: "►", size: CGSize(width: 32, height: size.height))
+        self.leftButton = ImageButtonNode(texture: leftTexture, size: CGSize(width: 32, height: size.height))
+        self.rightButton = ImageButtonNode(texture: rightTexture, size: CGSize(width: 32, height: size.height))
         self.values = []
         
         super.init(texture: texture, color: color, size: size)
@@ -47,9 +54,16 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
         
         self.values = values
         
+        let bundle = Bundle(for: type(of: self))
+        let leftImage = bundle.image(forResource: "arrow-left")!
+        let leftTexture = SKTexture(image: leftImage)
+        
+        let rightImage = bundle.image(forResource: "arrow-right")!
+        let rightTexture = SKTexture(image: rightImage)
+
         self.label = SKLabelNode(text: "\(self.values.first!)")
-        self.leftButton = TextButtonNode(title: "←", size: CGSize(width: 32, height: size.height))
-        self.rightButton = TextButtonNode(title: "→", size: CGSize(width: 32, height: size.height))
+        self.leftButton = ImageButtonNode(texture: leftTexture, size: CGSize(width: 32, height: size.height))
+        self.rightButton = ImageButtonNode(texture: rightTexture, size: CGSize(width: 32, height: size.height))
 
         super.init(texture: nil, color: .clear, size: size)
         
@@ -97,39 +111,4 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
         self.rightButton.isEnabled = self.isLoopValuesEnabled == true || self.selectedValueIndex < (self.values.count - 1)
     }
 }
-
-public class TextChooserNode: ChooserNode<String>   {
-    init(size: CGSize, item: TextChooserItem, font: Font) {
-        super.init(values: ["Hi"], size: size)
-    }
-    
-    public override init(values: [String], size: CGSize) {
-        super.init(values: values, size: size)
-
-        self.name = "TextChooserNode"
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-}
-
-public class NumberChooserNode: ChooserNode<Int>  {
-    init(size: CGSize, item: NumberChooserItem, font: Font) {
-        super.init(values: [1], size: size)
-    }
-
-    public override init(values: [Int], size: CGSize) {
-        super.init(values: values, size: size)
-        
-        self.name = "NumberChooserNode"
-
-        self.isLoopValuesEnabled = false
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-}
-
 

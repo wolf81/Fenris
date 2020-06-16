@@ -12,16 +12,10 @@ class ButtonNode: SKShapeNode, MenuItemNode, CustomStringConvertible {
     let item: MenuItem
     
     private var buttonItem: ButtonItem { return self.item as! ButtonItem }
-    
-    private let label: SKLabelNode
-    
+        
     init(size: CGSize, item: ButtonItem, font: Font) {
         self.item = item
         
-        self.label = SKLabelNode()
-        self.label.font = font
-        self.label.position = CGPoint(x: size.width / 2, y: (size.height - font.capHeight) / 2)
-
         super.init()
 
         self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)

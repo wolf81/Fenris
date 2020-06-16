@@ -32,6 +32,14 @@ extension LabelNode: AppearanceProxy {
     @objc dynamic public static let appearance = Appearance()
 }
 
-extension ButtonNode: AppearanceProxy {
+extension TextButtonNode: AppearanceProxy {
+    @objc dynamic public static let appearance = Appearance()
+}
+
+extension TextChooserNode: AppearanceProxy {
+    @objc dynamic public static let appearance = Appearance()
+}
+
+extension NumberChooserNode: AppearanceProxy {
     @objc dynamic public static let appearance = Appearance()
 }
