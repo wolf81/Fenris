@@ -40,7 +40,9 @@ class ScrollbarNode : SKSpriteNode {
         let downTexture = SKTexture(image: downImage)
         self.downButton = ImageButtonNode(texture: downTexture, size: ScrollbarNode.buttonSize)
         
-        self.scroller = TextButtonNode(title: "", size: ScrollbarNode.buttonSize)
+        let scrollerImage = bundle.image(forResource: "scroller")!
+        let scrollerTexture = SKTexture(image: scrollerImage)
+        self.scroller = ImageButtonNode(texture: scrollerTexture, size: ScrollbarNode.buttonSize)
         
         // disable visual highlighting & selection for now by showing the texture for default state
         self.scroller.setTexture(texture: self.scroller.texture!, for: .highlighted)
