@@ -9,7 +9,7 @@
 import SpriteKit
 
 open class InteractableScene: SKScene {
-    private var highlightedNodes = Set<SKNode>()
+    private var currentNodes: [MouseDeviceInteractable] = []
     
     override open func sceneDidLoad() {
         super.sceneDidLoad()
@@ -26,9 +26,7 @@ open class InteractableScene: SKScene {
         let trackingArea = NSTrackingArea(rect:view.frame,options:options,owner:self,userInfo:nil)
         view.addTrackingArea(trackingArea)
         
-        #endif
-                
-        NotificationCenter.default.addObserver(self, selector: #selector(updateForButtonNodeDidChangeStateNotification(_:)), name: Constants.buttonNodeDidChangeStateNotification, object: nil)
+        #endif                
     }
 
     override open func willMove(from view: SKView) {
@@ -46,67 +44,39 @@ open class InteractableScene: SKScene {
     override open func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         
-        let location = event.location(in: self)
-        let nodes = self.nodes(at: location)
-
-        for node in nodes {
-            if let selectable = node as? Selectable {
-                selectable.isSelected = true
-            }
+        for node in self.currentNodes {
+            node.onMouseDown()
         }
     }
     
     override open func mouseDragged(with event: NSEvent) {
         super.mouseDragged(with: event)
-        
+  
         let location = event.location(in: self)
-        let locationNodes = self.nodes(at: location)
-
-//        print("1: nodes: \(self.highlightedNodes)")
-
-        let removedNodes = self.highlightedNodes.filter({ locationNodes.contains($0) == false })
-        let addedNodes = locationNodes.filter({ self.highlightedNodes.contains($0) == false })
-        for node in removedNodes {
-            if let selectableNode = node as? Selectable {
-                selectableNode.isSelected = false
-            } else {
-                if let highlightableNode = node as? Highlightable {
-                    highlightableNode.isHighlighted = false
-                }
-            }
-            self.highlightedNodes.remove(node)
+        let nodes = self.nodes(at: location)
+        for node in self.currentNodes {
+            let isTracking = nodes.contains(node)
+            node.onMouseDrag(isTracking: isTracking)
         }
-        
-        for node in addedNodes {
-            if let selectable = node as? Selectable {
-                selectable.isSelected = true
-                self.highlightedNodes.insert(node)
-            }
-        }
-//        print("2: nodes: \(self.highlightedNodes)")
     }
     
     override open func mouseMoved(with event: NSEvent) {
         super.mouseMoved(with: event)
                         
         let location = event.location(in: self)
-        let locationNodes = self.nodes(at: location)
+        let nodes = self.nodes(at: location)
 
-//        print("1: nodes: \(self.highlightedNodes)")
-
-        let removedNodes = self.highlightedNodes.filter({ locationNodes.contains($0) == false })
-        let addedNodes = locationNodes.filter({ self.highlightedNodes.contains($0) == false })
-        for node in removedNodes {
-            (node as? Highlightable)?.isHighlighted = false
-            self.highlightedNodes.remove(node)
-        }
-        for node in addedNodes {
-            if let highlightable = node as? Highlightable {
-                highlightable.isHighlighted = true
-                self.highlightedNodes.insert(node)
+        for node in self.currentNodes {
+            if nodes.contains(node) == false {
+                node.onMouseExit()
             }
         }
-//        print("2: nodes: \(self.highlightedNodes)")
+                
+        self.currentNodes = nodes.filter({ $0 is MouseDeviceInteractable }) as? [MouseDeviceInteractable] ?? []
+
+        for node in self.currentNodes {
+            node.onMouseEnter()
+        }
     }
     
     override open func mouseUp(with event: NSEvent) {
@@ -115,19 +85,34 @@ open class InteractableScene: SKScene {
         let location = event.location(in: self)
         let nodes = self.nodes(at: location)
         
-        for node in nodes {
-            if let selectable = node as? Selectable {
-                selectable.isSelected = false
-            }
+        for node in self.currentNodes {
+            if nodes.contains(node) {
+                node.onMouseUp()
+            } else {
+                node.onMouseExit()
+            }            
         }
     }
     
     #endif
-    
-    @objc private func updateForButtonNodeDidChangeStateNotification(_ notification: Notification) {
-        let button = notification.userInfo![Constants.buttonNodeUserInfoKey] as! ButtonNode
-        if button.isSelected == false && button.isHighlighted == false {
-            self.highlightedNodes.remove(button)
+        
+    private class DummyNode: SKSpriteNode & MouseDeviceInteractable {
+        func onMouseEnter() {}
+        
+        func onMouseDrag(isTracking: Bool) {}
+        
+        func onMouseExit() {}
+        
+        func onMouseDown() {}
+        
+        func onMouseUp() {}
+        
+        init() {
+            super.init(texture: nil, color: .clear, size: .zero)
+        }
+        
+        required init?(coder aDecoder: NSCoder) {
+            fatalError()
         }
     }
 }

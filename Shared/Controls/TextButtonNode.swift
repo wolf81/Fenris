@@ -16,6 +16,8 @@ open class TextButtonNode: ButtonNode {
 
         super.init(size: size, onStateChanged: onStateChanged)
                 
+        self.name = "TextButtonNode \"\(title)\""
+        
         self.label.position = CGPoint(x: 0, y: -(self.size.height / 4))
         self.label.verticalAlignmentMode = .baseline
         addChild(self.label)

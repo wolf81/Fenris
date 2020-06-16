@@ -40,6 +40,8 @@ class ScrollbarNode : SKSpriteNode {
 
         super.init(texture: texture, color: color, size: size)
                 
+        self.name = "ScrollbarNode"
+
         self.upButton.position = CGPoint(x: self.upButton.size.width / 2, y: size.height - self.upButton.size.height / 2)
         self.addChild(self.upButton)
         

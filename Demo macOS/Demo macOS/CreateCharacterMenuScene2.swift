@@ -21,6 +21,8 @@ class CreateCharacterMenuScene2: InteractableScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        self.name = "Create Character"
+        
         let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 300))
         addChild(grid)
         grid.delegate = self
@@ -29,7 +31,7 @@ class CreateCharacterMenuScene2: InteractableScene {
         
         
         textChooser.selectedValueIndex = 3
-        self.backButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showMainMenu() } }
+        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }
     }
     
     required init?(coder aDecoder: NSCoder) {

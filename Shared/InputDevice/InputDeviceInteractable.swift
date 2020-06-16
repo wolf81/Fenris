@@ -9,10 +9,10 @@
 import Foundation
 import SpriteKit
 
-public protocol MouseDeviceInteractable where Self: SKNode {
-    func handleMouseUp(location: CGPoint)
-    func handleMouseMoved(location: CGPoint)
-}
+//public protocol MouseDeviceInteractable where Self: SKNode {
+//    func handleMouseUp(location: CGPoint)
+//    func handleMouseMoved(location: CGPoint)
+//}
 
 public protocol KeyboardDeviceInteractable where Self: SKNode {
     func handleKeyUp(action: KeyboardAction)
@@ -28,7 +28,7 @@ public protocol TouchDeviceInteractable where Self: SKNode {
 
 public typealias InputDeviceInteractable = (
     TouchDeviceInteractable &
-    MouseDeviceInteractable &
+//    MouseDeviceInteractable &
     KeyboardDeviceInteractable &
     GameControllerDeviceInteractable
 )

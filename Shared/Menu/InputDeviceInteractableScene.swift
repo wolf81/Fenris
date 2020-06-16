@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {
+open class InputDeviceInteractableScene: SKScene & InputDeviceInteractable {    
     open func handleMouseUp(location: CGPoint) {
     }
     

@@ -80,6 +80,8 @@ public class ScrollNode: SKSpriteNode {
         
         super.init(texture: texture, color: color, size: size)
         
+        self.name = "ScrollNode"
+        
         self.anchorPoint = .zero
         
         self.content.anchorPoint = .zero
@@ -91,8 +93,15 @@ public class ScrollNode: SKSpriteNode {
         self.scrollbar.zPosition = 1000
         addChild(self.scrollbar)
         
-        self.scrollbar.upButton.onStateChanged = scrollUp(buttonNode:)
-        self.scrollbar.downButton.onStateChanged = scrollDown(buttonNode:)
+        self.scrollbar.upButton.onSelectStart = { [unowned self] _ in
+            self.scrollDirection = .up
+        }
+        self.scrollbar.upButton.onSelectFinish = { [unowned self] _ in self.scrollDirection = .none }
+        self.scrollbar.downButton.onSelectStart = {
+            [unowned self] _ in self.scrollDirection = .down            
+        }
+        self.scrollbar.downButton.onSelectFinish = { [unowned self] _ in self.scrollDirection = .none }
+//        self.scrollbar.downButton.onSelecting = scrollDown(buttonNode:)
         
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
@@ -168,11 +177,13 @@ public class ScrollNode: SKSpriteNode {
         }
     }
     
-    private class HighlightNode: SKShapeNode & Highlightable {
+    private class HighlightNode: SKShapeNode & Highlightable & MouseDeviceInteractable {
         var highlightChanged: ((Bool) -> Void)? = nil
 
         init(size: CGSize) {
             super.init()
+            
+            self.name = "HighlightNode"
             
             self.lineWidth = 0
             self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
@@ -186,6 +197,30 @@ public class ScrollNode: SKSpriteNode {
             didSet {
                 self.highlightChanged?(self.isHighlighted)
             }
-        }        
+        }
+        
+        func onMouseEnter() {
+            if self.isHighlighted != true {
+                self.isHighlighted = true
+            }
+        }
+        
+        func onMouseExit() {
+            if self.isHighlighted != false {
+                self.isHighlighted = false
+            }
+        }
+        
+        func onMouseDown() {
+            
+        }
+        
+        func onMouseUp() {
+            
+        }
+        
+        func onMouseDrag(isTracking: Bool) {
+        
+        }
     }
 }

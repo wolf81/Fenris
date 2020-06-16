@@ -28,6 +28,8 @@ public class GridNode: ScrollNode {
         self.content = SKSpriteNode(color: color, size: size)
         
         super.init(texture: nil, color: color, size: size)
+
+        self.name = "GridNode"
     }
         
     public required init?(coder aDecoder: NSCoder) {

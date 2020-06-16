@@ -20,6 +20,8 @@ class SettingsMenuScene2: InteractableScene {
     override init(size: CGSize) {
         super.init(size: size)
         
+        self.name = "Settings"
+        
         let grid = GridNode(color: .gray, size: CGSize(width: 200, height: 180))
         grid.delegate = self        
         addChild(grid)
@@ -27,7 +29,7 @@ class SettingsMenuScene2: InteractableScene {
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
         
-        self.backButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showMainMenu() } }
+        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() } 
     }
     
     required init?(coder aDecoder: NSCoder) {

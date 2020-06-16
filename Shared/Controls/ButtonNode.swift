@@ -11,6 +11,12 @@ import SpriteKit
 open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private(set) var state: ControlState = .default
     
+    private(set) var isSelecting: Bool = false {
+        didSet {
+            updateForSelectionState()
+        }
+    }
+    
     public var isEnabled: Bool {
         set(value) {
             if value != self.isEnabled {
@@ -26,7 +32,13 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     private var textureInfo: [ControlState: SKTexture] = [:]
     
     public var onStateChanged: ((ButtonNode) -> ())?
-            
+
+    public var onSelected: ((ButtonNode) -> ())?
+    
+    public var onSelectStart: ((ButtonNode) -> ())?
+    
+    public var onSelectFinish: ((ButtonNode) -> ())?
+
     public var item: MenuItem = LabelItem(title: "bla")
             
     public var isHighlighted: Bool {
@@ -87,6 +99,8 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
 
         super.init(texture: texture, color: .clear, size: size)
         
+        self.name = "ButtonNode"
+        
         setTexture(texture: texture, for: .default)
         setTexture(texture: highlightTexture, for: .highlighted)
         setTexture(texture: selectedTexture, for: .selected)
@@ -108,8 +122,14 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     
     func updateForSelectionState() {
         if self.state.contains(.disabled) { return }
-        
+             
         updateForState()
+                
+        if self.isSelecting && self.isSelected == false {
+            self.onSelectFinish?(self)
+        } else if isSelected {
+            self.onSelectStart?(self)
+        }
     }
     
     func updateForState() {
@@ -133,4 +153,40 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     }
 }
 
+extension ButtonNode: MouseDeviceInteractable {
+    @objc public func onMouseEnter() {
+        self.isHighlighted = true        
+    }
+    
+    @objc public func onMouseExit() {
+        self.isHighlighted = false
+        
+        if self.isSelected {
+            self.isSelecting = false
+            self.isSelected = false
+        }
+    }
+    
+    @objc public func onMouseDown() {
+        self.isSelected = true
+        self.isSelecting = true
+    }
+    
+    @objc public func onMouseDrag(isTracking: Bool) {
+        if self.isSelected != isTracking {
+            self.isSelected = isTracking
+        }        
+    }
+        
+    @objc public func onMouseUp() {
+        if self.isSelected {
+            self.isSelected = false
+
+            if self.isSelecting {
+                self.onSelected?(self)
+                self.isSelecting = false
+            }
+        }
+    }
+}
 

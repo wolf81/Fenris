@@ -20,8 +20,10 @@ class MainMenuScene2: InteractableScene {
     
     override init(size: CGSize) {
         self.scrollNode = ScrollNode(texture: nil, color: .brown, size: CGSize(width: 200, height: 400))
-
+        
         super.init(size: size)
+
+        self.name = "Main Menu"
 
         let texture = SKTexture(noiseWithSmoothness: 0.6, size: CGSize(width: 200, height: 1000), grayscale: false)
         let sprite = SKSpriteNode(texture: texture)
@@ -37,9 +39,9 @@ class MainMenuScene2: InteractableScene {
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
         
-        self.newGameButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showCreateCharacter() } }
-        self.settingsButton.onStateChanged = { [unowned self] button in if button.isSelected { self.showSettings() } }
-        self.quitButton.onStateChanged = { [unowned self] button in if button.isSelected { self.quit() } }
+        self.newGameButton.onSelected = { [unowned self] _ in self.showCreateCharacter() }
+        self.settingsButton.onSelected = { [unowned self] _ in self.showSettings() }
+        self.quitButton.onSelected = { [unowned self] _ in self.quit() }
     }
     
     required init?(coder aDecoder: NSCoder) {

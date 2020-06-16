@@ -99,8 +99,8 @@ open class MenuScene: SKScene, InputDeviceInteractable {
             return
         }
         
-        let nodeLocation = convert(location, to: focusedNode)
-        focusedNode.handleMouseUp(location: nodeLocation)
+//        let nodeLocation = convert(location, to: focusedNode)
+//        focusedNode.handleMouseUp(location: nodeLocation)
     }
     
     public func handleMouseMoved(location: CGPoint) {

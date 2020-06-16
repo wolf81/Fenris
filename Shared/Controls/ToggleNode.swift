@@ -36,6 +36,8 @@ open class ToggleNode: ButtonNode {
         
         super.init(size: CGSize(width: 64, height: 32))
         
+        self.name = "ToggleNode"
+        
         let bundle = Bundle.init(for: type(of: self))
         
         let defaultImage = bundle.image(forResource: "toggle")!
@@ -83,4 +85,21 @@ open class ToggleNode: ButtonNode {
         self.switchSprite.run(SKAction.setTexture(texture))
         self.switchSprite.position = CGPoint(x: x, y: 0)
     }
+    
+    public override func onMouseUp() {        
+        self.isSelected = !self.isSelected
+    }
+    
+    public override func onMouseDown() {
+    
+    }
+    
+    public override func onMouseDrag(isTracking: Bool) {
+
+    }
+    
+    public override func onMouseExit() {
+        self.isHighlighted = false        
+    }
 }
+

@@ -58,11 +58,11 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
         addChild(self.label)
         
         self.leftButton.position = CGPoint(x: -size.width / 2 + self.leftButton.size.width / 2, y: 0)
-        self.leftButton.onStateChanged = { [unowned self] button in if button.isSelected { self.selectPreviousValue() }}
+        self.leftButton.onSelected = { [unowned self] _ in self.selectPreviousValue() }
         addChild(self.leftButton)
 
         self.rightButton.position = CGPoint(x: size.width / 2 - self.rightButton.size.width / 2, y: 0)
-        self.rightButton.onStateChanged = { [unowned self] button in if button.isSelected { self.selectNextValue() }}
+        self.rightButton.onSelected = { [unowned self] _ in self.selectNextValue() }
         addChild(self.rightButton)
     }
     
@@ -100,11 +100,13 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNod
 
 public class TextChooserNode: ChooserNode<String>   {
     init(size: CGSize, item: TextChooserItem, font: Font) {
-        super.init(values: [], size: size)
+        super.init(values: ["Hi"], size: size)
     }
     
     public override init(values: [String], size: CGSize) {
         super.init(values: values, size: size)
+
+        self.name = "TextChooserNode"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -114,12 +116,14 @@ public class TextChooserNode: ChooserNode<String>   {
 
 public class NumberChooserNode: ChooserNode<Int>  {
     init(size: CGSize, item: NumberChooserItem, font: Font) {
-        super.init(values: [], size: size)
+        super.init(values: [1], size: size)
     }
 
     public override init(values: [Int], size: CGSize) {
         super.init(values: values, size: size)
         
+        self.name = "NumberChooserNode"
+
         self.isLoopValuesEnabled = false
     }
     
