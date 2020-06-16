@@ -9,8 +9,17 @@
 import SpriteKit
 
 open class ImageButtonNode: ButtonNode {
+    let sprite: SKSpriteNode
+    
     public init(texture: SKTexture, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
+        self.sprite = SKSpriteNode(texture: texture, color: .white, size: size)
+        
         super.init(size: size, onStateChanged: onStateChanged)
+        
+        addChild(self.sprite)
+        
+        self.sprite.position = CGPoint.zero
+        self.sprite.zPosition = 1_000
         
         self.name = "ImageButtonNode"
     }

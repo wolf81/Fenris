@@ -30,8 +30,16 @@ class ScrollbarNode : SKSpriteNode {
     private var scrollerMaxY: CGFloat { 0 }
     
     public override init(texture: SKTexture?, color: NSColor, size: CGSize) {
-        self.upButton = TextButtonNode(title: "▲", size: ScrollbarNode.buttonSize)
-        self.downButton = TextButtonNode(title: "▼", size: ScrollbarNode.buttonSize)
+        let bundle = Bundle(for: type(of: self))
+        
+        let upImage = bundle.image(forResource: "arrow-up")!
+        let upTexture = SKTexture(image: upImage)
+        self.upButton = ImageButtonNode(texture: upTexture, size: ScrollbarNode.buttonSize)
+        
+        let downImage = bundle.image(forResource: "arrow-down")!
+        let downTexture = SKTexture(image: downImage)
+        self.downButton = ImageButtonNode(texture: downTexture, size: ScrollbarNode.buttonSize)
+        
         self.scroller = TextButtonNode(title: "", size: ScrollbarNode.buttonSize)
         
         // disable visual highlighting & selection for now by showing the texture for default state

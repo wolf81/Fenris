@@ -91,7 +91,6 @@ open class ToggleNode: ButtonNode {
     }
     
     public override func onMouseDown() {
-    
     }
     
     public override func onMouseDrag(isTracking: Bool) {
@@ -99,7 +98,7 @@ open class ToggleNode: ButtonNode {
     }
     
     public override func onMouseExit() {
-        self.isHighlighted = false        
+        self.isHighlighted = false
     }
 }
 
