@@ -108,9 +108,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         setTexture(texture: selectedTexture, for: .selected)
 
         self.centerRect = CGRect(x: 0.4, y: 0.4, width: 0.2, height: 0.2)
-    
-        self.highlightColor = ButtonNode.appearance.highlightColor
-                    
+                        
         ButtonNode.appearance.addObserver(self, forKeyPath: #keyPath(highlightColor), options: [.new], context: nil)
     }
     
