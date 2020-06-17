@@ -8,8 +8,8 @@
 
 import SpriteKit
 
-open class ButtonNode: SKSpriteNode & Selectable {
-    private(set) var state: ControlState = .default
+open class ButtonNode: ControlNode & Selectable {
+//    private(set) var state: ControlState = .default
         
     private(set) var isSelecting: Bool = false {
         didSet {
@@ -17,17 +17,17 @@ open class ButtonNode: SKSpriteNode & Selectable {
         }
     }
     
-    public var isEnabled: Bool {
-        set(value) {
-            if value != self.isEnabled {
-                self.state = value == true ? .default : .disabled
-                updateForState()
-            }
-        }
-        get {
-            (self.state == .disabled) == false
-        }
-    }
+//    public var isEnabled: Bool {
+//        set(value) {
+//            if value != self.isEnabled {
+//                self.state = value == true ? .default : .disabled
+//                updateForState()
+//            }
+//        }
+//        get {
+//            (self.state == .disabled) == false
+//        }
+//    }
     
     @objc dynamic public var highlightColor: SKColor = ButtonNode.appearance.highlightColor
                 
@@ -80,7 +80,7 @@ open class ButtonNode: SKSpriteNode & Selectable {
         
         let bundle = Bundle(for: type(of: self))
         
-        super.init(texture: nil, color: .clear, size: size)
+        super.init(size: size)
         
         self.name = "ButtonNode"
         
@@ -131,7 +131,7 @@ open class ButtonNode: SKSpriteNode & Selectable {
         }
     }
     
-    func updateForState() {
+    override func updateForState() {
         switch self.state {
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {

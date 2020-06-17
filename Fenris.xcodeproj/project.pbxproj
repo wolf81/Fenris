@@ -89,6 +89,9 @@
 		79E135AA2499B3F000C2F954 /* SKTextureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135A92499B3F000C2F954 /* SKTextureExtensions.swift */; };
 		79E135AB2499B3F000C2F954 /* SKTextureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135A92499B3F000C2F954 /* SKTextureExtensions.swift */; };
 		79E135AC2499B3F000C2F954 /* SKTextureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135A92499B3F000C2F954 /* SKTextureExtensions.swift */; };
+		79E135C3249A1EAC00C2F954 /* ControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135C2249A1EAC00C2F954 /* ControlNode.swift */; };
+		79E135C4249A1EAC00C2F954 /* ControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135C2249A1EAC00C2F954 /* ControlNode.swift */; };
+		79E135C5249A1EAC00C2F954 /* ControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E135C2249A1EAC00C2F954 /* ControlNode.swift */; };
 		79E2CE5A22BDE4EA00446F70 /* ServiceLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */; };
 		79E2CE5E22BE07F500446F70 /* MenuItemNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */; };
 		79E2CE6022BE51B700446F70 /* FocusNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79E2CE5F22BE51B700446F70 /* FocusNodeTests.swift */; };
@@ -156,6 +159,7 @@
 		79DE3E0222B8B735000AA665 /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		79DE3E0422B8BC97000AA665 /* FontTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTests.swift; sourceTree = "<group>"; };
 		79E135A92499B3F000C2F954 /* SKTextureExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTextureExtensions.swift; sourceTree = "<group>"; };
+		79E135C2249A1EAC00C2F954 /* ControlNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlNode.swift; sourceTree = "<group>"; };
 		79E2CE5922BDE4EA00446F70 /* ServiceLocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocatorTests.swift; sourceTree = "<group>"; };
 		79E2CE5D22BE07F500446F70 /* MenuItemNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemNodeTests.swift; sourceTree = "<group>"; };
 		79E2CE5F22BE51B700446F70 /* FocusNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusNodeTests.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 			children = (
 				7918D8BE2493F702002E81D9 /* ButtonNode.swift */,
 				7927B51524971F820022FCB7 /* ChooserNode.swift */,
+				79E135C2249A1EAC00C2F954 /* ControlNode.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				7927B5292497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B513249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				79ABFA3E2498E45700914767 /* Constants.swift in Sources */,
+				79E135C4249A1EAC00C2F954 /* ControlNode.swift in Sources */,
 				796B708A22BC633F0033EBB7 /* Functions.swift in Sources */,
 				79ABFA4E2499111A00914767 /* ChooserNode.swift in Sources */,
 				792D428F21E20A2500D438F1 /* Font.swift in Sources */,
@@ -592,6 +598,7 @@
 				7927B52A2497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B514249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				79ABFA3F2498E45700914767 /* Constants.swift in Sources */,
+				79E135C5249A1EAC00C2F954 /* ControlNode.swift in Sources */,
 				796B708B22BC633F0033EBB7 /* Functions.swift in Sources */,
 				79ABFA4D2499111900914767 /* ChooserNode.swift in Sources */,
 				7918D8B72493E0E1002E81D9 /* GridNode.swift in Sources */,
@@ -647,6 +654,7 @@
 				7927B5282497986D0022FCB7 /* ToggleNode.swift in Sources */,
 				7927B512249718050022FCB7 /* SKNodeExtensions.swift in Sources */,
 				79ABFA3D2498E45700914767 /* Constants.swift in Sources */,
+				79E135C3249A1EAC00C2F954 /* ControlNode.swift in Sources */,
 				796B708922BC633F0033EBB7 /* Functions.swift in Sources */,
 				79ABFA4F2499111A00914767 /* ChooserNode.swift in Sources */,
 				7918D8B52493E0E1002E81D9 /* GridNode.swift in Sources */,
