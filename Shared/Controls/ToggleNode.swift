@@ -20,12 +20,13 @@ open class ToggleNode: ButtonNode {
         set(value) {
             self.isOn = !self.isOn
             super.isSelected = value
+            self.onSelected?(self)
         }
         get {
             super.isSelected
         }
     }
-        
+            
     public init() {
         let bundle = Bundle.init(for: type(of: self))
 
@@ -83,7 +84,9 @@ open class ToggleNode: ButtonNode {
         self.centerRect = CGRect(x: 0.49, y: 0.49, width: 0.02, height: 0.02)
     }
     
-    public override func onMouseUp() {        
+    public override func onMouseUp() {
+        guard self.isEnabled else { return }
+
         self.isSelected = !self.isSelected
     }
     
@@ -94,6 +97,8 @@ open class ToggleNode: ButtonNode {
     }
     
     public override func onMouseExit() {
+        guard self.isEnabled else { return }
+
         self.isHighlighted = false
     }
 }

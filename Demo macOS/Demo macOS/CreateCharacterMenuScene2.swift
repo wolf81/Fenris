@@ -30,7 +30,10 @@ class CreateCharacterMenuScene2: InteractableScene {
                                 y: (size.height - grid.size.height) / 2)
                 
         self.textChooser.selectedValueIndex = 3
-        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }        
+        self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }
+        self.toggle.onSelected = { [unowned self] toggle in self.backButton.isEnabled = (toggle as! ToggleNode).isOn }
+        
+        self.backButton.isEnabled = false
     }
     
     required init?(coder aDecoder: NSCoder) {

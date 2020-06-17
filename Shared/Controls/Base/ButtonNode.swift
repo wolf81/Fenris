@@ -125,7 +125,7 @@ open class ButtonNode: SKSpriteNode & Selectable {
         if self.state.contains(.disabled) { return }
              
         updateForState()
-                
+                        
         if self.isSelecting && self.isSelected == false {
             self.onSelectFinish?(self)
         } else if isSelected {
@@ -138,8 +138,11 @@ open class ButtonNode: SKSpriteNode & Selectable {
         case _ where state.contains(.disabled):
             guard let texture = self.textureInfo[.disabled] else {
                 self.texture = self.textureInfo[.default]
-                self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
-                return self.alpha = 0.5
+                self.run(SKAction.sequence([
+                    SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0.1),
+                    SKAction.fadeAlpha(to: 0.5, duration: 0.1)
+                ]))
+                return
             }
             self.texture = texture
         case _ where state.contains(.selected):
@@ -151,7 +154,7 @@ open class ButtonNode: SKSpriteNode & Selectable {
         default:
             self.texture = self.textureInfo[.default]
             self.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
-            self.alpha = 1.0
+            self.run(SKAction.fadeIn(withDuration: 0.1))
         }
         
         self.centerRect = CGRect(x: 0.1, y: 0.1, width: 0.8, height: 0.8)
@@ -162,10 +165,14 @@ open class ButtonNode: SKSpriteNode & Selectable {
 
 extension ButtonNode: MouseDeviceInteractable {
     @objc public func onMouseEnter() {
-        self.isHighlighted = true        
+        guard self.isEnabled else { return }
+
+        self.isHighlighted = true
     }
     
     @objc public func onMouseExit() {
+        guard self.isEnabled else { return }
+
         self.isHighlighted = false
         
         if self.isSelected {
@@ -175,17 +182,23 @@ extension ButtonNode: MouseDeviceInteractable {
     }
     
     @objc public func onMouseDown() {
+        guard self.isEnabled else { return }
+
         self.isSelected = true
         self.isSelecting = true
     }
     
     @objc public func onMouseDrag(isTracking: Bool) {
+        guard self.isEnabled else { return }
+
         if self.isSelected != isTracking {
             self.isSelected = isTracking
         }        
     }
         
     @objc public func onMouseUp() {
+        guard self.isEnabled else { return }
+
         if self.isSelected {
             self.isSelected = false
 
