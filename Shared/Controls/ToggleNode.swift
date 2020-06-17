@@ -56,12 +56,13 @@ open class ToggleNode: ButtonNode {
     override func updateForState() {
         super.updateForState()
         
-        var x: CGFloat = 0
-
+        var x: CGFloat = ((self.size.width - self.switchSprite.size.width) / 2)
+        let xOffset: CGFloat = 5
+        
         if self.isOn {
-            x = -(self.size.width / 2) + self.switchSprite.size.width / 2 + 6
+            x = -(x) + xOffset
         } else {
-            x = (self.size.width / 2) - self.size.height / 2 - 6
+            x = x - xOffset
         }
         
         let bundle = Bundle.init(for: type(of: self))
