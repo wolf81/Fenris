@@ -33,8 +33,6 @@ open class ButtonNode: SKSpriteNode & Selectable {
                 
     private var textureInfo: [ControlState: SKTexture] = [:]
     
-    public var onStateChanged: ((ButtonNode) -> ())?
-
     public var onSelected: ((ButtonNode) -> ())?
     
     public var onSelectStart: ((ButtonNode) -> ())?
@@ -77,8 +75,8 @@ open class ButtonNode: SKSpriteNode & Selectable {
         }
     }
         
-    public init(size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
-        self.onStateChanged = onStateChanged
+    public init(size: CGSize, onSelected: ((ButtonNode) -> ())? = nil) {
+        self.onSelected = onSelected
         
         let bundle = Bundle(for: type(of: self))
         
@@ -158,8 +156,6 @@ open class ButtonNode: SKSpriteNode & Selectable {
         }
         
         self.centerRect = CGRect(x: 0.1, y: 0.1, width: 0.8, height: 0.8)
-        
-        self.onStateChanged?(self)
     }
 }
 

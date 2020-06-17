@@ -11,10 +11,10 @@ import SpriteKit
 open class ImageButtonNode: ButtonNode {
     let sprite: SKSpriteNode
     
-    public init(texture: SKTexture, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
+    public init(texture: SKTexture, size: CGSize, onSelected: ((ButtonNode) -> ())? = nil) {
         self.sprite = SKSpriteNode(texture: texture, color: .white, size: size)
         
-        super.init(size: size, onStateChanged: onStateChanged)
+        super.init(size: size, onSelected: onSelected)
         
         addChild(self.sprite)
         

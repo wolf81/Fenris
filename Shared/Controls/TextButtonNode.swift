@@ -26,10 +26,10 @@ open class TextButtonNode: ButtonNode {
         set { self.label.fontColor = newValue ?? TextButtonNode.appearance.fontColor }
     }        
 
-    public init(title: String, size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
+    public init(title: String, size: CGSize, onSelected: ((ButtonNode) -> ())? = nil) {
         self.label = SKLabelNode(text: title)
 
-        super.init(size: size, onStateChanged: onStateChanged)
+        super.init(size: size, onSelected: onSelected)
                 
         self.name = "TextButtonNode \"\(title)\""
         
