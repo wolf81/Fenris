@@ -24,10 +24,6 @@ public class TextChooserNode: ChooserNode<String>   {
         get { self.label.fontColor }
         set { self.label.fontColor = newValue ?? TextChooserNode.appearance.fontColor }
     }
-
-    init(size: CGSize, item: TextChooserItem, font: Font) {
-        super.init(values: ["Hi"], size: size)
-    }
     
     public override init(values: [String], size: CGSize) {
         super.init(values: values, size: size)

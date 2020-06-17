@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
+open class ButtonNode: SKSpriteNode & Selectable {
     private(set) var state: ControlState = .default
         
     private(set) var isSelecting: Bool = false {
@@ -40,8 +40,6 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
     public var onSelectStart: ((ButtonNode) -> ())?
     
     public var onSelectFinish: ((ButtonNode) -> ())?
-
-    public var item: MenuItem = LabelItem(title: "bla")
             
     public var isHighlighted: Bool {
         set(value) {
@@ -78,14 +76,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
             updateForState()
         }
     }
-    
-    init(size: CGSize, item: ButtonItem, font: Font) {
-        self.onStateChanged = { buttonNode in }
         
-        let texture = SKTexture(imageNamed: "button")
-        super.init(texture: texture, color: .yellow, size: size)                
-    }
-    
     public init(size: CGSize, onStateChanged: ((ButtonNode) -> ())? = nil) {
         self.onStateChanged = onStateChanged
         

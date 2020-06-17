@@ -24,13 +24,7 @@ open class ToggleNode: ButtonNode {
             super.isSelected
         }
     }
-    
-    public init(size: CGSize, item: ToggleItem, font: Font) {
-        self.switchSprite = SKSpriteNode(texture: nil)
         
-        super.init(size: size, item: ButtonItem(title: "hi"), font: font)
-    }
-    
     public init() {
         self.switchSprite = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 32, height: 32))
         self.switchSprite.zPosition = 1_000

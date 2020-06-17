@@ -8,18 +8,8 @@
 
 import SpriteKit
 
-public class LabelNode: SKLabelNode, MenuItemNode {
-    public let item: MenuItem
-    
-    public init(size: CGSize, item: LabelItem, font: Font) {
-        self.item = item
-        
-        super.init()
-    }
-    
+public class LabelNode: SKLabelNode {
     public init(text: String) {
-        self.item = LabelItem(title: "")
-        
         super.init()
         
         self.text = text

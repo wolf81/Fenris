@@ -10,6 +10,7 @@ import Fenris
 import Cocoa
 import SpriteKit
 
+/*
 class SettingsMenuScene: MenuScene {
     private let musicItem = ToggleItem(enabled: false)
     private let backItem = ButtonItem(title: "Back")
@@ -40,3 +41,4 @@ class SettingsMenuScene: MenuScene {
         fatalError()
     }
 }
+*/

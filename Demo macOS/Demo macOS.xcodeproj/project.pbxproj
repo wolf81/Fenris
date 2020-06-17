@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7904651522BA95E100D0C9F0 /* DefaultMenuConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */; };
 		7927B51E2497291E0022FCB7 /* CreateCharacterMenuScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7927B51D2497291E0022FCB7 /* CreateCharacterMenuScene2.swift */; };
-		7939188822BA28BE00CE069C /* MainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7939188722BA28BE00CE069C /* MainMenuScene.swift */; };
 		794366C422B652EC00AA62AF /* AttributeUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794366C322B652EC00AA62AF /* AttributeUpdater.swift */; };
 		79646C892495350D00BA9BAC /* MainMenuScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79646C882495350D00BA9BAC /* MainMenuScene2.swift */; };
 		79646C8D24953BB700BA9BAC /* SettingsMenuScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79646C8C24953BB700BA9BAC /* SettingsMenuScene2.swift */; };
@@ -20,8 +18,6 @@
 		79809DDD22B21BD3008E4B49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79809DDB22B21BD3008E4B49 /* Main.storyboard */; };
 		79809DED22B21BEA008E4B49 /* Fenris.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79809DEC22B21BEA008E4B49 /* Fenris.framework */; };
 		79809DEE22B21BEA008E4B49 /* Fenris.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 79809DEC22B21BEA008E4B49 /* Fenris.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		79AFD3B122BB76260083669B /* CreateCharacterMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFD3B022BB76250083669B /* CreateCharacterMenuScene.swift */; };
-		79AFD3B322BB763B0083669B /* SettingsMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AFD3B222BB763B0083669B /* SettingsMenuScene.swift */; };
 		79EE25442494ACDF00D85135 /* SKViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79EE25432494ACDF00D85135 /* SKViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +36,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMenuConfiguration.swift; sourceTree = "<group>"; };
 		7927B51D2497291E0022FCB7 /* CreateCharacterMenuScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCharacterMenuScene2.swift; sourceTree = "<group>"; };
 		7939188722BA28BE00CE069C /* MainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuScene.swift; sourceTree = "<group>"; };
 		794366C322B652EC00AA62AF /* AttributeUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeUpdater.swift; sourceTree = "<group>"; };
@@ -101,7 +96,6 @@
 				794366C322B652EC00AA62AF /* AttributeUpdater.swift */,
 				7939188722BA28BE00CE069C /* MainMenuScene.swift */,
 				79AFD3B022BB76250083669B /* CreateCharacterMenuScene.swift */,
-				7904651422BA95E100D0C9F0 /* DefaultMenuConfiguration.swift */,
 				79AFD3B222BB763B0083669B /* SettingsMenuScene.swift */,
 				796B708222BBE8E40033EBB7 /* GameScene.swift */,
 				79EE25432494ACDF00D85135 /* SKViewExtensions.swift */,
@@ -188,13 +182,9 @@
 				79809DD022B21BD1008E4B49 /* AppDelegate.swift in Sources */,
 				796B708322BBE8E40033EBB7 /* GameScene.swift in Sources */,
 				7927B51E2497291E0022FCB7 /* CreateCharacterMenuScene2.swift in Sources */,
-				7939188822BA28BE00CE069C /* MainMenuScene.swift in Sources */,
 				794366C422B652EC00AA62AF /* AttributeUpdater.swift in Sources */,
-				7904651522BA95E100D0C9F0 /* DefaultMenuConfiguration.swift in Sources */,
-				79AFD3B322BB763B0083669B /* SettingsMenuScene.swift in Sources */,
 				79646C8D24953BB700BA9BAC /* SettingsMenuScene2.swift in Sources */,
 				79EE25442494ACDF00D85135 /* SKViewExtensions.swift in Sources */,
-				79AFD3B122BB76260083669B /* CreateCharacterMenuScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

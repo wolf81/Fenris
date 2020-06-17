@@ -9,6 +9,7 @@
 import Fenris
 import SpriteKit
 
+/*
 class GameScene: InputDeviceInteractableScene {
     override func handleInput(action: GameControllerAction) {
         switch action {
@@ -23,3 +24,4 @@ class GameScene: InputDeviceInteractableScene {
         print("new input device scheme: \(scheme)")
     }
 }
+ */

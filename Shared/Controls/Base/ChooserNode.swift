@@ -8,9 +8,7 @@
 
 import SpriteKit
 
-public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode & MenuItemNode {
-    public var item: MenuItem = LabelItem(title: "bla")
-    
+public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode {
     internal let label: SKLabelNode
     
     private var leftButton: ButtonNode

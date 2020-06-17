@@ -10,6 +10,7 @@ import Fenris
 import Cocoa
 import SpriteKit
 
+/*
 final class MainMenuScene: MenuScene {
     private let newGameItem = ButtonItem(title: "New Game")
     private let settingsItem = ButtonItem(title: "Settings")
@@ -45,4 +46,4 @@ final class MainMenuScene: MenuScene {
         fatalError()
     }    
 }
-
+ */

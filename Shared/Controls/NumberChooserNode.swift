@@ -24,13 +24,9 @@ public class NumberChooserNode: ChooserNode<Int>  {
         set { self.label.fontColor = newValue ?? NumberChooserNode.appearance.fontColor }
     }
 
-    init(size: CGSize, item: NumberChooserItem, font: Font) {
-        super.init(values: [1], size: size)
-    }
-
     public override init(values: [Int], size: CGSize) {
         super.init(values: values, size: size)
-        
+          
         self.name = "NumberChooserNode"
 
         self.isLoopValuesEnabled = false
