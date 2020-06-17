@@ -10,6 +10,7 @@ import SpriteKit
 
 open class ToggleNode: ButtonNode {
     private var switchSprite: SKSpriteNode
+    private var borderSprite: SKSpriteNode
     
     public var isOn: Bool = false {
         didSet { updateForState() }
@@ -29,12 +30,15 @@ open class ToggleNode: ButtonNode {
         self.switchSprite = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 32, height: 32))
         self.switchSprite.zPosition = 1_000
         
+        let bundle = Bundle.init(for: type(of: self))
+        let borderTexture = SKTexture.texture(named: "toggle", fromBundle: bundle)
+        self.borderSprite = SKSpriteNode(texture: borderTexture, color: .white, size: CGSize(width: 64, height: 32))
+        self.borderSprite.zPosition = 500
+
         super.init(size: CGSize(width: 64, height: 32))
         
         self.name = "ToggleNode"
-        
-        let bundle = Bundle.init(for: type(of: self))
-        
+                
         let defaultTexture = SKTexture.texture(named: "toggle", fromBundle: bundle)
         setTexture(texture: defaultTexture, for: .default)
         setTexture(texture: defaultTexture, for: .highlighted)
@@ -44,6 +48,7 @@ open class ToggleNode: ButtonNode {
 
         updateForState()
         
+        addChild(self.borderSprite)
         addChild(self.switchSprite)
     }
     
@@ -56,6 +61,12 @@ open class ToggleNode: ButtonNode {
     override func updateForState() {
         super.updateForState()
         
+        if self.state.contains(.highlighted) {
+            self.borderSprite.run(SKAction.colorize(with: self.highlightColor, colorBlendFactor: 1.0, duration: 0))
+        } else {
+            self.borderSprite.run(SKAction.colorize(with: .white, colorBlendFactor: 1.0, duration: 0))
+        }
+
         var x: CGFloat = ((self.size.width - self.switchSprite.size.width) / 2)
         let xOffset: CGFloat = 5
         
@@ -82,7 +93,6 @@ open class ToggleNode: ButtonNode {
     }
     
     public override func onMouseDrag(isTracking: Bool) {
-
     }
     
     public override func onMouseExit() {

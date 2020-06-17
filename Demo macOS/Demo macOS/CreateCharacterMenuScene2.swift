@@ -28,9 +28,8 @@ class CreateCharacterMenuScene2: InteractableScene {
         grid.delegate = self
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,
                                 y: (size.height - grid.size.height) / 2)
-        
-        
-        textChooser.selectedValueIndex = 3
+                
+        self.textChooser.selectedValueIndex = 3
         self.backButton.onSelected = { [unowned self] _ in self.showMainMenu() }        
     }
     

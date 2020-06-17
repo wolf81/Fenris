@@ -69,7 +69,7 @@ open class ButtonNode: SKSpriteNode & Selectable {
         }
     }
     
-    public func setTexture(texture: SKTexture, for state: ControlState) {
+    public func setTexture(texture: SKTexture?, for state: ControlState) {
         self.textureInfo[state] = texture
         
         if self.state == state {
