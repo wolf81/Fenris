@@ -91,18 +91,12 @@ public class ScrollNode: SKSpriteNode {
         self.scrollbar.anchorPoint = CGPoint.zero
         self.scrollbar.position = CGPoint(x: size.width - self.scrollbar.size.width, y: 0)
         self.scrollbar.zPosition = 1000
-        addChild(self.scrollbar)
-        
-        self.scrollbar.upButton.onSelectStart = { [unowned self] _ in
-            self.scrollDirection = .up
-        }
+        self.scrollbar.upButton.onSelectStart = { [unowned self] _ in self.scrollDirection = .up }
         self.scrollbar.upButton.onSelectFinish = { [unowned self] _ in self.scrollDirection = .none }
-        self.scrollbar.downButton.onSelectStart = {
-            [unowned self] _ in self.scrollDirection = .down            
-        }
+        self.scrollbar.downButton.onSelectStart = { [unowned self] _ in self.scrollDirection = .down }
         self.scrollbar.downButton.onSelectFinish = { [unowned self] _ in self.scrollDirection = .none }
-//        self.scrollbar.downButton.onSelecting = scrollDown(buttonNode:)
-        
+        addChild(self.scrollbar)
+                
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
 
