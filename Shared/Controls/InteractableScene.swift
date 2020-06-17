@@ -89,7 +89,7 @@ open class InteractableScene: SKScene {
             if nodes.contains(node) {
                 node.onMouseUp()
             } else {
-                node.onMouseExit()
+                mouseMoved(with: event)
             }            
         }
     }

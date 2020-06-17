@@ -67,10 +67,10 @@ open class ToggleNode: ButtonNode {
         
         let bundle = Bundle.init(for: type(of: self))
         let texture = SKTexture.texture(named: "toggle-switch", fromBundle: bundle)
-
+        
         self.switchSprite.run(SKAction.setTexture(texture))
         self.switchSprite.position = CGPoint(x: x, y: 0)
-
+        
         self.centerRect = CGRect(x: 0.49, y: 0.49, width: 0.02, height: 0.02)
     }
     
