@@ -16,7 +16,7 @@ open class ToggleNode: ButtonNode {
         didSet { updateForState() }
     }
     
-    public override var isSelected: Bool {
+    public var isSelected: Bool {
         set(value) {
             self.isOn = !self.isOn
             super.isSelected = value
@@ -91,9 +91,11 @@ open class ToggleNode: ButtonNode {
     }
     
     public override func onMouseDown() {
+        self.isSelected != self.isSelected
     }
     
     public override func onMouseDrag(isTracking: Bool) {
+        self.isHighlighted = true
     }
     
     public override func onMouseExit() {

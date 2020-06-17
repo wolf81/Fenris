@@ -11,3 +11,19 @@ import SpriteKit
 public protocol Selectable: Highlightable {
     var isSelected: Bool { get set }    
 }
+
+extension Selectable where Self: ControlNode {
+    public var isSelected: Bool {
+        set(value) {
+            if value == true {
+                self.state.insert(.selected)
+            } else {
+                self.state.remove(.selected)
+            }
+            updateForState()
+        }
+        get {
+            self.state.contains(.selected)
+        }
+    }
+}

@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode {
+public class ChooserNode<T: CustomStringConvertible>: ControlNode {
     internal let label: SKLabelNode
     
     private var leftButton: ButtonNode
@@ -30,22 +30,6 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode {
     }
     
     let values: [T]
-
-    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
-        let bundle = Bundle(for: type(of: self))
-        let leftImage = bundle.image(forResource: "arrow-left")!
-        let leftTexture = SKTexture(image: leftImage)
-        
-        let rightImage = bundle.image(forResource: "arrow-right")!
-        let rightTexture = SKTexture(image: rightImage)
-        
-        self.label = SKLabelNode()
-        self.leftButton = ImageButtonNode(texture: leftTexture, size: CGSize(width: 32, height: size.height))
-        self.rightButton = ImageButtonNode(texture: rightTexture, size: CGSize(width: 32, height: size.height))
-        self.values = []
-        
-        super.init(texture: texture, color: color, size: size)
-    }
     
     init(values: [T], size: CGSize) {
         assert(values.count > 0, "The values array can not be empty")
@@ -63,7 +47,7 @@ public class ChooserNode<T: CustomStringConvertible>: SKSpriteNode {
         self.leftButton = ImageButtonNode(texture: leftTexture, size: CGSize(width: 32, height: size.height))
         self.rightButton = ImageButtonNode(texture: rightTexture, size: CGSize(width: 32, height: size.height))
 
-        super.init(texture: nil, color: .clear, size: size)
+        super.init(size: size)
         
         self.label.position = CGPoint(x: 0, y: -(self.size.height - self.label.frame.height) / 2)
         self.label.verticalAlignmentMode = .baseline

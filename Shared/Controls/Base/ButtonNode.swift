@@ -9,26 +9,6 @@
 import SpriteKit
 
 open class ButtonNode: ControlNode & Selectable {
-//    private(set) var state: ControlState = .default
-        
-    private(set) var isSelecting: Bool = false {
-        didSet {
-            updateForSelectionState()
-        }
-    }
-    
-//    public var isEnabled: Bool {
-//        set(value) {
-//            if value != self.isEnabled {
-//                self.state = value == true ? .default : .disabled
-//                updateForState()
-//            }
-//        }
-//        get {
-//            (self.state == .disabled) == false
-//        }
-//    }
-    
     @objc dynamic public var highlightColor: SKColor = ButtonNode.appearance.highlightColor
                 
     private var textureInfo: [ControlState: SKTexture] = [:]
@@ -39,34 +19,6 @@ open class ButtonNode: ControlNode & Selectable {
     
     public var onSelectFinish: ((ButtonNode) -> ())?
             
-    public var isHighlighted: Bool {
-        set(value) {
-            if value == true {
-                self.state.insert(.highlighted)
-            } else {
-                self.state.remove(.highlighted)
-            }
-            updateForHighlightState()
-        }
-        get {
-            return self.state.contains(.highlighted)
-        }
-    }
-    
-    public var isSelected: Bool {
-        set(value) {
-            if value == true {
-                self.state.insert(.selected)
-            } else {
-                self.state.remove(.selected)
-            }
-            updateForSelectionState()
-        }
-        get {
-            self.state.contains(.selected)
-        }
-    }
-    
     public func setTexture(texture: SKTexture?, for state: ControlState) {
         self.textureInfo[state] = texture
         
@@ -112,25 +64,7 @@ open class ButtonNode: ControlNode & Selectable {
     }
     
     // MARK: - Private
-        
-    func updateForHighlightState() {
-        if self.state.contains(.disabled) { return }
-
-        updateForState()
-    }
-    
-    func updateForSelectionState() {
-        if self.state.contains(.disabled) { return }
-             
-        updateForState()
-                        
-        if self.isSelecting && self.isSelected == false {
-            self.onSelectFinish?(self)
-        } else if isSelected {
-            self.onSelectStart?(self)
-        }
-    }
-    
+                
     override func updateForState() {
         switch self.state {
         case _ where state.contains(.disabled):
@@ -172,8 +106,8 @@ extension ButtonNode: MouseDeviceInteractable {
         self.isHighlighted = false
         
         if self.isSelected {
-            self.isSelecting = false
             self.isSelected = false
+            self.onSelectFinish?(self)
         }
     }
     
@@ -181,7 +115,7 @@ extension ButtonNode: MouseDeviceInteractable {
         guard self.isEnabled else { return }
 
         self.isSelected = true
-        self.isSelecting = true
+        self.onSelectStart?(self)
     }
     
     @objc public func onMouseDrag(isTracking: Bool) {
@@ -189,6 +123,12 @@ extension ButtonNode: MouseDeviceInteractable {
 
         if self.isSelected != isTracking {
             self.isSelected = isTracking
+            
+            if isTracking {
+                self.onSelectStart?(self)
+            } else {
+                self.onSelectFinish?(self)
+            }
         }        
     }
         
@@ -198,10 +138,8 @@ extension ButtonNode: MouseDeviceInteractable {
         if self.isSelected {
             self.isSelected = false
 
-            if self.isSelecting {
-                self.onSelected?(self)
-                self.isSelecting = false
-            }
+            self.onSelected?(self)
+            self.onSelectFinish?(self)
         }
     }
 }
