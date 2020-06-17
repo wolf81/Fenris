@@ -23,7 +23,7 @@ class CreateCharacterMenuScene2: InteractableScene {
         
         self.name = "Create Character"
         
-        let grid = GridNode(color: .gray, size: CGSize(width: 250, height: 300))
+        let grid = GridNode(color: self.backgroundColor, size: CGSize(width: 250, height: 300))
         addChild(grid)
         grid.delegate = self
         grid.position = CGPoint(x: (size.width - grid.size.width) / 2,

@@ -25,13 +25,13 @@ public class GridNode: ScrollNode {
     }
     
     public init(color: SKColor, size: CGSize) {        
-        self.content = SKSpriteNode(color: color, size: size)
+        self.content = SKSpriteNode(color: .clear, size: size)
         
         super.init(texture: nil, color: color, size: size)
 
         self.name = "GridNode"
     }
-            
+                
     public required init?(coder aDecoder: NSCoder) {
         fatalError()
     }
