@@ -13,8 +13,8 @@ class CreateCharacterMenuScene2: InteractableScene {
     let titleLabel = LabelNode(text: "Create Character")
     let textChooser = TextChooserNode(values: ["Mage", "Fighter", "Rogue", "Cleric"], size: CGSize(width: 200, height: 50))
     let numberChooser = NumberChooserNode(values: [1, 2, 4, 6], size: CGSize(width: 200, height: 50))
-    let toggle = ToggleNode(size: CGSize(width: 100, height: 50))
-    let backButton = TextButtonNode(title: "Back", size: CGSize(width: 100, height: 50))
+    let toggle = ToggleNode()
+    let backButton = TextButtonNode(title: "Back", size: CGSize(width: 100, height: 40))
 
     var nodes: [SKNode] { [self.titleLabel, self.textChooser, self.toggle, self.numberChooser, self.backButton] }
 

@@ -31,7 +31,7 @@ open class ToggleNode: ButtonNode {
         super.init(size: size, item: ButtonItem(title: "hi"), font: font)
     }
     
-    public init(size: CGSize) {
+    public init() {
         self.switchSprite = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 32, height: 32))
         self.switchSprite.zPosition = 1_000
         
@@ -52,9 +52,7 @@ open class ToggleNode: ButtonNode {
         let selectedImage = bundle.image(forResource: "toggle-selected")!
         let selectedTexture = SKTexture(image: selectedImage)
         setTexture(texture: selectedTexture, for: .selected)
-        
-        self.centerRect = CGRect(x: 0.45, y: 0.45, width: 0.1, height: 0.1)
-        
+
         updateForState()
         
         addChild(self.switchSprite)
@@ -70,7 +68,7 @@ open class ToggleNode: ButtonNode {
         super.updateForState()
 
         let bundle = Bundle.init(for: type(of: self))
-        var image: NSImage = bundle.image(forResource: "toggle-switch")!
+        let image: NSImage = bundle.image(forResource: "toggle-switch")!
         
         var x: CGFloat = 0
 
@@ -83,6 +81,8 @@ open class ToggleNode: ButtonNode {
         let texture = SKTexture(image: image)
         self.switchSprite.run(SKAction.setTexture(texture))
         self.switchSprite.position = CGPoint(x: x, y: 0)
+
+        self.centerRect = CGRect(x: 0.49, y: 0.49, width: 0.02, height: 0.02)
     }
     
     public override func onMouseUp() {        
