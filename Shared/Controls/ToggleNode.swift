@@ -27,12 +27,14 @@ open class ToggleNode: ButtonNode {
     }
         
     public init() {
-        self.switchSprite = SKSpriteNode(texture: nil, color: .clear, size: CGSize(width: 32, height: 32))
+        let bundle = Bundle.init(for: type(of: self))
+
+        let switchTexture = SKTexture.texture(named: "toggle-switch", fromBundle: bundle)
+        self.switchSprite = SKSpriteNode(texture: switchTexture, color: .clear, size: CGSize(width: 32, height: 32))
         self.switchSprite.zPosition = 1_000
         
-        let bundle = Bundle.init(for: type(of: self))
         let borderTexture = SKTexture.texture(named: "toggle", fromBundle: bundle)
-        self.borderSprite = SKSpriteNode(texture: borderTexture, color: .white, size: CGSize(width: 64, height: 32))
+        self.borderSprite = SKSpriteNode(texture: borderTexture, color: .clear, size: CGSize(width: 64, height: 32))
         self.borderSprite.zPosition = 500
 
         super.init(size: CGSize(width: 64, height: 32))
@@ -76,11 +78,7 @@ open class ToggleNode: ButtonNode {
             x = x - xOffset
         }
         
-        let bundle = Bundle.init(for: type(of: self))
-        let texture = SKTexture.texture(named: "toggle-switch", fromBundle: bundle)
-        
-        self.switchSprite.run(SKAction.setTexture(texture))
-        self.switchSprite.position = CGPoint(x: x, y: 0)
+        self.switchSprite.run(SKAction.moveTo(x: x, duration: 0.1))
         
         self.centerRect = CGRect(x: 0.49, y: 0.49, width: 0.02, height: 0.02)
     }
