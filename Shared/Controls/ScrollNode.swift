@@ -100,7 +100,7 @@ public class ScrollNode: SKSpriteNode {
         self.cropNode.maskNode = self.content
         addChild(self.cropNode)
 
-        self.highlightNode.position = .zero
+        self.highlightNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         self.highlightNode.highlightChanged = { [unowned self] in self.toggleScrollbarVisibility(isHighlighted: $0) }
         addChild(self.highlightNode)
 
@@ -153,6 +153,7 @@ public class ScrollNode: SKSpriteNode {
         
         self.scrollbar.upButton.isEnabled = self.contentY != self.size.height / 2
         self.scrollbar.downButton.isEnabled = self.contentY != max(self.size.height / 2, self.contentHeight / 2)
+        self.scrollbar.scroller.isEnabled = self.scrollbar.upButton.isEnabled || self.scrollbar.downButton.isEnabled
 
         let yRange = abs(self.contentMaxY - self.contentMinY)
         self.scrollbar.scrollerY = (self.contentY - self.contentMinY) / yRange
@@ -171,16 +172,15 @@ public class ScrollNode: SKSpriteNode {
         }
     }
     
-    private class HighlightNode: SKShapeNode & Highlightable & MouseDeviceInteractable {
+    private class HighlightNode: ControlNode & Highlightable & DeviceInteractable {
         var highlightChanged: ((Bool) -> Void)? = nil
 
-        init(size: CGSize) {
-            super.init()
+        override init(size: CGSize) {
+            super.init(size: size)
+            
+            self.isEnabled = false
             
             self.name = "HighlightNode"
-            
-            self.lineWidth = 0
-            self.path = CGPath(rect: CGRect(origin: .zero, size: size), transform: nil)
         }
         
         required init?(coder aDecoder: NSCoder) {
@@ -193,27 +193,27 @@ public class ScrollNode: SKSpriteNode {
             }
         }
         
-        func onMouseEnter() {
+        func onEnter() {
             if self.isHighlighted != true {
                 self.isHighlighted = true
             }
         }
         
-        func onMouseExit() {
+        func onExit() {
             if self.isHighlighted != false {
                 self.isHighlighted = false
             }
         }
         
-        func onMouseDown() {
+        func onDown() {
             
         }
         
-        func onMouseUp() {
+        func onUp() {
             
         }
         
-        func onMouseDrag(isTracking: Bool) {
+        func onDrag(isTracking: Bool) {
         
         }
     }

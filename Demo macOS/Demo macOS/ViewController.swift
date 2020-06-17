@@ -11,7 +11,7 @@ import SpriteKit
 import Fenris
 
 class ViewController: NSViewController {
-    @IBOutlet var skView: SKView!
+    @IBOutlet var skView: GameView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +31,5 @@ class ViewController: NSViewController {
         super.viewDidAppear()
         
         self.view.window?.acceptsMouseMovedEvents = true
-    }
-    
-    override func mouseMoved(with event: NSEvent) {
-        super.mouseMoved(with: event)
-        print("moved")
     }
 }

@@ -84,21 +84,21 @@ open class ToggleNode: ButtonNode {
         self.centerRect = CGRect(x: 0.49, y: 0.49, width: 0.02, height: 0.02)
     }
     
-    public override func onMouseUp() {
+    public override func onUp() {
         guard self.isEnabled else { return }
 
         self.isSelected = !self.isSelected
     }
     
-    public override func onMouseDown() {
+    public override func onDown() {
         self.isSelected != self.isSelected
     }
     
-    public override func onMouseDrag(isTracking: Bool) {
+    public override func onDrag(isTracking: Bool) {
         self.isHighlighted = true
     }
     
-    public override func onMouseExit() {
+    public override func onExit() {
         guard self.isEnabled else { return }
 
         self.isHighlighted = false

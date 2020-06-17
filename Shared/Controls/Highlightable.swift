@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-public protocol Highlightable: SKNode {
+public protocol Highlightable: ControlNode {
     var isHighlighted: Bool { get set }
 }
 

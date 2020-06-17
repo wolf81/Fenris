@@ -93,14 +93,14 @@ open class ButtonNode: ControlNode & Selectable {
     }
 }
 
-extension ButtonNode: MouseDeviceInteractable {
-    @objc public func onMouseEnter() {
+extension ButtonNode: DeviceInteractable {
+    @objc public func onEnter() {
         guard self.isEnabled else { return }
 
         self.isHighlighted = true
     }
     
-    @objc public func onMouseExit() {
+    @objc public func onExit() {
         guard self.isEnabled else { return }
 
         self.isHighlighted = false
@@ -111,14 +111,14 @@ extension ButtonNode: MouseDeviceInteractable {
         }
     }
     
-    @objc public func onMouseDown() {
+    @objc public func onDown() {
         guard self.isEnabled else { return }
 
         self.isSelected = true
         self.onSelectStart?(self)
     }
     
-    @objc public func onMouseDrag(isTracking: Bool) {
+    @objc public func onDrag(isTracking: Bool) {
         guard self.isEnabled else { return }
 
         if self.isSelected != isTracking {
@@ -132,7 +132,7 @@ extension ButtonNode: MouseDeviceInteractable {
         }        
     }
         
-    @objc public func onMouseUp() {
+    @objc public func onUp() {
         guard self.isEnabled else { return }
 
         if self.isSelected {

@@ -8,12 +8,31 @@
 
 import SpriteKit
 
-public class LabelNode: SKLabelNode {
-    public init(text: String) {
-        super.init()
-        
-        self.text = text
+public class LabelNode: ControlNode {
+    @objc dynamic var label: SKLabelNode
+    
+    @objc public var fontName: String? {
+        get { self.label.fontName }
+        set { self.label.fontName = newValue ?? TextButtonNode.appearance.fontName }
+    }
+    
+    @objc public var fontSize: CGFloat {
+        get { self.label.fontSize }
+        set { self.label.fontSize = newValue }
+    }
+    
+    @objc public var fontColor: SKColor? {
+        get { self.label.fontColor }
+        set { self.label.fontColor = newValue ?? TextButtonNode.appearance.fontColor }
+    }
 
+    public init(text: String) {
+        self.label = SKLabelNode(text: text)
+
+        super.init()
+    
+        addChild(self.label)
+        
         self.fontName = LabelNode.appearance.fontName
         self.fontSize = LabelNode.appearance.fontSize
         self.fontColor = LabelNode.appearance.fontColor
@@ -21,6 +40,9 @@ public class LabelNode: SKLabelNode {
         LabelNode.appearance.addObserver(self, forKeyPath: #keyPath(fontName), options: [.new], context: nil)
         LabelNode.appearance.addObserver(self, forKeyPath: #keyPath(fontSize), options: [.new], context: nil)
         LabelNode.appearance.addObserver(self, forKeyPath: #keyPath(fontColor), options: [.new], context: nil)
+        
+        let frame = self.label.calculateAccumulatedFrame()
+        run(SKAction.resize(toWidth: frame.width, height: frame.height, duration: 0))
     }
     
     deinit {

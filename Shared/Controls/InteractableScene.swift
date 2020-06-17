@@ -9,7 +9,7 @@
 import SpriteKit
 
 open class InteractableScene: SKScene {
-    private var currentNodes: [MouseDeviceInteractable] = []
+    private var currentNodes: [DeviceInteractable] = []
     
     override open func sceneDidLoad() {
         super.sceneDidLoad()
@@ -45,7 +45,7 @@ open class InteractableScene: SKScene {
         super.mouseDown(with: event)
         
         for node in self.currentNodes {
-            node.onMouseDown()
+            node.onDown()
         }
     }
     
@@ -56,7 +56,7 @@ open class InteractableScene: SKScene {
         let nodes = self.nodes(at: location)
         for node in self.currentNodes {
             let isTracking = nodes.contains(node)
-            node.onMouseDrag(isTracking: isTracking)
+            node.onDrag(isTracking: isTracking)
         }
     }
     
@@ -68,17 +68,17 @@ open class InteractableScene: SKScene {
 
         for node in self.currentNodes {
             if nodes.contains(node) == false {
-                node.onMouseExit()
+                node.onExit()
             }
         }
                 
-        self.currentNodes = nodes.filter({ $0 is MouseDeviceInteractable }) as? [MouseDeviceInteractable] ?? []
+        self.currentNodes = nodes.filter({ $0 is DeviceInteractable }) as? [DeviceInteractable] ?? []
 
         for node in self.currentNodes {
-            node.onMouseEnter()
+            node.onEnter()
         }
     }
-    
+            
     override open func mouseUp(with event: NSEvent) {
         super.mouseUp(with: event)
         
@@ -87,32 +87,95 @@ open class InteractableScene: SKScene {
         
         for node in self.currentNodes {
             if nodes.contains(node) {
-                node.onMouseUp()
+                node.onUp()
             } else {
                 mouseMoved(with: event)
             }            
         }
     }
-    
-    #endif
+
+    func getInteractableChildNodes(for parent: SKNode) -> [DeviceInteractable] {
+        var nodes: [DeviceInteractable] = []
         
-    private class DummyNode: SKSpriteNode & MouseDeviceInteractable {
-        func onMouseEnter() {}
-        
-        func onMouseDrag(isTracking: Bool) {}
-        
-        func onMouseExit() {}
-        
-        func onMouseDown() {}
-        
-        func onMouseUp() {}
-        
-        init() {
-            super.init(texture: nil, color: .clear, size: .zero)
+        if let highlightable = parent as? DeviceInteractable, highlightable.isEnabled {
+            nodes.append(highlightable)
         }
         
-        required init?(coder aDecoder: NSCoder) {
-            fatalError()
+        for node in parent.children {
+            let childNodes = getInteractableChildNodes(for: node)
+            nodes.append(contentsOf: childNodes)
+        }
+                
+        return nodes
+    }
+            
+    open override func keyDown(with event: NSEvent) {
+        
+    }
+    
+    open override func keyUp(with event: NSEvent) {
+        print(event.keyCode)
+
+        var interactableNodes = getInteractableChildNodes(for: self)
+        interactableNodes = interactableNodes.sorted { (h1, h2) -> Bool in
+            let p1 = h1.convert(h1.position, to: self)
+            let p2 = h2.convert(h1.position, to: self)
+            
+            if p1.y == p2.y {
+                return p1.x < p2.x
+            }
+
+            return p1.y > p2.y
+        }
+
+        if self.currentNodes.count == 0 {
+            if let node = interactableNodes.first {
+                self.currentNodes.append(node)
+            }
+        }
+        
+        while self.currentNodes.count > 1 {
+            self.currentNodes = self.currentNodes.dropLast()
+        }
+
+        let node = interactableNodes.first(where: { $0 == self.currentNodes[0] })
+        node?.onEnter()
+        print("node: \(node)")        
+        
+        // create a list of highlightable nodes
+        // => if highlightable nodes contain highlightable children (scroller), go to child instead?
+        // list should be sorted by position
+        // could create some kind of virtual grid for this purpose
+
+        // on key press:
+        // look for highlighted node
+        
+        switch event.keyCode {
+        case 0  /* a */:
+            if var nodeIdx = interactableNodes.firstIndex(where: { $0 == self.currentNodes[0] }) {
+                nodeIdx = (nodeIdx + 1) % interactableNodes.count
+                
+                for node in self.currentNodes {
+                    node.onExit()
+                }
+                self.currentNodes.removeAll()
+
+                let nextNode = interactableNodes[nodeIdx]
+                nextNode.onEnter()
+                self.currentNodes.append(nextNode)
+            }
+        case 1  /* s */: break
+        case 2  /* d */: break
+        case 13 /* w */: break
+        case 49 /* space */:
+            if let node = self.currentNodes.first {
+                node.onDown()
+                node.onUp()
+            }
+        default: break
         }
     }
+    
+    #endif
 }
+

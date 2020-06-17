@@ -8,14 +8,14 @@
 
 import SpriteKit
 
-public protocol MouseDeviceInteractable: SKNode {
-    func onMouseEnter()
+public protocol DeviceInteractable: Highlightable {
+    func onEnter()
     
-    func onMouseExit()
+    func onExit()
         
-    func onMouseDown()
+    func onDown()
     
-    func onMouseUp()
+    func onUp()
     
-    func onMouseDrag(isTracking: Bool) 
+    func onDrag(isTracking: Bool)
 }
