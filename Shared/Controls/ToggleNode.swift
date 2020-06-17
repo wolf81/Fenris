@@ -41,16 +41,11 @@ open class ToggleNode: ButtonNode {
         
         let bundle = Bundle.init(for: type(of: self))
         
-        let defaultImage = bundle.image(forResource: "toggle")!
-        let defaultTexture = SKTexture(image: defaultImage)
+        let defaultTexture = SKTexture.texture(named: "toggle", fromBundle: bundle)
         setTexture(texture: defaultTexture, for: .default)
+        setTexture(texture: defaultTexture, for: .highlighted)
 
-        let highlightImage = bundle.image(forResource: "toggle")!
-        let highlightTexture = SKTexture(image: highlightImage)
-        setTexture(texture: highlightTexture, for: .highlighted)
-
-        let selectedImage = bundle.image(forResource: "toggle-selected")!
-        let selectedTexture = SKTexture(image: selectedImage)
+        let selectedTexture = SKTexture.texture(named: "toggle-selected", fromBundle: bundle)
         setTexture(texture: selectedTexture, for: .selected)
 
         updateForState()
@@ -66,9 +61,6 @@ open class ToggleNode: ButtonNode {
     
     override func updateForState() {
         super.updateForState()
-
-        let bundle = Bundle.init(for: type(of: self))
-        let image: NSImage = bundle.image(forResource: "toggle-switch")!
         
         var x: CGFloat = 0
 
@@ -78,7 +70,9 @@ open class ToggleNode: ButtonNode {
             x = (self.size.width / 2) - self.size.height / 2 - 6
         }
         
-        let texture = SKTexture(image: image)
+        let bundle = Bundle.init(for: type(of: self))
+        let texture = SKTexture.texture(named: "toggle-switch", fromBundle: bundle)
+
         self.switchSprite.run(SKAction.setTexture(texture))
         self.switchSprite.position = CGPoint(x: x, y: 0)
 

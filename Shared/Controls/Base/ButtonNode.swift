@@ -71,7 +71,7 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         }
     }
     
-    public func setTexture(texture: SKTexture, for state: ControlState) {        
+    public func setTexture(texture: SKTexture, for state: ControlState) {
         self.textureInfo[state] = texture
         
         if self.state == state {
@@ -90,21 +90,16 @@ open class ButtonNode: SKSpriteNode & Selectable, MenuItemNode {
         self.onStateChanged = onStateChanged
         
         let bundle = Bundle(for: type(of: self))
-        let image = bundle.image(forResource: "button")!
-        let texture = SKTexture(image: image)
-                
-        let imageHighlighted = bundle.image(forResource: "button")!
-        let highlightTexture = SKTexture(image: imageHighlighted)
-    
-        let imageSelected = bundle.image(forResource: "button-selected")!
-        let selectedTexture = SKTexture(image: imageSelected)
-
-        super.init(texture: texture, color: .clear, size: size)
+        
+        super.init(texture: nil, color: .clear, size: size)
         
         self.name = "ButtonNode"
         
-        setTexture(texture: texture, for: .default)
-        setTexture(texture: highlightTexture, for: .highlighted)
+        let defaultTexture = SKTexture.texture(named: "button", fromBundle: bundle)
+        setTexture(texture: defaultTexture, for: .default)
+        setTexture(texture: defaultTexture, for: .highlighted)
+        
+        let selectedTexture = SKTexture.texture(named: "button-selected", fromBundle: bundle)
         setTexture(texture: selectedTexture, for: .selected)
                         
         ButtonNode.appearance.addObserver(self, forKeyPath: #keyPath(highlightColor), options: [.new], context: nil)
